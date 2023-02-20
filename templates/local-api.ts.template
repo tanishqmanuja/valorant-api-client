@@ -1,0 +1,14 @@
+/* THIS IS AN AUTO GENERATED FILE. DO NOT EDIT THIS MANUALLY */
+
+import type { AxiosResponse, AxiosRequestConfig } from "axios";
+import type {SetRequired} from "type-fest"
+import type { endpoints } from "valorant-api-types";
+import z from "zod";
+
+type LocalApiResponse<T extends z.ZodType> = Promise<AxiosResponse<z.output<T>>>
+
+export type LocalApiClient = {
+	{{#endpoints}}
+	{{fnName}}: ({{{fnArgs}}}) => LocalApiResponse<{{{fnReturn}}}>
+	{{/endpoints}}
+}
