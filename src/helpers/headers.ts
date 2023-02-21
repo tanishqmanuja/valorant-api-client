@@ -54,18 +54,21 @@ export const getUserAgentHeader = (
   "User-Agent": userAgent,
 });
 
+type RemoteAuthHeadersOpts = {
+  accessToken: string;
+  entitlementsToken: string;
+  platformInfo: PlatformInfo;
+  clientVersion: string;
+  userAgent: string;
+};
 export const getRemoteAuthHeaders = (
-  accessToken: string,
-  entitlementsToken: string,
-  platformInfo: PlatformInfo,
-  clientVersion: string,
-  userAgent: string
+  options: RemoteAuthHeadersOpts
 ): RemoteAuthHeaders => ({
-  ...getRemoteAuthHeader(accessToken),
-  ...getEntitlementsJWTHeader(entitlementsToken),
-  ...getClientPlatformHeader(platformInfo),
-  ...getClientVersionHeader(clientVersion),
-  ...getUserAgentHeader(userAgent),
+  ...getRemoteAuthHeader(options.accessToken),
+  ...getEntitlementsJWTHeader(options.entitlementsToken),
+  ...getClientPlatformHeader(options.platformInfo),
+  ...getClientVersionHeader(options.clientVersion),
+  ...getUserAgentHeader(options.userAgent),
 });
 
 export const generateBasicToken = (username: string, password: string) =>

@@ -6,10 +6,11 @@
     "strict": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "forceConsistentCasingInFileNames": true
-    // "paths": {
-    //   "~/*": ["./src/*"]
-    // }
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "scripts"]
 }

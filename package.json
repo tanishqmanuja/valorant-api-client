@@ -1,12 +1,13 @@
 {
   "name": "valorant-api-client",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc",
+    "build": "tsup",
     "generate:types": "tsx scripts/local-api-types.ts && tsx scripts/remote-api-types.ts",
-    "format": "prettier --write src/**/*.ts -c .",
-    "format:check": "prettier --check src/**/*.ts -c ."
+    "format": "prettier --write **/*.ts",
+    "format:check": "prettier --check **/*.ts "
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
@@ -14,6 +15,7 @@
     "@types/node": "^18.13.0",
     "mustache": "^4.2.0",
     "prettier": "^2.8.4",
+    "tsup": "^6.6.3",
     "tsx": "^3.12.3",
     "typescript": "5.0.0-beta"
   },

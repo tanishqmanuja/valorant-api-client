@@ -8,22 +8,20 @@ import {
 } from "valorant-api-types";
 import z from "zod";
 import {
-  getArgsMap,
-  getArgsZodSchema,
+  buildSuffixUrl,
   getFunctionName as getEndpointFunctionName,
-  replaceSuffixArgs,
+  parseResponse,
 } from "../helpers/endpoint.js";
 import { getRemoteAuthHeaders } from "../helpers/headers.js";
 import { RemoteServerType, getServerUrl } from "../helpers/servers.js";
 import { RemoteApiClient } from "../types/remote-api-type.js";
-import { createRateLimitInterceptor } from "../utils/lib/axios/rate-limit-interceptor.js";
 
 export type ValorantEndpoints = Record<string, ValorantEndpoint>;
 export type PlatformInfo = z.infer<typeof platformSchema>;
 
 export type RemoteApiClientOptions = {
   shard: string;
-  region?: string;
+  region: string;
   token: string;
   entitlement: string;
   version: string;
@@ -40,36 +38,35 @@ const DEFAULT_PLATFORM_INFO: PlatformInfo = {
 
 const DEFAULT_USER_AGENT = "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
 
-const DEAFULT_CLIENT_OPTIONS: Partial<RemoteApiClientOptions> = {
+const DEAFULT_CLIENT_OPTIONS = {
   platformInfo: DEFAULT_PLATFORM_INFO,
   userAgent: DEFAULT_USER_AGENT,
-};
+} satisfies Partial<RemoteApiClientOptions>;
 
-function getRemoteApiClientAxios(options: RemoteApiClientOptions) {
+function getRemoteApiClientAxios(options: Required<RemoteApiClientOptions>) {
   const { token, entitlement, platformInfo, version, userAgent } = options;
 
-  const authHeader = getRemoteAuthHeaders(
-    token,
-    entitlement,
-    platformInfo!,
-    version,
-    userAgent!
-  );
+  const authHeaders = getRemoteAuthHeaders({
+    accessToken: token,
+    entitlementsToken: entitlement,
+    platformInfo,
+    clientVersion: version,
+    userAgent,
+  });
 
   const axiosInstance = axios.create({
-    headers: { ...authHeader },
+    headers: { ...authHeaders },
     httpsAgent: new Agent({
       rejectUnauthorized: false,
     }),
   });
 
-  createRateLimitInterceptor(axiosInstance, { count: 6, interval: 1000 });
   return axiosInstance;
 }
 
 function getEndpointFunction(
   endpoint: ValorantEndpoint,
-  axios: AxiosInstance,
+  axiosInstance: AxiosInstance,
   options: RemoteApiClientOptions
 ) {
   const { shard, region } = options;
@@ -81,24 +78,25 @@ function getEndpointFunction(
   });
 
   return (config: AxiosRequestConfig = {}) => {
-    const argsMap = getArgsMap(endpoint.suffix);
-    const argsSchema = getArgsZodSchema(argsMap);
-    const args = argsSchema.parse(config.data);
-    const url = replaceSuffixArgs(endpoint.suffix, args, argsMap);
+    const url = buildSuffixUrl(endpoint.suffix, config.data);
 
-    return axios({
+    return axiosInstance({
       url,
       baseURL,
       ...config,
       transformResponse: [
-        data => endpoint?.responses?.["200"].parse(JSON.parse(data)),
+        data => JSON.parse(data),
+        data => parseResponse(endpoint, data),
       ],
     });
   };
 }
 
 export function createRemoteApiClient(options: RemoteApiClientOptions) {
-  const opts = { ...DEAFULT_CLIENT_OPTIONS, ...options };
+  const opts: Required<RemoteApiClientOptions> = {
+    ...DEAFULT_CLIENT_OPTIONS,
+    ...options,
+  };
 
   const axios = getRemoteApiClientAxios(opts);
 
@@ -108,7 +106,7 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
       const functionName = getEndpointFunctionName(e);
       api[functionName] = getEndpointFunction(e, axios, options);
       return api;
-    }, {} as Record<string, any>);
+    }, {} as Record<string, any>) as RemoteApiClient;
 
-  return api as RemoteApiClient;
+  return { axios, api };
 }

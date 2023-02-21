@@ -1,2 +1,3 @@
-# Autogen types
+node_modules
 src/types
+dist

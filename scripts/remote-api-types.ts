@@ -4,16 +4,22 @@ import M from "mustache";
 import { join } from "node:path";
 import { cwd } from "process";
 import { objectEntries } from "ts-extras";
-import { endpoints } from "valorant-api-types";
-import { getArgsMap, getFunctionName } from "../src/helpers/endpoint.js";
-import { removeCharaters, toCamelCase } from "../src/utils/string.js";
+import { ValorantEndpoint, endpoints } from "valorant-api-types";
+import {
+  findOKResponse,
+  getArgsMap,
+  getFunctionName,
+} from "~/helpers/endpoint.js";
+import { removeCharaters, toCamelCase } from "~/utils/string.js";
 
-function getFnName() {
+type ValorantEndpointWithKey = ValorantEndpoint & { key: string };
+
+function getFnName(this: ValorantEndpointWithKey) {
   const endpoint = this;
   return getFunctionName(endpoint);
 }
 
-function getFnArgs() {
+function getFnArgs(this: ValorantEndpointWithKey) {
   const { key, body, suffix } = this;
   if (typeof body === "object") {
     return `config: SetRequired<AxiosRequestConfig<z.infer<typeof endpoints.${key}.body>>, "data">`;
@@ -32,12 +38,11 @@ function getFnArgs() {
   return "config?: AxiosRequestConfig";
 }
 
-function getFnReturn() {
-  const { key, responses } = this;
-  if (responses["200"]) {
-    return `typeof endpoints.${key}.responses["200"]`;
-  }
-  return `typeof endpoints.${key}.responses["${Object.keys(responses)[0]}"]`;
+function getFnReturn(this: ValorantEndpointWithKey) {
+  const endpoint = this;
+  const { key } = endpoint;
+  const { code } = findOKResponse(endpoint);
+  return `typeof endpoints.${key}.responses["${code}"]`;
 }
 
 const eps = objectEntries(endpoints)
