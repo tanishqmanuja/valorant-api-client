@@ -1,3 +1,5 @@
 node_modules
-src/types
 dist
+.vscode
+.husky
+pnpm-lock.yaml
