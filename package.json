@@ -1,35 +1,32 @@
 {
   "name": "valorant-api-client",
   "version": "0.1.0",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsup",
-    "generate:types": "tsx scripts/local-api-types.ts && tsx scripts/remote-api-types.ts",
     "format": "prettier --write **/*.ts",
-    "format:check": "prettier --check **/*.ts "
+    "format:check": "prettier --check **/*.ts ",
+    "type:check": "tsc"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.6",
-    "@types/mustache": "^4.2.2",
     "@types/node": "^18.13.0",
-    "mustache": "^4.2.0",
     "prettier": "^2.8.4",
     "tsup": "^6.6.3",
     "tsx": "^3.12.3",
     "typescript": "5.0.0-beta"
   },
   "dependencies": {
-    "axios": "^1.3.3",
-    "axios-auth-refresh": "^3.3.6",
+    "axios": "^1.3.4",
     "fp-ts": "^2.13.1",
     "fp-ts-contrib": "^0.1.29",
-    "is-retry-allowed": "^3.0.0",
-    "lodash-es": "^4.17.21",
-    "rxjs": "^7.8.0",
+    "hotscript": "^1.0.6",
     "ts-extras": "^0.11.0",
     "type-fest": "^3.5.7",
-    "valorant-api-types": "^0.4.1",
+    "valorant-api-types": "^0.5.0",
     "zod": "^3.20.6"
   }
 }

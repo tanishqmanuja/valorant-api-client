@@ -1,34 +1,12 @@
-import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
-import { createLocalApiClient } from "./api-client/local.js";
-import { createRemoteApiClient } from "./api-client/remote.js";
-import { getLockFileDataPromise } from "./file-parser/lockfile.js";
-import { getLogFileDataPromise } from "./file-parser/logfile.js";
-
-const lockfile = await getLockFileDataPromise();
-const logfile = await getLogFileDataPromise();
-
-if (lockfile && logfile) {
-  const { password, port } = lockfile;
-  const { api: localAPI } = createLocalApiClient({ password, port });
-
-  const { version, servers } = logfile;
-  const { shard, region } = getRegionAndShardFromGlzServer(servers.glz);
-
-  const {
-    data: { accessToken: token, token: entitlement, subject: selfPuuid },
-  } = await localAPI.getEntitlementsToken();
-
-  const { api: remoteAPI } = createRemoteApiClient({
-    shard,
-    region,
-    token,
-    entitlement,
-    version,
-  });
-
-  const { data: partyPlayer } = await remoteAPI.getPartyPlayer({
-    data: { puuid: selfPuuid },
-  });
-
-  console.log(partyPlayer);
-}
+// Api-Clients
+export * from "~/api-client/local.js";
+export * from "~/api-client/remote.js";
+export * from "~/api-client/types.js";
+// File Parsers
+export * from "~/file-parser/lockfile.js";
+export * from "~/file-parser/logfile.js";
+// Helpers
+export * from "~/helpers/constants.js";
+export * from "~/helpers/endpoint.js";
+export * from "~/helpers/headers.js";
+export * from "~/helpers/servers.js";

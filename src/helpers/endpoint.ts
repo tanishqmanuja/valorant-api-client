@@ -61,8 +61,16 @@ export function findOKResponse(endpoint: ValorantEndpoint) {
   return res;
 }
 
-export function parseResponse<T>(endpoint: ValorantEndpoint, data: T) {
-  const { schema } = findOKResponse(endpoint);
+export function parseRequestData<T>(endpoint: ValorantEndpoint, data: T) {
+  return endpoint.body?.parse(data);
+}
+
+export function parseResponseData<T>(
+  endpoint: ValorantEndpoint,
+  data: T,
+  status: number
+) {
+  const schema = endpoint.responses?.[`${status}`];
   return schema?.parse(data);
 }
 

@@ -9,15 +9,17 @@ import {
 import z from "zod";
 import {
   buildSuffixUrl,
-  getFunctionName as getEndpointFunctionName,
-  parseResponse,
-} from "../helpers/endpoint.js";
-import { getRemoteAuthHeaders } from "../helpers/headers.js";
-import { RemoteServerType, getServerUrl } from "../helpers/servers.js";
-import { RemoteApiClient } from "../types/remote-api-type.js";
+  getFunctionName,
+  parseRequestData,
+  parseResponseData,
+} from "~/helpers/endpoint.js";
+import { getRemoteAuthHeaders } from "~/helpers/headers.js";
+import { RemoteServerType, getServerUrl } from "~/helpers/servers.js";
+import { ensureArray } from "~/utils/array.js";
+import { RemoteApiClient } from "./types.js";
 
-export type ValorantEndpoints = Record<string, ValorantEndpoint>;
-export type PlatformInfo = z.infer<typeof platformSchema>;
+type ValorantEndpoints = Record<string, ValorantEndpoint>;
+type PlatformInfo = z.infer<typeof platformSchema>;
 
 export type RemoteApiClientOptions = {
   shard: string;
@@ -54,14 +56,12 @@ function getRemoteApiClientAxios(options: Required<RemoteApiClientOptions>) {
     userAgent,
   });
 
-  const axiosInstance = axios.create({
+  return axios.create({
     headers: { ...authHeaders },
     httpsAgent: new Agent({
       rejectUnauthorized: false,
     }),
   });
-
-  return axiosInstance;
 }
 
 function getEndpointFunction(
@@ -84,9 +84,13 @@ function getEndpointFunction(
       url,
       baseURL,
       ...config,
+      transformRequest: [
+        data => parseRequestData(endpoint, data),
+        ...ensureArray(axios.defaults.transformRequest),
+      ],
       transformResponse: [
-        data => JSON.parse(data),
-        data => parseResponse(endpoint, data),
+        ...ensureArray(axios.defaults.transformResponse),
+        (data, _, status) => parseResponseData(endpoint, data, status!),
       ],
     });
   };
@@ -103,7 +107,7 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
   const api = objectEntries(endpoints as ValorantEndpoints)
     .filter(([_, e]) => e.type !== "local" && e.type !== "other")
     .reduce((api, [_, e]) => {
-      const functionName = getEndpointFunctionName(e);
+      const functionName = getFunctionName(e);
       api[functionName] = getEndpointFunction(e, axios, options);
       return api;
     }, {} as Record<string, any>) as RemoteApiClient;

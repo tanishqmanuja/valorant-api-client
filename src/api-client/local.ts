@@ -3,14 +3,16 @@ import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
 import {
-  getFunctionName as getEndpointFunctionName,
-  parseResponse,
-} from "../helpers/endpoint.js";
-import { getLocalAuthHeader } from "../helpers/headers.js";
-import { getServerUrl } from "../helpers/servers.js";
-import { LocalApiClient } from "../types/local-api-type.js";
+  getFunctionName,
+  parseRequestData,
+  parseResponseData,
+} from "~/helpers/endpoint.js";
+import { getLocalAuthHeader } from "~/helpers/headers.js";
+import { getServerUrl } from "~/helpers/servers.js";
+import { ensureArray } from "~/utils/array.js";
+import { LocalApiClient } from "./types.js";
 
-export type ValorantEndpoints = Record<string, ValorantEndpoint>;
+type ValorantEndpoints = Record<string, ValorantEndpoint>;
 
 export type LocalApiClientOptions = {
   port: string;
@@ -24,31 +26,32 @@ function getLocalApiClientAxios(options: LocalApiClientOptions) {
   const baseURL = getServerUrl({ type: "local", port });
   const authHeader = getLocalAuthHeader(username, password);
 
-  const axiosInstance = axios.create({
+  return axios.create({
     baseURL,
     headers: { ...authHeader },
     httpsAgent: new Agent({
       rejectUnauthorized: false,
     }),
   });
-
-  return axiosInstance;
 }
 
 function getEndpointFunction(
   endpoint: ValorantEndpoint,
   axiosInstance: AxiosInstance
 ) {
-  return (config: AxiosRequestConfig = {}) => {
-    return axiosInstance({
+  return (config: AxiosRequestConfig = {}) =>
+    axiosInstance({
       url: endpoint.suffix,
       ...config,
+      transformRequest: [
+        data => parseRequestData(endpoint, data),
+        ...ensureArray(axios.defaults.transformRequest),
+      ],
       transformResponse: [
-        data => JSON.parse(data),
-        data => parseResponse(endpoint, data),
+        ...ensureArray(axios.defaults.transformResponse),
+        (data, _, status) => parseResponseData(endpoint, data, status!),
       ],
     });
-  };
 }
 
 export function createLocalApiClient(options: LocalApiClientOptions) {
@@ -57,7 +60,7 @@ export function createLocalApiClient(options: LocalApiClientOptions) {
   const api = objectEntries(endpoints as ValorantEndpoints)
     .filter(([_, e]) => e.type === "local")
     .reduce((api, [_, e]) => {
-      const functionName = getEndpointFunctionName(e);
+      const functionName = getFunctionName(e);
       api[functionName] = getEndpointFunction(e, axios);
       return api;
     }, {} as Record<string, any>) as LocalApiClient;

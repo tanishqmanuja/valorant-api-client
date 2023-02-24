@@ -8,9 +8,10 @@
     "outDir": "dist",
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
+    "noEmit": true,
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "scripts"]
+  "include": ["src"]
 }
