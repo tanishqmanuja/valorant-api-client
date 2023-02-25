@@ -16,19 +16,19 @@ if (lockfile && logfile) {
     port,
   });
 
-  const { version, servers } = logfile;
+  const { version: clientVersion, servers } = logfile;
   const { shard, region } = getRegionAndShardFromGlzServer(servers.glz);
 
   const {
-    data: { accessToken: token, token: entitlement, subject: selfPuuid },
+    data: { accessToken, token: entitlementsToken, subject: selfPuuid },
   } = await localAPI.getEntitlementsToken();
 
   const { api: remoteAPI } = createRemoteApiClient({
     shard,
     region,
-    token,
-    entitlement,
-    version,
+    accessToken,
+    entitlementsToken,
+    clientVersion,
   });
 
   const { data: mmr } = await remoteAPI.getPlayerMMR({

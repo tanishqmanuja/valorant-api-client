@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
-import type { Fn, Objects, Pipe, Strings } from "hotscript";
+import type { Call, Fn, Objects, Pipe, Strings } from "hotscript";
 import type {
   ConditionalPick,
   EmptyObject,
@@ -15,6 +15,10 @@ type RemoteEndpoints = ConditionalPick<
   Endpoints,
   { type: "glz" | "pd" | "shared" }
 >;
+type AuthEndpoints = ConditionalPick<
+  Endpoints,
+  { type: "other"; category: "Authentication Endpoints" }
+>;
 
 type HttpMethod<E extends ValorantEndpoint> = Pipe<
   E["method"] extends string ? E["method"] : "GET",
@@ -23,7 +27,7 @@ type HttpMethod<E extends ValorantEndpoint> = Pipe<
 
 type EndpointName<E extends ValorantEndpoint> = Pipe<
   E["name"],
-  [Strings.Capitalize, Strings.Replace<" ", "">]
+  [Strings.Replace<" ", "-">, Strings.CamelCase, Strings.Capitalize]
 >;
 
 type Name<K extends keyof Endpoints> = `${HttpMethod<
@@ -42,14 +46,23 @@ type SuffixParamsToData<Re extends string> = Re extends ""
   ? SuffixParamsToData<`{${rest}`>
   : {};
 
-type SuffixData<E extends ValorantEndpoint> = SuffixParamsToData<E["suffix"]>;
+interface MapSuffixKeys extends Fn {
+  return: Pipe<this["arg0"], [Strings.Replace<" ", "-">, Strings.CamelCase]>;
+}
+
+type SuffixData<E extends ValorantEndpoint> = Call<
+  Objects.MapKeys<MapSuffixKeys>,
+  SuffixParamsToData<E["suffix"]>
+>;
 type BodyData<E extends ValorantEndpoint> = E["body"] extends z.ZodType
   ? z.infer<E["body"]>
   : {};
 type AxiosRequestData<E extends ValorantEndpoint> = SuffixData<E> & BodyData<E>;
 
-type ZodApiResponse<K extends Record<string, z.ZodType>> = Promise<
-  AxiosResponse<z.output<ValueOf<K>>>
+type ZodApiResponse<K> = Promise<
+  K extends Record<string, z.ZodType>
+    ? AxiosResponse<z.output<ValueOf<K>>>
+    : AxiosResponse
 >;
 
 export interface AxiosRequestConfigWithData<D = any>
@@ -71,3 +84,4 @@ type ApiClient<T extends Record<string, ValorantEndpoint>> = ReadonlyDeep<
 
 export type LocalApiClient = ApiClient<LocalEndpoints>;
 export type RemoteApiClient = ApiClient<RemoteEndpoints>;
+export type AuthApiClient = ApiClient<AuthEndpoints>;

@@ -22,7 +22,7 @@ export const getLocalAuthHeader = (
   Authorization: `Basic ${generateBasicToken(username, password)}`,
 });
 
-export const getRemoteAuthHeader = (
+export const getAccessTokenHeader = (
   accessToken: string
 ): Pick<RemoteAuthHeaders, "Authorization"> => ({
   Authorization: `Bearer ${accessToken}`,
@@ -54,6 +54,10 @@ export const getUserAgentHeader = (
   "User-Agent": userAgent,
 });
 
+export const getJsonHeader = () => ({
+  "Content-Type": "application/json" as const,
+});
+
 type RemoteAuthHeadersOpts = {
   accessToken: string;
   entitlementsToken: string;
@@ -64,7 +68,7 @@ type RemoteAuthHeadersOpts = {
 export const getRemoteAuthHeaders = (
   options: RemoteAuthHeadersOpts
 ): RemoteAuthHeaders => ({
-  ...getRemoteAuthHeader(options.accessToken),
+  ...getAccessTokenHeader(options.accessToken),
   ...getEntitlementsJWTHeader(options.entitlementsToken),
   ...getClientPlatformHeader(options.platformInfo),
   ...getClientVersionHeader(options.clientVersion),

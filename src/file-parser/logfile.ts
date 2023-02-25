@@ -3,11 +3,11 @@ import RE from "fp-ts-contrib/lib/RegExp.js";
 import { sequenceS } from "fp-ts/lib/Apply.js";
 import { pipe } from "fp-ts/lib/function.js";
 import z from "zod";
-import { LOG_FILE_PATH } from "../helpers/constants.js";
-import { REMOTE_SERVER_TYPES, RemoteServerType } from "../helpers/servers.js";
-import { getFileContents } from "../utils/lib/fp-ts/fileSystem.js";
-import { toPromise } from "../utils/lib/fp-ts/taskEither.js";
-import { ReplaceValueAny } from "../utils/lib/typescript/object.js";
+import { LOG_FILE_PATH } from "~/helpers/constants.js";
+import { REMOTE_SERVER_TYPES, RemoteServerType } from "~/helpers/servers.js";
+import { getFileContents } from "~/utils/lib/fp-ts/fileSystem.js";
+import { toPromise } from "~/utils/lib/fp-ts/taskEither.js";
+import { ReplaceValueAny } from "~/utils/lib/typescript/object.js";
 
 const LogFileData = z.object({
   version: z.string(),

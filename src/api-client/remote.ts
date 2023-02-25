@@ -24,9 +24,9 @@ type PlatformInfo = z.infer<typeof platformSchema>;
 export type RemoteApiClientOptions = {
   shard: string;
   region: string;
-  token: string;
-  entitlement: string;
-  version: string;
+  accessToken: string;
+  entitlementsToken: string;
+  clientVersion: string;
   userAgent?: string;
   platformInfo?: PlatformInfo;
 };
@@ -46,13 +46,19 @@ const DEAFULT_CLIENT_OPTIONS = {
 } satisfies Partial<RemoteApiClientOptions>;
 
 function getRemoteApiClientAxios(options: Required<RemoteApiClientOptions>) {
-  const { token, entitlement, platformInfo, version, userAgent } = options;
+  const {
+    accessToken,
+    entitlementsToken,
+    platformInfo,
+    clientVersion,
+    userAgent,
+  } = options;
 
   const authHeaders = getRemoteAuthHeaders({
-    accessToken: token,
-    entitlementsToken: entitlement,
+    accessToken,
+    entitlementsToken,
     platformInfo,
-    clientVersion: version,
+    clientVersion,
     userAgent,
   });
 
@@ -83,6 +89,7 @@ function getEndpointFunction(
     return axiosInstance({
       url,
       baseURL,
+      method: endpoint.method ?? "GET",
       ...config,
       transformRequest: [
         data => parseRequestData(endpoint, data),

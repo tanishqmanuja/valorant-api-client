@@ -2,8 +2,8 @@ import { pipe } from "fp-ts/lib/function.js";
 import { objectEntries, objectKeys } from "ts-extras";
 import { ValorantEndpoint } from "valorant-api-types";
 import z from "zod";
-import { execAllGenerator } from "../utils/regex.js";
-import { removeCharaters, toCamelCase } from "../utils/string.js";
+import { execAllGenerator } from "~/utils/regex.js";
+import { removeCharaters, toCamelCase } from "~/utils/string.js";
 
 export function getFunctionName(endpoint: ValorantEndpoint) {
   const { method = "GET", name } = endpoint;
@@ -39,7 +39,7 @@ export function replaceSuffixArgs(
 ) {
   return objectEntries(argsMap).reduce((endpoint, [key, param]) => {
     const regex = RegExp(`{${param}}`);
-    return suffix.replace(regex, args[key]);
+    return endpoint.replace(regex, args[key]);
   }, suffix);
 }
 

@@ -42,6 +42,7 @@ function getEndpointFunction(
   return (config: AxiosRequestConfig = {}) =>
     axiosInstance({
       url: endpoint.suffix,
+      method: endpoint.method ?? "GET",
       ...config,
       transformRequest: [
         data => parseRequestData(endpoint, data),
