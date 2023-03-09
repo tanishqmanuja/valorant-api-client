@@ -13,6 +13,9 @@ import {
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
 const RIOT_PASSWORD = process.env.RIOT_PASSWORD;
 
+const REGION = "ap";
+const SHARD = "ap";
+
 if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
   console.log("Error: Provide username and password");
   console.log("Either edit the script or use ENV variables.");
@@ -63,7 +66,7 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
 
   const { api: remoteAPI } = createRemoteApiClient({
     clientVersion: await getClientVersion(),
-    ...getRegionOptions("ap", "ap"),
+    ...getRegionOptions(REGION, SHARD),
     accessToken,
     entitlementsToken,
   });
