@@ -70,18 +70,25 @@ export interface AxiosRequestConfigWithData<D = any>
   data: D;
 }
 
+export type CustomAxiosRequestConfig = {
+  zodParseResponse?: boolean;
+};
+
 interface ImplementationFn extends Fn {
   return: AxiosRequestData<this["arg0"]> extends EmptyObject
-    ? (config?: AxiosRequestConfig) => ZodApiResponse<this["arg0"]["responses"]>
+    ? (
+        config?: AxiosRequestConfig & CustomAxiosRequestConfig
+      ) => ZodApiResponse<this["arg0"]["responses"]>
     : (
-        config: AxiosRequestConfigWithData<AxiosRequestData<this["arg0"]>>
+        config: AxiosRequestConfigWithData<AxiosRequestData<this["arg0"]>> &
+          CustomAxiosRequestConfig
       ) => ZodApiResponse<this["arg0"]["responses"]>;
 }
 
-type ApiClient<T extends Record<string, ValorantEndpoint>> = ReadonlyDeep<
+type Api<T extends Record<string, ValorantEndpoint>> = ReadonlyDeep<
   Pipe<T, [Objects.MapKeys<NameFn>, Objects.MapValues<ImplementationFn>]>
 >;
 
-export type LocalApiClient = ApiClient<LocalEndpoints>;
-export type RemoteApiClient = ApiClient<RemoteEndpoints>;
-export type AuthApiClient = ApiClient<AuthEndpoints>;
+export type LocalApi = Api<LocalEndpoints>;
+export type RemoteApi = Api<RemoteEndpoints>;
+export type AuthApi = Api<AuthEndpoints>;

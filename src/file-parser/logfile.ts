@@ -10,7 +10,7 @@ import { toPromise } from "~/utils/lib/fp-ts/taskEither.js";
 import { ReplaceValueAny } from "~/utils/lib/typescript/object.js";
 
 const LogFileData = z.object({
-  version: z.string(),
+  clientVersion: z.string(),
   servers: z.object(
     REMOTE_SERVER_TYPES.reduce(
       (acc, type) => Object.assign(acc, { [type]: z.string() }),
@@ -32,7 +32,7 @@ function find<A>(predicate: (a: A) => boolean): (as: Array<A>) => O.Option<A> {
   return (as: Array<A>) => O.fromNullable(as.find(predicate));
 }
 
-function parseVersion(content: string): E.Either<Error, string> {
+function parseClientVersion(content: string): E.Either<Error, string> {
   const VersionSchema = z.object({
     patch: z.string(),
     buildType: z.string(),
@@ -86,7 +86,7 @@ function parseLogFileContent(content: string): E.Either<Error, LogFileData> {
     content,
     c =>
       sequenceS(E.Apply)({
-        version: parseVersion(c),
+        clientVersion: parseClientVersion(c),
         servers: sequenceS(E.Apply)({
           glz: parseServer(c, "glz"),
           pd: parseServer(c, "pd"),

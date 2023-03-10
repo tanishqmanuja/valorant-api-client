@@ -28,11 +28,9 @@ export type RegionOpts =
       shard: "kr";
     };
 
-export function getRegionOptions<R extends RegionOpts["region"]>(
-  region: R,
-  shard: Extract<RegionOpts, { region: R }>["shard"]
-) {
+export function getRegionOptions<
+  R extends RegionOpts["region"],
+  S extends Extract<RegionOpts, { region: R }>["shard"]
+>(region: R, shard: S) {
   return { region, shard };
 }
-
-getRegionOptions("ap", "ap");
