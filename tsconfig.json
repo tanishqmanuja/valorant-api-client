@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "noEmit": true,
+    "noUnusedLocals": true,
     "paths": {
       "~/*": ["./src/*"]
     }
