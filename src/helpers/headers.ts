@@ -65,6 +65,7 @@ type RemoteAuthHeadersOpts = {
   clientVersion: string;
   userAgent: string;
 };
+
 export const getRemoteAuthHeaders = (
   options: RemoteAuthHeadersOpts
 ): RemoteAuthHeaders => ({
@@ -77,3 +78,8 @@ export const getRemoteAuthHeaders = (
 
 export const generateBasicToken = (username: string, password: string) =>
   Buffer.from(`${username}:${password}`).toString("base64");
+
+export const getCookieHeader = (cookie: string) =>
+  ({
+    Cookie: cookie,
+  } as const);

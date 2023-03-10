@@ -1,7 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Agent } from "node:https";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
+import z from "zod";
 import {
   getFunctionName,
   parseRequestData,
@@ -10,18 +11,26 @@ import {
 import { getLocalAuthHeader } from "~/helpers/headers.js";
 import { getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
-import { LocalApiClient } from "./types.js";
+import { CustomAxiosRequestConfig, LocalApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 
-export type LocalApiClientOptions = {
-  port: string;
-  username?: string;
-  password: string;
-};
+export const localApiClientOptionsSchema = z.object({
+  port: z.string(),
+  username: z.string().optional(),
+  password: z.string(),
+  zodParseResponse: z.boolean().optional(),
+});
 
-function getLocalApiClientAxios(options: LocalApiClientOptions) {
-  const { port, username = "riot", password } = options;
+export type LocalApiClientOptions = z.infer<typeof localApiClientOptionsSchema>;
+
+const DEAFULT_CLIENT_OPTIONS = {
+  username: "riot",
+  zodParseResponse: true,
+} satisfies Partial<LocalApiClientOptions>;
+
+function getLocalApiClientAxios(options: Required<LocalApiClientOptions>) {
+  const { port, username, password } = options;
 
   const baseURL = getServerUrl({ type: "local", port });
   const authHeader = getLocalAuthHeader(username, password);
@@ -37,9 +46,11 @@ function getLocalApiClientAxios(options: LocalApiClientOptions) {
 
 function getEndpointFunction(
   endpoint: ValorantEndpoint,
-  axiosInstance: AxiosInstance
+  axiosInstance: AxiosInstance,
+  options: LocalApiClientOptions
 ) {
-  return (config: AxiosRequestConfig = {}) =>
+  const { zodParseResponse } = options;
+  return (config: AxiosRequestConfig & CustomAxiosRequestConfig = {}) =>
     axiosInstance({
       url: endpoint.suffix,
       method: endpoint.method ?? "GET",
@@ -50,21 +61,36 @@ function getEndpointFunction(
       ],
       transformResponse: [
         ...ensureArray(axios.defaults.transformResponse),
-        (data, _, status) => parseResponseData(endpoint, data, status!),
+        (data, _, status) =>
+          config.zodParseResponse ?? zodParseResponse
+            ? parseResponseData(endpoint, data, status!)
+            : data,
       ],
     });
 }
 
 export function createLocalApiClient(options: LocalApiClientOptions) {
-  const axios = getLocalApiClientAxios(options);
+  const opts: Required<LocalApiClientOptions> = {
+    ...DEAFULT_CLIENT_OPTIONS,
+    ...options,
+  };
+
+  const axios = getLocalApiClientAxios(opts);
 
   const api = objectEntries(endpoints as ValorantEndpoints)
     .filter(([_, e]) => e.type === "local")
     .reduce((api, [_, e]) => {
       const functionName = getFunctionName(e);
-      api[functionName] = getEndpointFunction(e, axios);
+      api[functionName] = getEndpointFunction(e, axios, opts);
       return api;
-    }, {} as Record<string, any>) as LocalApiClient;
+    }, {} as Record<string, any>) as LocalApi;
 
-  return { axios, api };
+  const helpers = {
+    getAxiosInstance: () => axios,
+    getOptions: () => structuredClone(opts),
+  };
+
+  return { api, helpers };
 }
+
+export type LocalApiClient = ReturnType<typeof createLocalApiClient>;

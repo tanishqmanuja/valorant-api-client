@@ -16,20 +16,25 @@ import {
 import { getRemoteAuthHeaders } from "~/helpers/headers.js";
 import { RemoteServerType, getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
-import { RemoteApiClient } from "./types.js";
+import { CustomAxiosRequestConfig, RemoteApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 type PlatformInfo = z.infer<typeof platformSchema>;
 
-export type RemoteApiClientOptions = {
-  shard: string;
-  region: string;
-  accessToken: string;
-  entitlementsToken: string;
-  clientVersion: string;
-  userAgent?: string;
-  platformInfo?: PlatformInfo;
-};
+export const remoteApiClientOptionsSchema = z.object({
+  shard: z.string(),
+  region: z.string(),
+  accessToken: z.string(),
+  entitlementsToken: z.string(),
+  clientVersion: z.string(),
+  userAgent: z.string().optional(),
+  platformInfo: platformSchema.optional(),
+  zodParseResponse: z.boolean().optional(),
+});
+
+export type RemoteApiClientOptions = z.infer<
+  typeof remoteApiClientOptionsSchema
+>;
 
 const DEFAULT_PLATFORM_INFO: PlatformInfo = {
   platformType: "PC",
@@ -43,6 +48,7 @@ const DEFAULT_USER_AGENT = "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
 const DEAFULT_CLIENT_OPTIONS = {
   platformInfo: DEFAULT_PLATFORM_INFO,
   userAgent: DEFAULT_USER_AGENT,
+  zodParseResponse: true,
 } satisfies Partial<RemoteApiClientOptions>;
 
 function getRemoteApiClientAxios(options: Required<RemoteApiClientOptions>) {
@@ -75,7 +81,7 @@ function getEndpointFunction(
   axiosInstance: AxiosInstance,
   options: RemoteApiClientOptions
 ) {
-  const { shard, region } = options;
+  const { shard, region, zodParseResponse } = options;
 
   const baseURL = getServerUrl({
     type: endpoint.type as RemoteServerType,
@@ -83,7 +89,7 @@ function getEndpointFunction(
     region,
   });
 
-  return (config: AxiosRequestConfig = {}) => {
+  return (config: AxiosRequestConfig & CustomAxiosRequestConfig = {}) => {
     const url = buildSuffixUrl(endpoint.suffix, config.data);
 
     return axiosInstance({
@@ -97,7 +103,10 @@ function getEndpointFunction(
       ],
       transformResponse: [
         ...ensureArray(axios.defaults.transformResponse),
-        (data, _, status) => parseResponseData(endpoint, data, status!),
+        (data, _, status) =>
+          config.zodParseResponse ?? zodParseResponse
+            ? parseResponseData(endpoint, data, status!)
+            : data,
       ],
     });
   };
@@ -115,9 +124,16 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
     .filter(([_, e]) => e.type !== "local" && e.type !== "other")
     .reduce((api, [_, e]) => {
       const functionName = getFunctionName(e);
-      api[functionName] = getEndpointFunction(e, axios, options);
+      api[functionName] = getEndpointFunction(e, axios, opts);
       return api;
-    }, {} as Record<string, any>) as RemoteApiClient;
+    }, {} as Record<string, any>) as RemoteApi;
 
-  return { axios, api };
+  const helpers = {
+    getAxiosInstance: () => axios,
+    getOptions: () => structuredClone(opts),
+  };
+
+  return { api, helpers };
 }
+
+export type RemoteApiClient = ReturnType<typeof createRemoteApiClient>;

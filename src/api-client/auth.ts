@@ -3,8 +3,7 @@ import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
 import { getFunctionName } from "~/helpers/endpoint.js";
-import { ensureArray } from "~/utils/array.js";
-import { AuthApiClient } from "./types.js";
+import { AuthApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 
@@ -67,14 +66,6 @@ function getEndpointFunction(
       method: endpoint.method ?? "GET",
       headers: Object.fromEntries(endpoint.headers || []),
       ...config,
-      transformRequest: [
-        // data => parseRequestData(endpoint, data),
-        ...ensureArray(axios.defaults.transformRequest),
-      ],
-      transformResponse: [
-        ...ensureArray(axios.defaults.transformResponse),
-        // (data, _, status) => parseResponseData(endpoint, data, status!),
-      ],
       withCredentials: true,
     });
 }
@@ -96,10 +87,20 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
       const functionName = getFunctionName(e);
       api[functionName] = getEndpointFunction(e, axios);
       return api;
-    }, {} as Record<string, any>) as AuthApiClient;
+    }, {} as Record<string, any>) as AuthApi;
 
-  return { axios, api };
+  const helpers = {
+    getAxiosInstance: () => axios,
+    getOptions: () => structuredClone(opts),
+    getCookie: () => axios.defaults.headers.common["Cookie"],
+    setCookie: (cookie: string) =>
+      (axios.defaults.headers.common["Cookie"] = cookie),
+  };
+
+  return { api, helpers };
 }
+
+export type AuthApiClient = ReturnType<typeof createAuthApiClient>;
 
 export function parseAuthCookie(response: AxiosResponse) {
   const cookie = response.headers["set-cookie"]?.find(elem =>
