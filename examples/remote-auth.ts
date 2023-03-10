@@ -3,6 +3,7 @@ import {
   createAuthApiClient,
   createRemoteApiClient,
   getAccessTokenHeader,
+  getCookieHeader,
   getJsonHeader,
   getRegionOptions,
   parseAccessToken,
@@ -13,6 +14,7 @@ import {
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
 const RIOT_PASSWORD = process.env.RIOT_PASSWORD;
 
+// change as per your requirement
 const REGION = "ap";
 const SHARD = "ap";
 
@@ -48,7 +50,7 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
       username: RIOT_USERNAME,
       password: RIOT_PASSWORD,
     },
-    headers: { Cookie: cookie },
+    headers: { ...getCookieHeader(cookie) },
   });
 
   const accessToken = parseAccessToken(tokenResponse);
@@ -56,7 +58,7 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
 
   const entitlementResponse = await authApi.postEntitlement({
     headers: {
-      Cookie: cookie,
+      ...getCookieHeader(cookie),
       ...getAccessTokenHeader(accessToken),
       ...getJsonHeader(),
     },
@@ -71,7 +73,7 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
     entitlementsToken,
   });
 
-  console.log(selfPuuid);
+  console.log("PUUID", selfPuuid);
 
   const { data: competitiveUpdates } = await remoteAPI
     .getCompetitiveUpdates({

@@ -16,7 +16,7 @@ if (lockfile && logfile) {
     port,
   });
 
-  const { version: clientVersion, servers } = logfile;
+  const { clientVersion, servers } = logfile;
   const { shard, region } = getRegionAndShardFromGlzServer(servers.glz);
 
   const {
@@ -35,5 +35,5 @@ if (lockfile && logfile) {
     data: { puuid: selfPuuid },
   });
 
-  console.log(JSON.stringify(mmr));
+  console.log(mmr);
 }
