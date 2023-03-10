@@ -62,7 +62,7 @@ type AxiosRequestData<E extends ValorantEndpoint> = SuffixData<E> & BodyData<E>;
 type ZodApiResponse<K> = Promise<
   K extends Record<string, z.ZodType>
     ? AxiosResponse<z.output<ValueOf<K>>>
-    : AxiosResponse
+    : AxiosResponse<K>
 >;
 
 export interface AxiosRequestConfigWithData<D = any>
@@ -76,13 +76,13 @@ export type CustomAxiosRequestConfig = {
 
 interface ImplementationFn extends Fn {
   return: AxiosRequestData<this["arg0"]> extends EmptyObject
-    ? (
+    ? <DataType = this["arg0"]["responses"]>(
         config?: AxiosRequestConfig & CustomAxiosRequestConfig
-      ) => ZodApiResponse<this["arg0"]["responses"]>
-    : (
+      ) => ZodApiResponse<DataType>
+    : <DataType = this["arg0"]["responses"]>(
         config: AxiosRequestConfigWithData<AxiosRequestData<this["arg0"]>> &
           CustomAxiosRequestConfig
-      ) => ZodApiResponse<this["arg0"]["responses"]>;
+      ) => ZodApiResponse<DataType>;
 }
 
 type Api<T extends Record<string, ValorantEndpoint>> = ReadonlyDeep<

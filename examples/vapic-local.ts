@@ -16,12 +16,12 @@ const vapic = await createValorantApiClient({
 
 const {
   data: { userInfo },
-} = await vapic.local.api.getRSOUserInfo({
+} = await vapic.local.api.getRSOUserInfo<{ userInfo: string }>({
   zodParseResponse: false,
 });
 
 // Until Schema is fixed
-const puuid = JSON.parse(userInfo as any).sub;
+const puuid = JSON.parse(userInfo).sub;
 
 const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
   data: {
