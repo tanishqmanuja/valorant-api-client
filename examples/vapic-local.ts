@@ -1,5 +1,3 @@
-import { Simplify } from "type-fest";
-import { rsoUserInfoEndpoint } from "valorant-api-types/dist/endpoints/local/RSOUserInfo";
 import {
   createValorantApiClient,
   provideLockFile,
