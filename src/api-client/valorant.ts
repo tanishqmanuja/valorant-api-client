@@ -17,12 +17,7 @@ import {
   remoteApiClientOptionsSchema,
 } from "./remote.js";
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
-import {
-  RequiredKeysOf,
-  SetRequired,
-  Simplify,
-  UnionToIntersection,
-} from "type-fest";
+import { RequiredKeysOf, SetRequired } from "type-fest";
 
 export type LocalContext = { authApiClient: AuthApiClient };
 export type RemoteContext = {
