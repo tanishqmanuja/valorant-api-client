@@ -19,7 +19,8 @@
     "format": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts ",
     "type:check": "tsc",
-    "release": "pnpm format:check && pnpm type:check && pnpm build && changeset publish"
+    "lint": "pnpm type:check && pnpm format:check",
+    "release": "changeset publish"
   },
   "author": "Tanishq Manuja",
   "license": "MIT",
@@ -34,6 +35,7 @@
     "prettier": "^2.8.4",
     "tsup": "^6.6.3",
     "tsx": "^3.12.3",
+    "turbo": "^1.8.3",
     "typescript": "5.0.1-rc"
   },
   "dependencies": {
