@@ -3,7 +3,6 @@ import {
   provideRemoteAuth,
   createValorantApiClient,
   provideRegion,
-  getAccessTokenHeader,
 } from "~/index.js";
 
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
@@ -34,15 +33,7 @@ const vapic = await createValorantApiClient({
   },
 });
 
-const { accessToken } = vapic.remote.getOptions();
-
-const { data: playerInfo } = await vapic.auth.api.getPlayerInfo({
-  headers: {
-    ...getAccessTokenHeader(accessToken),
-  },
-});
-
-const puuid = playerInfo.sub;
+const puuid = vapic.remote.getPuuid();
 
 const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
   data: {
