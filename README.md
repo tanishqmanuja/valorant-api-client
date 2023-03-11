@@ -1,3 +1,5 @@
+![Logo](https://raw.github.com/tanishqmanuja/valorant-api-client/main/assets/VAPIC-banner.png?maxAge=2592000)
+
 # VAPIC //VALORANT API CLIENT
 
 VAPIC is a type safe implementation of an api client for VALORANT. It includes functional wrapper to call all community known endpoints provided by [valorant-api-types](https://www.npmjs.com/package/valorant-api-types).
