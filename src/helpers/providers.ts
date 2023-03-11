@@ -1,9 +1,14 @@
 import axios from "axios";
+
 import {
   parseAccessToken,
   parseAuthCookie,
   parseEntitlementsToken,
 } from "~/api-client/auth.js";
+import { RemoteApiClientOptions } from "~/api-client/remote";
+import { RemoteContext } from "~/api-client/valorant.js";
+import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
+import { getLogFileDataPromise } from "~/file-parser/logfile";
 import {
   getAccessTokenHeader,
   getJsonHeader,
@@ -11,13 +16,10 @@ import {
 } from "~/helpers/headers.js";
 import { RegionOpts, getRegionOptions } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
-import { RemoteContext } from "~/api-client/valorant.js";
-import { RemoteApiClientOptions } from "~/api-client/remote";
-import { getLockFileDataPromise, getLogFileDataPromise } from "..";
 
 export function provideRemoteAuth(username: string, password: string) {
   return async ({ authApiClient }: RemoteContext) => {
-    const { api, helpers } = authApiClient;
+    const { api, setCookie } = authApiClient;
 
     const cookieResponse = await api.postAuthCookies({
       data: {
@@ -32,7 +34,7 @@ export function provideRemoteAuth(username: string, password: string) {
     const cookie = parseAuthCookie(cookieResponse);
 
     // Warning: Side Effect
-    helpers.setCookie(cookie);
+    setCookie(cookie);
 
     const tokenResponse = await api.putAuthRequest({
       data: {
@@ -82,10 +84,10 @@ export function provideRemoteAuthViaLocalApi() {
   };
 }
 
-export function provideRegion<
-  R extends RegionOpts["region"],
-  S extends Extract<RegionOpts, { region: R }>["shard"]
->(region: R, shard: S) {
+export function provideRegion<R extends RegionOpts["region"]>(
+  region: R,
+  shard: Extract<RegionOpts, { region: R }>["shard"]
+) {
   return () => getRegionOptions(region, shard as any);
 }
 
@@ -101,9 +103,9 @@ export function provideClientVersionViaVAPI() {
   };
 }
 
-export function provideLockFile() {
+export function provideLockFile(lockfilePath?: string) {
   return async () => {
-    const lockfile = await getLockFileDataPromise();
+    const lockfile = await getLockFileDataPromise(lockfilePath);
     if (!lockfile) {
       throw Error("Unable to get lockfile data");
     }
@@ -111,9 +113,9 @@ export function provideLockFile() {
   };
 }
 
-export function provideLogFile() {
+export function provideLogFile(logfilePath?: string) {
   return async () => {
-    const logfile = await getLogFileDataPromise();
+    const logfile = await getLogFileDataPromise(logfilePath);
     if (!logfile) {
       throw Error("Unable to get logfile data");
     }

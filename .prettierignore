@@ -3,3 +3,4 @@ dist
 .vscode
 .husky
 pnpm-lock.yaml
+tsup.config.ts

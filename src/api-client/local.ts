@@ -1,8 +1,9 @@
-import { Agent } from "node:https";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
 import z from "zod";
+
 import {
   getFunctionName,
   parseRequestData,
@@ -11,6 +12,7 @@ import {
 import { getLocalAuthHeader } from "~/helpers/headers.js";
 import { getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
+
 import { CustomAxiosRequestConfig, LocalApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
@@ -90,7 +92,7 @@ export function createLocalApiClient(options: LocalApiClientOptions) {
     getOptions: () => structuredClone(opts),
   };
 
-  return { api, helpers };
+  return { api, ...helpers };
 }
 
 export type LocalApiClient = ReturnType<typeof createLocalApiClient>;

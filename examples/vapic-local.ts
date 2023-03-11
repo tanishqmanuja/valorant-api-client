@@ -3,7 +3,9 @@ import {
   provideLockFile,
   provideLogFile,
   provideRemoteAuthViaLocalApi,
-} from "~/index";
+} from "~/index.js";
+
+// Create Valorant API Client
 
 const vapic = await createValorantApiClient({
   local: {
@@ -14,14 +16,9 @@ const vapic = await createValorantApiClient({
   },
 });
 
-const {
-  data: { userInfo },
-} = await vapic.local.api.getRSOUserInfo<{ userInfo: string }>({
-  zodParseResponse: false,
-});
+// Use API Client
 
-// Until Schema is fixed
-const puuid = JSON.parse(userInfo).sub;
+const puuid = vapic.remote.getPuuid();
 
 const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
   data: {

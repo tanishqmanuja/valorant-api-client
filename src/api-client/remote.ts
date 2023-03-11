@@ -7,15 +7,22 @@ import {
   platformSchema,
 } from "valorant-api-types";
 import z from "zod";
+
 import {
   buildSuffixUrl,
   getFunctionName,
   parseRequestData,
   parseResponseData,
 } from "~/helpers/endpoint.js";
-import { getRemoteAuthHeaders } from "~/helpers/headers.js";
+import {
+  getAccessTokenHeader,
+  getEntitlementsJWTHeader,
+  getRemoteAuthHeaders,
+} from "~/helpers/headers.js";
+import { getPuuidFromAccessToken } from "~/helpers/helpers.js";
 import { RemoteServerType, getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
+
 import { CustomAxiosRequestConfig, RemoteApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
@@ -128,12 +135,31 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
       return api;
     }, {} as Record<string, any>) as RemoteApi;
 
+  type Tokens = Pick<
+    RemoteApiClientOptions,
+    "accessToken" | "entitlementsToken"
+  >;
+  const getTokens = (): Tokens => ({
+    accessToken: axios.defaults.headers["Authorization"] as string,
+    entitlementsToken: axios.defaults.headers[
+      "X-Riot-Entitlements-JWT"
+    ] as string,
+  });
+
   const helpers = {
     getAxiosInstance: () => axios,
-    getOptions: () => structuredClone(opts),
+    getTokens,
+    setTokens: ({ accessToken, entitlementsToken }: Tokens) => {
+      axios.defaults.headers = Object.assign(axios.defaults.headers, {
+        ...getAccessTokenHeader(accessToken),
+        ...getEntitlementsJWTHeader(entitlementsToken),
+      });
+    },
+    getOptions: () => structuredClone({ ...opts, ...getTokens() }),
+    getPuuid: () => getPuuidFromAccessToken(getTokens().accessToken),
   };
 
-  return { api, helpers };
+  return { api, ...helpers };
 }
 
 export type RemoteApiClient = ReturnType<typeof createRemoteApiClient>;

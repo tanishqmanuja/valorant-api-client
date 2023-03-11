@@ -1,4 +1,8 @@
+import { RequiredKeysOf, SetRequired } from "type-fest";
 import { ZodSchema } from "zod";
+
+import { MaybePromise } from "~/utils/lib/typescript/promise.js";
+
 import {
   AuthApiClient,
   AuthApiClientOptions,
@@ -16,8 +20,6 @@ import {
   createRemoteApiClient,
   remoteApiClientOptionsSchema,
 } from "./remote.js";
-import { MaybePromise } from "~/utils/lib/typescript/promise.js";
-import { RequiredKeysOf, SetRequired } from "type-fest";
 
 export type LocalContext = { authApiClient: AuthApiClient };
 export type RemoteContext = {
@@ -37,15 +39,15 @@ export type ValorantApiClientOptions = {
   remote?: Partial<RemoteApiClientOptions> & { providers: RemoteProvider[] };
 };
 
-export type ValorantApiClient = {
+export type ValorantApiClients = {
   auth: AuthApiClient;
   local?: LocalApiClient;
   remote?: RemoteApiClient;
 };
 
-export type ValorantApiClientInferred<Keys extends keyof ValorantApiClient> =
-  Pick<SetRequired<ValorantApiClient, Keys>, Keys> &
-    Pick<ValorantApiClient, RequiredKeysOf<ValorantApiClient>>;
+export type ValorantApiClientsInferred<Keys extends keyof ValorantApiClients> =
+  Pick<SetRequired<ValorantApiClients, Keys>, Keys> &
+    Pick<ValorantApiClients, RequiredKeysOf<ValorantApiClients>>;
 
 async function resolveProviders<
   R,
@@ -59,13 +61,7 @@ async function resolveProviders<
 
 export async function createValorantApiClient<
   Options extends ValorantApiClientOptions
->(
-  options: Options
-): Promise<
-  keyof Options extends keyof ValorantApiClient
-    ? ValorantApiClientInferred<keyof Options>
-    : ValorantApiClient
-> {
+>(options: Options) {
   const authApiClient = createAuthApiClient(options.auth);
 
   let localApiClient: LocalApiClient | undefined = undefined;
@@ -91,9 +87,19 @@ export async function createValorantApiClient<
     );
   }
 
-  return {
+  const apiClients = {
     auth: authApiClient,
     local: localApiClient,
     remote: remoteApiClient,
-  } as any;
+  } as keyof Options extends keyof ValorantApiClients
+    ? ValorantApiClientsInferred<keyof Options>
+    : ValorantApiClients;
+
+  return {
+    ...apiClients,
+    getLocalContext: () => ({ authApiClient }),
+    getRemoteContext: () => ({ authApiClient, localApiClient }),
+  };
 }
+
+export type ValorantApiClient = ReturnType<typeof createValorantApiClient>;

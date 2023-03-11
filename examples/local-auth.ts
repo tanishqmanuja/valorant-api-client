@@ -23,6 +23,8 @@ if (lockfile && logfile) {
     data: { accessToken, token: entitlementsToken, subject: selfPuuid },
   } = await localAPI.getEntitlementsToken();
 
+  console.log("PUUID", selfPuuid);
+
   const { api: remoteAPI } = createRemoteApiClient({
     shard,
     region,

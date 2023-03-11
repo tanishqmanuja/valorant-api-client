@@ -2,7 +2,9 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
+
 import { getFunctionName } from "~/helpers/endpoint.js";
+
 import { AuthApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
@@ -92,12 +94,11 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
   const helpers = {
     getAxiosInstance: () => axios,
     getOptions: () => structuredClone(opts),
-    getCookie: () => axios.defaults.headers.common["Cookie"],
-    setCookie: (cookie: string) =>
-      (axios.defaults.headers.common["Cookie"] = cookie),
+    getCookie: () => axios.defaults.headers["Cookie"],
+    setCookie: (cookie: string) => (axios.defaults.headers["Cookie"] = cookie),
   };
 
-  return { api, helpers };
+  return { api, ...helpers };
 }
 
 export type AuthApiClient = ReturnType<typeof createAuthApiClient>;

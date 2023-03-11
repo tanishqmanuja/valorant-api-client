@@ -4,7 +4,7 @@ import {
   createValorantApiClient,
   provideRegion,
   getAccessTokenHeader,
-} from "~/index";
+} from "~/index.js";
 
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
 const RIOT_PASSWORD = process.env.RIOT_PASSWORD;
@@ -34,7 +34,7 @@ const vapic = await createValorantApiClient({
   },
 });
 
-const { accessToken } = vapic.remote.helpers.getOptions();
+const { accessToken } = vapic.remote.getOptions();
 
 const { data: playerInfo } = await vapic.auth.api.getPlayerInfo({
   headers: {
