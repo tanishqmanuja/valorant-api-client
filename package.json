@@ -2,6 +2,9 @@
   "name": "@tqman/vapic",
   "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist/*"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
