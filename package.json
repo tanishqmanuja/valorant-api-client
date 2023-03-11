@@ -21,6 +21,10 @@
     "type:check": "tsc",
     "release": "pnpm format:check && pnpm type:check && pnpm build && changeset publish"
   },
+  "author": "Tanishq Manuja",
+  "license": "MIT",
+  "homepage": "https://github.com/tanishqmanuja/axios-interceptor-suite#readme",
+  "repository": "github:tanishqmanuja/axios-interceptor-suite",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@tqman/axios-interceptor-suite": "^0.3.4",
