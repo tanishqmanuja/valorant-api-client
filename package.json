@@ -26,7 +26,14 @@
   "license": "MIT",
   "homepage": "https://github.com/tanishqmanuja/valorant-api-client#readme",
   "repository": "github:tanishqmanuja/valorant-api-client",
+  "keywords": [
+    "valorant",
+    "api",
+    "client",
+    "riot"
+  ],
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
     "@tqman/axios-interceptor-suite": "^0.3.4",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
