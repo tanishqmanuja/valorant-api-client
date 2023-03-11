@@ -10,7 +10,7 @@ import {
   getEntitlementsJWTHeader,
   provideLockFile,
   provideLogFile,
-  provideRemoteAuthViaLocalApi,
+  provideAuthViaLocalApi,
 } from "~/index.js";
 
 // Create Valorant API Client
@@ -20,7 +20,7 @@ const vapic = await createValorantApiClient({
     providers: [provideLockFile()],
   },
   remote: {
-    providers: [provideLogFile(), provideRemoteAuthViaLocalApi()],
+    providers: [provideLogFile(), provideAuthViaLocalApi()],
   },
 });
 
@@ -44,7 +44,7 @@ createRetryInterceptor(remoteAxiosInstance, { count: 2, delay: 1 * 1000 });
 createAuthRefreshInterceptor(remoteAxiosInstance, {
   statusCodes: [400],
   onRefresh: async error => {
-    const authProvider = provideRemoteAuthViaLocalApi();
+    const authProvider = provideAuthViaLocalApi();
 
     const { accessToken, entitlementsToken } = await authProvider(
       vapic.getRemoteContext()

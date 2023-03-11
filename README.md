@@ -38,7 +38,7 @@ const vapic = await createValorantApiClient({
     providers: [provideLockFile()],
   },
   remote: {
-    providers: [provideLogFile(), provideRemoteAuthViaLocalApi()],
+    providers: [provideLogFile(), provideAuthViaLocalApi()],
   },
 });
 
@@ -78,7 +78,7 @@ const vapic = await createValorantApiClient({
     providers: [
       provideClientVersionViaVAPI(),
       provideRegion(REGION, SHARD),
-      provideRemoteAuth(RIOT_USERNAME, RIOT_PASSWORD),
+      provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
     ],
   },
 });

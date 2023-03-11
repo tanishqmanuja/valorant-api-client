@@ -17,7 +17,7 @@ import {
 import { RegionOpts, getRegionOptions } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
 
-export function provideRemoteAuth(username: string, password: string) {
+export function provideAuth(username: string, password: string) {
   return async ({ authApiClient }: RemoteContext) => {
     const { api, setCookie } = authApiClient;
 
@@ -65,7 +65,7 @@ export function provideRemoteAuth(username: string, password: string) {
   };
 }
 
-export function provideRemoteAuthViaLocalApi() {
+export function provideAuthViaLocalApi() {
   return async ({ localApiClient }: RemoteContext) => {
     if (!localApiClient) {
       throw Error("Provider unable to access localApiClient");

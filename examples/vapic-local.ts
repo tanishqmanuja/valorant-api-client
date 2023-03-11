@@ -2,7 +2,7 @@ import {
   createValorantApiClient,
   provideLockFile,
   provideLogFile,
-  provideRemoteAuthViaLocalApi,
+  provideAuthViaLocalApi,
 } from "~/index.js";
 
 // Create Valorant API Client
@@ -12,7 +12,7 @@ const vapic = await createValorantApiClient({
     providers: [provideLockFile()],
   },
   remote: {
-    providers: [provideLogFile(), provideRemoteAuthViaLocalApi()],
+    providers: [provideLogFile(), provideAuthViaLocalApi()],
   },
 });
 

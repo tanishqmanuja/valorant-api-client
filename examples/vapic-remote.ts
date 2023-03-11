@@ -1,6 +1,6 @@
 import {
   provideClientVersionViaVAPI,
-  provideRemoteAuth,
+  provideAuth,
   createValorantApiClient,
   provideRegion,
 } from "~/index.js";
@@ -28,7 +28,7 @@ const vapic = await createValorantApiClient({
     providers: [
       provideClientVersionViaVAPI(),
       provideRegion(REGION, SHARD),
-      provideRemoteAuth(RIOT_USERNAME, RIOT_PASSWORD),
+      provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
     ],
   },
 });
