@@ -1,5 +1,5 @@
 {
-  "name": "valorant-api-client",
+  "name": "@tqman/vapic",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -23,8 +23,8 @@
   },
   "author": "Tanishq Manuja",
   "license": "MIT",
-  "homepage": "https://github.com/tanishqmanuja/axios-interceptor-suite#readme",
-  "repository": "github:tanishqmanuja/axios-interceptor-suite",
+  "homepage": "https://github.com/tanishqmanuja/valorant-api-client#readme",
+  "repository": "github:tanishqmanuja/valorant-api-client",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@tqman/axios-interceptor-suite": "^0.3.4",
