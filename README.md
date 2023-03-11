@@ -106,6 +106,11 @@ console.log(compUpdates);
 
 - [@tanishqmanuja](https://www.github.com/tanishqmanuja)
 
+## Show your Support
+
+Give a ⭐️ if this project helped you! \
+It will give me motivation for working towards this project.
+
 ## Disclaimer
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY RIOT GAMES. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Whilst effort has been made to abide by Riot's API rules; you acknowledge that use of this software is done so at your own risk.
