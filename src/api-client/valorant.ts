@@ -1,4 +1,4 @@
-import { RequiredKeysOf, SetRequired } from "type-fest";
+import { RequiredKeysOf, UnionToIntersection, IsEqual } from "type-fest";
 import { ZodSchema } from "zod";
 
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
@@ -6,6 +6,7 @@ import { MaybePromise } from "~/utils/lib/typescript/promise.js";
 import {
   AuthApiClient,
   AuthApiClientOptions,
+  authApiClientOptionsSchema,
   createAuthApiClient,
 } from "./auth.js";
 import {
@@ -21,33 +22,88 @@ import {
   remoteApiClientOptionsSchema,
 } from "./remote.js";
 
-export type LocalContext = { authApiClient: AuthApiClient };
-export type RemoteContext = {
+export type LocalProviderContext = { authApiClient: AuthApiClient };
+export type RemoteProviderContext = {
   authApiClient: AuthApiClient;
   localApiClient?: LocalApiClient;
 };
-export type LocalProvider = (
-  ctx: LocalContext
+
+export type AuthApiClientProvider = () => MaybePromise<
+  Partial<AuthApiClientOptions>
+>;
+export type LocalApiClientProvider = (
+  ctx: LocalProviderContext
 ) => MaybePromise<Partial<LocalApiClientOptions>>;
-export type RemoteProvider = (
-  ctx: RemoteContext
+export type RemoteApiClientProvider = (
+  ctx: RemoteProviderContext
 ) => MaybePromise<Partial<RemoteApiClientOptions>>;
 
+export type ClientMapping = {
+  auth: {
+    context: {};
+    options: AuthApiClientOptions;
+    provider: AuthApiClientProvider;
+    client: AuthApiClient;
+  };
+  local: {
+    context: LocalProviderContext;
+    options: LocalApiClientOptions;
+    provider: LocalApiClientProvider;
+    client: LocalApiClient;
+  };
+  remote: {
+    context: RemoteProviderContext;
+    options: RemoteApiClientOptions;
+    provider: RemoteApiClientProvider;
+    client: RemoteApiClient;
+  };
+};
+
+type ProvidersReturnType<
+  K extends keyof ClientMapping,
+  P extends ClientMapping[K]["provider"][]
+> = UnionToIntersection<Awaited<ReturnType<P[number]>>>;
+
+type AreProvidersTotal<
+  K extends keyof ClientMapping,
+  P extends ClientMapping[K]["provider"][]
+> = IsEqual<
+  keyof ProvidersReturnType<K, P> & RequiredKeysOf<ClientMapping[K]["options"]>,
+  RequiredKeysOf<ClientMapping[K]["options"]>
+>;
+
 export type ValorantApiClientOptions = {
-  auth?: AuthApiClientOptions;
-  local?: Partial<LocalApiClientOptions> & { providers: LocalProvider[] };
-  remote?: Partial<RemoteApiClientOptions> & { providers: RemoteProvider[] };
+  [k in keyof ClientMapping]?: {
+    providers: ClientMapping[k]["provider"][];
+  };
 };
 
-export type ValorantApiClients = {
-  auth: AuthApiClient;
-  local?: LocalApiClient;
-  remote?: RemoteApiClient;
-};
+type isValidOptions<
+  Opts extends ValorantApiClientOptions,
+  RKeys extends keyof Opts & keyof ClientMapping = RequiredKeysOf<Opts> &
+    keyof ClientMapping
+> = RKeys extends keyof ClientMapping
+  ? Opts[RKeys] extends {
+      providers: ClientMapping[keyof ClientMapping]["provider"][];
+    }
+    ? { [K in RKeys]: AreProvidersTotal<K, Opts[RKeys]["providers"]> }
+    : false
+  : false;
 
-export type ValorantApiClientsInferred<Keys extends keyof ValorantApiClients> =
-  Pick<SetRequired<ValorantApiClients, Keys>, Keys> &
-    Pick<ValorantApiClients, RequiredKeysOf<ValorantApiClients>>;
+type ParseOptions<
+  Opts extends ValorantApiClientOptions,
+  RKeys extends keyof Opts & keyof ClientMapping = RequiredKeysOf<Opts> &
+    keyof ClientMapping,
+  ValidityObj = UnionToIntersection<isValidOptions<Opts>>
+> = ValidityObj extends { [k in RKeys]: true }
+  ? Opts
+  : {
+      [k in keyof ValidityObj & RKeys]: ValidityObj[k] extends true
+        ? Opts[k]
+        : {
+            providers: [() => MaybePromise<ClientMapping[k]["options"]>];
+          };
+    };
 
 async function resolveProviders<
   R,
@@ -60,9 +116,18 @@ async function resolveProviders<
 }
 
 export async function createValorantApiClient<
-  Options extends ValorantApiClientOptions
->(options: Options) {
-  const authApiClient = createAuthApiClient(options.auth);
+  Options extends ValorantApiClientOptions,
+  Keys extends keyof Options & keyof ClientMapping
+>(options: Options & ParseOptions<Options>) {
+  const authApiClient = createAuthApiClient(
+    options.auth
+      ? await resolveProviders(
+          authApiClientOptionsSchema,
+          [...options.auth.providers],
+          {}
+        )
+      : {}
+  );
 
   let localApiClient: LocalApiClient | undefined = undefined;
   let remoteApiClient: RemoteApiClient | undefined = undefined;
@@ -71,7 +136,7 @@ export async function createValorantApiClient<
     localApiClient = createLocalApiClient(
       await resolveProviders(
         localApiClientOptionsSchema,
-        [() => ({ ...options.local }), ...options.local.providers],
+        [...options.local.providers],
         { authApiClient }
       )
     );
@@ -81,7 +146,7 @@ export async function createValorantApiClient<
     remoteApiClient = createRemoteApiClient(
       await resolveProviders(
         remoteApiClientOptionsSchema,
-        [() => ({ ...options.remote }), ...options.remote.providers],
+        [...options.remote.providers],
         { authApiClient, localApiClient }
       )
     );
@@ -91,14 +156,12 @@ export async function createValorantApiClient<
     auth: authApiClient,
     local: localApiClient,
     remote: remoteApiClient,
-  } as keyof Options extends keyof ValorantApiClients
-    ? ValorantApiClientsInferred<keyof Options>
-    : ValorantApiClients;
+  } as { [K in Keys | "auth"]: ClientMapping[K]["client"] };
 
   return {
     ...apiClients,
-    getLocalContext: () => ({ authApiClient }),
-    getRemoteContext: () => ({ authApiClient, localApiClient }),
+    getLocalProviderContext: () => ({ authApiClient }),
+    getRemoteProviderContext: () => ({ authApiClient, localApiClient }),
   };
 }
 

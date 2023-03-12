@@ -47,7 +47,7 @@ createAuthRefreshInterceptor(remoteAxiosInstance, {
     const authProvider = provideAuthViaLocalApi();
 
     const { accessToken, entitlementsToken } = await authProvider(
-      vapic.getRemoteContext()
+      vapic.getRemoteProviderContext()
     );
 
     const headers = {

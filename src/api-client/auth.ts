@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
+import z from "zod";
 
 import { getFunctionName } from "~/helpers/endpoint.js";
 
@@ -9,10 +10,12 @@ import { AuthApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 
-export type AuthApiClientOptions = {
-  ciphers?: string[];
-  userAgent?: string;
-};
+export const authApiClientOptionsSchema = z.object({
+  ciphers: z.array(z.string()).optional(),
+  userAgent: z.string().optional(),
+});
+
+export type AuthApiClientOptions = z.infer<typeof authApiClientOptionsSchema>;
 
 const DEFAULT_CIPHERS = [
   "ECDHE-ECDSA-CHACHA20-POLY1305",

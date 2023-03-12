@@ -6,7 +6,7 @@ import {
   parseEntitlementsToken,
 } from "~/api-client/auth.js";
 import { RemoteApiClientOptions } from "~/api-client/remote";
-import { RemoteContext } from "~/api-client/valorant.js";
+import { RemoteProviderContext } from "~/api-client/valorant.js";
 import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
 import { getLogFileDataPromise } from "~/file-parser/logfile";
 import {
@@ -18,7 +18,7 @@ import { RegionOpts, getRegionOptions } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
 
 export function provideAuth(username: string, password: string) {
-  return async ({ authApiClient }: RemoteContext) => {
+  return async ({ authApiClient }: RemoteProviderContext) => {
     const { api, setCookie } = authApiClient;
 
     const cookieResponse = await api.postAuthCookies({
@@ -66,7 +66,7 @@ export function provideAuth(username: string, password: string) {
 }
 
 export function provideAuthViaLocalApi() {
-  return async ({ localApiClient }: RemoteContext) => {
+  return async ({ localApiClient }: RemoteProviderContext) => {
     if (!localApiClient) {
       throw Error("Provider unable to access localApiClient");
     }
