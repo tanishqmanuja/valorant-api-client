@@ -1,4 +1,3 @@
-import { RequiredKeysOf, UnionToIntersection, IsEqual } from "type-fest";
 import { ZodSchema } from "zod";
 
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
@@ -59,51 +58,11 @@ export type ClientMapping = {
   };
 };
 
-type ProvidersReturnType<
-  K extends keyof ClientMapping,
-  P extends ClientMapping[K]["provider"][]
-> = UnionToIntersection<Awaited<ReturnType<P[number]>>>;
-
-type AreProvidersTotal<
-  K extends keyof ClientMapping,
-  P extends ClientMapping[K]["provider"][]
-> = IsEqual<
-  keyof ProvidersReturnType<K, P> & RequiredKeysOf<ClientMapping[K]["options"]>,
-  RequiredKeysOf<ClientMapping[K]["options"]>
->;
-
 export type ValorantApiClientOptions = {
   [k in keyof ClientMapping]?: {
-    providers: ClientMapping[k]["provider"][];
+    providers: readonly ClientMapping[k]["provider"][];
   };
 };
-
-type isValidOptions<
-  Opts extends ValorantApiClientOptions,
-  RKeys extends keyof Opts & keyof ClientMapping = RequiredKeysOf<Opts> &
-    keyof ClientMapping
-> = RKeys extends keyof ClientMapping
-  ? Opts[RKeys] extends {
-      providers: ClientMapping[keyof ClientMapping]["provider"][];
-    }
-    ? { [K in RKeys]: AreProvidersTotal<K, Opts[RKeys]["providers"]> }
-    : false
-  : false;
-
-type ParseOptions<
-  Opts extends ValorantApiClientOptions,
-  RKeys extends keyof Opts & keyof ClientMapping = RequiredKeysOf<Opts> &
-    keyof ClientMapping,
-  ValidityObj = UnionToIntersection<isValidOptions<Opts>>
-> = ValidityObj extends { [k in RKeys]: true }
-  ? Opts
-  : {
-      [k in keyof ValidityObj & RKeys]: ValidityObj[k] extends true
-        ? Opts[k]
-        : {
-            providers: [() => MaybePromise<ClientMapping[k]["options"]>];
-          };
-    };
 
 async function resolveProviders<
   R,
@@ -118,7 +77,7 @@ async function resolveProviders<
 export async function createValorantApiClient<
   Options extends ValorantApiClientOptions,
   Keys extends keyof Options & keyof ClientMapping
->(options: Options & ParseOptions<Options>) {
+>(options: Options) {
   const authApiClient = createAuthApiClient(
     options.auth
       ? await resolveProviders(
