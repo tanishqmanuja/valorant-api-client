@@ -36,12 +36,8 @@ import {
 // Create Valorant API Client
 
 const vapic = await createValorantApiClient({
-  local: {
-    providers: [provideLockFile()],
-  },
-  remote: {
-    providers: [provideLogFile(), provideAuthViaLocalApi()],
-  },
+  local: useProviders([provideLockFile()]),
+  remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
 });
 
 // Use API Client
@@ -76,13 +72,11 @@ const SHARD = "YOUR_SHARD";
 // Create Valorant API Client
 
 const vapic = await createValorantApiClient({
-  remote: {
-    providers: [
-      provideClientVersionViaVAPI(),
-      provideRegion(REGION, SHARD),
-      provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
-    ],
-  },
+  remote: useProviders([
+    provideClientVersionViaVAPI(),
+    provideRegion(REGION, SHARD),
+    provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
+  ]),
 });
 
 // Use API Client
