@@ -3,6 +3,7 @@ import {
   provideAuth,
   createValorantApiClient,
   provideRegion,
+  useProviders,
 } from "~/index.js";
 
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
@@ -24,13 +25,11 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
 // main code starts here ...
 
 const vapic = await createValorantApiClient({
-  remote: {
-    providers: [
-      provideClientVersionViaVAPI(),
-      provideRegion(REGION, SHARD),
-      provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
-    ],
-  },
+  remote: useProviders([
+    provideClientVersionViaVAPI(),
+    provideRegion(REGION, SHARD),
+    provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
+  ]),
 });
 
 const puuid = vapic.remote.getPuuid();

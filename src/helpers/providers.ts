@@ -5,7 +5,6 @@ import {
   parseAuthCookie,
   parseEntitlementsToken,
 } from "~/api-client/auth.js";
-import { RemoteApiClientOptions } from "~/api-client/remote";
 import { RemoteProviderContext } from "~/api-client/valorant.js";
 import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
 import { getLogFileDataPromise } from "~/file-parser/logfile";
@@ -14,7 +13,7 @@ import {
   getJsonHeader,
   getCookieHeader,
 } from "~/helpers/headers.js";
-import { RegionOpts, getRegionOptions } from "~/helpers/regions.js";
+import { RegionOpts } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
 
 export function provideAuth(username: string, password: string) {
@@ -61,7 +60,7 @@ export function provideAuth(username: string, password: string) {
     return {
       accessToken,
       entitlementsToken,
-    } satisfies Partial<RemoteApiClientOptions>;
+    } as const;
   };
 }
 
@@ -80,7 +79,7 @@ export function provideAuthViaLocalApi() {
     return {
       accessToken,
       entitlementsToken,
-    } satisfies Partial<RemoteApiClientOptions>;
+    } as const;
   };
 }
 
@@ -88,7 +87,7 @@ export function provideRegion<R extends RegionOpts["region"]>(
   region: R,
   shard: Extract<RegionOpts, { region: R }>["shard"]
 ) {
-  return () => getRegionOptions(region, shard as any);
+  return () => ({ region, shard } as const);
 }
 
 export function provideClientVersionViaVAPI() {
@@ -99,7 +98,7 @@ export function provideClientVersionViaVAPI() {
     const {
       data: { riotClientVersion },
     } = data;
-    return { clientVersion: riotClientVersion };
+    return { clientVersion: riotClientVersion } as const;
   };
 }
 
@@ -109,7 +108,7 @@ export function provideLockFile(lockfilePath?: string) {
     if (!lockfile) {
       throw Error("Unable to get lockfile data");
     }
-    return lockfile;
+    return { ...lockfile } as const;
   };
 }
 
@@ -122,6 +121,6 @@ export function provideLogFile(logfilePath?: string) {
     return {
       ...logfile,
       ...getRegionAndShardFromGlzServer(logfile.servers.glz),
-    };
+    } as const;
   };
 }

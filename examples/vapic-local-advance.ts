@@ -11,17 +11,14 @@ import {
   provideLockFile,
   provideLogFile,
   provideAuthViaLocalApi,
+  useProviders,
 } from "~/index.js";
 
 // Create Valorant API Client
 
 const vapic = await createValorantApiClient({
-  local: {
-    providers: [provideLockFile()],
-  },
-  remote: {
-    providers: [provideLogFile(), provideAuthViaLocalApi()],
-  },
+  local: useProviders([provideLockFile()]),
+  remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
 });
 
 // Modify API Client fetching behaviour
