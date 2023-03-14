@@ -21,7 +21,7 @@ Install @tqman/vapic with npm, pnpm or yarn
 ## Usage/Examples
 
 **Local Authentication Example** \
-NOTE: Your game (VALORANT.exe) should be running fro lockfile and logfile to be generated.
+NOTE: Your game (VALORANT.exe) should be running for lockfile and logfile to be generated.
 
 ```typescript
 import {
