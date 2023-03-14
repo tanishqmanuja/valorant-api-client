@@ -1,5 +1,4 @@
 import { Simplify, UnionToIntersection } from "type-fest";
-import { ZodSchema } from "zod";
 
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
 
@@ -55,12 +54,6 @@ export type clientTypeMap = {
   };
 };
 
-export const clientParsersMap = {
-  auth: authApiClientOptionsSchema,
-  local: localApiClientOptionsSchema,
-  remote: remoteApiClientOptionsSchema,
-};
-
 export type ValorantApiClientOptions = {
   [type in keyof clientTypeMap]?: clientTypeMap[type] extends {
     context: infer C;
@@ -79,18 +72,13 @@ export function useProviders<TContext, TProviders extends Provider<TContext>[]>(
     ) as Promise<ProvidersReturnType<TProviders>>;
 }
 
-export async function resolveOptions<TOptions>(
-  parser: ZodSchema<TOptions>,
-  options: TOptions
-): Promise<TOptions> {
-  return parser.parse(options);
-}
-
 export async function createValorantApiClient<
   Options extends ValorantApiClientOptions,
   Keys extends keyof Options & keyof clientTypeMap
 >(options: Options) {
-  const authApiClient = createAuthApiClient(options.auth);
+  const authApiClient = createAuthApiClient(
+    authApiClientOptionsSchema.parse(options.auth)
+  );
 
   let localApiClient: LocalApiClient | undefined = undefined;
   let remoteApiClient: RemoteApiClient | undefined = undefined;
@@ -98,8 +86,7 @@ export async function createValorantApiClient<
   if (options.local) {
     if (typeof options.local === "function") {
       localApiClient = createLocalApiClient(
-        await resolveOptions(
-          clientParsersMap.local,
+        localApiClientOptionsSchema.parse(
           await options.local({ authApiClient })
         )
       );
@@ -111,9 +98,8 @@ export async function createValorantApiClient<
   if (options.remote) {
     if (typeof options.remote === "function") {
       remoteApiClient = createRemoteApiClient(
-        await resolveOptions(
-          clientParsersMap.remote,
-          await options.remote({ authApiClient, localApiClient })
+        remoteApiClientOptionsSchema.parse(
+          options.remote({ authApiClient, localApiClient })
         )
       );
     } else {
