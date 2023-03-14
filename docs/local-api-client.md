@@ -6,10 +6,10 @@ Api wrapper for calling local endpoints.
 
 ## Options
 
-- `port`<code style="background-color: #FD8A8A">required</code>: string
-- `password`<code style="background-color: #FD8A8A">required</code>: string
-- `username`<code style="background-color: #7286D3">optional</code>: string
-- `zodParseResponse`<code style="background-color: #7286D3">optional</code>: boolean
+- `port` <code style="background-color: #FD8A8A">required</code>: string
+- `password` <code style="background-color: #FD8A8A">required</code>: string
+- `username` <code style="background-color: #7286D3">optional</code>: string
+- `zodParseResponse` <code style="background-color: #7286D3">optional</code>: boolean
 
 ## Usage
 

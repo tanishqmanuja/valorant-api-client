@@ -4,8 +4,8 @@ Api wrapper for calling authentication endpoints.
 
 ## Options
 
-- `ciphers`<code style="background-color: #7286D3">optional</code>: string[]
-- `userAgent`<code style="background-color: #7286D3">optional</code>: string
+- `ciphers` <code style="background-color: #7286D3">optional</code>: string[]
+- `userAgent` <code style="background-color: #7286D3">optional</code>: string
 
 ## Usage
 

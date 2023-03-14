@@ -6,13 +6,13 @@ Api wrapper for calling remote endpoints.
 
 ## Options
 
-- `accessToken`<code style="background-color: #FD8A8A">required</code>: string
-- `entitlementsToken`<code style="background-color: #FD8A8A">required</code>: string
-- `shard`<code style="background-color: #FD8A8A">required</code>: string
-- `region`<code style="background-color: #FD8A8A">required</code>: string
-- `platformInfo`<code style="background-color: #7286D3">optional</code>: PlatformSchema
-- `userAgent`<code style="background-color: #7286D3">optional</code>: string
-- `zodParseResponse`<code style="background-color: #7286D3">optional</code>: boolean
+- `accessToken` <code style="background-color: #FD8A8A">required</code>: string
+- `entitlementsToken` <code style="background-color: #FD8A8A">required</code>: string
+- `shard` <code style="background-color: #FD8A8A">required</code>: string
+- `region` <code style="background-color: #FD8A8A">required</code>: string
+- `platformInfo` <code style="background-color: #7286D3">optional</code>: PlatformSchema
+- `userAgent` <code style="background-color: #7286D3">optional</code>: string
+- `zodParseResponse` <code style="background-color: #7286D3">optional</code>: boolean
 
 ## Usage
 
