@@ -10,10 +10,10 @@ Wrapper around the 3 API Clients (Auth, Local, Remote).
 
 - `local`: LocalApiClientOptions OR useProvider Function(recommended)
 
-  - Minimum Requirements: <code style="background-color: #FD8A8A">password</code><code style="background-color: #FD8A8A">port</code>
+  - Minimum Requirements: <code style="background-color: #FD8A8A">password</code> <code style="background-color: #FD8A8A">port</code>
 
 - `remote`: RemoteApiClientOptions OR useProvider Function(recommended)
-  - Minimum Requirements: <code style="background-color: #FD8A8A">accessToken</code><code style="background-color: #FD8A8A">entitlementsToken</code><code style="background-color: #AC7088">shard</code><code style="background-color: #AC7088">region</code><code style="background-color: #54BAB9">clientVersion</code>
+  - Minimum Requirements: <code style="background-color: #FD8A8A">accessToken</code> <code style="background-color: #FD8A8A">entitlementsToken</code> <code style="background-color: #AC7088">shard</code> <code style="background-color: #AC7088">region</code> <code style="background-color: #54BAB9">clientVersion</code>
 
 ## Provider System
 
