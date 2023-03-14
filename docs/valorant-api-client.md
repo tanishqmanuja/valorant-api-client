@@ -26,7 +26,7 @@ const vapic = await createValorantApiClient({
 });
 ```
 
-> All the providers combined should fulfill atleast the minimum requirements of the respective API Client/s.
+> All the providers within a single useProvider() when combined should fulfill atleast the minimum requirements of the respective API Client/s.
 
 ## Available Providers
 
