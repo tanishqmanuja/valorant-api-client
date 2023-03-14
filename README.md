@@ -59,7 +59,7 @@ import {
   provideRemoteAuth,
   createValorantApiClient,
   provideRegion,
-} from "~/index.js";
+} from "@tqman/vapic";
 
 // Change as per your requirement
 const RIOT_USERNAME = "YOUR_USERNAME";
