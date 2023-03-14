@@ -20,6 +20,13 @@ Install @tqman/vapic with npm, pnpm or yarn
   yarn add @tqman/vapic
 ```
 
+## API Clients
+
+- [Valorant API Client](docs/valorant-api-client.md)
+- [Auth API Client](docs/auth-api-client.md)
+- [Local API Client](docs/local-api-client.md)
+- [Remote API Client](docs/remote-api-client.md)
+
 ## Usage/Examples
 
 **Local Authentication Example** \
