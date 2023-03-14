@@ -6,6 +6,7 @@ import {
   getAccessTokenHeader,
   getCookieHeader,
   getJsonHeader,
+  getPuuidFromAccessToken,
   getRegionOptions,
   parseAccessToken,
   parseAuthCookie,
@@ -86,11 +87,6 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
 
   console.log(competitiveUpdates);
 })();
-
-function getPuuidFromAccessToken(accessToken: string): string {
-  return JSON.parse(Buffer.from(accessToken.split(".")[1], "base64").toString())
-    .sub;
-}
 
 async function getClientVersion(): Promise<string> {
   const { data } = await axios.get("https://valorant-api.com/v1/version");
