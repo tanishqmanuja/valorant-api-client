@@ -1,9 +1,9 @@
 // Api-Clients
-export * from "~/api-client/auth.js";
-export * from "~/api-client/local.js";
-export * from "~/api-client/remote.js";
-export * from "~/api-client/types.js";
-export * from "~/api-client/valorant.js";
+export * from "~/api-clients/auth.js";
+export * from "~/api-clients/local.js";
+export * from "~/api-clients/remote.js";
+export * from "~/api-clients/types.js";
+export * from "~/api-clients/valorant.js";
 
 // File Parsers
 export * from "~/file-parser/lockfile.js";

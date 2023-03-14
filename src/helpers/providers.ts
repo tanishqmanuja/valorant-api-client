@@ -4,8 +4,8 @@ import {
   parseAccessToken,
   parseAuthCookie,
   parseEntitlementsToken,
-} from "~/api-client/auth.js";
-import { RemoteProviderContext } from "~/api-client/valorant.js";
+} from "~/api-clients/auth.js";
+import { RemoteProviderContext } from "~/api-clients/valorant.js";
 import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
 import { getLogFileDataPromise } from "~/file-parser/logfile";
 import {
