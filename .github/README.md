@@ -99,6 +99,28 @@ const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
 console.log(compUpdates);
 ```
 
+**Removing Zod Parsing**
+
+```typescript
+// For Entire Client Instance
+const vapic = await createValorantApiClient({
+  remote: useProviders([
+    provideClientVersionViaVAPI(),
+    provideRegion(REGION, SHARD),
+    provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
+    () => ({ zodParseResponse: false }),
+  ]),
+});
+
+// For Single API Call
+const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
+  data: {
+    puuid,
+  },
+  zodParseResponse: false,
+});
+```
+
 ## Infinite Thanks ❤️‍🔥
 
 [valorant-api-docs](https://github.com/techchrism/valorant-api-docs)
