@@ -126,7 +126,19 @@ export function parseAccessToken<T extends { data: any }>(response: T) {
   let params = new URLSearchParams(url.hash.substring(1));
   const token = params.get("access_token");
   if (!token) {
-    throw Error("No token found in response");
+    throw Error("No Access token found in response");
+  }
+  return token;
+}
+
+export function parseIdToken<T extends { data: any }>(response: T) {
+  const uri = response.data.response.parameters.uri;
+
+  let url = new URL(uri);
+  let params = new URLSearchParams(url.hash.substring(1));
+  const token = params.get("id_token");
+  if (!token) {
+    throw Error("No Id token found in response");
   }
   return token;
 }
