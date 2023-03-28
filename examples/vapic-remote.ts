@@ -1,9 +1,12 @@
+import inquirer from "inquirer";
+
 import {
   provideClientVersionViaVAPI,
   provideAuth,
   createValorantApiClient,
   provideRegion,
   useProviders,
+  type MfaCodeProvider,
 } from "~/index.js";
 
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
@@ -22,13 +25,27 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
   process.exit(1);
 }
 
+// MFA provider function
+
+const provideMfaCodeFromCli: MfaCodeProvider = async response => {
+  const { code } = await inquirer.prompt({
+    type: "input",
+    name: "code",
+    message: `Enter MFA code (email: ${response.data.multifactor.email})`,
+  });
+
+  return {
+    code,
+  };
+};
+
 // main code starts here ...
 
 const vapic = await createValorantApiClient({
   remote: useProviders([
     provideClientVersionViaVAPI(),
     provideRegion(REGION, SHARD),
-    provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
+    provideAuth(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
   ]),
 });
 
