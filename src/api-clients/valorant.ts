@@ -77,7 +77,7 @@ export async function createValorantApiClient<
   Keys extends keyof Options & keyof clientTypeMap
 >(options: Options) {
   const authApiClient = createAuthApiClient(
-    authApiClientOptionsSchema.parse(options.auth)
+    authApiClientOptionsSchema.parse(options.auth ?? {})
   );
 
   let localApiClient: LocalApiClient | undefined = undefined;
@@ -99,7 +99,7 @@ export async function createValorantApiClient<
     if (typeof options.remote === "function") {
       remoteApiClient = createRemoteApiClient(
         remoteApiClientOptionsSchema.parse(
-          options.remote({ authApiClient, localApiClient })
+          await options.remote({ authApiClient, localApiClient })
         )
       );
     } else {
