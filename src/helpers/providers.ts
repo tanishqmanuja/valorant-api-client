@@ -35,7 +35,7 @@ export function provideAuth(username: string, password: string) {
     // Warning: Side Effect
     setCookie(cookie);
 
-    const tokenResponse = await api.putAuthRequest({
+    const tokenResponse = await api.putAuthRequest<any>({
       data: {
         language: "en_US",
         remember: true,
@@ -45,6 +45,10 @@ export function provideAuth(username: string, password: string) {
       },
       headers: { ...getCookieHeader(cookie) },
     });
+
+    if (tokenResponse.data.type === "multifactor") {
+      throw Error("Multifactor authentication is not supported");
+    }
 
     const accessToken = parseAccessToken(tokenResponse);
 

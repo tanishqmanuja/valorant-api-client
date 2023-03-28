@@ -107,12 +107,15 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
 export type AuthApiClient = ReturnType<typeof createAuthApiClient>;
 
 export function parseAuthCookie(response: AxiosResponse) {
-  const cookie = response.headers["set-cookie"]?.find(elem =>
-    /^asid/.test(elem)
-  );
+  const cookie = response.headers["set-cookie"]
+    ?.find(elem => /^asid/.test(elem))
+    ?.split(";")
+    .at(0);
+
   if (!cookie) {
-    throw Error("No cookie found in response headers");
+    throw Error("No ASID cookie found in response headers");
   }
+
   return cookie;
 }
 

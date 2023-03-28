@@ -1,4 +1,5 @@
 import axios from "axios";
+import inquirer from "inquirer";
 
 import {
   createAuthApiClient,
@@ -42,9 +43,9 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
     },
   });
 
-  const cookie = parseAuthCookie(cookieResponse);
+  let cookie = parseAuthCookie(cookieResponse);
 
-  const tokenResponse = await authApi.putAuthRequest({
+  const tokenResponse = await authApi.putAuthRequest<any>({
     data: {
       language: "en_US",
       remember: true,
@@ -55,11 +56,31 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
     headers: { ...getCookieHeader(cookie) },
   });
 
-  if ((tokenResponse.data as any).type === "multifactor") {
-    throw Error("Multifactor authentication is not supported");
+  if (tokenResponse.data.type !== "multifactor") {
+    throw Error("Account does not support Multifactor Authentication!");
   }
 
-  const accessToken = parseAccessToken(tokenResponse);
+  cookie = parseAuthCookie(tokenResponse);
+
+  const { mfaCode } = await inquirer.prompt({
+    type: "input",
+    name: "mfaCode",
+    message: `Enter MFA code (email: ${tokenResponse.data.multifactor.email})`,
+  });
+
+  const mfaTokenResponse = await authApi.putMultiFactorAuthentication({
+    data: {
+      type: "multifactor",
+      code: mfaCode,
+      rememberDevice: true,
+    },
+    headers: {
+      ...getCookieHeader(cookie),
+      ...getJsonHeader(),
+    },
+  });
+
+  const accessToken = parseAccessToken(mfaTokenResponse);
   const selfPuuid = getPuuidFromAccessToken(accessToken);
 
   const entitlementResponse = await authApi.postEntitlement({
