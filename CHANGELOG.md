@@ -1,5 +1,12 @@
 # @tqman/vapic
 
+## 0.2.0
+
+### Minor Changes
+
+- - Fix Remote Provider Parsing
+  - Add MFA Support
+
 ## 0.1.0
 
 ### Minor Changes
