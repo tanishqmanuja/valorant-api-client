@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 
 import {
   parseAccessToken,
@@ -15,8 +15,61 @@ import {
 } from "~/helpers/headers.js";
 import { RegionOpts } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
+import { MaybePromise } from "~/utils/lib/typescript/promise";
 
-export function provideAuth(username: string, password: string) {
+export type AuthParameters = {
+  uri: string;
+};
+
+export type AuthResponse = {
+  mode: string;
+  parameters: AuthParameters;
+};
+
+export type AuthMultifactor = {
+  email: string;
+  method: string;
+  methods: string[];
+  multiFactorCodeLength: number;
+  mfaVersion: string;
+};
+
+export type AuthTokenResponse = {
+  type: "response";
+  response: AuthResponse;
+  country: string;
+};
+
+export interface AuthMFAResponse {
+  type: "multifactor";
+  multifactor: AuthMultifactor;
+  country: string;
+  securityProfile: string;
+}
+
+export type ValorantAuthResponse = AuthTokenResponse | AuthMFAResponse;
+
+function isTokenResponse(
+  response: AxiosResponse<ValorantAuthResponse>
+): response is AxiosResponse<AuthTokenResponse> {
+  return response.data.type === "response";
+}
+
+function isMfaResponse(
+  response: AxiosResponse<ValorantAuthResponse>
+): response is AxiosResponse<AuthMFAResponse> {
+  return response.data.type === "multifactor";
+}
+
+export type MfaCodeProvider = (
+  response: AxiosResponse<AuthMFAResponse>
+) => MaybePromise<{ code: string }>;
+
+export function provideAuth(
+  username: string,
+  password: string,
+  mfaCodeProvider?: MfaCodeProvider
+) {
   return async ({ authApiClient }: RemoteProviderContext) => {
     const { api, setCookie } = authApiClient;
 
@@ -30,12 +83,13 @@ export function provideAuth(username: string, password: string) {
       },
     });
 
-    const cookie = parseAuthCookie(cookieResponse);
+    let cookie = parseAuthCookie(cookieResponse);
 
     // Warning: Side Effect
     setCookie(cookie);
 
-    const tokenResponse = await api.putAuthRequest<any>({
+    let tokenResponse;
+    const queryResponse = await api.putAuthRequest<ValorantAuthResponse>({
       data: {
         language: "en_US",
         remember: true,
@@ -46,8 +100,42 @@ export function provideAuth(username: string, password: string) {
       headers: { ...getCookieHeader(cookie) },
     });
 
-    if (tokenResponse.data.type === "multifactor") {
-      throw Error("Multifactor authentication is not supported");
+    if (isTokenResponse(queryResponse)) {
+      tokenResponse = queryResponse;
+    }
+
+    if (isMfaResponse(queryResponse)) {
+      if (!mfaCodeProvider) {
+        throw Error("MFA code provider is not provided");
+      }
+
+      cookie = parseAuthCookie(queryResponse);
+
+      // Warning: Side Effect
+      setCookie(cookie);
+
+      const { code: mfaCode } = await mfaCodeProvider(queryResponse);
+
+      const mfaTokenResponse =
+        await api.putMultiFactorAuthentication<ValorantAuthResponse>({
+          data: {
+            type: "multifactor",
+            code: mfaCode,
+            rememberDevice: true,
+          },
+          headers: {
+            ...getCookieHeader(cookie),
+            ...getJsonHeader(),
+          },
+        });
+
+      if (isTokenResponse(mfaTokenResponse)) {
+        tokenResponse = mfaTokenResponse;
+      }
+    }
+
+    if (!tokenResponse) {
+      throw Error("Invalid auth token response");
     }
 
     const accessToken = parseAccessToken(tokenResponse);
