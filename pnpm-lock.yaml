@@ -18,7 +18,7 @@ specifiers:
   tsup: ^6.7.0
   tsx: ^3.12.3
   turbo: ^1.8.3
-  type-fest: ^3.5.7
+  type-fest: ^3.7.1
   typescript: 5.0.2
   valorant-api-types: ^0.5.1
   zod: ^3.20.6
@@ -29,7 +29,6 @@ dependencies:
   fp-ts-contrib: 0.1.29_fp-ts@2.13.1
   hotscript: 1.0.6
   ts-extras: 0.11.0
-  type-fest: 3.5.7
   valorant-api-types: 0.5.1
   zod: 3.20.6
 
@@ -46,6 +45,7 @@ devDependencies:
   tsup: 6.7.0_typescript@5.0.2
   tsx: 3.12.3
   turbo: 1.8.3
+  type-fest: 3.7.1
   typescript: 5.0.2
 
 packages:
@@ -714,7 +714,7 @@ packages:
     resolution: {integrity: sha512-bQyg9bzRntwR/8b89DOEhGwctcwCrbWW/TuqTQnpqpy5Fz3aovcOTj5i8NJV6AHc8OGNdMaqdxAWww8pz2kiKg==}
     engines: {node: '>=14.16'}
     dependencies:
-      type-fest: 3.5.7
+      type-fest: 3.7.1
     dev: true
 
   /ansi-regex/5.0.1:
@@ -2917,9 +2917,10 @@ packages:
     engines: {node: '>=12.20'}
     dev: false
 
-  /type-fest/3.5.7:
-    resolution: {integrity: sha512-6J4bYzb4sdkcLBty4XW7F18VPI66M4boXNE+CY40532oq2OJe6AVMB5NmjOp6skt/jw5mRjz/hLRpuglz0U+FA==}
+  /type-fest/3.7.1:
+    resolution: {integrity: sha512-8LZNdvuztgxCF4eYpEmPYUPS0lbbByM2qHcp2oMxHZhWLIQB9QE36EeQ1PKwsUIDZXEP8HCBEmkBbT1//kLU4Q==}
     engines: {node: '>=14.16'}
+    dev: true
 
   /typed-array-length/1.0.4:
     resolution: {integrity: sha512-KjZypGq+I/H7HI5HlOoGHkWUUGq+Q0TPhQurLbyrVrvnKTBgzLhIJ7j6J/XTQOi0d1RjyZ0wdas8bKs2p0x3Ng==}
