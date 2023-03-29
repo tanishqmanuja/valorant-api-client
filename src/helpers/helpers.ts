@@ -1,4 +1,24 @@
+import axios from "axios";
+
 export function getPuuidFromAccessToken(accessToken: string): string {
   return JSON.parse(Buffer.from(accessToken.split(".")[1], "base64").toString())
     .sub;
+}
+
+export async function fetchPas(accessToken: string, idToken: string) {
+  const { data } = await axios<{
+    token: string;
+    affinities: { pbe: string; live: string };
+  }>({
+    url: "https://riot-geo.pas.si.riotgames.com/pas/v1/product/valorant",
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+    data: {
+      id_token: idToken,
+    },
+  });
+
+  return data;
 }
