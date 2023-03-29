@@ -162,7 +162,7 @@ export function provideAuth(
   };
 }
 
-export function _provideAuthRegionClientVersion(
+export function provideRemoteAuto(
   username: string,
   password: string,
   mfaCodeProvider?: MfaCodeProvider
