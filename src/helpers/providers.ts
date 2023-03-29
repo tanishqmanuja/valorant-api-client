@@ -1,7 +1,5 @@
 import axios, { type AxiosResponse } from "axios";
-import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
-import { WritableDeep } from "type-fest";
 
 import {
   parseAccessToken,
@@ -11,20 +9,16 @@ import {
 } from "~/api-clients/auth.js";
 import { RemoteProviderContext } from "~/api-clients/valorant.js";
 import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
-import { getLogFileDataPromise } from "~/file-parser/logfile";
+import { getLogFileDataPromise } from "~/file-parser/logfile.js";
 import {
   getAccessTokenHeader,
   getJsonHeader,
   getCookieHeader,
-  getEntitlementsJWTHeader,
-  getClientPlatformHeader,
-  getClientVersionHeader,
 } from "~/helpers/headers.js";
+import { fetchPas } from "~/helpers/helpers.js";
 import { Region, RegionShard, regionShardMap } from "~/helpers/regions.js";
 import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
-import { MaybePromise } from "~/utils/lib/typescript/promise";
-
-import { DEFAULT_PLATFORM_INFO, fetchPas, getPuuidFromAccessToken } from "..";
+import { MaybePromise } from "~/utils/lib/typescript/promise.js";
 
 export type AuthParameters = {
   uri: string;
@@ -178,64 +172,24 @@ export function _provideAuthRegionClientVersion(
     const { clientVersion } = await provideClientVersionViaVAPI()();
 
     const {
-      affinities: { live: regionOrShard },
+      affinities: { live: possibleRegion },
+      token: pasToken,
     } = await fetchPas(auth.accessToken, auth.idToken);
 
-    const editableRegionShardMap = structuredClone(
-      regionShardMap
-    ) as WritableDeep<typeof regionShardMap> as Record<string, string[]>;
-
-    const possibleRegionShardMapEntries: [string, string[]][] = objectEntries(
-      editableRegionShardMap
-    )
-      .filter(
-        ([region, shards]) =>
-          region === regionOrShard ||
-          (shards as string[]).includes(regionOrShard)
-      )
-      .map(([region, shards]) => {
-        if (region === regionOrShard) {
-          return [region, shards];
-        } else {
-          return [region, [shards.find(shard => shard === regionOrShard)!]];
-        }
-      });
-
-    const possibleRegionShardEntries = possibleRegionShardMapEntries.reduce(
-      (acc, [region, shards]) => {
-        acc.push(...shards.map(shard => ({ region, shard })));
-        return acc;
-      },
-      [] as Array<{ region: string; shard: string }>
+    const possibleRegionShardMapEntry = objectEntries(regionShardMap).find(
+      ([region]) => region === possibleRegion
     );
 
-    const puuid = getPuuidFromAccessToken(auth.accessToken);
+    if (!possibleRegionShardMapEntry) {
+      throw Error(`Unable to find region shard for ${possibleRegion}`);
+    }
 
-    const response = await Promise.any(
-      possibleRegionShardEntries.map(({ region, shard }) =>
-        axios.get(
-          `https://glz-${region}-1.${shard}.a.pvp.net/parties/v1/players/${puuid}`,
-          {
-            httpsAgent: new Agent({
-              rejectUnauthorized: false,
-            }),
-            headers: {
-              ...getAccessTokenHeader(auth.accessToken),
-              ...getEntitlementsJWTHeader(auth.entitlementsToken),
-              ...getClientPlatformHeader(DEFAULT_PLATFORM_INFO),
-              ...getClientVersionHeader(clientVersion),
-            },
-          }
-        )
-      )
-    );
-
-    const { region, shard } = getRegionAndShardFromGlzServer(
-      response.config.url!
-    );
+    const region = possibleRegionShardMapEntry[0];
+    const shard = possibleRegionShardMapEntry[1].at(0)!;
 
     return {
       ...auth,
+      pasToken,
       region,
       shard,
       clientVersion,
