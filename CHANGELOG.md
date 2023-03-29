@@ -1,5 +1,13 @@
 # @tqman/vapic
 
+## 0.2.1
+
+### Patch Changes
+
+- Added Auto Remote Provider
+  Named exports for providers
+  Misc: QoL improvements
+
 ## 0.2.0
 
 ### Minor Changes
