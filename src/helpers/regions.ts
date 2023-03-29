@@ -1,36 +1,19 @@
-export type RegionOpts =
-  | {
-      region: "latam";
-      shard: "na";
-    }
-  | {
-      region: "br";
-      shard: "na";
-    }
-  | {
-      region: "na";
-      shard: "na";
-    }
-  | {
-      region: "na";
-      shard: "pbe";
-    }
-  | {
-      region: "eu";
-      shard: "eu";
-    }
-  | {
-      region: "ap";
-      shard: "ap";
-    }
-  | {
-      region: "kr";
-      shard: "kr";
-    };
+export const regionShardMap = {
+  latam: ["na"],
+  br: ["na"],
+  na: ["na", "pbe"],
+  eu: ["eu"],
+  ap: ["ap"],
+  kr: ["kr"],
+} as const;
 
-export function getRegionOptions<R extends RegionOpts["region"]>(
+export type Region = keyof typeof regionShardMap;
+export type RegionShard<R extends Region = Region> =
+  (typeof regionShardMap)[R][number];
+
+export function getRegionOptions<R extends Region>(
   region: R,
-  shard: Extract<RegionOpts, { region: R }>["shard"]
+  shard: RegionShard<R>
 ) {
   return { region, shard };
 }
