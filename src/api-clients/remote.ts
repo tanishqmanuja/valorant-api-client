@@ -43,14 +43,15 @@ export type RemoteApiClientOptions = z.infer<
   typeof remoteApiClientOptionsSchema
 >;
 
-const DEFAULT_PLATFORM_INFO: PlatformInfo = {
+export const DEFAULT_PLATFORM_INFO: PlatformInfo = {
   platformType: "PC",
   platformOS: "Windows",
   platformOSVersion: "10.0.19044.1.256.64bit",
   platformChipset: "Unknown",
 };
 
-const DEFAULT_USER_AGENT = "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
+export const DEFAULT_USER_AGENT =
+  "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
 
 const DEAFULT_CLIENT_OPTIONS = {
   platformInfo: DEFAULT_PLATFORM_INFO,
