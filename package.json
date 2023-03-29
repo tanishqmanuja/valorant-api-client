@@ -10,6 +10,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./providers": {
+      "types": "./dist/helpers/providers.d.ts",
+      "import": "./dist/helpers/providers.js",
+      "require": "./dist/interceptors/providers.cjs"
     }
   },
   "main": "dist/index.cjs",
