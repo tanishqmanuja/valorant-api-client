@@ -130,8 +130,6 @@ Setup using Remote API Client + MFA + Automatic region detection
 // change as per your requirement
 const RIOT_USERNAME = "RIOT_USERNAME";
 const RIOT_PASSWORD = "RIOT_PASSWORD";
-const REGION = "REGION";
-const SHARD = "SHARD";
 
 // mfaCodeProvider using inquirer.js
 const provideMfaCodeFromCli: MfaCodeProvider = async response => {
