@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Agent } from "node:https";
 import { objectEntries } from "ts-extras";
+import type { SetOptional } from "type-fest";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
 import z from "zod";
 
@@ -13,6 +14,7 @@ type ValorantEndpoints = Record<string, ValorantEndpoint>;
 export const authApiClientOptionsSchema = z.object({
   ciphers: z.array(z.string()).optional(),
   userAgent: z.string().optional(),
+  cookie: z.string().optional(),
 });
 
 export type AuthApiClientOptions = z.infer<typeof authApiClientOptionsSchema>;
@@ -46,7 +48,9 @@ const DEAFULT_CLIENT_OPTIONS = {
   ciphers: DEFAULT_CIPHERS,
 } satisfies Partial<AuthApiClientOptions>;
 
-function getAuthApiClientAxios(options: Required<AuthApiClientOptions>) {
+function getAuthApiClientAxios(
+  options: SetOptional<Required<AuthApiClientOptions>, "cookie">
+) {
   const { userAgent, ciphers } = options;
 
   return axios.create({
@@ -76,7 +80,7 @@ function getEndpointFunction(
 }
 
 export function createAuthApiClient(options: AuthApiClientOptions = {}) {
-  const opts: Required<AuthApiClientOptions> = {
+  const opts: SetOptional<Required<AuthApiClientOptions>, "cookie"> = {
     ...DEAFULT_CLIENT_OPTIONS,
     ...options,
   };
@@ -100,6 +104,10 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
     getCookie: () => axios.defaults.headers["Cookie"],
     setCookie: (cookie: string) => (axios.defaults.headers["Cookie"] = cookie),
   };
+
+  if (opts.cookie) {
+    helpers.setCookie(opts.cookie);
+  }
 
   return { api, ...helpers };
 }
