@@ -91,7 +91,7 @@ export function provideAuth(
     setCookie(cookie);
 
     let tokenResponse;
-    const queryResponse = await api.putAuthRequest<ValorantAuthResponse>({
+    const authResponse = await api.putAuthRequest<ValorantAuthResponse>({
       data: {
         language: "en_US",
         remember: true,
@@ -102,21 +102,21 @@ export function provideAuth(
       headers: { ...getCookieHeader(cookie) },
     });
 
-    if (isTokenResponse(queryResponse)) {
-      tokenResponse = queryResponse;
+    if (isTokenResponse(authResponse)) {
+      tokenResponse = authResponse;
     }
 
-    if (isMfaResponse(queryResponse)) {
+    if (isMfaResponse(authResponse)) {
       if (!mfaCodeProvider) {
         throw Error("MFA code provider is not provided");
       }
 
-      cookie = parseAuthCookie(queryResponse);
+      cookie = parseAuthCookie(authResponse);
 
       // Warning: Side Effect
       setCookie(cookie);
 
-      const { code: mfaCode } = await mfaCodeProvider(queryResponse);
+      const { code: mfaCode } = await mfaCodeProvider(authResponse);
 
       const mfaTokenResponse =
         await api.putMultiFactorAuthentication<ValorantAuthResponse>({
