@@ -23,7 +23,7 @@ function parseLockFileContent(content: string) {
   return E.tryCatch(() => LockFileData.parse(matches?.groups), E.toError);
 }
 
-export function getLockFileData(
+export function getLockFileDataTE(
   lockfilePath: string = LOCK_FILE_PATH
 ): TE.TaskEither<Error, LockFileData> {
   return pipe(
@@ -33,8 +33,8 @@ export function getLockFileData(
   );
 }
 
-export function getLockFileDataPromise(
+export function getLockFileData(
   lockfilePath: string = LOCK_FILE_PATH
 ): Promise<undefined | LockFileData> {
-  return pipe(getLockFileData(lockfilePath), toPromise());
+  return pipe(getLockFileDataTE(lockfilePath), toPromise());
 }

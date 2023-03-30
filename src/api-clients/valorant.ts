@@ -1,6 +1,4 @@
-import { Simplify, UnionToIntersection } from "type-fest";
-
-import { MaybePromise } from "~/utils/lib/typescript/promise.js";
+import type { MaybePromise } from "~/utils/lib/typescript/promise.js";
 
 import {
   AuthApiClient,
@@ -27,14 +25,6 @@ export type RemoteProviderContext = {
   localApiClient?: LocalApiClient;
 };
 
-export type Provider<TContext = any, TOptions = any> = (
-  ctx: TContext
-) => MaybePromise<Partial<TOptions>>;
-
-export type ProvidersReturnType<Tproviders extends Provider[]> = Simplify<
-  UnionToIntersection<Awaited<ReturnType<Tproviders[number]>>>
->;
-
 export type clientTypeMap = {
   auth: {
     options: AuthApiClientOptions;
@@ -43,13 +33,11 @@ export type clientTypeMap = {
   local: {
     context: LocalProviderContext;
     options: LocalApiClientOptions;
-    provider: Provider<LocalProviderContext, LocalApiClientOptions>;
     client: LocalApiClient;
   };
   remote: {
     context: RemoteProviderContext;
     options: RemoteApiClientOptions;
-    provider: Provider<RemoteProviderContext, RemoteApiClientOptions>;
     client: RemoteApiClient;
   };
 };
@@ -62,15 +50,6 @@ export type ValorantApiClientOptions = {
     ? ((ctx: C) => MaybePromise<O>) | O
     : clientTypeMap[type]["options"];
 };
-
-export function useProviders<TContext, TProviders extends Provider<TContext>[]>(
-  providers: TProviders
-) {
-  return (ctx: TContext) =>
-    Promise.all(providers.map(task => task(ctx))).then(promises =>
-      promises.reduce((opts, val) => ({ ...opts, ...val }))
-    ) as Promise<ProvidersReturnType<TProviders>>;
-}
 
 export async function createValorantApiClient<
   Options extends ValorantApiClientOptions,

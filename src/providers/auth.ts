@@ -1,4 +1,4 @@
-import axios, { type AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
 import { objectEntries } from "ts-extras";
 
 import {
@@ -8,17 +8,16 @@ import {
   parseIdToken,
 } from "~/api-clients/auth.js";
 import { RemoteProviderContext } from "~/api-clients/valorant.js";
-import { getLockFileDataPromise } from "~/file-parser/lockfile.js";
-import { getLogFileDataPromise } from "~/file-parser/logfile.js";
 import {
   getAccessTokenHeader,
   getJsonHeader,
   getCookieHeader,
 } from "~/helpers/headers.js";
 import { fetchPas } from "~/helpers/helpers.js";
-import { Region, RegionShard, regionShardMap } from "~/helpers/regions.js";
-import { getRegionAndShardFromGlzServer } from "~/helpers/servers.js";
+import { regionShardMap } from "~/helpers/regions.js";
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
+
+import { provideClientVersionViaVAPI } from "./others.js";
 
 export type AuthParameters = {
   uri: string;
@@ -212,48 +211,6 @@ export function provideAuthViaLocalApi() {
     return {
       accessToken,
       entitlementsToken,
-    } as const;
-  };
-}
-
-export function provideRegion<R extends Region>(
-  region: R,
-  shard: RegionShard<R>
-) {
-  return () => ({ region, shard } as const);
-}
-
-export function provideClientVersionViaVAPI() {
-  return async () => {
-    const { data } = await axios.get<{ data: { riotClientVersion: string } }>(
-      "https://valorant-api.com/v1/version"
-    );
-    const {
-      data: { riotClientVersion },
-    } = data;
-    return { clientVersion: riotClientVersion } as const;
-  };
-}
-
-export function provideLockFile(lockfilePath?: string) {
-  return async () => {
-    const lockfile = await getLockFileDataPromise(lockfilePath);
-    if (!lockfile) {
-      throw Error("Unable to get lockfile data");
-    }
-    return { ...lockfile } as const;
-  };
-}
-
-export function provideLogFile(logfilePath?: string) {
-  return async () => {
-    const logfile = await getLogFileDataPromise(logfilePath);
-    if (!logfile) {
-      throw Error("Unable to get logfile data");
-    }
-    return {
-      ...logfile,
-      ...getRegionAndShardFromGlzServer(logfile.servers.glz),
     } as const;
   };
 }

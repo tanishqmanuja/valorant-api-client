@@ -9,6 +9,10 @@ import {
 import z from "zod";
 
 import {
+  DEFAULT_PLATFORM_INFO,
+  DEFAULT_USER_AGENT,
+} from "~/helpers/constants.js";
+import {
   buildSuffixUrl,
   getFunctionName,
   parseRequestData,
@@ -26,7 +30,6 @@ import { ensureArray } from "~/utils/array.js";
 import { CustomAxiosRequestConfig, RemoteApi } from "./types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
-type PlatformInfo = z.infer<typeof platformSchema>;
 
 export const remoteApiClientOptionsSchema = z.object({
   shard: z.string(),
@@ -42,16 +45,6 @@ export const remoteApiClientOptionsSchema = z.object({
 export type RemoteApiClientOptions = z.infer<
   typeof remoteApiClientOptionsSchema
 >;
-
-export const DEFAULT_PLATFORM_INFO: PlatformInfo = {
-  platformType: "PC",
-  platformOS: "Windows",
-  platformOSVersion: "10.0.19044.1.256.64bit",
-  platformChipset: "Unknown",
-};
-
-export const DEFAULT_USER_AGENT =
-  "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
 
 const DEAFULT_CLIENT_OPTIONS = {
   platformInfo: DEFAULT_PLATFORM_INFO,

@@ -44,7 +44,7 @@ const vapic = await createValorantApiClient({
 
 - ### provideAuth
 
-  Input: <code style="background-color: #7286D3">username</code> <code style="background-color: #7286D3">password</code> \
+  Input: <code style="background-color: #7286D3">username</code> <code style="background-color: #7286D3">password</code> <code style="background-color: #7286D3">mfaCodeProvider(optional)</code>\
   Output: <code style="background-color: #FD8A8A">accessToken</code> <code style="background-color: #FD8A8A">entitlementsToken</code> \
   Used As: `RemoteApiClientProvider`
 
@@ -64,6 +64,12 @@ const vapic = await createValorantApiClient({
 
   Input: <code style="background-color: #65647C">none</code> \
   Output: <code style="background-color: #54BAB9">clientVersion</code> \
+  Used As: `RemoteApiClientProvider`
+
+- ### provideRemoteAuto
+
+  Input: <code style="background-color: #7286D3">username</code> <code style="background-color: #7286D3">password</code> <code style="background-color: #7286D3">mfaCodeProvider(optional)</code>\
+  Output: <code style="background-color: #FD8A8A">accessToken</code> <code style="background-color: #FD8A8A">entitlementsToken</code> <code style="background-color: #AC7088">region</code> <code style="background-color: #AC7088">shard</code> <code style="background-color: #54BAB9">clientVersion</code> \
   Used As: `RemoteApiClientProvider`
 
 ## Usage
@@ -104,6 +110,46 @@ const vapic = await createValorantApiClient({
     provideClientVersionViaVAPI(),
     provideRegion(REGION, SHARD),
     provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
+  ]),
+});
+
+const puuid = vapic.remote.getPuuid();
+
+const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
+  data: {
+    puuid,
+  },
+});
+
+console.log(compUpdates);
+```
+
+Setup using Remote API Client + MFA + Automatic region detection
+
+```typescript
+// change as per your requirement
+const RIOT_USERNAME = "RIOT_USERNAME";
+const RIOT_PASSWORD = "RIOT_PASSWORD";
+const REGION = "REGION";
+const SHARD = "SHARD";
+
+// mfaCodeProvider using inquirer.js
+const provideMfaCodeFromCli: MfaCodeProvider = async response => {
+  const { code } = await inquirer.prompt({
+    type: "input",
+    name: "code",
+    message: `Enter MFA code (email: ${response.data.multifactor.email})`,
+  });
+
+  return {
+    code,
+  };
+};
+
+// main code starts here ...
+const vapic = await createValorantApiClient({
+  remote: useProviders([
+    provideRemoteAuto(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
   ]),
 });
 

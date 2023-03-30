@@ -44,24 +44,6 @@ export function replaceSuffixArgs(
   }, suffix);
 }
 
-export function findOKResponse(endpoint: ValorantEndpoint) {
-  if (!endpoint.responses) {
-    throw Error(`No responses for ${endpoint.name}`);
-  }
-
-  const res = objectEntries(endpoint.responses)
-    .filter(([k]) => k.startsWith("2"))
-    .sort(([a], [b]) => parseInt(a) - parseInt(b))
-    .map(([code, schema]) => ({ code, schema }))
-    .at(0);
-
-  if (!res) {
-    throw Error(`No OK responses for ${endpoint.name}`);
-  }
-
-  return res;
-}
-
 export function parseRequestData<T>(endpoint: ValorantEndpoint, data: T) {
   return endpoint.body?.parse(data);
 }

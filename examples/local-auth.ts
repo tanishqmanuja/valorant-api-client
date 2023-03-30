@@ -1,13 +1,13 @@
 import {
   createLocalApiClient,
   createRemoteApiClient,
-  getLockFileDataPromise,
-  getLogFileDataPromise,
+  getLockFileData,
+  getLogFileData,
   getRegionAndShardFromGlzServer,
 } from "~/index.js";
 
-const lockfile = await getLockFileDataPromise();
-const logfile = await getLogFileDataPromise();
+const lockfile = await getLockFileData();
+const logfile = await getLogFileData();
 
 if (lockfile && logfile) {
   const { password, port } = lockfile;

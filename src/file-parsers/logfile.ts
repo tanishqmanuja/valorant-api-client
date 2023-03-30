@@ -98,7 +98,7 @@ function parseLogFileContent(content: string): E.Either<Error, LogFileData> {
   );
 }
 
-export function getLogFileData(
+export function getLogFileDataTE(
   logFilePath: string = LOG_FILE_PATH
 ): TE.TaskEither<Error, LogFileData> {
   return pipe(
@@ -108,8 +108,8 @@ export function getLogFileData(
   );
 }
 
-export function getLogFileDataPromise(
+export function getLogFileData(
   logFilePath: string = LOG_FILE_PATH
 ): Promise<LogFileData | undefined> {
-  return pipe(getLogFileData(logFilePath), toPromise());
+  return pipe(getLogFileDataTE(logFilePath), toPromise());
 }
