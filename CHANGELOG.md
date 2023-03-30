@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.2
+
+### Patch Changes
+
+- Major Refactor
+
 ## 0.2.1
 
 ### Patch Changes
