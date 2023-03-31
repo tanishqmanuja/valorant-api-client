@@ -109,7 +109,7 @@ export function provideAuth(
   };
 }
 
-export function provideRemoteAuto(
+export function provideAuthAutoRegion(
   username: string,
   password: string,
   mfaCodeProvider?: MfaCodeProvider

@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 import {
   createValorantApiClient,
   useProviders,
-  provideRemoteAuto,
+  provideAuthAutoRegion,
   type MfaCodeProvider,
 } from "~/index.js";
 
@@ -37,7 +37,7 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 
 const vapic = await createValorantApiClient({
   remote: useProviders([
-    provideRemoteAuto(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
+    provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
   ]),
 });
 
