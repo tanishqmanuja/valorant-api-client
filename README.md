@@ -7,15 +7,15 @@ VAPIC is a type safe implementation of an api client for VALORANT. It includes f
 Install @tqman/vapic with npm, pnpm or yarn
 
 ```bash
-  npm i @tqman/vapic
+npm i @tqman/vapic
 ```
 
 ```bash
-  pnpm add @tqman/vapic
+pnpm add @tqman/vapic
 ```
 
 ```bash
-  yarn add @tqman/vapic
+yarn add @tqman/vapic
 ```
 
 ## Showcase Features
