@@ -6,7 +6,7 @@ Api wrapper for calling authentication endpoints.
 
 - `ciphers` <code style="background-color: #7286D3">optional</code>: string[]
 - `userAgent` <code style="background-color: #7286D3">optional</code>: string
-- `cookie` <code style="background-color: #7286D3">optional</code>: string
+- `cookieJar` <code style="background-color: #7286D3">optional</code>: cookieJar
 
 ## Usage
 

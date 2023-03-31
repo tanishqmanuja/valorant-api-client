@@ -1,11 +1,13 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Agent } from "node:https";
+import { CookieJar } from "tough-cookie";
 import { objectEntries } from "ts-extras";
 import type { SetOptional } from "type-fest";
 import { ValorantEndpoint, endpoints } from "valorant-api-types";
 import z from "zod";
 
 import { getFunctionName } from "~/helpers/endpoint.js";
+import { createToughCookieInterceptor } from "~/utils/lib/axios/tough-cookie-interceptor.js";
 
 import { AuthApi } from "./types.js";
 
@@ -14,7 +16,7 @@ type ValorantEndpoints = Record<string, ValorantEndpoint>;
 export const authApiClientOptionsSchema = z.object({
   ciphers: z.array(z.string()).optional(),
   userAgent: z.string().optional(),
-  cookie: z.string().optional(),
+  cookieJar: z.instanceof(CookieJar).optional(),
 });
 
 export type AuthApiClientOptions = z.infer<typeof authApiClientOptionsSchema>;
@@ -49,7 +51,7 @@ const DEAFULT_CLIENT_OPTIONS = {
 } satisfies Partial<AuthApiClientOptions>;
 
 function getAuthApiClientAxios(
-  options: SetOptional<Required<AuthApiClientOptions>, "cookie">
+  options: SetOptional<Required<AuthApiClientOptions>, "cookieJar">
 ) {
   const { userAgent, ciphers } = options;
 
@@ -80,12 +82,17 @@ function getEndpointFunction(
 }
 
 export function createAuthApiClient(options: AuthApiClientOptions = {}) {
-  const opts: SetOptional<Required<AuthApiClientOptions>, "cookie"> = {
+  const cookieJar = options.cookieJar ?? new CookieJar();
+
+  const opts: Required<AuthApiClientOptions> = {
     ...DEAFULT_CLIENT_OPTIONS,
     ...options,
+    cookieJar,
   };
 
   const axios = getAuthApiClientAxios(opts);
+
+  createToughCookieInterceptor(axios, { jar: cookieJar });
 
   const api = objectEntries(endpoints as ValorantEndpoints)
     .filter(
@@ -101,58 +108,10 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
   const helpers = {
     getAxiosInstance: () => axios,
     getOptions: () => structuredClone(opts),
-    getCookie: () => axios.defaults.headers["Cookie"],
-    setCookie: (cookie: string) => (axios.defaults.headers["Cookie"] = cookie),
+    getCookieJar: () => cookieJar,
   };
-
-  if (opts.cookie) {
-    helpers.setCookie(opts.cookie);
-  }
 
   return { api, ...helpers };
 }
 
 export type AuthApiClient = ReturnType<typeof createAuthApiClient>;
-
-export function parseAuthCookie(response: AxiosResponse) {
-  const cookie = response.headers["set-cookie"]
-    ?.find(elem => /^asid/.test(elem))
-    ?.split(";")
-    .at(0);
-
-  if (!cookie) {
-    throw Error("No ASID cookie found in response headers");
-  }
-
-  return cookie;
-}
-
-export function parseAccessToken<T extends { data: any }>(response: T) {
-  const uri = response.data.response.parameters.uri;
-
-  let url = new URL(uri);
-  let params = new URLSearchParams(url.hash.substring(1));
-  const token = params.get("access_token");
-  if (!token) {
-    throw Error("No Access token found in response");
-  }
-  return token;
-}
-
-export function parseIdToken<T extends { data: any }>(response: T) {
-  const uri = response.data.response.parameters.uri;
-
-  let url = new URL(uri);
-  let params = new URLSearchParams(url.hash.substring(1));
-  const token = params.get("id_token");
-  if (!token) {
-    throw Error("No Id token found in response");
-  }
-  return token;
-}
-
-export function parseEntitlementsToken(
-  response: AxiosResponse<{ entitlements_token: string }>
-) {
-  return response.data.entitlements_token;
-}

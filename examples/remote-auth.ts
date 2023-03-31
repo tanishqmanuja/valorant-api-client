@@ -4,12 +4,10 @@ import {
   createAuthApiClient,
   createRemoteApiClient,
   getAccessTokenHeader,
-  getCookieHeader,
   getJsonHeader,
   getPuuidFromAccessToken,
   getRegionOptions,
-  parseAccessToken,
-  parseAuthCookie,
+  parseTokensFromResponse,
   parseEntitlementsToken,
 } from "~/index.js";
 
@@ -32,7 +30,7 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
 (async () => {
   const { api: authApi } = createAuthApiClient();
 
-  const cookieResponse = await authApi.postAuthCookies({
+  await authApi.postAuthCookies({
     data: {
       client_id: "play-valorant-web-prod",
       nonce: "1",
@@ -42,8 +40,6 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
     },
   });
 
-  const cookie = parseAuthCookie(cookieResponse);
-
   const tokenResponse = await authApi.putAuthRequest({
     data: {
       language: "en_US",
@@ -52,19 +48,17 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
       username: RIOT_USERNAME,
       password: RIOT_PASSWORD,
     },
-    headers: { ...getCookieHeader(cookie) },
   });
 
   if ((tokenResponse.data as any).type === "multifactor") {
     throw Error("Multifactor authentication is not supported");
   }
 
-  const accessToken = parseAccessToken(tokenResponse);
+  const { accessToken } = parseTokensFromResponse(tokenResponse);
   const selfPuuid = getPuuidFromAccessToken(accessToken);
 
   const entitlementResponse = await authApi.postEntitlement({
     headers: {
-      ...getCookieHeader(cookie),
       ...getAccessTokenHeader(accessToken),
       ...getJsonHeader(),
     },

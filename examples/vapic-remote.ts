@@ -1,4 +1,6 @@
 import inquirer from "inquirer";
+import { CookieJar } from "tough-cookie";
+import { FileCookieStore } from "tough-cookie-file-store";
 
 import {
   provideClientVersionViaVAPI,
@@ -42,6 +44,9 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 // main code starts here ...
 
 const vapic = await createValorantApiClient({
+  auth: {
+    cookieJar: new CookieJar(new FileCookieStore("./cookies.json")),
+  },
   remote: useProviders([
     provideClientVersionViaVAPI(),
     provideRegion(REGION, SHARD),

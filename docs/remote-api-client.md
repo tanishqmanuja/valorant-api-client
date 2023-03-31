@@ -75,8 +75,6 @@ const cookieResponse = await authApi.postAuthCookies({
   },
 });
 
-const cookie = parseAuthCookie(cookieResponse);
-
 const tokenResponse = await authApi.putAuthRequest({
   data: {
     language: "en_US",
@@ -85,15 +83,13 @@ const tokenResponse = await authApi.putAuthRequest({
     username: RIOT_USERNAME,
     password: RIOT_PASSWORD,
   },
-  headers: { ...getCookieHeader(cookie) },
 });
 
-const accessToken = parseAccessToken(tokenResponse);
+const { accessToken } = parseTokensFromResponse(tokenResponse);
 const selfPuuid = getPuuidFromAccessToken(accessToken);
 
 const entitlementResponse = await authApi.postEntitlement({
   headers: {
-    ...getCookieHeader(cookie),
     ...getAccessTokenHeader(accessToken),
     ...getJsonHeader(),
   },

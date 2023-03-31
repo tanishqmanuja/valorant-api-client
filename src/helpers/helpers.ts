@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 
 export function getPuuidFromAccessToken(accessToken: string): string {
   return JSON.parse(Buffer.from(accessToken.split(".")[1], "base64").toString())
@@ -21,4 +21,17 @@ export async function fetchPas(accessToken: string, idToken: string) {
   });
 
   return data;
+}
+
+export function parseAuthCookie(response: AxiosResponse) {
+  const cookie = response.headers["set-cookie"]
+    ?.find(elem => /^asid/.test(elem))
+    ?.split(";")
+    .at(0);
+
+  if (!cookie) {
+    throw Error("No ASID cookie found in response headers");
+  }
+
+  return cookie;
 }
