@@ -18,6 +18,12 @@ Install @tqman/vapic with npm, pnpm or yarn
   yarn add @tqman/vapic
 ```
 
+## Showcase Features
+
+- [x] Session Cookies Handling using tough-cookie library.
+- [x] Re-Auth using `ssid` cookie without resending username/password.
+- [x] Riot MFA using Email
+
 ## Usage/Examples
 
 **Local Authentication Example** \
