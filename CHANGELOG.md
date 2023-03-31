@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.3
+
+### Patch Changes
+
+- Native Cookies Support, Reauth using session cookies
+
 ## 0.2.2
 
 ### Patch Changes
