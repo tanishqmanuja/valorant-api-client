@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.5
+
+### Patch Changes
+
+- Fix `Bearer` doubling in header
+
 ## 0.2.4
 
 ### Patch Changes
