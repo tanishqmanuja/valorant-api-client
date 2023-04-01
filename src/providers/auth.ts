@@ -1,22 +1,18 @@
 import type { AxiosError, AxiosResponse } from "axios";
 import { array as A, boolean as B, option as O } from "fp-ts";
 import { pipe } from "fp-ts/lib/function.js";
-import { objectEntries } from "ts-extras";
 import { authRequestEndpoint } from "valorant-api-types";
 
 import type { AuthApi } from "~/api-clients/types.js";
 import { RemoteProviderContext } from "~/api-clients/valorant.js";
 import { getAccessTokenHeader, getJsonHeader } from "~/helpers/headers.js";
-import { fetchPas } from "~/helpers/helpers.js";
-import { regionShardMap } from "~/helpers/regions.js";
+import { getRegionAndShardFromPas } from "~/helpers/regions.js";
 import {
   parseEntitlementsToken,
   parseTokensFromUri,
   parseTokensFromResponse,
 } from "~/helpers/tokens.js";
 import { MaybePromise } from "~/utils/lib/typescript/promise.js";
-
-import { provideClientVersionViaVAPI } from "./others.js";
 
 export type AuthParameters = {
   uri: string;
@@ -92,14 +88,7 @@ export function provideAuth(
       )
     );
 
-    const entitlementResponse = await api.postEntitlement({
-      headers: {
-        ...getAccessTokenHeader(accessToken),
-        ...getJsonHeader(),
-      },
-    });
-
-    const entitlementsToken = parseEntitlementsToken(entitlementResponse);
+    const entitlementsToken = await getEntitlementsToken(api, accessToken);
 
     return {
       idToken,
@@ -116,30 +105,15 @@ export function provideAuthAutoRegion(
 ) {
   return async (ctx: RemoteProviderContext) => {
     const auth = await provideAuth(username, password, mfaCodeProvider)(ctx);
-    const { clientVersion } = await provideClientVersionViaVAPI()();
-
-    const {
-      affinities: { live: possibleRegion },
-      token: pasToken,
-    } = await fetchPas(auth.accessToken, auth.idToken);
-
-    const possibleRegionShardMapEntry = objectEntries(regionShardMap).find(
-      ([region]) => region === possibleRegion
+    const { region, shard } = await getRegionAndShardFromPas(
+      auth.accessToken,
+      auth.idToken
     );
-
-    if (!possibleRegionShardMapEntry) {
-      throw Error(`Unable to find region shard for ${possibleRegion}`);
-    }
-
-    const region = possibleRegionShardMapEntry[0];
-    const shard = possibleRegionShardMapEntry[1].at(0)!;
 
     return {
       ...auth,
-      pasToken,
       region,
       shard,
-      clientVersion,
     } as const;
   };
 }
@@ -161,6 +135,17 @@ export function provideAuthViaLocalApi() {
       entitlementsToken,
     } as const;
   };
+}
+
+export async function getEntitlementsToken(api: AuthApi, accessToken: string) {
+  const entitlementResponse = await api.postEntitlement({
+    headers: {
+      ...getAccessTokenHeader(accessToken),
+      ...getJsonHeader(),
+    },
+  });
+
+  return parseEntitlementsToken(entitlementResponse);
 }
 
 export async function getTokensUsingReauthStrategy(api: AuthApi) {

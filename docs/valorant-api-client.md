@@ -69,7 +69,7 @@ const vapic = await createValorantApiClient({
 - ### provideAuthAutoRegion
 
   Input: <code style="background-color: #7286D3">username</code> <code style="background-color: #7286D3">password</code> <code style="background-color: #7286D3">mfaCodeProvider(optional)</code>\
-  Output: <code style="background-color: #FD8A8A">accessToken</code> <code style="background-color: #FD8A8A">entitlementsToken</code> <code style="background-color: #AC7088">region</code> <code style="background-color: #AC7088">shard</code> <code style="background-color: #54BAB9">clientVersion</code> \
+  Output: <code style="background-color: #FD8A8A">accessToken</code> <code style="background-color: #FD8A8A">entitlementsToken</code> <code style="background-color: #AC7088">region</code> <code style="background-color: #AC7088">shard</code> \
   Used As: `RemoteApiClientProvider`
 
 ## Usage
@@ -148,6 +148,7 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 const vapic = await createValorantApiClient({
   remote: useProviders([
     provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
+    provideClientVersionViaVAPI(),
   ]),
 });
 

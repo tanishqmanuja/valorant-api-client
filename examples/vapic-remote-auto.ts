@@ -5,6 +5,7 @@ import {
   useProviders,
   provideAuthAutoRegion,
   type MfaCodeProvider,
+  provideClientVersionViaVAPI,
 } from "~/index.js";
 
 const RIOT_USERNAME = process.env.RIOT_USERNAME;
@@ -38,6 +39,7 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 const vapic = await createValorantApiClient({
   remote: useProviders([
     provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
+    provideClientVersionViaVAPI(),
   ]),
 });
 
