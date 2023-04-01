@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.4
+
+### Patch Changes
+
+- New Auth Provider
+
 ## 0.2.3
 
 ### Patch Changes
