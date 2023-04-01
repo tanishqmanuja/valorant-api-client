@@ -46,13 +46,13 @@ export interface AuthMFAResponse {
 
 export type ValorantAuthResponse = AuthTokenResponse | AuthMFAResponse;
 
-function isTokenResponse(
+export function isTokenResponse(
   response: AxiosResponse<ValorantAuthResponse>
 ): response is AxiosResponse<AuthTokenResponse> {
   return response.data.type === "response";
 }
 
-function isMfaResponse(
+export function isMfaResponse(
   response: AxiosResponse<ValorantAuthResponse>
 ): response is AxiosResponse<AuthMFAResponse> {
   return response.data.type === "multifactor";
@@ -176,7 +176,6 @@ export async function getTokensUsingDefaultStrategy(
     },
   });
 
-  let tokenResponse;
   const authResponse = await api.putAuthRequest<ValorantAuthResponse>({
     data: {
       language: "en_US",
@@ -188,36 +187,26 @@ export async function getTokensUsingDefaultStrategy(
   });
 
   if (isTokenResponse(authResponse)) {
-    tokenResponse = authResponse;
+    return parseTokensFromResponse(authResponse);
   }
 
-  if (isMfaResponse(authResponse)) {
-    if (!mfaCodeProvider) {
-      throw Error("MFA code provider is not provided");
-    }
-
-    const { code: mfaCode } = await mfaCodeProvider(authResponse);
-
-    const mfaTokenResponse =
-      await api.putMultiFactorAuthentication<ValorantAuthResponse>({
-        data: {
-          type: "multifactor",
-          code: mfaCode,
-          rememberDevice: true,
-        },
-        headers: {
-          ...getJsonHeader(),
-        },
-      });
-
-    if (isTokenResponse(mfaTokenResponse)) {
-      tokenResponse = mfaTokenResponse;
-    }
+  if (!mfaCodeProvider) {
+    throw Error("MFA code provider is not provided");
   }
 
-  if (!tokenResponse) {
-    throw Error("Invalid auth token response");
-  }
+  const { code: mfaCode } = await mfaCodeProvider(authResponse);
 
-  return parseTokensFromResponse(tokenResponse);
+  const mfaTokenResponse =
+    await api.putMultiFactorAuthentication<ValorantAuthResponse>({
+      data: {
+        type: "multifactor",
+        code: mfaCode,
+        rememberDevice: true,
+      },
+      headers: {
+        ...getJsonHeader(),
+      },
+    });
+
+  return parseTokensFromResponse(mfaTokenResponse);
 }
