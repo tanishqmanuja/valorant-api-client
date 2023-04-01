@@ -59,8 +59,19 @@ export function isMfaResponse(
 }
 
 export type MfaCodeProvider = (
-  response: AxiosResponse<AuthMFAResponse>
+  response?: AxiosResponse<AuthMFAResponse>
 ) => MaybePromise<{ code: string }>;
+
+class MFAError extends Error {
+  constructor(
+    public message: string,
+    public response: AxiosResponse<AuthMFAResponse>
+  ) {
+    super(message);
+  }
+}
+
+// Providers
 
 export function provideAuth(
   username: string,
@@ -81,11 +92,37 @@ export function provideAuth(
       A.some(cookie => cookie.key === "ssid"),
       B.match(
         () => O.none,
-        O.tryCatchK(() => getTokensUsingReauthStrategy(api))
+        O.tryCatchK(() => getTokensUsingReauthCookies(api))
       ),
       O.getOrElse(() =>
-        getTokensUsingDefaultStrategy(api, username, password, mfaCodeProvider)
+        mfaCodeProvider
+          ? getTokensUsingCombinedStrategy(
+              api,
+              username,
+              password,
+              mfaCodeProvider
+            )
+          : getTokensUsingCredentials(api, username, password)
       )
+    );
+
+    const entitlementsToken = await getEntitlementsToken(api, accessToken);
+
+    return {
+      idToken,
+      accessToken,
+      entitlementsToken,
+    } as const;
+  };
+}
+
+export function provideAuthMfaCode(mfaCodeProvider: MfaCodeProvider) {
+  return async ({ authApiClient }: RemoteProviderContext) => {
+    const { api } = authApiClient;
+
+    const { accessToken, idToken } = await getTokensUsingMfaCode(
+      api,
+      mfaCodeProvider
     );
 
     const entitlementsToken = await getEntitlementsToken(api, accessToken);
@@ -137,6 +174,8 @@ export function provideAuthViaLocalApi() {
   };
 }
 
+// Helpers
+
 export async function getEntitlementsToken(api: AuthApi, accessToken: string) {
   const entitlementResponse = await api.postEntitlement({
     headers: {
@@ -148,7 +187,7 @@ export async function getEntitlementsToken(api: AuthApi, accessToken: string) {
   return parseEntitlementsToken(entitlementResponse);
 }
 
-export async function getTokensUsingReauthStrategy(api: AuthApi) {
+export async function getTokensUsingReauthCookies(api: AuthApi) {
   const reauthResponseUri = await api
     .getCookieReauth({
       maxRedirects: 0,
@@ -160,11 +199,36 @@ export async function getTokensUsingReauthStrategy(api: AuthApi) {
   return parseTokensFromUri(reauthResponseUri);
 }
 
-export async function getTokensUsingDefaultStrategy(
+export async function getTokensUsingMfaCode(
+  api: AuthApi,
+  mfaCodeProvider: MfaCodeProvider,
+  authResponse?: AxiosResponse<AuthMFAResponse>
+) {
+  const { code: mfaCode } = await mfaCodeProvider(authResponse);
+
+  const mfaTokenResponse =
+    await api.putMultiFactorAuthentication<ValorantAuthResponse>({
+      data: {
+        type: "multifactor",
+        code: mfaCode,
+        rememberDevice: true,
+      },
+      headers: {
+        ...getJsonHeader(),
+      },
+    });
+
+  if (!isTokenResponse(mfaTokenResponse)) {
+    throw Error("Got unexpected response while trying mfa authentication");
+  }
+
+  return parseTokensFromResponse(mfaTokenResponse);
+}
+
+export async function getTokensUsingCredentials(
   api: AuthApi,
   username: string,
-  password: string,
-  mfaCodeProvider?: MfaCodeProvider
+  password: string
 ) {
   await api.postAuthCookies({
     data: {
@@ -186,27 +250,35 @@ export async function getTokensUsingDefaultStrategy(
     },
   });
 
-  if (isTokenResponse(authResponse)) {
-    return parseTokensFromResponse(authResponse);
+  if (isMfaResponse(authResponse)) {
+    throw new MFAError(
+      "Got MFA response while trying credentials authentication",
+      authResponse
+    );
   }
 
-  if (!mfaCodeProvider) {
-    throw Error("MFA code provider is not provided");
+  if (!isTokenResponse(authResponse)) {
+    throw Error(
+      "Got unexpected response while trying credentials authentication"
+    );
   }
 
-  const { code: mfaCode } = await mfaCodeProvider(authResponse);
+  return parseTokensFromResponse(authResponse);
+}
 
-  const mfaTokenResponse =
-    await api.putMultiFactorAuthentication<ValorantAuthResponse>({
-      data: {
-        type: "multifactor",
-        code: mfaCode,
-        rememberDevice: true,
-      },
-      headers: {
-        ...getJsonHeader(),
-      },
-    });
-
-  return parseTokensFromResponse(mfaTokenResponse);
+export async function getTokensUsingCombinedStrategy(
+  api: AuthApi,
+  username: string,
+  password: string,
+  mfaCodeProvider: MfaCodeProvider
+) {
+  return await getTokensUsingCredentials(api, username, password).catch(
+    async err => {
+      if (err instanceof MFAError) {
+        return await getTokensUsingMfaCode(api, mfaCodeProvider, err.response);
+      } else {
+        throw err;
+      }
+    }
+  );
 }

@@ -33,7 +33,10 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
   const { code } = await inquirer.prompt({
     type: "input",
     name: "code",
-    message: `Enter MFA code (email: ${response.data.multifactor.email})`,
+    message:
+      "Enter MFA code" + response
+        ? `(email: ${response?.data.multifactor.email})`
+        : "",
   });
 
   return {
