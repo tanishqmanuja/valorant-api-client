@@ -134,10 +134,12 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
     "accessToken" | "entitlementsToken"
   >;
   const getTokens = (): Tokens => ({
-    accessToken: axios.defaults.headers["Authorization"] as string,
-    entitlementsToken: axios.defaults.headers[
-      "X-Riot-Entitlements-JWT"
-    ] as string,
+    accessToken: axios.defaults.headers["Authorization"]
+      ?.toString()
+      .replace("Bearer", "")
+      .trim()!,
+    entitlementsToken:
+      axios.defaults.headers["X-Riot-Entitlements-JWT"]?.toString()!,
   });
 
   const helpers = {

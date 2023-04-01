@@ -25,7 +25,9 @@ export const getLocalAuthHeader = (
 export const getAccessTokenHeader = (
   accessToken: string
 ): Pick<RemoteAuthHeaders, "Authorization"> => ({
-  Authorization: `Bearer ${accessToken}`,
+  Authorization: accessToken.startsWith("Bearer")
+    ? accessToken
+    : `Bearer ${accessToken}`,
 });
 
 export const getEntitlementsJWTHeader = (
