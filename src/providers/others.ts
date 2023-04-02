@@ -9,6 +9,10 @@ export function provideRegion<R extends Region>(
   return () => ({ region, shard } as const);
 }
 
+export function provideClientVersion(clientVersion: string) {
+  return () => ({ clientVersion } as const);
+}
+
 export function provideClientVersionViaVAPI() {
   return async () => {
     const { data } = await axios.get<{ data: { riotClientVersion: string } }>(
