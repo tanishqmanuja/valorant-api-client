@@ -62,7 +62,7 @@ export type MfaCodeProvider = (
   response?: AxiosResponse<AuthMFAResponse>
 ) => MaybePromise<{ code: string }>;
 
-class MFAError extends Error {
+export class MFAError extends Error {
   constructor(
     public message: string,
     public response: AxiosResponse<AuthMFAResponse>
