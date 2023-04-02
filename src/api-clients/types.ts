@@ -1,11 +1,6 @@
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
 import type { Call, Fn, Objects, Pipe, Strings } from "hotscript";
-import type {
-  ConditionalPick,
-  EmptyObject,
-  ReadonlyDeep,
-  ValueOf,
-} from "type-fest";
+import type { ConditionalPick, EmptyObject, ValueOf } from "type-fest";
 import type { ValorantEndpoint, endpoints } from "valorant-api-types";
 import type z from "zod";
 
@@ -85,8 +80,9 @@ interface ImplementationFn extends Fn {
       ) => ZodApiResponse<DataType>;
 }
 
-type Api<T extends Record<string, ValorantEndpoint>> = ReadonlyDeep<
-  Pipe<T, [Objects.MapKeys<NameFn>, Objects.MapValues<ImplementationFn>]>
+type Api<T extends Record<string, ValorantEndpoint>> = Pipe<
+  T,
+  [Objects.MapKeys<NameFn>, Objects.MapValues<ImplementationFn>]
 >;
 
 export type LocalApi = Api<LocalEndpoints>;
