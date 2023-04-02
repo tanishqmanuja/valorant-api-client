@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.6
+
+### Patch Changes
+
+- Fix type error while consuming API Clients
+
 ## 0.2.5
 
 ### Patch Changes
