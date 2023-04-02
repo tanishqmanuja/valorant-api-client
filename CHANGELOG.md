@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.7
+
+### Patch Changes
+
+- Various provider and export fixes
+
 ## 0.2.6
 
 ### Patch Changes
