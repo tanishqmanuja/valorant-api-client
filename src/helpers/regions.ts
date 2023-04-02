@@ -15,10 +15,18 @@ export type Region = keyof typeof regionShardMap;
 export type RegionShard<R extends Region = Region> =
   (typeof regionShardMap)[R][number];
 
-export function getRegionOptions<R extends Region>(
+export function getRegionOptions<R extends Region | Omit<string, Region>>(
   region: R,
-  shard: RegionShard<R>
+  shard: R extends Region ? RegionShard<R> : string
 ) {
+  if (!regionShardMap[region as Region]) {
+    throw Error(`Unable to find region shard for  region "${region}"`);
+  }
+
+  if (!regionShardMap[region as Region].some(s => s === shard)) {
+    throw Error(`Unable to find shard "${shard}" for "${region}"`);
+  }
+
   return { region, shard };
 }
 

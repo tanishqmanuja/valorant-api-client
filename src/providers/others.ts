@@ -2,9 +2,9 @@ import axios from "axios";
 
 import type { Region, RegionShard } from "~/helpers/regions.js";
 
-export function provideRegion<R extends Region>(
+export function provideRegion<R extends Region | Omit<string, Region>>(
   region: R,
-  shard: RegionShard<R>
+  shard: R extends Region ? RegionShard<R> : string
 ) {
   return () => ({ region, shard } as const);
 }
