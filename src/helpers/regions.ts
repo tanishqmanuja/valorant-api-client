@@ -17,17 +17,20 @@ export type RegionShard<R extends Region = Region> =
 
 export function getRegionOptions<R extends Region | Omit<string, Region>>(
   region: R,
-  shard: R extends Region ? RegionShard<R> : string
+  shard: R extends Region ? RegionShard<R> : string,
+  validate: boolean = true
 ) {
-  if (!regionShardMap[region as Region]) {
-    throw Error(`Unable to find region shard for  region "${region}"`);
+  if (validate) {
+    if (!regionShardMap[region as Region]) {
+      throw Error(`Unable to find region shard for  region "${region}"`);
+    }
+
+    if (!regionShardMap[region as Region].some(s => s === shard)) {
+      throw Error(`Unable to find shard "${shard}" for "${region}"`);
+    }
   }
 
-  if (!regionShardMap[region as Region].some(s => s === shard)) {
-    throw Error(`Unable to find shard "${shard}" for "${region}"`);
-  }
-
-  return { region, shard };
+  return { region: region as Region, shard: shard as RegionShard };
 }
 
 export async function getRegionAndShardFromPas(

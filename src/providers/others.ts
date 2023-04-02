@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import type { Region, RegionShard } from "~/helpers/regions.js";
+import { Region, RegionShard, getRegionOptions } from "~/helpers/regions.js";
 
 export function provideRegion<R extends Region | Omit<string, Region>>(
   region: R,
   shard: R extends Region ? RegionShard<R> : string
 ) {
-  return () => ({ region, shard } as const);
+  return () => getRegionOptions(region, shard);
 }
 
 export function provideClientVersion(clientVersion: string) {
