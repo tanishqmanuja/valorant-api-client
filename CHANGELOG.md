@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.9
+
+### Patch Changes
+
+- Fix path on nix and mac
+
 ## 0.2.8
 
 ### Patch Changes
