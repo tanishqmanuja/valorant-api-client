@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.2.8
+
+### Patch Changes
+
+- Add some more providers for easy usage
+
 ## 0.2.7
 
 ### Patch Changes
