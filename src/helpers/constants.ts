@@ -28,4 +28,4 @@ export const DEFAULT_PLATFORM_INFO: PlatformInfo = {
 };
 
 export const DEFAULT_USER_AGENT =
-  "ShooterGame/13 Windows/10.0.19043.1.256.64bit";
+  "ShooterGame/13 Windows/10.0.19044.1.256.64bit";
