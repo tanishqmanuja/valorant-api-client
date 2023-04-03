@@ -174,6 +174,13 @@ export function provideAuthViaLocalApi() {
   };
 }
 
+export function provideAuthViaTokens(
+  accessToken: string,
+  entitlementsToken: string
+) {
+  return () => ({ accessToken, entitlementsToken } as const);
+}
+
 // Helpers
 
 export async function getEntitlementsToken(api: AuthApi, accessToken: string) {
