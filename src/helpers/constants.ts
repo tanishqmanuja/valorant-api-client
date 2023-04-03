@@ -5,7 +5,7 @@ import z from "zod";
 type PlatformInfo = z.infer<typeof platformSchema>;
 
 export const LOG_FILE_PATH = join(
-  process.env.LOCALAPPDATA!,
+  process.env.LOCALAPPDATA ?? "",
   "VALORANT",
   "Saved",
   "Logs",
@@ -13,7 +13,7 @@ export const LOG_FILE_PATH = join(
 );
 
 export const LOCK_FILE_PATH = join(
-  process.env.LOCALAPPDATA!,
+  process.env.LOCALAPPDATA ?? "",
   "Riot Games",
   "Riot Client",
   "Config",
