@@ -1,6 +1,8 @@
 import { platformSchema } from "valorant-api-types";
 import z from "zod";
 
+import { getRsoUserAgent } from ".";
+
 export type PlatformInfo = z.infer<typeof platformSchema>;
 
 export type LocalAuthHeaders = {
@@ -85,3 +87,6 @@ export const getCookieHeader = (cookie: string) =>
   ({
     Cookie: cookie,
   } as const);
+
+export const getRsoUserAgentHeader = (clientBuild: string) =>
+  getUserAgentHeader(getRsoUserAgent(clientBuild));

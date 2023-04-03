@@ -35,3 +35,6 @@ export function parseAuthCookie(response: AxiosResponse) {
 
   return cookie;
 }
+
+export const getRsoUserAgent = (clientBuild: string) =>
+  `RiotClient/${clientBuild} rso-auth (Windows;10;;Professional, x64)`;
