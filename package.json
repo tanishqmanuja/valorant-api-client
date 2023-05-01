@@ -28,7 +28,8 @@
     "format:check": "prettier --check **/*.ts ",
     "type:check": "tsc",
     "lint": "pnpm type:check && pnpm format:check",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "seed:events": "tsx scripts/seed-events.ts"
   },
   "author": "Tanishq Manuja",
   "license": "MIT",
@@ -49,6 +50,7 @@
     "@types/node": "^18.13.0",
     "@types/tough-cookie": "^4.0.2",
     "@types/tough-cookie-file-store": "^2.0.1",
+    "@types/ws": "^8.5.4",
     "hotscript": "^1.0.11",
     "husky": "^8.0.0",
     "inquirer": "^9.1.5",
@@ -67,6 +69,7 @@
     "tough-cookie": "^4.1.2",
     "ts-extras": "^0.11.0",
     "valorant-api-types": "^0.6.1",
+    "ws": "^8.13.0",
     "zod": "^3.20.6"
   }
 }

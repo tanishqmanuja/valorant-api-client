@@ -14,5 +14,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "examples"]
+  "include": ["src", "examples", "scripts"]
 }

@@ -4,3 +4,4 @@ dist
 .husky
 pnpm-lock.yaml
 tsup.config.ts
+**/*.autogen.ts
