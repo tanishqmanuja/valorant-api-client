@@ -30,7 +30,8 @@
     "lint": "pnpm type:check && pnpm format:check",
     "release": "changeset publish",
     "seed:events": "tsx scripts/local-ws/seed-events.ts",
-    "seed:endpoints": "tsx scripts/offi-api/seed-endpoints.ts"
+    "seed:endpoints": "tsx scripts/offi-api/seed-endpoints.ts",
+    "gen:endpoints": "tsx scripts/offi-api/gen-endpoint.ts"
   },
   "author": "Tanishq Manuja",
   "license": "MIT",
