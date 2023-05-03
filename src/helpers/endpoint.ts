@@ -54,7 +54,7 @@ export function parseResponseData<T>(
   status: number
 ) {
   const schema = endpoint.responses?.[`${status}`];
-  return schema?.parse(data);
+  return schema?.parse(data) ?? data;
 }
 
 export function buildSuffixUrl<T>(suffix: string, data: T) {
