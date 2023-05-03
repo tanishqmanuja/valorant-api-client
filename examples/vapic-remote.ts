@@ -1,4 +1,6 @@
 import inquirer from "inquirer";
+import { mkdir } from "node:fs/promises";
+import { dirname } from "node:path";
 import { CookieJar } from "tough-cookie";
 import { FileCookieStore } from "tough-cookie-file-store";
 
@@ -27,6 +29,9 @@ if (!(RIOT_USERNAME && RIOT_PASSWORD)) {
   process.exit(1);
 }
 
+const COOKIE_STORE_FILEPATH = ".cache/cookies.json";
+mkdir(dirname(COOKIE_STORE_FILEPATH), { recursive: true }); // make sure the directory exists
+
 // MFA provider function
 
 const provideMfaCodeFromCli: MfaCodeProvider = async response => {
@@ -48,7 +53,7 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 
 const vapic = await createValorantApiClient({
   auth: {
-    cookieJar: new CookieJar(new FileCookieStore(".cache/cookies.json")),
+    cookieJar: new CookieJar(new FileCookieStore(COOKIE_STORE_FILEPATH)),
   },
   remote: useProviders([
     provideClientVersionViaVAPI(),
