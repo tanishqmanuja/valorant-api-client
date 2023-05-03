@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const levelsItemSchema = z.object({
+export const spraysLevelsItemSchema = z.object({
   uuid: z.string(),
   sprayLevel: z.number(),
   displayName: z.string(),
@@ -22,7 +22,7 @@ export const spraysItemSchema = z.object({
   animationPng: z.string().nullable(),
   animationGif: z.string().nullable(),
   assetPath: z.string(),
-  levels: z.array(levelsItemSchema),
+  levels: z.array(spraysLevelsItemSchema),
 });
 
 export const spraysSchema = z.array(spraysItemSchema);

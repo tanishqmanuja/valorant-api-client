@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const adsStatsSchema = z.object({
+export const weaponsAdsStatsSchema = z.object({
   zoomMultiplier: z.number(),
   fireRate: z.number(),
   runSpeedMultiplier: z.number(),
@@ -11,7 +11,7 @@ export const adsStatsSchema = z.object({
   firstBulletAccuracy: z.number(),
 });
 
-export const damageRangesItemSchema = z.object({
+export const weaponsDamageRangesItemSchema = z.object({
   rangeStartMeters: z.number(),
   rangeEndMeters: z.number(),
   headDamage: z.number(),
@@ -19,12 +19,12 @@ export const damageRangesItemSchema = z.object({
   legDamage: z.number(),
 });
 
-export const gridPositionSchema = z.object({
+export const weaponsGridPositionSchema = z.object({
   row: z.number(),
   column: z.number(),
 });
 
-export const chromasItemSchema = z.object({
+export const weaponsChromasItemSchema = z.object({
   uuid: z.string(),
   displayName: z.string(),
   displayIcon: z.string().nullable(),
@@ -34,7 +34,7 @@ export const chromasItemSchema = z.object({
   assetPath: z.string(),
 });
 
-export const levelsItemSchema = z.object({
+export const weaponsLevelsItemSchema = z.object({
   uuid: z.string(),
   displayName: z.string(),
   levelItem: z.string().nullable(),
@@ -43,17 +43,17 @@ export const levelsItemSchema = z.object({
   assetPath: z.string(),
 });
 
-export const airBurstStatsSchema = z.object({
+export const weaponsAirBurstStatsSchema = z.object({
   shotgunPelletCount: z.number(),
   burstDistance: z.number(),
 });
 
-export const altShotgunStatsSchema = z.object({
+export const weaponsAltShotgunStatsSchema = z.object({
   shotgunPelletCount: z.number(),
   burstRate: z.number(),
 });
 
-export const weaponStatsSchema = z.object({
+export const weaponstatsSchema = z.object({
   fireRate: z.number(),
   magazineSize: z.number(),
   runSpeedMultiplier: z.number(),
@@ -65,17 +65,17 @@ export const weaponStatsSchema = z.object({
   feature: z.string().nullable(),
   fireMode: z.string().nullable(),
   altFireType: z.string().nullable(),
-  adsStats: adsStatsSchema.nullable(),
-  altShotgunStats: altShotgunStatsSchema.nullable(),
-  airBurstStats: airBurstStatsSchema.nullable(),
-  damageRanges: z.array(damageRangesItemSchema),
+  adsStats: weaponsAdsStatsSchema.nullable(),
+  altShotgunStats: weaponsAltShotgunStatsSchema.nullable(),
+  airBurstStats: weaponsAirBurstStatsSchema.nullable(),
+  damageRanges: z.array(weaponsDamageRangesItemSchema),
 });
 
-export const shopDataSchema = z.object({
+export const weaponsShopDataSchema = z.object({
   cost: z.number(),
   category: z.string(),
   categoryText: z.string(),
-  gridPosition: gridPositionSchema.nullable(),
+  gridPosition: weaponsGridPositionSchema.nullable(),
   canBeTrashed: z.boolean(),
   image: z.null(),
   newImage: z.string(),
@@ -83,7 +83,7 @@ export const shopDataSchema = z.object({
   assetPath: z.string(),
 });
 
-export const skinsItemSchema = z.object({
+export const weaponsSkinsItemSchema = z.object({
   uuid: z.string(),
   displayName: z.string(),
   themeUuid: z.string(),
@@ -91,8 +91,8 @@ export const skinsItemSchema = z.object({
   displayIcon: z.string().nullable(),
   wallpaper: z.string().nullable(),
   assetPath: z.string(),
-  chromas: z.array(chromasItemSchema),
-  levels: z.array(levelsItemSchema),
+  chromas: z.array(weaponsChromasItemSchema),
+  levels: z.array(weaponsLevelsItemSchema),
 });
 
 export const weaponsItemSchema = z.object({
@@ -103,9 +103,9 @@ export const weaponsItemSchema = z.object({
   displayIcon: z.string(),
   killStreamIcon: z.string(),
   assetPath: z.string(),
-  weaponStats: weaponStatsSchema.nullable(),
-  shopData: shopDataSchema.nullable(),
-  skins: z.array(skinsItemSchema),
+  weaponStats: weaponstatsSchema.nullable(),
+  shopData: weaponsShopDataSchema.nullable(),
+  skins: z.array(weaponsSkinsItemSchema),
 });
 
 export const weaponsSchema = z.array(weaponsItemSchema);

@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const levelsItemSchema = z.object({
+export const buddiesLevelsItemSchema = z.object({
   uuid: z.string(),
   charmLevel: z.number(),
   displayName: z.string(),
@@ -18,7 +18,7 @@ export const buddiesItemSchema = z.object({
   themeUuid: z.string().nullable(),
   displayIcon: z.string(),
   assetPath: z.string(),
-  levels: z.array(levelsItemSchema),
+  levels: z.array(buddiesLevelsItemSchema),
 });
 
 export const buddiesSchema = z.array(buddiesItemSchema);

@@ -3,22 +3,22 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const rewardSchema = z.object({
+export const contractsRewardSchema = z.object({
   type: z.string(),
   uuid: z.string(),
   amount: z.number(),
   isHighlighted: z.boolean(),
 });
 
-export const freeRewardsItemSchema = z.object({
+export const contractsFreeRewardsItemSchema = z.object({
   type: z.string(),
   uuid: z.string(),
   amount: z.number(),
   isHighlighted: z.boolean(),
 });
 
-export const levelsItemSchema = z.object({
-  reward: rewardSchema,
+export const contractsLevelsItemSchema = z.object({
+  reward: contractsRewardSchema,
   xp: z.number(),
   vpCost: z.number(),
   isPurchasableWithVP: z.boolean(),
@@ -26,16 +26,16 @@ export const levelsItemSchema = z.object({
   isPurchasableWithDough: z.boolean(),
 });
 
-export const chaptersItemSchema = z.object({
+export const contractsChaptersItemSchema = z.object({
   isEpilogue: z.boolean(),
-  levels: z.array(levelsItemSchema),
-  freeRewards: z.array(freeRewardsItemSchema).nullable(),
+  levels: z.array(contractsLevelsItemSchema),
+  freeRewards: z.array(contractsFreeRewardsItemSchema).nullable(),
 });
 
-export const contentSchema = z.object({
+export const contractsContentSchema = z.object({
   relationType: z.string().nullable(),
   relationUuid: z.string().nullable(),
-  chapters: z.array(chaptersItemSchema),
+  chapters: z.array(contractsChaptersItemSchema),
   premiumRewardScheduleUuid: z.string().nullable(),
   premiumVPCost: z.number(),
 });
@@ -46,7 +46,7 @@ export const contractsItemSchema = z.object({
   displayIcon: z.string().nullable(),
   shipIt: z.boolean(),
   freeRewardScheduleUuid: z.string(),
-  content: contentSchema,
+  content: contractsContentSchema,
   assetPath: z.string(),
 });
 

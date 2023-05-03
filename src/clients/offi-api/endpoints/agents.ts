@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const roleSchema = z.object({
+export const agentsRoleSchema = z.object({
   uuid: z.string(),
   displayName: z.string(),
   description: z.string(),
@@ -11,23 +11,23 @@ export const roleSchema = z.object({
   assetPath: z.string(),
 });
 
-export const abilitiesItemSchema = z.object({
+export const agentsAbilitiesItemSchema = z.object({
   slot: z.string(),
   displayName: z.string(),
   description: z.string(),
   displayIcon: z.string().nullable(),
 });
 
-export const mediaListItemSchema = z.object({
+export const agentsMediaListItemSchema = z.object({
   id: z.number(),
   wwise: z.string(),
   wave: z.string(),
 });
 
-export const voiceLineSchema = z.object({
+export const agentsVoiceLineSchema = z.object({
   minDuration: z.number(),
   maxDuration: z.number(),
-  mediaList: z.array(mediaListItemSchema),
+  mediaList: z.array(agentsMediaListItemSchema),
 });
 
 export const agentsItemSchema = z.object({
@@ -49,9 +49,9 @@ export const agentsItemSchema = z.object({
   isPlayableCharacter: z.boolean(),
   isAvailableForTest: z.boolean(),
   isBaseContent: z.boolean(),
-  role: roleSchema,
-  abilities: z.array(abilitiesItemSchema),
-  voiceLine: voiceLineSchema,
+  role: agentsRoleSchema,
+  abilities: z.array(agentsAbilitiesItemSchema),
+  voiceLine: agentsVoiceLineSchema,
 });
 
 export const agentsSchema = z.array(agentsItemSchema);

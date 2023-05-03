@@ -3,15 +3,15 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const locationSchema = z.object({
+export const mapsLocationSchema = z.object({
   x: z.number(),
   y: z.number(),
 });
 
-export const calloutsItemSchema = z.object({
+export const mapsCalloutsItemSchema = z.object({
   regionName: z.string(),
   superRegionName: z.string(),
-  location: locationSchema,
+  location: mapsLocationSchema,
 });
 
 export const mapsItemSchema = z.object({
@@ -27,7 +27,7 @@ export const mapsItemSchema = z.object({
   yMultiplier: z.number(),
   xScalarToAdd: z.number(),
   yScalarToAdd: z.number(),
-  callouts: z.array(calloutsItemSchema).nullable(),
+  callouts: z.array(mapsCalloutsItemSchema).nullable(),
 });
 
 export const mapsSchema = z.array(mapsItemSchema);

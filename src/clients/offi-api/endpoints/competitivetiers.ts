@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const tiersItemSchema = z.object({
+export const competitivetiersTiersItemSchema = z.object({
   tier: z.number(),
   tierName: z.string(),
   division: z.string(),
@@ -19,7 +19,7 @@ export const tiersItemSchema = z.object({
 export const competitivetiersItemSchema = z.object({
   uuid: z.string(),
   assetObjectName: z.string(),
-  tiers: z.array(tiersItemSchema),
+  tiers: z.array(competitivetiersTiersItemSchema),
   assetPath: z.string(),
 });
 

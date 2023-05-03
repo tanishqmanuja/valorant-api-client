@@ -26,7 +26,7 @@ export async function generateEndpointTemplate(url: string) {
 
   const tsInterfaces = json2ts(JSON.stringify(data.data), {
     rootName,
-    prefix: "",
+    prefix: rootName,
   });
 
   const zodSchemas = generate({
@@ -37,6 +37,7 @@ export async function generateEndpointTemplate(url: string) {
     .splice(3) // remove imports
     .slice(0, -1) // remove last empty line
     .join("\n")
+    .replace(new RegExp(`(${rootName}){2}`, "gi"), rootName) // remove duplicate schema prefix
     .replaceAll("const", "export const");
 
   const inferredTypeExports = javascript`

@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const shopDataSchema = z.object({
+export const gearShopDataSchema = z.object({
   cost: z.number(),
   category: z.string(),
   categoryText: z.string(),
@@ -21,7 +21,7 @@ export const gearItemSchema = z.object({
   description: z.string(),
   displayIcon: z.string(),
   assetPath: z.string(),
-  shopData: shopDataSchema,
+  shopData: gearShopDataSchema,
 });
 
 export const gearSchema = z.array(gearItemSchema);

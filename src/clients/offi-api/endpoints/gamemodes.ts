@@ -3,12 +3,12 @@ import { z } from "zod";
 
 import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
-export const gameFeatureOverridesItemSchema = z.object({
+export const gamemodesGameFeatureOverridesItemSchema = z.object({
   featureName: z.string(),
   state: z.boolean(),
 });
 
-export const gameRuleBoolOverridesItemSchema = z.object({
+export const gamemodesGameRuleBoolOverridesItemSchema = z.object({
   ruleName: z.string(),
   state: z.boolean(),
 });
@@ -23,8 +23,12 @@ export const gamemodesItemSchema = z.object({
   orbCount: z.number(),
   roundsPerHalf: z.number(),
   teamRoles: z.array(z.string()).nullable(),
-  gameFeatureOverrides: z.array(gameFeatureOverridesItemSchema).nullable(),
-  gameRuleBoolOverrides: z.array(gameRuleBoolOverridesItemSchema).nullable(),
+  gameFeatureOverrides: z
+    .array(gamemodesGameFeatureOverridesItemSchema)
+    .nullable(),
+  gameRuleBoolOverrides: z
+    .array(gamemodesGameRuleBoolOverridesItemSchema)
+    .nullable(),
   displayIcon: z.string().nullable(),
   assetPath: z.string(),
 });
