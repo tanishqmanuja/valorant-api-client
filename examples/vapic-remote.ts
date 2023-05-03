@@ -48,7 +48,7 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 
 const vapic = await createValorantApiClient({
   auth: {
-    cookieJar: new CookieJar(new FileCookieStore("./cookies.json")),
+    cookieJar: new CookieJar(new FileCookieStore(".cache/cookies.json")),
   },
   remote: useProviders([
     provideClientVersionViaVAPI(),
