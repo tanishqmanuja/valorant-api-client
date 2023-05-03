@@ -1,13 +1,5 @@
-// Api-Clients
-export * from "~/api-clients/auth.js";
-export * from "~/api-clients/local.js";
-export * from "~/api-clients/remote.js";
-export * from "~/api-clients/types.js";
-export * from "~/api-clients/valorant.js";
-
-// Ws-Client
-export * from "~/ws-client/ws-client.js";
-export * from "~/ws-client/types.js";
+// Clients
+export * from "~/clients/index.js";
 
 // File Parsers
 export * from "~/file-parsers/index.js";

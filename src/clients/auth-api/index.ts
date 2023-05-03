@@ -9,7 +9,7 @@ import z from "zod";
 import { getFunctionName } from "~/helpers/endpoint.js";
 import { createToughCookieInterceptor } from "~/utils/lib/axios/tough-cookie-interceptor.js";
 
-import { AuthApi } from "./types.js";
+import { AuthApi } from "../common/types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 

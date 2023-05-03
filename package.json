@@ -29,7 +29,8 @@
     "type:check": "tsc",
     "lint": "pnpm type:check && pnpm format:check",
     "release": "changeset publish",
-    "seed:events": "tsx scripts/seed-events.ts"
+    "seed:events": "tsx scripts/local-ws/seed-events.ts",
+    "seed:endpoints": "tsx scripts/offi-api/seed-endpoints.ts"
   },
   "author": "Tanishq Manuja",
   "license": "MIT",
@@ -54,8 +55,11 @@
     "hotscript": "^1.0.11",
     "husky": "^8.0.0",
     "inquirer": "^9.1.5",
+    "json-ts": "^1.6.4",
+    "meow": "^12.0.0",
     "prettier": "^2.8.4",
     "tough-cookie-file-store": "^2.0.3",
+    "ts-to-zod": "^3.0.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.3",
     "turbo": "^1.8.3",

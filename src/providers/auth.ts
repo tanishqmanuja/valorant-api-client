@@ -3,8 +3,8 @@ import { array as A, boolean as B, option as O } from "fp-ts";
 import { pipe } from "fp-ts/lib/function.js";
 import { authRequestEndpoint } from "valorant-api-types";
 
-import type { AuthApi } from "~/api-clients/types.js";
-import { RemoteProviderContext } from "~/api-clients/valorant.js";
+import type { AuthApi } from "~/clients/common/types.js";
+import { RemoteProviderContext } from "~/clients/valorant-api/index.js";
 import { getAccessTokenHeader, getJsonHeader } from "~/helpers/headers.js";
 import { getRegionAndShardFromPas } from "~/helpers/regions.js";
 import {

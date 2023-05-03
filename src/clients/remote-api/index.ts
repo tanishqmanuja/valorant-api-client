@@ -27,7 +27,7 @@ import { getPuuidFromAccessToken } from "~/helpers/helpers.js";
 import { RemoteServerType, getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
 
-import { CustomAxiosRequestConfig, RemoteApi } from "./types.js";
+import { CustomAxiosRequestConfig, RemoteApi } from "../common/types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 

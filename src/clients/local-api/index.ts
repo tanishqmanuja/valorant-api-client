@@ -13,7 +13,7 @@ import { getLocalAuthHeader } from "~/helpers/headers.js";
 import { getServerUrl } from "~/helpers/servers.js";
 import { ensureArray } from "~/utils/array.js";
 
-import { CustomAxiosRequestConfig, LocalApi } from "./types.js";
+import { CustomAxiosRequestConfig, LocalApi } from "../common/types.js";
 
 type ValorantEndpoints = Record<string, ValorantEndpoint>;
 
