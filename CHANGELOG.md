@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.0
+
+### Minor Changes
+
+- Introduce Websocket and Offi's Api Clients
+
 ## 0.2.9
 
 ### Patch Changes
