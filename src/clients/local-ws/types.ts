@@ -35,4 +35,6 @@ export interface ValorantWSEE {
   on(event: "error", cb: (err: Error) => void): void;
   on(event: "open", cb: (this: WebSocket) => void): void;
   once(event: EventName, cb: (data: ValorantWebsocketPayload) => void): void;
+  close(code?: number, data?: string | Buffer): void;
+  terminate(): void;
 }
