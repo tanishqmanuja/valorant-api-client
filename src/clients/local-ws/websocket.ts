@@ -9,7 +9,7 @@ import {
 export class ValorantWebSocket extends WebSocket {
   constructor(address: string, options?: ClientOptions) {
     super(address, { rejectUnauthorized: false, ...options });
-    this.on("message", this._onMessage.bind(this));
+    this.on("message", this.#onMessage.bind(this));
   }
 
   subscribeEvent(event: EventName) {
@@ -20,7 +20,7 @@ export class ValorantWebSocket extends WebSocket {
     this.send(JSON.stringify([MESSAGE_TYPES.Unsubscribe, event]));
   }
 
-  _onMessage(data: string) {
+  #onMessage(data: string) {
     if (!data.length) {
       return;
     }
