@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.2
+
+### Patch Changes
+
+- Skip version due to conflict
+
 ## 0.3.1
 
 ### Patch Changes
