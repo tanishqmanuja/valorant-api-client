@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.4
+
+### Patch Changes
+
+- Update api types (valorant + offi)
+
 ## 0.3.3
 
 ### Patch Changes
