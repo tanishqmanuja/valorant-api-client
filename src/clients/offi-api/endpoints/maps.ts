@@ -17,7 +17,7 @@ export const mapsCalloutsItemSchema = z.object({
 export const mapsItemSchema = z.object({
   uuid: z.string(),
   displayName: z.string(),
-  coordinates: z.string(),
+  coordinates: z.string().nullable(),
   displayIcon: z.string().nullable(),
   listViewIcon: z.string(),
   splash: z.string(),

@@ -5,7 +5,7 @@ import type { OffiApiEndpoint } from "~/clients/offi-api/types";
 
 export const playertitlesItemSchema = z.object({
   uuid: z.string(),
-  displayName: z.string(),
+  displayName: z.string().nullable(),
   titleText: z.string().nullable(),
   isHiddenIfNotOwned: z.boolean(),
   assetPath: z.string(),

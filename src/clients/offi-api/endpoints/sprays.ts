@@ -7,7 +7,7 @@ export const spraysLevelsItemSchema = z.object({
   uuid: z.string(),
   sprayLevel: z.number(),
   displayName: z.string(),
-  displayIcon: z.string(),
+  displayIcon: z.string().nullable(),
   assetPath: z.string(),
 });
 
@@ -16,6 +16,7 @@ export const spraysItemSchema = z.object({
   displayName: z.string(),
   category: z.string().nullable(),
   themeUuid: z.string().nullable(),
+  isNullSpray: z.boolean(),
   displayIcon: z.string(),
   fullIcon: z.string().nullable(),
   fullTransparentIcon: z.string().nullable(),
