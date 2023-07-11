@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.5
+
+### Patch Changes
+
+- Fix ValorantApiClient return type
+
 ## 0.3.4
 
 ### Patch Changes
