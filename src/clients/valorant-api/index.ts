@@ -113,4 +113,6 @@ export async function createValorantApiClient<
   };
 }
 
-export type ValorantApiClient = ReturnType<typeof createValorantApiClient>;
+export type ValorantApiClient = Awaited<
+  ReturnType<typeof createValorantApiClient>
+>;
