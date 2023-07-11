@@ -73,7 +73,7 @@
     "fp-ts-contrib": "^0.1.29",
     "tough-cookie": "^4.1.2",
     "ts-extras": "^0.11.0",
-    "valorant-api-types": "^0.6.1",
+    "valorant-api-types": "^0.7.0",
     "ws": "^8.13.0",
     "zod": "^3.20.6"
   }
