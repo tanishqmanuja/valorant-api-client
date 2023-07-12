@@ -29,7 +29,10 @@ export type ValorantWebsocketMessage = [
 export interface ValorantWSEE {
   subscribeEvent(event: EventName): void;
   unsubscribeEvent(event: EventName): void;
-  on(event: EventName, cb: (data: ValorantWebsocketPayload) => void): void;
+  on<T>(
+    event: EventName,
+    cb: (data: ValorantWebsocketPayload<T>) => void
+  ): void;
   on(event: "event", cb: (data: ValorantWebsocketPayload) => void): void;
   on(event: "close", cb: (code: number, reason: Buffer) => void): void;
   on(event: "error", cb: (err: Error) => void): void;
