@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.8
+
+### Patch Changes
+
+- Fix Cookie jar
+
 ## 0.3.7
 
 ### Patch Changes
