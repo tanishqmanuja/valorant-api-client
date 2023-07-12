@@ -46,7 +46,7 @@ const vapic = await createValorantApiClient({
   ]),
 });
 
-const puuid = vapic.remote.getPuuid();
+const puuid = vapic.remote.puuid;
 
 const { data: compUpdates } = await vapic.remote.api.getCompetitiveUpdates({
   data: {

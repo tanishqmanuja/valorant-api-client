@@ -151,8 +151,12 @@ export function createRemoteApiClient(options: RemoteApiClientOptions) {
         ...getEntitlementsJWTHeader(entitlementsToken),
       });
     },
-    getOptions: () => structuredClone({ ...opts, ...getTokens() }),
-    getPuuid: () => getPuuidFromAccessToken(getTokens().accessToken),
+    get options() {
+      return structuredClone({ ...opts, ...getTokens() });
+    },
+    get puuid() {
+      return getPuuidFromAccessToken(getTokens().accessToken);
+    },
   };
 
   return { api, ...helpers };

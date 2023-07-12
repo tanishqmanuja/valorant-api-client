@@ -107,8 +107,10 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
 
   const helpers = {
     getAxiosInstance: () => axios,
-    getOptions: () => structuredClone(opts),
     getCookieJar: () => cookieJar,
+    get options() {
+      return structuredClone(opts);
+    },
   };
 
   return { api, ...helpers };

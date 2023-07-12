@@ -89,7 +89,9 @@ export function createLocalApiClient(options: LocalApiClientOptions) {
 
   const helpers = {
     getAxiosInstance: () => axios,
-    getOptions: () => structuredClone(opts),
+    get options() {
+      return structuredClone(opts);
+    },
   };
 
   return { api, ...helpers };
