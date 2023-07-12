@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.9
+
+### Patch Changes
+
+- Generic type on event in ws
+
 ## 0.3.8
 
 ### Patch Changes
