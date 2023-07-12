@@ -1,5 +1,11 @@
 # @tqman/vapic
 
+## 0.3.6
+
+### Patch Changes
+
+- getter instead of fucntion getXYZ()
+
 ## 0.3.5
 
 ### Patch Changes
