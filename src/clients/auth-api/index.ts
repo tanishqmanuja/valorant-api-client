@@ -109,7 +109,10 @@ export function createAuthApiClient(options: AuthApiClientOptions = {}) {
     getAxiosInstance: () => axios,
     getCookieJar: () => cookieJar,
     get options() {
-      return structuredClone({ ...opts, cookieJar: cookieJar.cloneSync() });
+      return {
+        ...structuredClone({ ...opts, cookieJar: undefined }),
+        cookieJar,
+      };
     },
   };
 
