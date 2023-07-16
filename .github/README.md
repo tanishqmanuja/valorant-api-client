@@ -1,4 +1,4 @@
-![Logo](https://raw.github.com/tanishqmanuja/valorant-api-client/main/assets/VAPIC-banner.png?maxAge=2592000)
+![Logo](https://raw.github.com/tanishqmanuja/valorant-api-client/legacy/assets/VAPIC-banner.png?maxAge=2592000)
 
 # VAPIC //VALORANT API CLIENT
 
