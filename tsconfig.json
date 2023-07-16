@@ -1,0 +1,11 @@
+{
+  "extends": "@tqman/tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": ["src", "scripts"]
+}
