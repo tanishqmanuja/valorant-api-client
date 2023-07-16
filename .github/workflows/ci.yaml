@@ -8,12 +8,14 @@ on:
       - "docs/**"
       - "assets/**"
       - "README.md"
+      - ".github/README.md"
   pull_request:
     branches:
       - main
       - "docs/**"
       - "assets/**"
       - "README.md"
+      - ".github/README.md"
 
 jobs:
   ci:
