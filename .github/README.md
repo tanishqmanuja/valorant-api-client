@@ -22,6 +22,7 @@ yarn add @tqman/valorant-api-client@latest
 
 ## Showcase Features
 
+- [x] Includes all community known [endpoints](https://valapidocs.techchrism.me/).
 - [x] Response parsing using zod library.
 - [x] Session Cookies Handling using tough-cookie library.
 - [x] Re-Auth using `ssid` cookie without resending username/password.
