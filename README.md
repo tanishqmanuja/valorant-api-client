@@ -20,9 +20,10 @@ yarn add @tqman/valorant-api-client@latest
 
 ## Showcase Features
 
+- [x] Response parsing using zod library.
 - [x] Session Cookies Handling using tough-cookie library.
 - [x] Re-Auth using `ssid` cookie without resending username/password.
-- [x] Riot MFA using Email
+- [x] Riot MFA using Email-Code Method
 
 ## Usage/Examples
 
