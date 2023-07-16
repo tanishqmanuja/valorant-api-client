@@ -8,11 +8,11 @@ Wrapper around the 3 API Clients (Auth, Local, Remote).
 
    - Minimum Requirements: **[ none ]**
 
-2. `local`: LocalApiClientOptions OR [VapicProvider](../docs/valorant-api-client.md)
+2. `local`: LocalApiClientOptions OR [VapicProvider](../docs/vapic-providers.md)
 
    - Minimum Requirements: **[ password, port ]**
 
-3. `remote`: RemoteApiClientOptions OR [VapicProvider](../docs/valorant-api-client.md)
+3. `remote`: RemoteApiClientOptions OR [VapicProvider](../docs/vapic-providers.md)
    - Minimum Requirements: **[ accessToken, entitlementsToken, shard, region, clientVersion ]**
 
 ## Provider System
@@ -26,7 +26,7 @@ const vapic = await createValorantApiClient({
 });
 ```
 
-More information on providers [here](../docs/valorant-api-client.md).
+More information on providers [here](../docs/vapic-providers.md).
 
 > All the providers within a single useProvider() when combined should fulfill atleast the minimum requirements of the respective API Client/s.
 
