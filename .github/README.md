@@ -1,5 +1,20 @@
 ![Logo](https://raw.github.com/tanishqmanuja/valorant-api-client/main/assets/vapic-banner.png?maxAge=2592000)
 
+<p align="center">
+  <a href="https://github.com/tanishqmanuja/valorant-api-client">
+      <img src="https://img.shields.io/github/actions/workflow/status/tanishqmanuja/valorant-api-client/ci.yaml?style=flat&logo=github&label=CI" alt="CI Status" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/@tqman/valorant-api-client">
+    <img src="https://img.shields.io/npm/dm/@tqman/valorant-api-client.svg?style=flat&label=Downloads" alt="downloads" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/@tqman/valorant-api-client">
+    <img src="https://img.shields.io/npm/v/@tqman/valorant-api-client.svg?style=flat&label=NPM" alt="npm version" height="18">
+  </a>
+  <a href="https://github.com/tanishqmanuja/valorant-api-client">
+    <img src="https://img.shields.io/npm/l/@tqman/valorant-api-client.svg?style=flat&label=License" alt="MIT license" height="18">
+  </a>
+</p>
+
 # VAPIC //VALORANT API CLIENT
 
 VAPIC is a type safe implementation of an api client for VALORANT. It includes functional wrapper to call all community known endpoints provided by [valorant-api-types](https://www.npmjs.com/package/valorant-api-types).
