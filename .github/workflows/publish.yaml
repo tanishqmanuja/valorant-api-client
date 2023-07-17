@@ -5,6 +5,16 @@ on:
     branches:
       - main
 
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "assets/**"
+      - "scripts/**"
+      - "README.md"
+      - ".github/README.md"
+
 jobs:
   release:
     permissions:
@@ -17,25 +27,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Setup Repository
+        uses: ./.github/actions/setup
 
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm turbo run release
+          publish: pnpm turbo release
+          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -4,18 +4,15 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
+    paths-ignore: &paths-ignore
       - "docs/**"
       - "assets/**"
       - "README.md"
       - ".github/README.md"
   pull_request:
     branches:
-      - main
-      - "docs/**"
-      - "assets/**"
-      - "README.md"
-      - ".github/README.md"
+      - "**"
+    paths-ignore: *paths-ignore
 
 jobs:
   ci:
@@ -25,19 +22,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Setup Repository
+        uses: ./.github/actions/setup
 
       - name: Lint
-        run: pnpm turbo run lint
+        run: pnpm turbo lint
