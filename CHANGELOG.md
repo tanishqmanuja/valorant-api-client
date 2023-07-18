@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.1.1
+
+### Patch Changes
+
+- [`135eabe`](https://github.com/tanishqmanuja/valorant-api-client/commit/135eabeb50eeb88047c086d4bed53dea7aaf5a2a) Thanks [@tanishqmanuja](https://github.com/tanishqmanuja)! - Fix optional params in Offi API
+
 ## 1.1.0
 
 ### Minor Changes
