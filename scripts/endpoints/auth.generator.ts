@@ -9,7 +9,7 @@ import {
   ValorantEndpoints,
   checkImport,
   execa,
-} from "scripts/endpoints/helpers";
+} from "scripts/helpers";
 import { tAuthEndpointsClass, tAuthEndpoint } from "./templates/auth.templates";
 
 const ENDPOINTS_DIR = "src/clients/auth-api/endpoints";

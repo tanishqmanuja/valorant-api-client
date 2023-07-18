@@ -1,5 +1,5 @@
 import { camelCase, pascalCase } from "change-case";
-import { tIf, tImport, tImports } from "scripts/endpoints/helpers";
+import { tIf, tImport, tImports } from "scripts/helpers";
 import { ValorantEndpoint } from "valorant-api-types";
 import { getSuffixParams } from "~/helpers";
 

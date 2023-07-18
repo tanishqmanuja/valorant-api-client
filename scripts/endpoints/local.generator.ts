@@ -9,7 +9,7 @@ import {
   ValorantEndpoints,
   checkImport,
   execa,
-} from "scripts/endpoints/helpers";
+} from "scripts/helpers";
 import {
   tLocalEndpointsClass,
   tLocalEndpoint,

@@ -1,7 +1,7 @@
-import { execa } from "./helpers/execa";
+import { execa } from "../helpers/execa";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { AUTO_GENERATED_HEADER } from "./helpers";
+import { AUTO_GENERATED_HEADER } from "../helpers";
 import { paramCase } from "change-case";
 import {
   tOffiEndpoint,

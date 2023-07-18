@@ -1,7 +1,7 @@
 import axios from "axios";
 import { json2ts } from "json-ts";
 import { generate } from "ts-to-zod";
-import { tImports } from "../helpers";
+import { tImports } from "../../helpers";
 import { paramCase, pascalCase } from "change-case";
 
 const TYPES_IMPORT_PATH = "~/clients/offi-api/types";

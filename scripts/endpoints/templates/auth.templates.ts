@@ -1,6 +1,6 @@
 import { ValorantEndpoint } from "valorant-api-types";
 import { camelCase, paramCase, pascalCase } from "change-case";
-import { tIf, tImport, tImports } from "scripts/endpoints/helpers";
+import { tIf, tImport, tImports } from "scripts/helpers";
 
 const CLIENT_CLASS = "AuthApiClient";
 const CLIENT_CLASS_PATH = "~/clients/auth-api";
