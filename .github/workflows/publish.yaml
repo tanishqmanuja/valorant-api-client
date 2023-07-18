@@ -31,6 +31,8 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: pnpm turbo release
+          title: "chore: bump version"
+          commit: "chore: bump version"
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
