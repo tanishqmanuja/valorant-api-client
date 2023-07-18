@@ -1,4 +1,4 @@
-name: Release
+name: Publish
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
       - src/**
 
 jobs:
-  release:
+  changesets:
     permissions:
       contents: write
       issues: write
