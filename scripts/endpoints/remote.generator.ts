@@ -8,6 +8,7 @@ import {
   AUTO_GENERATED_HEADER,
   ValorantEndpoints,
   checkImport,
+  execa,
 } from "scripts/endpoints/helpers";
 import {
   tRemoteEndpointsClass,
@@ -17,6 +18,7 @@ import {
 const ENDPOINTS_DIR = "src/clients/remote-api/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
 
+console.log("=> Generating endpoints templates...");
 const remoteEndpoints = await Promise.all(
   Object.entries(endpoints as ValorantEndpoints)
     .filter(([_, e]) => e.type !== "local" && e.type !== "other")
@@ -68,4 +70,6 @@ await writeFile(
     }),
 );
 
-console.log("Done!");
+console.log("=> Formatting files...");
+await execa(`prettier --write ${ENDPOINTS_DIR}/**/*.ts`);
+console.log(" ✓ Done!\n");

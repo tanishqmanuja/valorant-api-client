@@ -8,12 +8,14 @@ import {
   AUTO_GENERATED_HEADER,
   ValorantEndpoints,
   checkImport,
+  execa,
 } from "scripts/endpoints/helpers";
 import { tAuthEndpointsClass, tAuthEndpoint } from "./templates/auth.templates";
 
 const ENDPOINTS_DIR = "src/clients/auth-api/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
 
+console.log("=> Generating endpoints templates...");
 const authEndpoints = await Promise.all(
   Object.entries(endpoints as ValorantEndpoints)
     .filter(
@@ -57,4 +59,6 @@ await writeFile(
     }),
 );
 
-console.log("Done!");
+console.log("=> Formatting files...");
+await execa(`prettier --write ${ENDPOINTS_DIR}/**/*.ts`);
+console.log(" ✓ Done!\n");
