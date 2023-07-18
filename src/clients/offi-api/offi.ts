@@ -21,7 +21,7 @@ export class OffiApiClient {
   #options: Required<OffiApiClientOptions>;
   #axiosInstance: AxiosInstance;
 
-  constructor(options: OffiApiClientOptions) {
+  constructor(options: OffiApiClientOptions = {}) {
     this.#options = offiApiClientOptionsSchema.parse(options);
     this.#axiosInstance = getOffiApiAxiosClient();
   }
