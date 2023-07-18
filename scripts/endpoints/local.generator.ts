@@ -14,7 +14,7 @@ import {
   tLocalEndpoint,
 } from "./templates/local.templates";
 
-const ENDPOINTS_DIR = "source/clients/local/endpoints";
+const ENDPOINTS_DIR = "src/clients/local-api/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
 
 const localEndpoints = await Promise.all(

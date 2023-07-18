@@ -11,7 +11,7 @@ import {
 } from "scripts/endpoints/helpers";
 import { tAuthEndpointsClass, tAuthEndpoint } from "./templates/auth.templates";
 
-const ENDPOINTS_DIR = "source/clients/auth/endpoints";
+const ENDPOINTS_DIR = "src/clients/auth-api/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
 
 const authEndpoints = await Promise.all(

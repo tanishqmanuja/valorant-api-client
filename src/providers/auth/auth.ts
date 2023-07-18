@@ -1,4 +1,4 @@
-import type { VapicProvider } from "~/clients/valorant";
+import type { VapicProvider } from "~/clients";
 import { array as A, boolean as B, option as O } from "fp-ts";
 import { pipe } from "fp-ts/lib/function";
 import type { MfaCodeProvider } from "./types";

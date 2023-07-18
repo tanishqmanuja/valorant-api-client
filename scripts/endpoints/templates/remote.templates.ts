@@ -4,7 +4,7 @@ import { ValorantEndpoint } from "valorant-api-types";
 import { getSuffixParams } from "~/helpers";
 
 const CLIENT_CLASS = "RemoteApiClient";
-const CLIENT_CLASS_PATH = "~/clients/remote";
+const CLIENT_CLASS_PATH = "~/clients/remote-api";
 const ENDPOINT_CLASS_SUFFIX = "RemoteApiEndpoint";
 const ENDPOINTS_WRAPPER_CLASS = "RemoteApiEndpoints";
 

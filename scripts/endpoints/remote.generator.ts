@@ -14,7 +14,7 @@ import {
   tRemoteEndpoint,
 } from "./templates/remote.templates";
 
-const ENDPOINTS_DIR = "source/clients/remote/endpoints";
+const ENDPOINTS_DIR = "src/clients/remote-api/endpoints";
 await mkdir(ENDPOINTS_DIR, { recursive: true });
 
 const remoteEndpoints = await Promise.all(

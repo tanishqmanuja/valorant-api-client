@@ -3,7 +3,7 @@ import { tIf, tImport, tImports } from "scripts/endpoints/helpers";
 import { ValorantEndpoint } from "valorant-api-types";
 
 const CLIENT_CLASS = "LocalApiClient";
-const CLIENT_CLASS_PATH = "~/clients/local";
+const CLIENT_CLASS_PATH = "~/clients/local-api";
 const ENDPOINT_CLASS_SUFFIX = "LocalApiEndpoint";
 const ENDPOINTS_WRAPPER_CLASS = "LocalApiEndpoints";
 

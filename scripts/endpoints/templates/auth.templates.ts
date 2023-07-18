@@ -3,7 +3,7 @@ import { camelCase, paramCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/endpoints/helpers";
 
 const CLIENT_CLASS = "AuthApiClient";
-const CLIENT_CLASS_PATH = "~/clients/auth";
+const CLIENT_CLASS_PATH = "~/clients/auth-api";
 const ENDPOINT_CLASS_SUFFIX = "AuthApiEndpoint";
 const ENDPOINTS_WRAPPER_CLASS = "AuthApiEndpoints";
 
