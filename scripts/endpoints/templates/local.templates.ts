@@ -26,6 +26,7 @@ ${tImports([
   { named: "z", from: "zod", if: hasBody || hasResponses },
   {
     default: "axios",
+    named: "type AxiosResponse",
     from: "axios",
   },
   {
@@ -62,12 +63,30 @@ export interface ${pascalCase(e.name)}RequestConfig
 
 export type ${pascalCase(
     e.name,
-  )}Response = z.infer<typeof ${importName}.responses["${statusCode}"]>
+  )}RawResponse = z.input<typeof ${importName}.responses["${statusCode}"]>
+
+export type ${pascalCase(
+    e.name,
+  )}Response = z.output<typeof ${importName}.responses["${statusCode}"]>
 
 export class ${pascalCase(e.name)}${ENDPOINT_CLASS_SUFFIX} {
   /**
    * @description ${e.description.replaceAll("\n", "\n * ")}
    */
+  ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}RawResponse>(
+    this: ${CLIENT_CLASS},
+    ${`config: ${pascalCase(
+      e.name,
+    )}RequestConfig & {parseResponseData: false},`}
+  ): Promise<AxiosResponse<T>>
+  ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}Response>(
+    this: ${CLIENT_CLASS},
+    ${
+      hasBody
+        ? `config: ${pascalCase(e.name)}RequestConfig,`
+        : `config?: ${pascalCase(e.name)}RequestConfig`
+    }
+  ): Promise<AxiosResponse<T>>
   ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}Response>(
     this: ${CLIENT_CLASS},
     ${
