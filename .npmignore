@@ -10,3 +10,4 @@ tsconfig.json
 tsup.config.ts
 .prettierrc.cjs
 .prettierignore
+.env
