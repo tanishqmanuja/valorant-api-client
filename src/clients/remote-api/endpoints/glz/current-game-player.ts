@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import axios, { type AxiosResponse } from "axios";
-import { currentGamePlayerEndpoint } from "valorant-api-types";
+import { currentGamePlayerEndpoint } from "@tqman/valorant-api-types";
 import { parseResponseDataFor, buildSuffix } from "~/helpers/endpoints";
 import { ensureArray } from "~/utils/array";
 import { AxiosRequestConfigWithData } from "~/utils/lib/axios";

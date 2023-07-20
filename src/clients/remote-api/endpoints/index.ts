@@ -44,6 +44,7 @@ import { PreGameQuitRemoteApiEndpoint } from "./glz/pre-game-quit";
 import { CurrentGamePlayerRemoteApiEndpoint } from "./glz/current-game-player";
 import { CurrentGameMatchRemoteApiEndpoint } from "./glz/current-game-match";
 import { CurrentGameLoadoutsRemoteApiEndpoint } from "./glz/current-game-loadouts";
+import { CurrentGameQuitRemoteApiEndpoint } from "./glz/current-game-quit";
 import { ItemUpgradesRemoteApiEndpoint } from "./pd/item-upgrades";
 import { ContractsRemoteApiEndpoint } from "./pd/contracts";
 import { ActivateContractRemoteApiEndpoint } from "./pd/activate-contract";
@@ -97,6 +98,7 @@ applyMixins(RemoteApiEndpoints, [
   CurrentGamePlayerRemoteApiEndpoint,
   CurrentGameMatchRemoteApiEndpoint,
   CurrentGameLoadoutsRemoteApiEndpoint,
+  CurrentGameQuitRemoteApiEndpoint,
   ItemUpgradesRemoteApiEndpoint,
   ContractsRemoteApiEndpoint,
   ActivateContractRemoteApiEndpoint,
@@ -147,6 +149,7 @@ export interface RemoteApiEndpoints
     CurrentGamePlayerRemoteApiEndpoint,
     CurrentGameMatchRemoteApiEndpoint,
     CurrentGameLoadoutsRemoteApiEndpoint,
+    CurrentGameQuitRemoteApiEndpoint,
     ItemUpgradesRemoteApiEndpoint,
     ContractsRemoteApiEndpoint,
     ActivateContractRemoteApiEndpoint {}

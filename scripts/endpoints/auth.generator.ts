@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { endpoints } from "valorant-api-types";
+import { endpoints } from "@tqman/valorant-api-types";
 import { paramCase } from "change-case";
 
 import {

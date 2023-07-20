@@ -3,7 +3,7 @@
 import { z } from "zod";
 import axios, { type AxiosResponse } from "axios";
 import { type AxiosRequestConfig } from "axios";
-import { clientRegionEndpoint } from "valorant-api-types";
+import { clientRegionEndpoint } from "@tqman/valorant-api-types";
 import { parseResponseDataFor } from "~/helpers/endpoints";
 import { ensureArray } from "~/utils/array";
 import { type LocalApiClient } from "~/clients/local-api";

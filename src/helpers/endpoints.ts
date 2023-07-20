@@ -1,6 +1,6 @@
 import { camelCase } from "change-case";
 import type { AxiosRequestTransformer, AxiosResponseTransformer } from "axios";
-import type { ValorantEndpoint } from "valorant-api-types";
+import type { ValorantEndpoint } from "@tqman/valorant-api-types";
 
 import { execAllGenerator } from "~/utils/regex";
 

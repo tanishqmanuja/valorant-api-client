@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import axios, { type AxiosResponse } from "axios";
-import { refreshCompetitiveTierEndpoint } from "valorant-api-types";
+import { refreshCompetitiveTierEndpoint } from "@tqman/valorant-api-types";
 import { parseResponseDataFor, buildSuffix } from "~/helpers/endpoints";
 import { ensureArray } from "~/utils/array";
 import { AxiosRequestConfigWithData } from "~/utils/lib/axios";

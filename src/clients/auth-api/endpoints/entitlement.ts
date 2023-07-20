@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { type AxiosRequestConfig } from "axios";
-import { entitlementEndpoint } from "valorant-api-types";
+import { entitlementEndpoint } from "@tqman/valorant-api-types";
 import { type AuthApiClient } from "~/clients/auth-api";
 import { type CustomAxiosRequestConfig } from "~/clients/common/types";
 

@@ -2,52 +2,54 @@
 
 import { z } from "zod";
 import axios, { type AxiosResponse } from "axios";
-import { sendChatEndpoint } from "@tqman/valorant-api-types";
+import { removeFriendRequestEndpoint } from "@tqman/valorant-api-types";
 import { parseResponseDataFor } from "~/helpers/endpoints";
 import { ensureArray } from "~/utils/array";
 import { AxiosRequestConfigWithData } from "~/utils/lib/axios";
 import { type LocalApiClient } from "~/clients/local-api";
 import { type CustomAxiosRequestConfig } from "~/clients/common/types";
 
-type SendChatBodyData = z.infer<typeof sendChatEndpoint.body>;
+type RemoveFriendRequestBodyData = z.infer<
+  typeof removeFriendRequestEndpoint.body
+>;
 
-export interface SendChatRequestConfig
-  extends AxiosRequestConfigWithData<SendChatBodyData>,
+export interface RemoveFriendRequestRequestConfig
+  extends AxiosRequestConfigWithData<RemoveFriendRequestBodyData>,
     CustomAxiosRequestConfig {}
 
-export type SendChatResponse = z.input<
-  (typeof sendChatEndpoint.responses)["200"]
+export type RemoveFriendRequestResponse = z.input<
+  (typeof removeFriendRequestEndpoint.responses)["204"]
 >;
 
-export type SendChatParsedResponse = z.output<
-  (typeof sendChatEndpoint.responses)["200"]
+export type RemoveFriendRequestParsedResponse = z.output<
+  (typeof removeFriendRequestEndpoint.responses)["204"]
 >;
 
-export class SendChatLocalApiEndpoint {
+export class RemoveFriendRequestLocalApiEndpoint {
   /**
-   * @description Send a message to the specified group
+   * @description Removes an outgoing friend request
    */
-  postSendChat<T = SendChatParsedResponse>(
+  deleteRemoveFriendRequest<T = RemoveFriendRequestParsedResponse>(
     this: LocalApiClient,
-    config: SendChatRequestConfig & { parseResponseData: true },
+    config: RemoveFriendRequestRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
-  postSendChat<T = SendChatResponse>(
+  deleteRemoveFriendRequest<T = RemoveFriendRequestResponse>(
     this: LocalApiClient,
-    config: SendChatRequestConfig,
+    config: RemoveFriendRequestRequestConfig,
   ): Promise<AxiosResponse<T>>;
-  postSendChat<T = SendChatResponse>(
+  deleteRemoveFriendRequest<T = RemoveFriendRequestResponse>(
     this: LocalApiClient,
-    config: SendChatRequestConfig,
+    config: RemoveFriendRequestRequestConfig,
   ) {
     const shouldParseResponse =
       config.parseResponseData ?? this.options.parseResponseData;
 
     return this.axiosInstance<T>({
-      method: "POST",
-      url: sendChatEndpoint.suffix,
+      method: "DELETE",
+      url: removeFriendRequestEndpoint.suffix,
       ...config,
       transformRequest: [
-        parseResponseDataFor(sendChatEndpoint),
+        parseResponseDataFor(removeFriendRequestEndpoint),
         ...ensureArray(axios.defaults.transformRequest),
       ],
       ...(shouldParseResponse
@@ -55,7 +57,7 @@ export class SendChatLocalApiEndpoint {
             transformResponse: [
               ...ensureArray(axios.defaults.transformResponse),
               parseResponseDataFor(
-                sendChatEndpoint,
+                removeFriendRequestEndpoint,
                 config.customResponseParser,
               ),
             ],

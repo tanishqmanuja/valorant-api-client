@@ -1,6 +1,6 @@
 import { camelCase, paramCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
-import { ValorantEndpoint } from "valorant-api-types";
+import { ValorantEndpoint } from "@tqman/valorant-api-types";
 
 const CLIENT_CLASS = "LocalApiClient";
 const CLIENT_CLASS_PATH = "~/clients/local-api";
@@ -34,7 +34,7 @@ ${tImports([
     from: "axios",
     if: !hasBody,
   },
-  { named: importName, from: "valorant-api-types" },
+  { named: importName, from: "@tqman/valorant-api-types" },
   { named: "parseResponseDataFor", from: "~/helpers/endpoints" },
   { named: "ensureArray", from: "~/utils/array" },
   {

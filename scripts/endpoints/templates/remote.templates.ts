@@ -1,6 +1,6 @@
 import { camelCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
-import { ValorantEndpoint } from "valorant-api-types";
+import { ValorantEndpoint } from "@tqman/valorant-api-types";
 import { getSuffixParams } from "~/helpers";
 
 const CLIENT_CLASS = "RemoteApiClient";
@@ -33,7 +33,7 @@ ${tImports([
     from: "axios",
     if: !(hasBody || hasSuffixParams),
   },
-  { named: importName, from: "valorant-api-types" },
+  { named: importName, from: "@tqman/valorant-api-types" },
   {
     named: [
       "parseResponseDataFor",

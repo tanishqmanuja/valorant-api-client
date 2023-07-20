@@ -8,6 +8,8 @@ import { AccountAliasLocalApiEndpoint } from "./account-alias";
 import { EntitlementsTokenLocalApiEndpoint } from "./entitlements-token";
 import { ChatSessionLocalApiEndpoint } from "./chat-session";
 import { FriendsLocalApiEndpoint } from "./friends";
+import { SendFriendRequestLocalApiEndpoint } from "./send-friend-request";
+import { RemoveFriendRequestLocalApiEndpoint } from "./remove-friend-request";
 import { PresenceLocalApiEndpoint } from "./presence";
 import { SettingsLocalApiEndpoint } from "./settings";
 import { FriendRequestsLocalApiEndpoint } from "./friend-requests";
@@ -33,6 +35,8 @@ applyMixins(LocalApiEndpoints, [
   EntitlementsTokenLocalApiEndpoint,
   ChatSessionLocalApiEndpoint,
   FriendsLocalApiEndpoint,
+  SendFriendRequestLocalApiEndpoint,
+  RemoveFriendRequestLocalApiEndpoint,
   PresenceLocalApiEndpoint,
   SettingsLocalApiEndpoint,
   FriendRequestsLocalApiEndpoint,
@@ -55,6 +59,8 @@ export interface LocalApiEndpoints
     EntitlementsTokenLocalApiEndpoint,
     ChatSessionLocalApiEndpoint,
     FriendsLocalApiEndpoint,
+    SendFriendRequestLocalApiEndpoint,
+    RemoveFriendRequestLocalApiEndpoint,
     PresenceLocalApiEndpoint,
     SettingsLocalApiEndpoint,
     FriendRequestsLocalApiEndpoint,

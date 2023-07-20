@@ -1,4 +1,4 @@
-import { ValorantEndpoint } from "valorant-api-types";
+import { ValorantEndpoint } from "@tqman/valorant-api-types";
 import { camelCase, paramCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
 
@@ -26,7 +26,7 @@ export const tAuthEndpoint = (o: EndpointOptions) => {
 ${tImports([
   { named: "z", from: "zod", if: hasBody || hasResponses },
   { named: "type AxiosRequestConfig", from: "axios", if: !hasBody },
-  { named: importName, from: "valorant-api-types" },
+  { named: importName, from: "@tqman/valorant-api-types" },
   { named: `type ${CLIENT_CLASS}`, from: CLIENT_CLASS_PATH },
   { named: "type CustomAxiosRequestConfig", from: "~/clients/common/types" },
   {

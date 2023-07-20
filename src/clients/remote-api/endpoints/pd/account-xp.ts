@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import axios, { type AxiosResponse } from "axios";
-import { accountXPEndpoint } from "valorant-api-types";
+import { accountXPEndpoint } from "@tqman/valorant-api-types";
 import { parseResponseDataFor, buildSuffix } from "~/helpers/endpoints";
 import { ensureArray } from "~/utils/array";
 import { AxiosRequestConfigWithData } from "~/utils/lib/axios";
@@ -25,7 +25,7 @@ export type AccountXpParsedResponse = z.output<
 
 export class AccountXpRemoteApiEndpoint {
   /**
-   * @description Get the account level, XP, and XP history for the given player
+   * @description Get the account level, XP, and XP history for the current player. This endpoint only works with the authenticated player's PUUID.
    */
   getAccountXp<T = AccountXpParsedResponse>(
     this: RemoteApiClient,
