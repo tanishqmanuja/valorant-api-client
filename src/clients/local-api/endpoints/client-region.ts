@@ -13,11 +13,11 @@ export interface ClientRegionRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type ClientRegionRawResponse = z.input<
+export type ClientRegionResponse = z.input<
   (typeof clientRegionEndpoint.responses)["200"]
 >;
 
-export type ClientRegionResponse = z.output<
+export type ClientRegionParsedResponse = z.output<
   (typeof clientRegionEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class ClientRegionLocalApiEndpoint {
   /**
    * @description Gets info about the region and locale from the Riot client
    */
-  getClientRegion<T = ClientRegionRawResponse>(
+  getClientRegion<T = ClientRegionParsedResponse>(
     this: LocalApiClient,
-    config: ClientRegionRequestConfig & { parseResponseData: false },
+    config: ClientRegionRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getClientRegion<T = ClientRegionResponse>(
     this: LocalApiClient,

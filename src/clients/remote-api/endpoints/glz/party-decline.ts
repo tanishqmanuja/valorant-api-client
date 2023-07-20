@@ -15,11 +15,11 @@ export interface PartyDeclineRequestConfig
   extends AxiosRequestConfigWithData<PartyDeclineSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyDeclineRawResponse = z.input<
+export type PartyDeclineResponse = z.input<
   (typeof partyDeclineEndpoint.responses)["200"]
 >;
 
-export type PartyDeclineResponse = z.output<
+export type PartyDeclineParsedResponse = z.output<
   (typeof partyDeclineEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyDeclineRemoteApiEndpoint {
   /**
    * @description Decline a party invite request
    */
-  postPartyDecline<T = PartyDeclineRawResponse>(
+  postPartyDecline<T = PartyDeclineParsedResponse>(
     this: RemoteApiClient,
-    config: PartyDeclineRequestConfig & { parseResponseData: false },
+    config: PartyDeclineRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postPartyDecline<T = PartyDeclineResponse>(
     this: RemoteApiClient,

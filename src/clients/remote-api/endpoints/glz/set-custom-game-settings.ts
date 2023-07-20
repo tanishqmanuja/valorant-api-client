@@ -21,11 +21,11 @@ export interface SetCustomGameSettingsRequestConfig
     >,
     CustomAxiosRequestConfig {}
 
-export type SetCustomGameSettingsRawResponse = z.input<
+export type SetCustomGameSettingsResponse = z.input<
   (typeof setCustomGameSettingsEndpoint.responses)["200"]
 >;
 
-export type SetCustomGameSettingsResponse = z.output<
+export type SetCustomGameSettingsParsedResponse = z.output<
   (typeof setCustomGameSettingsEndpoint.responses)["200"]
 >;
 
@@ -33,9 +33,9 @@ export class SetCustomGameSettingsRemoteApiEndpoint {
   /**
    * @description Changes the settings for a custom game
    */
-  postSetCustomGameSettings<T = SetCustomGameSettingsRawResponse>(
+  postSetCustomGameSettings<T = SetCustomGameSettingsParsedResponse>(
     this: RemoteApiClient,
-    config: SetCustomGameSettingsRequestConfig & { parseResponseData: false },
+    config: SetCustomGameSettingsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postSetCustomGameSettings<T = SetCustomGameSettingsResponse>(
     this: RemoteApiClient,

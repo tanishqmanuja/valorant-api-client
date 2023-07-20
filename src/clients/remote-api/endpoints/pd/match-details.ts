@@ -15,11 +15,11 @@ export interface MatchDetailsRequestConfig
   extends AxiosRequestConfigWithData<MatchDetailsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type MatchDetailsRawResponse = z.input<
+export type MatchDetailsResponse = z.input<
   (typeof matchDetailsEndpoint.responses)["200"]
 >;
 
-export type MatchDetailsResponse = z.output<
+export type MatchDetailsParsedResponse = z.output<
   (typeof matchDetailsEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class MatchDetailsRemoteApiEndpoint {
   /**
    * @description Get the details of a match after it ends
    */
-  getMatchDetails<T = MatchDetailsRawResponse>(
+  getMatchDetails<T = MatchDetailsParsedResponse>(
     this: RemoteApiClient,
-    config: MatchDetailsRequestConfig & { parseResponseData: false },
+    config: MatchDetailsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getMatchDetails<T = MatchDetailsResponse>(
     this: RemoteApiClient,

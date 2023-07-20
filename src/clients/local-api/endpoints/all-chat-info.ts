@@ -13,11 +13,11 @@ export interface AllChatInfoRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type AllChatInfoRawResponse = z.input<
+export type AllChatInfoResponse = z.input<
   (typeof allChatInfoEndpoint.responses)["200"]
 >;
 
-export type AllChatInfoResponse = z.output<
+export type AllChatInfoParsedResponse = z.output<
   (typeof allChatInfoEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class AllChatInfoLocalApiEndpoint {
   /**
    * @description Get information about all active conversations
    */
-  getAllChatInfo<T = AllChatInfoRawResponse>(
+  getAllChatInfo<T = AllChatInfoParsedResponse>(
     this: LocalApiClient,
-    config: AllChatInfoRequestConfig & { parseResponseData: false },
+    config: AllChatInfoRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getAllChatInfo<T = AllChatInfoResponse>(
     this: LocalApiClient,

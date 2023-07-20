@@ -15,11 +15,11 @@ export interface PartyChatTokenRequestConfig
   extends AxiosRequestConfigWithData<PartyChatTokenSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyChatTokenRawResponse = z.input<
+export type PartyChatTokenResponse = z.input<
   (typeof partyChatTokenEndpoint.responses)["200"]
 >;
 
-export type PartyChatTokenResponse = z.output<
+export type PartyChatTokenParsedResponse = z.output<
   (typeof partyChatTokenEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyChatTokenRemoteApiEndpoint {
   /**
    * @description Get the party chat token
    */
-  getPartyChatToken<T = PartyChatTokenRawResponse>(
+  getPartyChatToken<T = PartyChatTokenParsedResponse>(
     this: RemoteApiClient,
-    config: PartyChatTokenRequestConfig & { parseResponseData: false },
+    config: PartyChatTokenRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPartyChatToken<T = PartyChatTokenResponse>(
     this: RemoteApiClient,

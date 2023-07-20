@@ -15,11 +15,11 @@ export interface LockCharacterRequestConfig
   extends AxiosRequestConfigWithData<LockCharacterSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type LockCharacterRawResponse = z.input<
+export type LockCharacterResponse = z.input<
   (typeof lockCharacterEndpoint.responses)["200"]
 >;
 
-export type LockCharacterResponse = z.output<
+export type LockCharacterParsedResponse = z.output<
   (typeof lockCharacterEndpoint.responses)["200"]
 >;
 
@@ -29,9 +29,9 @@ export class LockCharacterRemoteApiEndpoint {
    * **DO NOT USE THIS FOR INSTALOCKING**
    * Riot doesn't like this. You may get banned or get the API restricted for the rest of us.
    */
-  postLockCharacter<T = LockCharacterRawResponse>(
+  postLockCharacter<T = LockCharacterParsedResponse>(
     this: RemoteApiClient,
-    config: LockCharacterRequestConfig & { parseResponseData: false },
+    config: LockCharacterRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postLockCharacter<T = LockCharacterResponse>(
     this: RemoteApiClient,

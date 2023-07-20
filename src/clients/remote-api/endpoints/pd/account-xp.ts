@@ -15,11 +15,11 @@ export interface AccountXpRequestConfig
   extends AxiosRequestConfigWithData<AccountXpSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type AccountXpRawResponse = z.input<
+export type AccountXpResponse = z.input<
   (typeof accountXPEndpoint.responses)["200"]
 >;
 
-export type AccountXpResponse = z.output<
+export type AccountXpParsedResponse = z.output<
   (typeof accountXPEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class AccountXpRemoteApiEndpoint {
   /**
    * @description Get the account level, XP, and XP history for the given player
    */
-  getAccountXp<T = AccountXpRawResponse>(
+  getAccountXp<T = AccountXpParsedResponse>(
     this: RemoteApiClient,
-    config: AccountXpRequestConfig & { parseResponseData: false },
+    config: AccountXpRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getAccountXp<T = AccountXpResponse>(
     this: RemoteApiClient,

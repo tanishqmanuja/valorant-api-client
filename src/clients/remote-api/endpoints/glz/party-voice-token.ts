@@ -15,11 +15,11 @@ export interface PartyVoiceTokenRequestConfig
   extends AxiosRequestConfigWithData<PartyVoiceTokenSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyVoiceTokenRawResponse = z.input<
+export type PartyVoiceTokenResponse = z.input<
   (typeof partyVoiceTokenEndpoint.responses)["200"]
 >;
 
-export type PartyVoiceTokenResponse = z.output<
+export type PartyVoiceTokenParsedResponse = z.output<
   (typeof partyVoiceTokenEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyVoiceTokenRemoteApiEndpoint {
   /**
    * @description Get the party voice token
    */
-  getPartyVoiceToken<T = PartyVoiceTokenRawResponse>(
+  getPartyVoiceToken<T = PartyVoiceTokenParsedResponse>(
     this: RemoteApiClient,
-    config: PartyVoiceTokenRequestConfig & { parseResponseData: false },
+    config: PartyVoiceTokenRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPartyVoiceToken<T = PartyVoiceTokenResponse>(
     this: RemoteApiClient,

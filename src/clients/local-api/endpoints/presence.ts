@@ -13,11 +13,11 @@ export interface PresenceRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type PresenceRawResponse = z.input<
+export type PresenceResponse = z.input<
   (typeof presenceEndpoint.responses)["200"]
 >;
 
-export type PresenceResponse = z.output<
+export type PresenceParsedResponse = z.output<
   (typeof presenceEndpoint.responses)["200"]
 >;
 
@@ -26,9 +26,9 @@ export class PresenceLocalApiEndpoint {
    * @description Get a list of online friends and their activity
    *   If the player is playing Valorant, `private` is a base64-encoded JSON string that contains useful information such as party and in-progress game score.
    */
-  getPresence<T = PresenceRawResponse>(
+  getPresence<T = PresenceParsedResponse>(
     this: LocalApiClient,
-    config: PresenceRequestConfig & { parseResponseData: false },
+    config: PresenceRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPresence<T = PresenceResponse>(
     this: LocalApiClient,

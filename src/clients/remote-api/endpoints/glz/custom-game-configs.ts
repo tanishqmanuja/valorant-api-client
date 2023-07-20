@@ -13,11 +13,11 @@ export interface CustomGameConfigsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type CustomGameConfigsRawResponse = z.input<
+export type CustomGameConfigsResponse = z.input<
   (typeof customGameConfigsEndpoint.responses)["200"]
 >;
 
-export type CustomGameConfigsResponse = z.output<
+export type CustomGameConfigsParsedResponse = z.output<
   (typeof customGameConfigsEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class CustomGameConfigsRemoteApiEndpoint {
   /**
    * @description Get information about the available gamemodes, maps, queues, and gamepods
    */
-  getCustomGameConfigs<T = CustomGameConfigsRawResponse>(
+  getCustomGameConfigs<T = CustomGameConfigsParsedResponse>(
     this: RemoteApiClient,
-    config: CustomGameConfigsRequestConfig & { parseResponseData: false },
+    config: CustomGameConfigsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getCustomGameConfigs<T = CustomGameConfigsResponse>(
     this: RemoteApiClient,

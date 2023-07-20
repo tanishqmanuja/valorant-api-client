@@ -15,11 +15,11 @@ export interface MatchHistoryRequestConfig
   extends AxiosRequestConfigWithData<MatchHistorySuffixData>,
     CustomAxiosRequestConfig {}
 
-export type MatchHistoryRawResponse = z.input<
+export type MatchHistoryResponse = z.input<
   (typeof matchHistoryEndpoint.responses)["200"]
 >;
 
-export type MatchHistoryResponse = z.output<
+export type MatchHistoryParsedResponse = z.output<
   (typeof matchHistoryEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class MatchHistoryRemoteApiEndpoint {
   /**
    * @description Get the match history for the given player
    */
-  getMatchHistory<T = MatchHistoryRawResponse>(
+  getMatchHistory<T = MatchHistoryParsedResponse>(
     this: RemoteApiClient,
-    config: MatchHistoryRequestConfig & { parseResponseData: false },
+    config: MatchHistoryRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getMatchHistory<T = MatchHistoryResponse>(
     this: RemoteApiClient,

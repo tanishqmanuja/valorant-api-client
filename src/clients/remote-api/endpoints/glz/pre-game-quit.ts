@@ -15,11 +15,11 @@ export interface PreGameQuitRequestConfig
   extends AxiosRequestConfigWithData<PreGameQuitSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PreGameQuitRawResponse = z.input<
+export type PreGameQuitResponse = z.input<
   (typeof pregameQuitEndpoint.responses)["204"]
 >;
 
-export type PreGameQuitResponse = z.output<
+export type PreGameQuitParsedResponse = z.output<
   (typeof pregameQuitEndpoint.responses)["204"]
 >;
 
@@ -27,9 +27,9 @@ export class PreGameQuitRemoteApiEndpoint {
   /**
    * @description Quit the pre-game lobby
    */
-  postPreGameQuit<T = PreGameQuitRawResponse>(
+  postPreGameQuit<T = PreGameQuitParsedResponse>(
     this: RemoteApiClient,
-    config: PreGameQuitRequestConfig & { parseResponseData: false },
+    config: PreGameQuitRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postPreGameQuit<T = PreGameQuitResponse>(
     this: RemoteApiClient,

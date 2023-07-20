@@ -13,19 +13,19 @@ export interface PricesRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type PricesRawResponse = z.input<
+export type PricesResponse = z.input<(typeof pricesEndpoint.responses)["200"]>;
+
+export type PricesParsedResponse = z.output<
   (typeof pricesEndpoint.responses)["200"]
 >;
-
-export type PricesResponse = z.output<(typeof pricesEndpoint.responses)["200"]>;
 
 export class PricesRemoteApiEndpoint {
   /**
    * @description Get the current store prices for all items
    */
-  getPrices<T = PricesRawResponse>(
+  getPrices<T = PricesParsedResponse>(
     this: RemoteApiClient,
-    config: PricesRequestConfig & { parseResponseData: false },
+    config: PricesRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPrices<T = PricesResponse>(
     this: RemoteApiClient,

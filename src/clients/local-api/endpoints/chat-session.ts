@@ -13,11 +13,11 @@ export interface ChatSessionRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type ChatSessionRawResponse = z.input<
+export type ChatSessionResponse = z.input<
   (typeof chatSessionEndpoint.responses)["200"]
 >;
 
-export type ChatSessionResponse = z.output<
+export type ChatSessionParsedResponse = z.output<
   (typeof chatSessionEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class ChatSessionLocalApiEndpoint {
   /**
    * @description Get the current session including player name and PUUID
    */
-  getChatSession<T = ChatSessionRawResponse>(
+  getChatSession<T = ChatSessionParsedResponse>(
     this: LocalApiClient,
-    config: ChatSessionRequestConfig & { parseResponseData: false },
+    config: ChatSessionRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getChatSession<T = ChatSessionResponse>(
     this: LocalApiClient,

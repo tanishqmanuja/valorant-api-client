@@ -15,11 +15,11 @@ export interface RefreshPingsRequestConfig
   extends AxiosRequestConfigWithData<RefreshPingsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type RefreshPingsRawResponse = z.input<
+export type RefreshPingsResponse = z.input<
   (typeof refreshPingsEndpoint.responses)["200"]
 >;
 
-export type RefreshPingsResponse = z.output<
+export type RefreshPingsParsedResponse = z.output<
   (typeof refreshPingsEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class RefreshPingsRemoteApiEndpoint {
   /**
    * @description Refresh the pings of the specified player
    */
-  postRefreshPings<T = RefreshPingsRawResponse>(
+  postRefreshPings<T = RefreshPingsParsedResponse>(
     this: RemoteApiClient,
-    config: RefreshPingsRequestConfig & { parseResponseData: false },
+    config: RefreshPingsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postRefreshPings<T = RefreshPingsResponse>(
     this: RemoteApiClient,

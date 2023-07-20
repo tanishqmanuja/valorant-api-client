@@ -13,11 +13,11 @@ export interface LocalSwaggerDocsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type LocalSwaggerDocsRawResponse = z.input<
+export type LocalSwaggerDocsResponse = z.input<
   (typeof localSwaggerDocsEndpoint.responses)["200"]
 >;
 
-export type LocalSwaggerDocsResponse = z.output<
+export type LocalSwaggerDocsParsedResponse = z.output<
   (typeof localSwaggerDocsEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class LocalSwaggerDocsLocalApiEndpoint {
   /**
    * @description Fetches json Swagger docs for local endpoints. Can be imported into Swagger or Insomnia.
    */
-  getLocalSwaggerDocs<T = LocalSwaggerDocsRawResponse>(
+  getLocalSwaggerDocs<T = LocalSwaggerDocsParsedResponse>(
     this: LocalApiClient,
-    config: LocalSwaggerDocsRequestConfig & { parseResponseData: false },
+    config: LocalSwaggerDocsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getLocalSwaggerDocs<T = LocalSwaggerDocsResponse>(
     this: LocalApiClient,

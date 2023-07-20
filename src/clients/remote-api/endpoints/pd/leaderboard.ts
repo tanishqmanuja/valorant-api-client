@@ -15,11 +15,11 @@ export interface LeaderboardRequestConfig
   extends AxiosRequestConfigWithData<LeaderboardSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type LeaderboardRawResponse = z.input<
+export type LeaderboardResponse = z.input<
   (typeof leaderboardEndpoint.responses)["200"]
 >;
 
-export type LeaderboardResponse = z.output<
+export type LeaderboardParsedResponse = z.output<
   (typeof leaderboardEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class LeaderboardRemoteApiEndpoint {
   /**
    * @description Get the leaderboard for a given season
    */
-  getLeaderboard<T = LeaderboardRawResponse>(
+  getLeaderboard<T = LeaderboardParsedResponse>(
     this: RemoteApiClient,
-    config: LeaderboardRequestConfig & { parseResponseData: false },
+    config: LeaderboardRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getLeaderboard<T = LeaderboardResponse>(
     this: RemoteApiClient,

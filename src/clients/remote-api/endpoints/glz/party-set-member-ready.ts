@@ -21,11 +21,11 @@ export interface PartySetMemberReadyRequestConfig
     >,
     CustomAxiosRequestConfig {}
 
-export type PartySetMemberReadyRawResponse = z.input<
+export type PartySetMemberReadyResponse = z.input<
   (typeof partySetMemberReadyEndpoint.responses)["200"]
 >;
 
-export type PartySetMemberReadyResponse = z.output<
+export type PartySetMemberReadyParsedResponse = z.output<
   (typeof partySetMemberReadyEndpoint.responses)["200"]
 >;
 
@@ -33,9 +33,9 @@ export class PartySetMemberReadyRemoteApiEndpoint {
   /**
    * @description Set the ready status of a player in the current party
    */
-  postPartySetMemberReady<T = PartySetMemberReadyRawResponse>(
+  postPartySetMemberReady<T = PartySetMemberReadyParsedResponse>(
     this: RemoteApiClient,
-    config: PartySetMemberReadyRequestConfig & { parseResponseData: false },
+    config: PartySetMemberReadyRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postPartySetMemberReady<T = PartySetMemberReadyResponse>(
     this: RemoteApiClient,

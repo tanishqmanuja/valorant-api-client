@@ -15,11 +15,11 @@ export interface PreGamePlayerRequestConfig
   extends AxiosRequestConfigWithData<PreGamePlayerSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PreGamePlayerRawResponse = z.input<
+export type PreGamePlayerResponse = z.input<
   (typeof pregamePlayerEndpoint.responses)["200"]
 >;
 
-export type PreGamePlayerResponse = z.output<
+export type PreGamePlayerParsedResponse = z.output<
   (typeof pregamePlayerEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PreGamePlayerRemoteApiEndpoint {
   /**
    * @description Get the pre-game match ID for the provided player
    */
-  getPreGamePlayer<T = PreGamePlayerRawResponse>(
+  getPreGamePlayer<T = PreGamePlayerParsedResponse>(
     this: RemoteApiClient,
-    config: PreGamePlayerRequestConfig & { parseResponseData: false },
+    config: PreGamePlayerRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPreGamePlayer<T = PreGamePlayerResponse>(
     this: RemoteApiClient,

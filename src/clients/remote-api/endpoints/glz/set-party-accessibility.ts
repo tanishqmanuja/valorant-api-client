@@ -21,11 +21,11 @@ export interface SetPartyAccessibilityRequestConfig
     >,
     CustomAxiosRequestConfig {}
 
-export type SetPartyAccessibilityRawResponse = z.input<
+export type SetPartyAccessibilityResponse = z.input<
   (typeof setPartyAccessibilityEndpoint.responses)["200"]
 >;
 
-export type SetPartyAccessibilityResponse = z.output<
+export type SetPartyAccessibilityParsedResponse = z.output<
   (typeof setPartyAccessibilityEndpoint.responses)["200"]
 >;
 
@@ -33,9 +33,9 @@ export class SetPartyAccessibilityRemoteApiEndpoint {
   /**
    * @description Set the accessibility of the party
    */
-  postSetPartyAccessibility<T = SetPartyAccessibilityRawResponse>(
+  postSetPartyAccessibility<T = SetPartyAccessibilityParsedResponse>(
     this: RemoteApiClient,
-    config: SetPartyAccessibilityRequestConfig & { parseResponseData: false },
+    config: SetPartyAccessibilityRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postSetPartyAccessibility<T = SetPartyAccessibilityResponse>(
     this: RemoteApiClient,

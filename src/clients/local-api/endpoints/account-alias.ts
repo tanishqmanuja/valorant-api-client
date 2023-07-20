@@ -13,11 +13,11 @@ export interface AccountAliasRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type AccountAliasRawResponse = z.input<
+export type AccountAliasResponse = z.input<
   (typeof accountAliasEndpoint.responses)["200"]
 >;
 
-export type AccountAliasResponse = z.output<
+export type AccountAliasParsedResponse = z.output<
   (typeof accountAliasEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class AccountAliasLocalApiEndpoint {
   /**
    * @description Gets the player username and tagline
    */
-  getAccountAlias<T = AccountAliasRawResponse>(
+  getAccountAlias<T = AccountAliasParsedResponse>(
     this: LocalApiClient,
-    config: AccountAliasRequestConfig & { parseResponseData: false },
+    config: AccountAliasRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getAccountAlias<T = AccountAliasResponse>(
     this: LocalApiClient,

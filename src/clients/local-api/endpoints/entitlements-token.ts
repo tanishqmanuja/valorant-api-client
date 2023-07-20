@@ -13,11 +13,11 @@ export interface EntitlementsTokenRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type EntitlementsTokenRawResponse = z.input<
+export type EntitlementsTokenResponse = z.input<
   (typeof entitlementsTokenEndpoint.responses)["200"]
 >;
 
-export type EntitlementsTokenResponse = z.output<
+export type EntitlementsTokenParsedResponse = z.output<
   (typeof entitlementsTokenEndpoint.responses)["200"]
 >;
 
@@ -26,9 +26,9 @@ export class EntitlementsTokenLocalApiEndpoint {
    * @description Gets both the token and entitlement for API usage
    * `accessToken` is used as the token and `token` is used as the entitlement.
    */
-  getEntitlementsToken<T = EntitlementsTokenRawResponse>(
+  getEntitlementsToken<T = EntitlementsTokenParsedResponse>(
     this: LocalApiClient,
-    config: EntitlementsTokenRequestConfig & { parseResponseData: false },
+    config: EntitlementsTokenRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getEntitlementsToken<T = EntitlementsTokenResponse>(
     this: LocalApiClient,

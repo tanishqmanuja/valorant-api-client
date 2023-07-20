@@ -15,11 +15,11 @@ export interface CompetitiveUpdatesRequestConfig
   extends AxiosRequestConfigWithData<CompetitiveUpdatesSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type CompetitiveUpdatesRawResponse = z.input<
+export type CompetitiveUpdatesResponse = z.input<
   (typeof competitiveUpdatesEndpoint.responses)["200"]
 >;
 
-export type CompetitiveUpdatesResponse = z.output<
+export type CompetitiveUpdatesParsedResponse = z.output<
   (typeof competitiveUpdatesEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class CompetitiveUpdatesRemoteApiEndpoint {
   /**
    * @description Get recent games and how they changed ranking
    */
-  getCompetitiveUpdates<T = CompetitiveUpdatesRawResponse>(
+  getCompetitiveUpdates<T = CompetitiveUpdatesParsedResponse>(
     this: RemoteApiClient,
-    config: CompetitiveUpdatesRequestConfig & { parseResponseData: false },
+    config: CompetitiveUpdatesRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getCompetitiveUpdates<T = CompetitiveUpdatesResponse>(
     this: RemoteApiClient,

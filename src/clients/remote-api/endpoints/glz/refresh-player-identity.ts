@@ -15,11 +15,11 @@ export interface RefreshPlayerIdentityRequestConfig
   extends AxiosRequestConfigWithData<RefreshPlayerIdentitySuffixData>,
     CustomAxiosRequestConfig {}
 
-export type RefreshPlayerIdentityRawResponse = z.input<
+export type RefreshPlayerIdentityResponse = z.input<
   (typeof refreshPlayerIdentityEndpoint.responses)["200"]
 >;
 
-export type RefreshPlayerIdentityResponse = z.output<
+export type RefreshPlayerIdentityParsedResponse = z.output<
   (typeof refreshPlayerIdentityEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class RefreshPlayerIdentityRemoteApiEndpoint {
   /**
    * @description Refresh the identity of the specified player
    */
-  postRefreshPlayerIdentity<T = RefreshPlayerIdentityRawResponse>(
+  postRefreshPlayerIdentity<T = RefreshPlayerIdentityParsedResponse>(
     this: RemoteApiClient,
-    config: RefreshPlayerIdentityRequestConfig & { parseResponseData: false },
+    config: RefreshPlayerIdentityRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postRefreshPlayerIdentity<T = RefreshPlayerIdentityResponse>(
     this: RemoteApiClient,

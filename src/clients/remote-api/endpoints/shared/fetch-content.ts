@@ -13,11 +13,11 @@ export interface FetchContentRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type FetchContentRawResponse = z.input<
+export type FetchContentResponse = z.input<
   (typeof fetchContentEndpoint.responses)["200"]
 >;
 
-export type FetchContentResponse = z.output<
+export type FetchContentParsedResponse = z.output<
   (typeof fetchContentEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class FetchContentRemoteApiEndpoint {
   /**
    * @description Get a list of seasons, acts, and events
    */
-  getFetchContent<T = FetchContentRawResponse>(
+  getFetchContent<T = FetchContentParsedResponse>(
     this: RemoteApiClient,
-    config: FetchContentRequestConfig & { parseResponseData: false },
+    config: FetchContentRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getFetchContent<T = FetchContentResponse>(
     this: RemoteApiClient,

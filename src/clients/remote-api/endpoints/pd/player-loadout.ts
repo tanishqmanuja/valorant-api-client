@@ -15,11 +15,11 @@ export interface PlayerLoadoutRequestConfig
   extends AxiosRequestConfigWithData<PlayerLoadoutSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PlayerLoadoutRawResponse = z.input<
+export type PlayerLoadoutResponse = z.input<
   (typeof playerLoadoutEndpoint.responses)["200"]
 >;
 
-export type PlayerLoadoutResponse = z.output<
+export type PlayerLoadoutParsedResponse = z.output<
   (typeof playerLoadoutEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PlayerLoadoutRemoteApiEndpoint {
   /**
    * @description Get the player's current loadout. Only works for your own PUUID.
    */
-  getPlayerLoadout<T = PlayerLoadoutRawResponse>(
+  getPlayerLoadout<T = PlayerLoadoutParsedResponse>(
     this: RemoteApiClient,
-    config: PlayerLoadoutRequestConfig & { parseResponseData: false },
+    config: PlayerLoadoutRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPlayerLoadout<T = PlayerLoadoutResponse>(
     this: RemoteApiClient,

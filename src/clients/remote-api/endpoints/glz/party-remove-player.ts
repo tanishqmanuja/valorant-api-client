@@ -15,11 +15,11 @@ export interface PartyRemovePlayerRequestConfig
   extends AxiosRequestConfigWithData<PartyRemovePlayerSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyRemovePlayerRawResponse = z.input<
+export type PartyRemovePlayerResponse = z.input<
   (typeof partyRemovePlayerEndpoint.responses)["204"]
 >;
 
-export type PartyRemovePlayerResponse = z.output<
+export type PartyRemovePlayerParsedResponse = z.output<
   (typeof partyRemovePlayerEndpoint.responses)["204"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyRemovePlayerRemoteApiEndpoint {
   /**
    * @description Remove a player from the current party
    */
-  deletePartyRemovePlayer<T = PartyRemovePlayerRawResponse>(
+  deletePartyRemovePlayer<T = PartyRemovePlayerParsedResponse>(
     this: RemoteApiClient,
-    config: PartyRemovePlayerRequestConfig & { parseResponseData: false },
+    config: PartyRemovePlayerRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   deletePartyRemovePlayer<T = PartyRemovePlayerResponse>(
     this: RemoteApiClient,

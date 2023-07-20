@@ -15,11 +15,11 @@ export interface SelectCharacterRequestConfig
   extends AxiosRequestConfigWithData<SelectCharacterSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type SelectCharacterRawResponse = z.input<
+export type SelectCharacterResponse = z.input<
   (typeof selectCharacterEndpoint.responses)["200"]
 >;
 
-export type SelectCharacterResponse = z.output<
+export type SelectCharacterParsedResponse = z.output<
   (typeof selectCharacterEndpoint.responses)["200"]
 >;
 
@@ -29,9 +29,9 @@ export class SelectCharacterRemoteApiEndpoint {
    * **DO NOT USE THIS FOR INSTALOCKING**
    * Riot doesn't like this. You may get banned or get the API restricted for the rest of us.
    */
-  postSelectCharacter<T = SelectCharacterRawResponse>(
+  postSelectCharacter<T = SelectCharacterParsedResponse>(
     this: RemoteApiClient,
-    config: SelectCharacterRequestConfig & { parseResponseData: false },
+    config: SelectCharacterRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postSelectCharacter<T = SelectCharacterResponse>(
     this: RemoteApiClient,

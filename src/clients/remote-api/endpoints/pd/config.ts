@@ -15,19 +15,19 @@ export interface ConfigRequestConfig
   extends AxiosRequestConfigWithData<ConfigSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type ConfigRawResponse = z.input<
+export type ConfigResponse = z.input<(typeof configEndpoint.responses)["200"]>;
+
+export type ConfigParsedResponse = z.output<
   (typeof configEndpoint.responses)["200"]
 >;
-
-export type ConfigResponse = z.output<(typeof configEndpoint.responses)["200"]>;
 
 export class ConfigRemoteApiEndpoint {
   /**
    * @description Get the config for the given player
    */
-  getConfig<T = ConfigRawResponse>(
+  getConfig<T = ConfigParsedResponse>(
     this: RemoteApiClient,
-    config: ConfigRequestConfig & { parseResponseData: false },
+    config: ConfigRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getConfig<T = ConfigResponse>(
     this: RemoteApiClient,

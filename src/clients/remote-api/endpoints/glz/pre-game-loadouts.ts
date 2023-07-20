@@ -15,11 +15,11 @@ export interface PreGameLoadoutsRequestConfig
   extends AxiosRequestConfigWithData<PreGameLoadoutsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PreGameLoadoutsRawResponse = z.input<
+export type PreGameLoadoutsResponse = z.input<
   (typeof pregameLoadoutsEndpoint.responses)["200"]
 >;
 
-export type PreGameLoadoutsResponse = z.output<
+export type PreGameLoadoutsParsedResponse = z.output<
   (typeof pregameLoadoutsEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PreGameLoadoutsRemoteApiEndpoint {
   /**
    * @description Get Pre-Game loadout data
    */
-  getPreGameLoadouts<T = PreGameLoadoutsRawResponse>(
+  getPreGameLoadouts<T = PreGameLoadoutsParsedResponse>(
     this: RemoteApiClient,
-    config: PreGameLoadoutsRequestConfig & { parseResponseData: false },
+    config: PreGameLoadoutsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPreGameLoadouts<T = PreGameLoadoutsResponse>(
     this: RemoteApiClient,

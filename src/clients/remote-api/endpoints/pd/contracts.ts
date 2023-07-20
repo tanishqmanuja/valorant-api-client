@@ -15,11 +15,11 @@ export interface ContractsRequestConfig
   extends AxiosRequestConfigWithData<ContractsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type ContractsRawResponse = z.input<
+export type ContractsResponse = z.input<
   (typeof contractsEndpoint.responses)["200"]
 >;
 
-export type ContractsResponse = z.output<
+export type ContractsParsedResponse = z.output<
   (typeof contractsEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class ContractsRemoteApiEndpoint {
   /**
    * @description Get contract details including agents, battlepass, missions, and recent games
    */
-  getContracts<T = ContractsRawResponse>(
+  getContracts<T = ContractsParsedResponse>(
     this: RemoteApiClient,
-    config: ContractsRequestConfig & { parseResponseData: false },
+    config: ContractsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getContracts<T = ContractsResponse>(
     this: RemoteApiClient,

@@ -15,11 +15,11 @@ export interface StorefrontRequestConfig
   extends AxiosRequestConfigWithData<StorefrontSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type StorefrontRawResponse = z.input<
+export type StorefrontResponse = z.input<
   (typeof storefrontEndpoint.responses)["200"]
 >;
 
-export type StorefrontResponse = z.output<
+export type StorefrontParsedResponse = z.output<
   (typeof storefrontEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class StorefrontRemoteApiEndpoint {
   /**
    * @description Get the currently available items in the store
    */
-  getStorefront<T = StorefrontRawResponse>(
+  getStorefront<T = StorefrontParsedResponse>(
     this: RemoteApiClient,
-    config: StorefrontRequestConfig & { parseResponseData: false },
+    config: StorefrontRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getStorefront<T = StorefrontResponse>(
     this: RemoteApiClient,

@@ -15,11 +15,11 @@ export interface OwnedItemsRequestConfig
   extends AxiosRequestConfigWithData<OwnedItemsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type OwnedItemsRawResponse = z.input<
+export type OwnedItemsResponse = z.input<
   (typeof ownedItemsEndpoint.responses)["200"]
 >;
 
-export type OwnedItemsResponse = z.output<
+export type OwnedItemsParsedResponse = z.output<
   (typeof ownedItemsEndpoint.responses)["200"]
 >;
 
@@ -39,9 +39,9 @@ export class OwnedItemsRemoteApiEndpoint {
    * `3ad1b2b2-acdb-4524-852f-954a76ddae0a` | Skin Variants
    * `de7caa6b-adf7-4588-bbd1-143831e786c6` | Titles
    */
-  getOwnedItems<T = OwnedItemsRawResponse>(
+  getOwnedItems<T = OwnedItemsParsedResponse>(
     this: RemoteApiClient,
-    config: OwnedItemsRequestConfig & { parseResponseData: false },
+    config: OwnedItemsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getOwnedItems<T = OwnedItemsResponse>(
     this: RemoteApiClient,

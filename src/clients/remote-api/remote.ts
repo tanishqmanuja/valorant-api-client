@@ -22,7 +22,7 @@ export const remoteApiClientOptionsSchema = z.object({
   clientVersion: z.string(),
   userAgent: z.string().default(DEFAULT_USER_AGENT),
   platformInfo: platformSchema.default(DEFAULT_PLATFORM_INFO),
-  parseResponseData: z.boolean().default(true),
+  parseResponseData: z.boolean().default(false),
 });
 
 export type RemoteApiClientOptions = z.input<

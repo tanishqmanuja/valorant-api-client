@@ -19,11 +19,11 @@ export interface SetPlayerLoadoutRequestConfig
     >,
     CustomAxiosRequestConfig {}
 
-export type SetPlayerLoadoutRawResponse = z.input<
+export type SetPlayerLoadoutResponse = z.input<
   (typeof setPlayerLoadoutEndpoint.responses)["200"]
 >;
 
-export type SetPlayerLoadoutResponse = z.output<
+export type SetPlayerLoadoutParsedResponse = z.output<
   (typeof setPlayerLoadoutEndpoint.responses)["200"]
 >;
 
@@ -31,9 +31,9 @@ export class SetPlayerLoadoutRemoteApiEndpoint {
   /**
    * @description Set the player's current loadout.
    */
-  putSetPlayerLoadout<T = SetPlayerLoadoutRawResponse>(
+  putSetPlayerLoadout<T = SetPlayerLoadoutParsedResponse>(
     this: RemoteApiClient,
-    config: SetPlayerLoadoutRequestConfig & { parseResponseData: false },
+    config: SetPlayerLoadoutRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   putSetPlayerLoadout<T = SetPlayerLoadoutResponse>(
     this: RemoteApiClient,

@@ -15,11 +15,11 @@ export interface CurrentGameMatchRequestConfig
   extends AxiosRequestConfigWithData<CurrentGameMatchSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type CurrentGameMatchRawResponse = z.input<
+export type CurrentGameMatchResponse = z.input<
   (typeof currentGameMatchEndpoint.responses)["200"]
 >;
 
-export type CurrentGameMatchResponse = z.output<
+export type CurrentGameMatchParsedResponse = z.output<
   (typeof currentGameMatchEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class CurrentGameMatchRemoteApiEndpoint {
   /**
    * @description Get the current game match info
    */
-  getCurrentGameMatch<T = CurrentGameMatchRawResponse>(
+  getCurrentGameMatch<T = CurrentGameMatchParsedResponse>(
     this: RemoteApiClient,
-    config: CurrentGameMatchRequestConfig & { parseResponseData: false },
+    config: CurrentGameMatchRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getCurrentGameMatch<T = CurrentGameMatchResponse>(
     this: RemoteApiClient,

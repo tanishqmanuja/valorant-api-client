@@ -13,11 +13,11 @@ export interface CurrentGameChatInfoRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type CurrentGameChatInfoRawResponse = z.input<
+export type CurrentGameChatInfoResponse = z.input<
   (typeof currentGameChatInfoEndpoint.responses)["200"]
 >;
 
-export type CurrentGameChatInfoResponse = z.output<
+export type CurrentGameChatInfoParsedResponse = z.output<
   (typeof currentGameChatInfoEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class CurrentGameChatInfoLocalApiEndpoint {
   /**
    * @description Get information about the current game chat
    */
-  getCurrentGameChatInfo<T = CurrentGameChatInfoRawResponse>(
+  getCurrentGameChatInfo<T = CurrentGameChatInfoParsedResponse>(
     this: LocalApiClient,
-    config: CurrentGameChatInfoRequestConfig & { parseResponseData: false },
+    config: CurrentGameChatInfoRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getCurrentGameChatInfo<T = CurrentGameChatInfoResponse>(
     this: LocalApiClient,

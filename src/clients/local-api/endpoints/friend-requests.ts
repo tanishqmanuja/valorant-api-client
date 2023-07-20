@@ -13,11 +13,11 @@ export interface FriendRequestsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type FriendRequestsRawResponse = z.input<
+export type FriendRequestsResponse = z.input<
   (typeof friendRequestsEndpoint.responses)["200"]
 >;
 
-export type FriendRequestsResponse = z.output<
+export type FriendRequestsParsedResponse = z.output<
   (typeof friendRequestsEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class FriendRequestsLocalApiEndpoint {
   /**
    * @description Get a list of friend requests
    */
-  getFriendRequests<T = FriendRequestsRawResponse>(
+  getFriendRequests<T = FriendRequestsParsedResponse>(
     this: LocalApiClient,
-    config: FriendRequestsRequestConfig & { parseResponseData: false },
+    config: FriendRequestsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getFriendRequests<T = FriendRequestsResponse>(
     this: LocalApiClient,

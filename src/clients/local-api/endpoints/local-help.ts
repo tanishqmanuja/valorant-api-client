@@ -13,11 +13,11 @@ export interface LocalHelpRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type LocalHelpRawResponse = z.input<
+export type LocalHelpResponse = z.input<
   (typeof localHelpEndpoint.responses)["200"]
 >;
 
-export type LocalHelpResponse = z.output<
+export type LocalHelpParsedResponse = z.output<
   (typeof localHelpEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class LocalHelpLocalApiEndpoint {
   /**
    * @description Get help for the local client
    */
-  getLocalHelp<T = LocalHelpRawResponse>(
+  getLocalHelp<T = LocalHelpParsedResponse>(
     this: LocalApiClient,
-    config: LocalHelpRequestConfig & { parseResponseData: false },
+    config: LocalHelpRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getLocalHelp<T = LocalHelpResponse>(
     this: LocalApiClient,

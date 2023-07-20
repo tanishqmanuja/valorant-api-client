@@ -5,7 +5,7 @@ import { getOffiApiAxiosClient } from "./helpers";
 import { type Endpoints, endpoints } from "./endpoints";
 
 export const offiApiClientOptionsSchema = z.object({
-  parseResponseData: z.boolean().default(true),
+  parseResponseData: z.boolean().default(false),
 });
 
 /**

@@ -15,11 +15,11 @@ export interface NameServiceRequestConfig
   extends AxiosRequestConfigWithData<NameServiceBodyData>,
     CustomAxiosRequestConfig {}
 
-export type NameServiceRawResponse = z.input<
+export type NameServiceResponse = z.input<
   (typeof nameServiceEndpoint.responses)["200"]
 >;
 
-export type NameServiceResponse = z.output<
+export type NameServiceParsedResponse = z.output<
   (typeof nameServiceEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class NameServiceRemoteApiEndpoint {
   /**
    * @description Get a player's name and tagline by their PUUID. Supports retrieving multiple players in one request.
    */
-  putNameService<T = NameServiceRawResponse>(
+  putNameService<T = NameServiceParsedResponse>(
     this: RemoteApiClient,
-    config: NameServiceRequestConfig & { parseResponseData: false },
+    config: NameServiceRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   putNameService<T = NameServiceResponse>(
     this: RemoteApiClient,

@@ -13,11 +13,11 @@ export interface SessionsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type SessionsRawResponse = z.input<
+export type SessionsResponse = z.input<
   (typeof sessionsEndpoint.responses)["200"]
 >;
 
-export type SessionsResponse = z.output<
+export type SessionsParsedResponse = z.output<
   (typeof sessionsEndpoint.responses)["200"]
 >;
 
@@ -26,9 +26,9 @@ export class SessionsLocalApiEndpoint {
    * @description Gets info about the running Valorant process including start arguments
    *   Can be used to get shard, region, and puuid by parsing launch args.
    */
-  getSessions<T = SessionsRawResponse>(
+  getSessions<T = SessionsParsedResponse>(
     this: LocalApiClient,
-    config: SessionsRequestConfig & { parseResponseData: false },
+    config: SessionsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getSessions<T = SessionsResponse>(
     this: LocalApiClient,

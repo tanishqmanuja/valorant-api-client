@@ -15,11 +15,11 @@ export interface EnterMatchmakingQueueRequestConfig
   extends AxiosRequestConfigWithData<EnterMatchmakingQueueSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type EnterMatchmakingQueueRawResponse = z.input<
+export type EnterMatchmakingQueueResponse = z.input<
   (typeof enterMatchmakingQueueEndpoint.responses)["200"]
 >;
 
-export type EnterMatchmakingQueueResponse = z.output<
+export type EnterMatchmakingQueueParsedResponse = z.output<
   (typeof enterMatchmakingQueueEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class EnterMatchmakingQueueRemoteApiEndpoint {
   /**
    * @description Enter the matchmaking queue for the party
    */
-  postEnterMatchmakingQueue<T = EnterMatchmakingQueueRawResponse>(
+  postEnterMatchmakingQueue<T = EnterMatchmakingQueueParsedResponse>(
     this: RemoteApiClient,
-    config: EnterMatchmakingQueueRequestConfig & { parseResponseData: false },
+    config: EnterMatchmakingQueueRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postEnterMatchmakingQueue<T = EnterMatchmakingQueueResponse>(
     this: RemoteApiClient,

@@ -13,11 +13,11 @@ export interface ItemUpgradesRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type ItemUpgradesRawResponse = z.input<
+export type ItemUpgradesResponse = z.input<
   (typeof itemUpgradesEndpoint.responses)["200"]
 >;
 
-export type ItemUpgradesResponse = z.output<
+export type ItemUpgradesParsedResponse = z.output<
   (typeof itemUpgradesEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class ItemUpgradesRemoteApiEndpoint {
   /**
    * @description Get details for item upgrades
    */
-  getItemUpgrades<T = ItemUpgradesRawResponse>(
+  getItemUpgrades<T = ItemUpgradesParsedResponse>(
     this: RemoteApiClient,
-    config: ItemUpgradesRequestConfig & { parseResponseData: false },
+    config: ItemUpgradesRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getItemUpgrades<T = ItemUpgradesResponse>(
     this: RemoteApiClient,

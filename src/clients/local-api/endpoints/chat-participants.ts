@@ -13,11 +13,11 @@ export interface ChatParticipantsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type ChatParticipantsRawResponse = z.input<
+export type ChatParticipantsResponse = z.input<
   (typeof chatParticipantsEndpoint.responses)["200"]
 >;
 
-export type ChatParticipantsResponse = z.output<
+export type ChatParticipantsParsedResponse = z.output<
   (typeof chatParticipantsEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class ChatParticipantsLocalApiEndpoint {
   /**
    * @description Get information about the participants of all active conversations or a specific conversation if a cid is provided
    */
-  getChatParticipants<T = ChatParticipantsRawResponse>(
+  getChatParticipants<T = ChatParticipantsParsedResponse>(
     this: LocalApiClient,
-    config: ChatParticipantsRequestConfig & { parseResponseData: false },
+    config: ChatParticipantsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getChatParticipants<T = ChatParticipantsResponse>(
     this: LocalApiClient,

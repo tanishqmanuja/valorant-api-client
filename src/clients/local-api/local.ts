@@ -8,7 +8,7 @@ export const localApiClientOptionsSchema = z.object({
   port: z.string(),
   username: z.string().default("riot"),
   password: z.string(),
-  parseResponseData: z.boolean().default(true),
+  parseResponseData: z.boolean().default(false),
 });
 
 export type LocalApiClientOptions = z.input<typeof localApiClientOptionsSchema>;

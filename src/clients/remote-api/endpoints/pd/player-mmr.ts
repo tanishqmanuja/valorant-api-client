@@ -15,11 +15,11 @@ export interface PlayerMmrRequestConfig
   extends AxiosRequestConfigWithData<PlayerMmrSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PlayerMmrRawResponse = z.input<
+export type PlayerMmrResponse = z.input<
   (typeof playerMMREndpoint.responses)["200"]
 >;
 
-export type PlayerMmrResponse = z.output<
+export type PlayerMmrParsedResponse = z.output<
   (typeof playerMMREndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PlayerMmrRemoteApiEndpoint {
   /**
    * @description Get a player's MMR and history
    */
-  getPlayerMmr<T = PlayerMmrRawResponse>(
+  getPlayerMmr<T = PlayerMmrParsedResponse>(
     this: RemoteApiClient,
-    config: PlayerMmrRequestConfig & { parseResponseData: false },
+    config: PlayerMmrRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPlayerMmr<T = PlayerMmrResponse>(
     this: RemoteApiClient,

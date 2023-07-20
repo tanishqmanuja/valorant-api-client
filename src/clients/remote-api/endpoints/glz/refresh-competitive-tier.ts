@@ -15,11 +15,11 @@ export interface RefreshCompetitiveTierRequestConfig
   extends AxiosRequestConfigWithData<RefreshCompetitiveTierSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type RefreshCompetitiveTierRawResponse = z.input<
+export type RefreshCompetitiveTierResponse = z.input<
   (typeof refreshCompetitiveTierEndpoint.responses)["200"]
 >;
 
-export type RefreshCompetitiveTierResponse = z.output<
+export type RefreshCompetitiveTierParsedResponse = z.output<
   (typeof refreshCompetitiveTierEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class RefreshCompetitiveTierRemoteApiEndpoint {
   /**
    * @description Refresh the competitive tier of the specified player
    */
-  postRefreshCompetitiveTier<T = RefreshCompetitiveTierRawResponse>(
+  postRefreshCompetitiveTier<T = RefreshCompetitiveTierParsedResponse>(
     this: RemoteApiClient,
-    config: RefreshCompetitiveTierRequestConfig & { parseResponseData: false },
+    config: RefreshCompetitiveTierRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postRefreshCompetitiveTier<T = RefreshCompetitiveTierResponse>(
     this: RemoteApiClient,

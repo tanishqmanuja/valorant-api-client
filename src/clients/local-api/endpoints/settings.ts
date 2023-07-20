@@ -13,11 +13,11 @@ export interface SettingsRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type SettingsRawResponse = z.input<
+export type SettingsResponse = z.input<
   (typeof settingsEndpoint.responses)["200"]
 >;
 
-export type SettingsResponse = z.output<
+export type SettingsParsedResponse = z.output<
   (typeof settingsEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class SettingsLocalApiEndpoint {
   /**
    * @description Get a list of client settings
    */
-  getSettings<T = SettingsRawResponse>(
+  getSettings<T = SettingsParsedResponse>(
     this: LocalApiClient,
-    config: SettingsRequestConfig & { parseResponseData: false },
+    config: SettingsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getSettings<T = SettingsResponse>(
     this: LocalApiClient,

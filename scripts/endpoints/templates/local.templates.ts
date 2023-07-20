@@ -63,21 +63,19 @@ export interface ${pascalCase(e.name)}RequestConfig
 
 export type ${pascalCase(
     e.name,
-  )}RawResponse = z.input<typeof ${importName}.responses["${statusCode}"]>
+  )}Response = z.input<typeof ${importName}.responses["${statusCode}"]>
 
 export type ${pascalCase(
     e.name,
-  )}Response = z.output<typeof ${importName}.responses["${statusCode}"]>
+  )}ParsedResponse = z.output<typeof ${importName}.responses["${statusCode}"]>
 
 export class ${pascalCase(e.name)}${ENDPOINT_CLASS_SUFFIX} {
   /**
    * @description ${e.description.replaceAll("\n", "\n * ")}
    */
-  ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}RawResponse>(
+  ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}ParsedResponse>(
     this: ${CLIENT_CLASS},
-    ${`config: ${pascalCase(
-      e.name,
-    )}RequestConfig & {parseResponseData: false},`}
+    ${`config: ${pascalCase(e.name)}RequestConfig & {parseResponseData: true},`}
   ): Promise<AxiosResponse<T>>
   ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}Response>(
     this: ${CLIENT_CLASS},

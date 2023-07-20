@@ -15,19 +15,19 @@ export interface WalletRequestConfig
   extends AxiosRequestConfigWithData<WalletSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type WalletRawResponse = z.input<
+export type WalletResponse = z.input<(typeof walletEndpoint.responses)["200"]>;
+
+export type WalletParsedResponse = z.output<
   (typeof walletEndpoint.responses)["200"]
 >;
-
-export type WalletResponse = z.output<(typeof walletEndpoint.responses)["200"]>;
 
 export class WalletRemoteApiEndpoint {
   /**
    * @description Get the current wallet balance for the user
    */
-  getWallet<T = WalletRawResponse>(
+  getWallet<T = WalletParsedResponse>(
     this: RemoteApiClient,
-    config: WalletRequestConfig & { parseResponseData: false },
+    config: WalletRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getWallet<T = WalletResponse>(
     this: RemoteApiClient,

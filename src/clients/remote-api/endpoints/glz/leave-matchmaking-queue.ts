@@ -15,11 +15,11 @@ export interface LeaveMatchmakingQueueRequestConfig
   extends AxiosRequestConfigWithData<LeaveMatchmakingQueueSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type LeaveMatchmakingQueueRawResponse = z.input<
+export type LeaveMatchmakingQueueResponse = z.input<
   (typeof leaveMatchmakingQueueEndpoint.responses)["200"]
 >;
 
-export type LeaveMatchmakingQueueResponse = z.output<
+export type LeaveMatchmakingQueueParsedResponse = z.output<
   (typeof leaveMatchmakingQueueEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class LeaveMatchmakingQueueRemoteApiEndpoint {
   /**
    * @description Leave the matchmaking queue for the party
    */
-  postLeaveMatchmakingQueue<T = LeaveMatchmakingQueueRawResponse>(
+  postLeaveMatchmakingQueue<T = LeaveMatchmakingQueueParsedResponse>(
     this: RemoteApiClient,
-    config: LeaveMatchmakingQueueRequestConfig & { parseResponseData: false },
+    config: LeaveMatchmakingQueueRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postLeaveMatchmakingQueue<T = LeaveMatchmakingQueueResponse>(
     this: RemoteApiClient,

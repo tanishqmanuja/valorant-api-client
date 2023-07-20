@@ -15,11 +15,11 @@ export interface SendChatRequestConfig
   extends AxiosRequestConfigWithData<SendChatBodyData>,
     CustomAxiosRequestConfig {}
 
-export type SendChatRawResponse = z.input<
+export type SendChatResponse = z.input<
   (typeof sendChatEndpoint.responses)["200"]
 >;
 
-export type SendChatResponse = z.output<
+export type SendChatParsedResponse = z.output<
   (typeof sendChatEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class SendChatLocalApiEndpoint {
   /**
    * @description Send a message to the specified group
    */
-  postSendChat<T = SendChatRawResponse>(
+  postSendChat<T = SendChatParsedResponse>(
     this: LocalApiClient,
-    config: SendChatRequestConfig & { parseResponseData: false },
+    config: SendChatRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postSendChat<T = SendChatResponse>(
     this: LocalApiClient,

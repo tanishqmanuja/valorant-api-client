@@ -15,11 +15,11 @@ export interface CurrentGameLoadoutsRequestConfig
   extends AxiosRequestConfigWithData<CurrentGameLoadoutsSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type CurrentGameLoadoutsRawResponse = z.input<
+export type CurrentGameLoadoutsResponse = z.input<
   (typeof currentGameLoadoutsEndpoint.responses)["200"]
 >;
 
-export type CurrentGameLoadoutsResponse = z.output<
+export type CurrentGameLoadoutsParsedResponse = z.output<
   (typeof currentGameLoadoutsEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class CurrentGameLoadoutsRemoteApiEndpoint {
   /**
    * @description Get the current game loadout info for all players in the match
    */
-  getCurrentGameLoadouts<T = CurrentGameLoadoutsRawResponse>(
+  getCurrentGameLoadouts<T = CurrentGameLoadoutsParsedResponse>(
     this: RemoteApiClient,
-    config: CurrentGameLoadoutsRequestConfig & { parseResponseData: false },
+    config: CurrentGameLoadoutsRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getCurrentGameLoadouts<T = CurrentGameLoadoutsResponse>(
     this: RemoteApiClient,

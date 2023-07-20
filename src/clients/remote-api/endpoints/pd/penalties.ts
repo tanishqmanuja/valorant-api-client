@@ -13,11 +13,11 @@ export interface PenaltiesRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type PenaltiesRawResponse = z.input<
+export type PenaltiesResponse = z.input<
   (typeof penaltiesEndpoint.responses)["200"]
 >;
 
-export type PenaltiesResponse = z.output<
+export type PenaltiesParsedResponse = z.output<
   (typeof penaltiesEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class PenaltiesRemoteApiEndpoint {
   /**
    * @description Get the matchmaking penalties for the given player
    */
-  getPenalties<T = PenaltiesRawResponse>(
+  getPenalties<T = PenaltiesParsedResponse>(
     this: RemoteApiClient,
-    config: PenaltiesRequestConfig & { parseResponseData: false },
+    config: PenaltiesRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPenalties<T = PenaltiesResponse>(
     this: RemoteApiClient,

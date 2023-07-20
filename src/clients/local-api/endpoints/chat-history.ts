@@ -13,11 +13,11 @@ export interface ChatHistoryRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type ChatHistoryRawResponse = z.input<
+export type ChatHistoryResponse = z.input<
   (typeof chatHistoryEndpoint.responses)["200"]
 >;
 
-export type ChatHistoryResponse = z.output<
+export type ChatHistoryParsedResponse = z.output<
   (typeof chatHistoryEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class ChatHistoryLocalApiEndpoint {
   /**
    * @description Get chat history for all conversations or a specific conversation if the cid is provided
    */
-  getChatHistory<T = ChatHistoryRawResponse>(
+  getChatHistory<T = ChatHistoryParsedResponse>(
     this: LocalApiClient,
-    config: ChatHistoryRequestConfig & { parseResponseData: false },
+    config: ChatHistoryRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getChatHistory<T = ChatHistoryResponse>(
     this: LocalApiClient,

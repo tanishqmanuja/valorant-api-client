@@ -15,11 +15,11 @@ export interface PartyPlayerRequestConfig
   extends AxiosRequestConfigWithData<PartyPlayerSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyPlayerRawResponse = z.input<
+export type PartyPlayerResponse = z.input<
   (typeof partyPlayerEndpoint.responses)["200"]
 >;
 
-export type PartyPlayerResponse = z.output<
+export type PartyPlayerParsedResponse = z.output<
   (typeof partyPlayerEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyPlayerRemoteApiEndpoint {
   /**
    * @description Get the party information for the given player
    */
-  getPartyPlayer<T = PartyPlayerRawResponse>(
+  getPartyPlayer<T = PartyPlayerParsedResponse>(
     this: RemoteApiClient,
-    config: PartyPlayerRequestConfig & { parseResponseData: false },
+    config: PartyPlayerRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPartyPlayer<T = PartyPlayerResponse>(
     this: RemoteApiClient,

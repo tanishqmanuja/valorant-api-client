@@ -13,11 +13,11 @@ export interface PartyChatInfoRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type PartyChatInfoRawResponse = z.input<
+export type PartyChatInfoResponse = z.input<
   (typeof partyChatInfoEndpoint.responses)["200"]
 >;
 
-export type PartyChatInfoResponse = z.output<
+export type PartyChatInfoParsedResponse = z.output<
   (typeof partyChatInfoEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class PartyChatInfoLocalApiEndpoint {
   /**
    * @description Get information about the party chat
    */
-  getPartyChatInfo<T = PartyChatInfoRawResponse>(
+  getPartyChatInfo<T = PartyChatInfoParsedResponse>(
     this: LocalApiClient,
-    config: PartyChatInfoRequestConfig & { parseResponseData: false },
+    config: PartyChatInfoRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPartyChatInfo<T = PartyChatInfoResponse>(
     this: LocalApiClient,

@@ -15,11 +15,11 @@ export interface PartyInviteRequestConfig
   extends AxiosRequestConfigWithData<PartyInviteSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type PartyInviteRawResponse = z.input<
+export type PartyInviteResponse = z.input<
   (typeof partyInviteEndpoint.responses)["200"]
 >;
 
-export type PartyInviteResponse = z.output<
+export type PartyInviteParsedResponse = z.output<
   (typeof partyInviteEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class PartyInviteRemoteApiEndpoint {
   /**
    * @description Invite a player to the party by name and tagline
    */
-  postPartyInvite<T = PartyInviteRawResponse>(
+  postPartyInvite<T = PartyInviteParsedResponse>(
     this: RemoteApiClient,
-    config: PartyInviteRequestConfig & { parseResponseData: false },
+    config: PartyInviteRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postPartyInvite<T = PartyInviteResponse>(
     this: RemoteApiClient,

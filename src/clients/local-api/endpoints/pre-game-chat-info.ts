@@ -13,11 +13,11 @@ export interface PreGameChatInfoRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type PreGameChatInfoRawResponse = z.input<
+export type PreGameChatInfoResponse = z.input<
   (typeof pregameChatInfoEndpoint.responses)["200"]
 >;
 
-export type PreGameChatInfoResponse = z.output<
+export type PreGameChatInfoParsedResponse = z.output<
   (typeof pregameChatInfoEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class PreGameChatInfoLocalApiEndpoint {
   /**
    * @description Get information about the pre-game chat
    */
-  getPreGameChatInfo<T = PreGameChatInfoRawResponse>(
+  getPreGameChatInfo<T = PreGameChatInfoParsedResponse>(
     this: LocalApiClient,
-    config: PreGameChatInfoRequestConfig & { parseResponseData: false },
+    config: PreGameChatInfoRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getPreGameChatInfo<T = PreGameChatInfoResponse>(
     this: LocalApiClient,

@@ -13,11 +13,11 @@ export interface RsoUserInfoRequestConfig
   extends AxiosRequestConfig,
     CustomAxiosRequestConfig {}
 
-export type RsoUserInfoRawResponse = z.input<
+export type RsoUserInfoResponse = z.input<
   (typeof rsoUserInfoEndpoint.responses)["200"]
 >;
 
-export type RsoUserInfoResponse = z.output<
+export type RsoUserInfoParsedResponse = z.output<
   (typeof rsoUserInfoEndpoint.responses)["200"]
 >;
 
@@ -25,9 +25,9 @@ export class RsoUserInfoLocalApiEndpoint {
   /**
    * @description Get RSO user info
    */
-  getrsoUserInfo<T = RsoUserInfoRawResponse>(
+  getrsoUserInfo<T = RsoUserInfoParsedResponse>(
     this: LocalApiClient,
-    config: RsoUserInfoRequestConfig & { parseResponseData: false },
+    config: RsoUserInfoRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   getrsoUserInfo<T = RsoUserInfoResponse>(
     this: LocalApiClient,

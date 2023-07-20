@@ -19,11 +19,11 @@ export interface ChangeQueueRequestConfig
     >,
     CustomAxiosRequestConfig {}
 
-export type ChangeQueueRawResponse = z.input<
+export type ChangeQueueResponse = z.input<
   (typeof changeQueueEndpoint.responses)["200"]
 >;
 
-export type ChangeQueueResponse = z.output<
+export type ChangeQueueParsedResponse = z.output<
   (typeof changeQueueEndpoint.responses)["200"]
 >;
 
@@ -31,9 +31,9 @@ export class ChangeQueueRemoteApiEndpoint {
   /**
    * @description Change the queue for the party
    */
-  postChangeQueue<T = ChangeQueueRawResponse>(
+  postChangeQueue<T = ChangeQueueParsedResponse>(
     this: RemoteApiClient,
-    config: ChangeQueueRequestConfig & { parseResponseData: false },
+    config: ChangeQueueRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postChangeQueue<T = ChangeQueueResponse>(
     this: RemoteApiClient,

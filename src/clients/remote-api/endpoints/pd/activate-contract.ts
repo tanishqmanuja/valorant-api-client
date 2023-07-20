@@ -15,11 +15,11 @@ export interface ActivateContractRequestConfig
   extends AxiosRequestConfigWithData<ActivateContractSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type ActivateContractRawResponse = z.input<
+export type ActivateContractResponse = z.input<
   (typeof activateContractEndpoint.responses)["200"]
 >;
 
-export type ActivateContractResponse = z.output<
+export type ActivateContractParsedResponse = z.output<
   (typeof activateContractEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class ActivateContractRemoteApiEndpoint {
   /**
    * @description Activate a specific contract by ID
    */
-  postActivateContract<T = ActivateContractRawResponse>(
+  postActivateContract<T = ActivateContractParsedResponse>(
     this: RemoteApiClient,
-    config: ActivateContractRequestConfig & { parseResponseData: false },
+    config: ActivateContractRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postActivateContract<T = ActivateContractResponse>(
     this: RemoteApiClient,

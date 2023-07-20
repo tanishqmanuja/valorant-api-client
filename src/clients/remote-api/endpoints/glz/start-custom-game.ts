@@ -15,11 +15,11 @@ export interface StartCustomGameRequestConfig
   extends AxiosRequestConfigWithData<StartCustomGameSuffixData>,
     CustomAxiosRequestConfig {}
 
-export type StartCustomGameRawResponse = z.input<
+export type StartCustomGameResponse = z.input<
   (typeof startCustomGameEndpoint.responses)["200"]
 >;
 
-export type StartCustomGameResponse = z.output<
+export type StartCustomGameParsedResponse = z.output<
   (typeof startCustomGameEndpoint.responses)["200"]
 >;
 
@@ -27,9 +27,9 @@ export class StartCustomGameRemoteApiEndpoint {
   /**
    * @description Start a custom game
    */
-  postStartCustomGame<T = StartCustomGameRawResponse>(
+  postStartCustomGame<T = StartCustomGameParsedResponse>(
     this: RemoteApiClient,
-    config: StartCustomGameRequestConfig & { parseResponseData: false },
+    config: StartCustomGameRequestConfig & { parseResponseData: true },
   ): Promise<AxiosResponse<T>>;
   postStartCustomGame<T = StartCustomGameResponse>(
     this: RemoteApiClient,
