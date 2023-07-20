@@ -29,6 +29,7 @@
     "seed:local-endpoints": "tsx ./scripts/endpoints/local.generator.ts",
     "seed:remote-endpoints": "tsx ./scripts/endpoints/remote.generator.ts",
     "seed:offi-endpoints": "tsx ./scripts/endpoints/offi.generator.ts",
+    "seed:local-websocket": "tsx ./scripts/websocket/local.generator.ts",
     "seed:endpoints": "pnpm seed:auth-endpoints &&pnpm seed:local-endpoints && pnpm seed:remote-endpoints"
   },
   "keywords": [
@@ -52,6 +53,7 @@
     "@tqman/tsconfig": "^1.0.0",
     "@types/node": "^20.4.2",
     "@types/tough-cookie": "^4.0.2",
+    "@types/ws": "^8.5.5",
     "change-case": "^4.1.2",
     "json-ts": "^1.6.4",
     "prettier": "^3.0.0",
@@ -69,6 +71,7 @@
     "tough-cookie": "^4.1.3",
     "ts-extras": "^0.11.0",
     "valorant-api-types": "^0.7.0",
+    "ws": "^8.13.0",
     "zod": "^3.21.4"
   }
 }
