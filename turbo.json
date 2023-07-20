@@ -1,10 +1,20 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "seed": {
+      "outputs": [
+        "src/clients/auth-api/endpoints/**",
+        "src/clients/local-api/endpoints/**",
+        "src/clients/remote-api/endpoints/**"
+      ]
+    },
     "build": {
+      "dependsOn": ["seed"],
       "outputs": ["dist/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["seed"]
+    },
     "release": {
       "dependsOn": ["build"]
     }

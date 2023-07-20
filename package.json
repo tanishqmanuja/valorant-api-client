@@ -30,7 +30,8 @@
     "seed:remote-endpoints": "tsx ./scripts/endpoints/remote.generator.ts",
     "seed:offi-endpoints": "tsx ./scripts/endpoints/offi.generator.ts",
     "seed:local-websocket": "tsx ./scripts/websocket/local.generator.ts",
-    "seed:endpoints": "pnpm seed:auth-endpoints &&pnpm seed:local-endpoints && pnpm seed:remote-endpoints"
+    "seed:endpoints": "pnpm seed:auth-endpoints && pnpm seed:local-endpoints && pnpm seed:remote-endpoints",
+    "seed": "pnpm seed:endpoints"
   },
   "keywords": [
     "valorant",
