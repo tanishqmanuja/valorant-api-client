@@ -2,6 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "seed": {
+      "inputs": ["scripts/endpoints/**", "scripts/helpers/**"],
       "outputs": [
         "src/clients/auth-api/endpoints/**",
         "src/clients/local-api/endpoints/**",
