@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.2
+
+### Patch Changes
+
+- Offload officer's API Client to own package
+
 ## 1.2.1
 
 ### Patch Changes
