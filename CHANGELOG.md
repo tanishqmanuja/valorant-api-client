@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.1
+
+### Patch Changes
+
+- Export typings for endpoints
+
 ## 1.2.0
 
 ### Minor Changes

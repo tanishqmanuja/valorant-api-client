@@ -13,6 +13,7 @@ import {
 import {
   tLocalEndpointsClass,
   tLocalEndpoint,
+  tLocalEndpointsTypings,
 } from "./templates/local.templates";
 
 const ENDPOINTS_DIR = "src/clients/local-api/endpoints";
@@ -53,6 +54,16 @@ await writeFile(
   join(ENDPOINTS_DIR, "index.ts"),
   AUTO_GENERATED_HEADER +
     tLocalEndpointsClass({
+      endpointsList: localEndpoints
+        .filter(e => e.isImportAvailable)
+        .map(e => e.endpoint.name),
+    }),
+);
+
+await writeFile(
+  join(ENDPOINTS_DIR, "types.ts"),
+  AUTO_GENERATED_HEADER +
+    tLocalEndpointsTypings({
       endpointsList: localEndpoints
         .filter(e => e.isImportAvailable)
         .map(e => e.endpoint.name),

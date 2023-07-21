@@ -176,3 +176,16 @@ export interface ${ENDPOINTS_WRAPPER_CLASS} extends ${o.endpointsList
     .join(",\n  ")} {}
   `.trimStart();
 };
+
+export const tRemoteEndpointsTypings = (o: EndpointClassOptions) => {
+  return `
+${o.endpointsList
+  .map(it =>
+    tImport({
+      default: "type *",
+      from: it.path,
+    }).replace("import", "export"),
+  )
+  .join("\n")}
+  `.trimStart();
+};

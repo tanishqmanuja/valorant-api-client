@@ -13,6 +13,7 @@ import {
 import {
   tRemoteEndpointsClass,
   tRemoteEndpoint,
+  tRemoteEndpointsTypings,
 } from "./templates/remote.templates";
 
 const ENDPOINTS_DIR = "src/clients/remote-api/endpoints";
@@ -61,6 +62,19 @@ await writeFile(
   join(ENDPOINTS_DIR, "index.ts"),
   AUTO_GENERATED_HEADER +
     tRemoteEndpointsClass({
+      endpointsList: remoteEndpoints
+        .filter(e => e.isImportAvailable)
+        .map(({ endpoint }) => ({
+          name: endpoint.name,
+          path: `./${paramCase(endpoint.type)}/${paramCase(endpoint.name)}`,
+        })),
+    }),
+);
+
+await writeFile(
+  join(ENDPOINTS_DIR, "types.ts"),
+  AUTO_GENERATED_HEADER +
+    tRemoteEndpointsTypings({
       endpointsList: remoteEndpoints
         .filter(e => e.isImportAvailable)
         .map(({ endpoint }) => ({

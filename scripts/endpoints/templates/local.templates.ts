@@ -150,3 +150,16 @@ export interface ${ENDPOINTS_WRAPPER_CLASS}  extends ${o.endpointsList
     .join(",\n  ")} {}
   `.trimStart();
 };
+
+export const tLocalEndpointsTypings = (o: EndpointClassOptions) => {
+  return `
+${o.endpointsList
+  .map(it =>
+    tImport({
+      default: "type *",
+      from: `./${paramCase(it)}`,
+    }).replace("import", "export"),
+  )
+  .join("\n")}
+  `.trimStart();
+};
