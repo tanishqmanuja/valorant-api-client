@@ -101,7 +101,7 @@ export class ${pascalCase(e.name)}${ENDPOINT_CLASS_SUFFIX} {
   ${camelCase(e.method + e.name)}<T = ${pascalCase(e.name)}Response>(
     this: ${CLIENT_CLASS},
     ${
-      hasBody
+      hasBody || hasSuffixParams
         ? `config: ${pascalCase(e.name)}RequestConfig,`
         : `config?: ${pascalCase(e.name)}RequestConfig`
     }
