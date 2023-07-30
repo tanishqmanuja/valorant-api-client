@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.3
+
+### Patch Changes
+
+- Fix for required config with suffix params
+
 ## 1.2.2
 
 ### Patch Changes
