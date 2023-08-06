@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.4
+
+### Patch Changes
+
+- [`f9b97ac`](https://github.com/tanishqmanuja/valorant-api-client/commit/f9b97acd98f9754db1215e2beef96353a78d9ac9) Thanks [@tanishqmanuja](https://github.com/tanishqmanuja)! - Rebind Websocket listeners on reconnect
+
 ## 1.2.3
 
 ### Patch Changes
