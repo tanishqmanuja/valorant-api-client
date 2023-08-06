@@ -6,7 +6,7 @@ import { createValorantApiClient } from "~/clients/valorant-api";
 import { provideLockFile, useProviders } from "~/providers";
 import { tLocalWsEvents } from "./templates/local.templates";
 
-const TYPES_DIR = "src/clients/local-ws/types";
+const TYPES_DIR = "src/clients/valorant-ws/types";
 await mkdir(TYPES_DIR, { recursive: true });
 
 console.log("=> Generating endpoints templates...");

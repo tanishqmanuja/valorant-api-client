@@ -14,7 +14,7 @@ import {
 import { randomUUID } from "crypto";
 import { promiseTimeout } from "~/utils/promises";
 
-export const localWsClientOptionsSchema = z.object({
+export const valorantWsClientOptionsSchema = z.object({
   port: z.string(),
   username: z.string().default("riot"),
   password: z.string(),
@@ -22,15 +22,17 @@ export const localWsClientOptionsSchema = z.object({
   events: z.enum(EVENTS).array().default([]),
 });
 
-export type LocalWsClientOptions = z.input<typeof localWsClientOptionsSchema>;
+export type ValorantWsClientOptions = z.input<
+  typeof valorantWsClientOptionsSchema
+>;
 
-export class LocalWebsocketClient {
-  #options: Required<LocalWsClientOptions>;
+export class ValorantWebsocketClient {
+  #options: Required<ValorantWsClientOptions>;
   #connection: WebSocket;
   #subscriptions: Set<ValorantWsEvent> = new Set();
 
-  constructor(options: LocalWsClientOptions) {
-    this.#options = localWsClientOptionsSchema.parse(options);
+  constructor(options: ValorantWsClientOptions) {
+    this.#options = valorantWsClientOptionsSchema.parse(options);
     const { port, username, password, host, events } = this.#options;
 
     const url = `wss://${username}:${password}@${host}:${port}`;
@@ -51,10 +53,10 @@ export class LocalWebsocketClient {
     this.#connection.once("open", this.onceOpen.bind(this));
   }
 
-  reconnect(options?: LocalWsClientOptions): void {
+  reconnect(options?: ValorantWsClientOptions): void {
     const listenerMap = this.disconnect();
 
-    this.#options = localWsClientOptionsSchema.parse({
+    this.#options = valorantWsClientOptionsSchema.parse({
       ...this.#options,
       ...options,
     });
