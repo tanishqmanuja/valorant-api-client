@@ -32,3 +32,5 @@ export type ValorantWebsocketMessage<T = unknown> = [
   ValorantWsEvent,
   ValorantWebsocketPayload<T>,
 ];
+
+export type ListenerMap = Map<string | symbol, Function[]>;

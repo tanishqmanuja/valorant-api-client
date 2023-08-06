@@ -9,6 +9,7 @@ import {
   WsEvent,
   BasicWsEvent,
   ValorantWsFunction,
+  ListenerMap,
 } from "./types";
 import { randomUUID } from "crypto";
 import { promiseTimeout } from "~/utils/promises";
@@ -40,15 +41,18 @@ export class LocalWebsocketClient {
     this.setup(events);
   }
 
-  private setup(events: ValorantWsEvent[] = []): void {
+  private setup(events: ValorantWsEvent[] = [], bindOnMessage = true): void {
     events.forEach(event => this.#subscriptions.add(event));
 
-    this.#connection.on("message", this.onMessage.bind(this));
+    if (bindOnMessage) {
+      this.#connection.on("message", this.onMessage.bind(this));
+    }
+
     this.#connection.once("open", this.onceOpen.bind(this));
   }
 
   reconnect(options?: LocalWsClientOptions): void {
-    this.disconnect();
+    const listenerMap = this.disconnect();
 
     this.#options = localWsClientOptionsSchema.parse({
       ...this.#options,
@@ -61,14 +65,30 @@ export class LocalWebsocketClient {
       rejectUnauthorized: false,
     });
 
-    this.setup(events);
+    [...listenerMap.entries()].forEach(([eventName, listeners]) => {
+      listeners.forEach(listener => {
+        this.#connection.addListener(
+          eventName,
+          listener as (...args: any[]) => void,
+        );
+      });
+    });
+
+    this.setup(events, false);
   }
 
-  disconnect(): void {
+  disconnect(): ListenerMap {
+    const listenerMap = new Map<string | symbol, Function[]>();
+    this.#connection.eventNames().forEach(eventName => {
+      listenerMap.set(eventName, this.#connection.listeners(eventName));
+    });
+
     try {
       this.#connection.removeAllListeners();
       this.#connection.terminate();
     } catch {}
+
+    return listenerMap;
   }
 
   subscribe(event: ValorantWsEvent): void {
