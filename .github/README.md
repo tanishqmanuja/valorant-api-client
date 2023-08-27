@@ -57,6 +57,7 @@ yarn add @tqman/valorant-api-client@latest
 ```typescript
 import {
   createValorantApiClient,
+  useProviders,
   provideLockFile,
   provideLogFile,
   provideRemoteAuthViaLocalApi,
@@ -87,10 +88,11 @@ console.log(compUpdates);
 
 ```typescript
 import {
+  createValorantApiClient,
+  useProviders,
   provideClientVersionViaVAPI,
   provideClientVersionViaAuthApi,
   provideRemoteAuth,
-  createValorantApiClient,
   provideRegion,
 } from "@tqman/valorant-api-client";
 

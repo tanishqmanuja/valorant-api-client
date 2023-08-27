@@ -34,6 +34,7 @@ NOTE: Your game (VALORANT.exe) should be running for lockfile and logfile to be 
 ```typescript
 import {
   createValorantApiClient,
+  useProviders,
   provideLockFile,
   provideLogFile,
   provideRemoteAuthViaLocalApi,
@@ -62,10 +63,11 @@ console.log(compUpdates);
 
 ```typescript
 import {
+  createValorantApiClient,
+  useProviders,
   provideClientVersionViaVAPI,
   provideClientVersionViaAuthApi,
   provideRemoteAuth,
-  createValorantApiClient,
   provideRegion,
 } from "@tqman/valorant-api-client";
 
