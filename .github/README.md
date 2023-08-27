@@ -60,6 +60,7 @@ import {
   provideLockFile,
   provideLogFile,
   provideRemoteAuthViaLocalApi,
+  provideClientVersionViaVAPI,
 } from "@tqman/valorant-api-client";
 
 // Create Valorant API Client
@@ -87,6 +88,7 @@ console.log(compUpdates);
 ```typescript
 import {
   provideClientVersionViaVAPI,
+  provideClientVersionViaAuthApi,
   provideRemoteAuth,
   createValorantApiClient,
   provideRegion,
