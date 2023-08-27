@@ -39,3 +39,11 @@ export function parseAuthCookie(response: AxiosResponse) {
 
 export const getRsoUserAgent = (clientBuild: string) =>
   `RiotClient/${clientBuild} rso-auth (Windows;10;;Professional, x64)`;
+
+export async function fetchClientVersionFromVAPI(): Promise<string> {
+  return axios
+    .get<{ data: { riotClientVersion: string } }>(
+      "https://valorant-api.com/v1/version",
+    )
+    .then(res => res.data.data.riotClientVersion);
+}

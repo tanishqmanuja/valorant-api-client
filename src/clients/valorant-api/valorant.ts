@@ -18,31 +18,41 @@ export async function createValorantApiClient<
     return new ValorantApiClient(options);
   }
 
-  const vapic = new ValorantApiClient({});
+  const vapic = new ValorantApiClient();
   await vapic.reinitializeWithProviders(options);
 
   return vapic;
 }
 
 export class ValorantApiClient {
-  #authApiClient: AuthApiClient;
+  #authApiClient?: AuthApiClient;
   #localApiClient?: LocalApiClient;
   #remoteApiClient?: RemoteApiClient;
 
-  constructor(options: VapicOptions) {
-    this.#authApiClient = new AuthApiClient(options.auth);
+  constructor(options: VapicOptions = {}) {
+    if (options.auth) {
+      this.#authApiClient = new AuthApiClient(options.auth);
+    }
 
     if (options.local) {
       this.#localApiClient = new LocalApiClient(options.local);
     }
+
     if (options.remote) {
+      options.remote.clientVersion =
+        options.remote.clientVersion ?? options.auth?.clientVersion;
+
       this.#remoteApiClient = new RemoteApiClient(options.remote);
     }
   }
 
   reinitialize(options: VapicOptions): void {
     if (options.auth) {
-      this.#authApiClient.reinitialize(options.auth);
+      if (this.#authApiClient) {
+        this.#authApiClient.reinitialize(options.auth);
+      } else {
+        this.#authApiClient = new AuthApiClient(options.auth);
+      }
     }
 
     if (options.local) {
@@ -54,6 +64,9 @@ export class ValorantApiClient {
     }
 
     if (options.remote) {
+      options.remote.clientVersion =
+        options.remote.clientVersion ?? options.auth?.clientVersion;
+
       if (this.#remoteApiClient) {
         this.#remoteApiClient.reinitialize(options.remote);
       } else {
@@ -78,6 +91,9 @@ export class ValorantApiClient {
   }
 
   get auth(): AuthApiClient {
+    if (!this.#authApiClient) {
+      throw new Error("AuthApiClient not initialized");
+    }
     return this.#authApiClient;
   }
 

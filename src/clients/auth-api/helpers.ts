@@ -1,17 +1,19 @@
 import { Agent } from "node:https";
 import axios, { type AxiosInstance } from "axios";
 import { AuthApiClientOptions } from ".";
+import { getClientVersionHeader, getUserAgentHeader } from "~/helpers";
 
 export function getAuthApiClientAxios(
   options: Required<AuthApiClientOptions>,
   existingAxiosInstance?: AxiosInstance,
 ): AxiosInstance {
-  const { rsoUserAgent, ciphers } = options;
+  const { userAgent, ciphers, clientVersion } = options;
 
   if (existingAxiosInstance) {
     Object.assign(existingAxiosInstance.defaults.headers, {
       ...existingAxiosInstance.defaults.headers,
-      userAgent: rsoUserAgent,
+      ...getUserAgentHeader(userAgent),
+      ...getClientVersionHeader(clientVersion),
     });
     existingAxiosInstance.defaults.httpsAgent.options.ciphers =
       ciphers.join(":");
@@ -19,7 +21,8 @@ export function getAuthApiClientAxios(
   } else {
     return axios.create({
       headers: {
-        "User-Agent": rsoUserAgent,
+        ...getUserAgentHeader(userAgent),
+        ...getClientVersionHeader(clientVersion),
       },
       httpsAgent: new Agent({
         ciphers: ciphers.join(":"),

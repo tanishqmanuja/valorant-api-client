@@ -18,10 +18,6 @@ import { authRequestEndpoint } from "@tqman/valorant-api-types";
  */
 export function provideAuthViaLocalApi() {
   return (async ({ local }) => {
-    if (!local) {
-      throw Error("Provider unable to access localApiClient");
-    }
-
     const {
       data: { accessToken, token: entitlementsToken },
     } = await local.getEntitlementsToken();

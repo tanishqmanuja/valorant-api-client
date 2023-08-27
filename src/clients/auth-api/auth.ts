@@ -7,11 +7,12 @@ import { createToughCookieInterceptor } from "~/utils/lib/axios";
 
 import { AuthApiEndpoints } from "./endpoints";
 import { getAuthApiClientAxios } from "./helpers";
-import { DEFAULT_CIPHERS, DEFAULT_RSO_USER_AGENT } from "~/helpers";
+import { DEFAULT_CIPHERS, DEFAULT_USER_AGENT } from "~/helpers";
 
 export const authApiClientOptionsSchema = z.object({
+  clientVersion: z.string(),
+  userAgent: z.string().default(DEFAULT_USER_AGENT),
   ciphers: z.array(z.string()).default(DEFAULT_CIPHERS),
-  rsoUserAgent: z.string().default(DEFAULT_RSO_USER_AGENT),
   cookieJar: z.instanceof(CookieJar).default(new CookieJar()),
 });
 
@@ -28,7 +29,7 @@ export class AuthApiClient {
   #options: Required<AuthApiClientOptions>;
   #axiosInstance: AxiosInstance;
 
-  constructor(options: AuthApiClientOptions = {}) {
+  constructor(options: AuthApiClientOptions) {
     this.#options = authApiClientOptionsSchema.parse(options);
     this.#axiosInstance = getAuthApiClientAxios(this.#options);
 
@@ -37,7 +38,7 @@ export class AuthApiClient {
     });
   }
 
-  reinitialize(options: AuthApiClientOptions = {}): void {
+  reinitialize(options: AuthApiClientOptions): void {
     this.#options = authApiClientOptionsSchema.parse(options);
     this.#axiosInstance = getAuthApiClientAxios(
       this.#options,

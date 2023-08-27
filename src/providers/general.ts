@@ -5,6 +5,7 @@ import {
   type RegionShard,
   getRegionOptions,
   getRsoUserAgent,
+  fetchClientVersionFromVAPI,
 } from "~/helpers";
 
 /**
@@ -32,13 +33,18 @@ export function provideClientVersion(clientVersion: string) {
  */
 export function provideClientVersionViaVAPI() {
   return (async () => {
-    const { data } = await axios.get<{ data: { riotClientVersion: string } }>(
-      "https://valorant-api.com/v1/version",
-    );
-    const {
-      data: { riotClientVersion },
-    } = data;
-    return { clientVersion: riotClientVersion } as const;
+    return { clientVersion: await fetchClientVersionFromVAPI() } as const;
+  }) satisfies VapicProvider;
+}
+
+/**
+ * @client remote
+ * @provides client-version
+ */
+export function provideClientVersionViaAuthApi() {
+  return (async ({ auth }) => {
+    const { clientVersion } = auth.options;
+    return { clientVersion } as const;
   }) satisfies VapicProvider;
 }
 
