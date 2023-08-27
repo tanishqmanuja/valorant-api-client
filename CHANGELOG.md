@@ -4,6 +4,11 @@
 
 ### Patch Changes
 
+<<<<<<< Updated upstream
+=======
+- Fix fp-ts bundling
+
+>>>>>>> Stashed changes
 - [`d1b62e2`](https://github.com/tanishqmanuja/valorant-api-client/commit/d1b62e2732baead09d809353580ffeb897972047) Thanks [@tanishqmanuja](https://github.com/tanishqmanuja)! - ESM Only
 
 ## 1.2.4

@@ -1,7 +1,7 @@
 import { array as A, either as E, option as O, taskEither as TE } from "fp-ts";
-import RE from "fp-ts-contrib/lib/RegExp";
-import { sequenceS } from "fp-ts/lib/Apply";
-import { pipe } from "fp-ts/lib/function";
+import RE from "fp-ts-contrib/lib/RegExp.js";
+import { sequenceS } from "fp-ts/lib/Apply.js";
+import { pipe } from "fp-ts/lib/function.js";
 import z from "zod";
 
 import { LOG_FILE_PATH } from "~/helpers/constants";
