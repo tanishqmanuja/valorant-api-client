@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.5
+
+### Patch Changes
+
+- [`d1b62e2`](https://github.com/tanishqmanuja/valorant-api-client/commit/d1b62e2732baead09d809353580ffeb897972047) Thanks [@tanishqmanuja](https://github.com/tanishqmanuja)! - ESM Only
+
 ## 1.2.4
 
 ### Patch Changes
