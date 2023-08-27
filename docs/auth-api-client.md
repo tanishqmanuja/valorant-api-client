@@ -5,7 +5,8 @@ Api wrapper for calling authentication endpoints.
 ## Options
 
 - `ciphers` **(optional)** - string[]
-- `rsoUserAgent` **(optional)** - string
+- `userAgent` **(optional)** - string
+- `clientVersion` **(REQUIRED)** - string
 - `cookieJar` **(optional)** - cookieJar
 
 ## Options Type
@@ -13,7 +14,8 @@ Api wrapper for calling authentication endpoints.
 ```ts
 type AuthApiClientOptions = {
   ciphers?: string[];
-  rsoUserAgent?: string;
+  clientVersion: string;
+  userAgent?: string;
   cookieJar?: CookieJar;
 };
 ```
@@ -21,7 +23,8 @@ type AuthApiClientOptions = {
 ## Usage
 
 ```typescript
-const auth = new AuthApiClient();
+const clientVersion = await fetchClientVersionFromVAPI();
+const auth = new AuthApiClient({ clientVersion });
 
 const cookieResponse = await auth.postAuthCookies({
   data: {

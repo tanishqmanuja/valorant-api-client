@@ -36,7 +36,8 @@ More information on providers [here](../docs/vapic-providers.md).
 
 ```typescript
 const vapic = await createValorantApiClient({
-  local: useProviders([provideLockFile()]),
+  auth: useProviders(provideClientVersionViaVAPI()),
+  local: useProviders(provideLockFile()),
   remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
 });
 
@@ -64,8 +65,9 @@ const SHARD = "SHARD";
 
 // main code starts here ...
 const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
   remote: useProviders([
-    provideClientVersionViaVAPI(),
+    provideClientVersionViaAuthApi(),
     provideRegion(REGION, SHARD),
     provideAuth(RIOT_USERNAME, RIOT_PASSWORD),
   ]),
@@ -107,9 +109,10 @@ const provideMfaCodeFromCli: MfaCodeProvider = async response => {
 
 // main code starts here ...
 const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
   remote: useProviders([
+    provideClientVersionViaAuthApi(),
     provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD, provideMfaCodeFromCli),
-    provideClientVersionViaVAPI(),
   ]),
 });
 

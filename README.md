@@ -41,6 +41,7 @@ import {
 
 // Create Valorant API Client
 const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
   local: useProviders(provideLockFile()),
   remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
 });
@@ -72,8 +73,9 @@ const RIOT_PASSWORD = "YOUR_PASSWORD";
 
 // Create Valorant API Client
 const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
   remote: useProviders([
-    provideClientVersionViaVAPI(),
+    provideClientVersionViaAuthApi(),
     provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
   ]),
 });

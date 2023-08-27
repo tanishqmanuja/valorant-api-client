@@ -36,6 +36,12 @@
   Output: <code style="background-color: #54BAB9">clientVersion</code> \
   Used As: `RemoteApiClientProvider`
 
+- ### provideClientVersionViaAuthApi
+
+  Input: <code style="background-color: #65647C">none</code> \
+  Output: <code style="background-color: #54BAB9">clientVersion</code> \
+  Used As: `RemoteApiClientProvider`
+
 - ### provideAuthAutoRegion
 
   Input: <code style="background-color: #7286D3">username</code> <code style="background-color: #7286D3">password</code> <code style="background-color: #7286D3">mfaCodeProvider(optional)</code>\
