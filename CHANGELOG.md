@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.2.7
+
+### Patch Changes
+
+- Expose removeAllListeners method in ValorantWebsocketClient
+
 ## 1.2.6
 
 ### Patch Changes
