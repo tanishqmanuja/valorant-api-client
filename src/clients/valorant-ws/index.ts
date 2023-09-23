@@ -133,6 +133,10 @@ export class ValorantWebsocketClient {
     this.#connection.once(event, callback);
   }
 
+  removeAllListeners(event?: WsEvent) {
+    this.#connection.removeAllListeners(event);
+  }
+
   async call<T = any>(
     fn: ValorantWsFunction,
     opts: {
