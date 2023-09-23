@@ -133,7 +133,7 @@ export class ValorantWebsocketClient {
     this.#connection.once(event, callback);
   }
 
-  removeAllListeners(evet?: WsEvent) {
+  removeAllListeners(event?: WsEvent) {
     this.#connection.removeAllListeners(event);
   }
 
