@@ -27,7 +27,8 @@ export const tRemoteEndpoint = (o: EndpointOptions) => {
   return `
 ${tImports([
   { named: "z", from: "zod", if: hasBody || hasResponses || hasSuffixParams },
-  { default: "axios", named: "type AxiosResponse", from: "axios" },
+  { named: "type AxiosResponse", from: "axios" },
+  { default: "axios", from: "~/utils/axios" },
   {
     named: "type AxiosRequestConfig",
     from: "axios",

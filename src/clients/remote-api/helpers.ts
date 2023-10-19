@@ -1,5 +1,6 @@
 import { Agent } from "node:https";
-import axios, { type AxiosInstance } from "axios";
+import { type AxiosInstance } from "axios";
+import { createAxiosInstance } from "~/utils/axios";
 import { getRemoteAuthHeaders } from "~/helpers";
 import type { RemoteApiClientOptions } from ".";
 
@@ -30,7 +31,7 @@ export function getRemoteApiClientAxios(
     });
     return existingAxiosInstance;
   } else {
-    return axios.create({
+    return createAxiosInstance({
       headers: { ...authHeaders },
       httpsAgent: new Agent({
         rejectUnauthorized: false,

@@ -1,5 +1,6 @@
 import { Agent } from "node:https";
-import axios, { type AxiosInstance } from "axios";
+import { type AxiosInstance } from "axios";
+import { createAxiosInstance } from "~/utils/axios";
 import { getServerUrl, getLocalAuthHeader } from "~/helpers";
 import type { LocalApiClientOptions } from ".";
 
@@ -20,7 +21,7 @@ export function getLocalApiClientAxios(
     });
     return existingAxiosInstance;
   } else {
-    return axios.create({
+    return createAxiosInstance({
       baseURL,
       headers: { ...authHeader },
       httpsAgent: new Agent({

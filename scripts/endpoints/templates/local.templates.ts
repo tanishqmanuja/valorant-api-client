@@ -25,9 +25,12 @@ export const tLocalEndpoint = (o: EndpointOptions) => {
 ${tImports([
   { named: "z", from: "zod", if: hasBody || hasResponses },
   {
-    default: "axios",
     named: "type AxiosResponse",
     from: "axios",
+  },
+  {
+    default: "axios",
+    from: "~/utils/axios",
   },
   {
     named: "type AxiosRequestConfig",

@@ -1,4 +1,5 @@
-import axios, { type AxiosResponse } from "axios";
+import { type AxiosResponse } from "axios";
+import axios from "~/utils/axios";
 
 export function getPuuidFromAccessToken(accessToken: string): string {
   return JSON.parse(

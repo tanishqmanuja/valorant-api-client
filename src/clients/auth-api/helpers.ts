@@ -1,6 +1,7 @@
 import { Agent } from "node:https";
-import axios, { type AxiosInstance } from "axios";
+import { type AxiosInstance } from "axios";
 import { AuthApiClientOptions } from ".";
+import { createAxiosInstance } from "~/utils/axios";
 import { getClientVersionHeader, getUserAgentHeader } from "~/helpers";
 
 export function getAuthApiClientAxios(
@@ -19,7 +20,7 @@ export function getAuthApiClientAxios(
       ciphers.join(":");
     return existingAxiosInstance;
   } else {
-    return axios.create({
+    return createAxiosInstance({
       headers: {
         ...getUserAgentHeader(userAgent),
         ...getClientVersionHeader(clientVersion),
