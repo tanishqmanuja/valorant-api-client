@@ -19,9 +19,9 @@ type ClientOptionsMap = {
   };
 };
 
-export type VapicProvider<T = unknown> = (
+export type VapicProvider<ReturnType = unknown> = (
   ctx: ValorantApiClient,
-) => MaybePromise<T>;
+) => MaybePromise<ReturnType>;
 
 export type VapicOptions = {
   [client in keyof ClientOptionsMap]?: ClientOptionsMap[client]["options"];
