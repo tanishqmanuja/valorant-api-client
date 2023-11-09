@@ -82,7 +82,8 @@ const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
 console.log(compUpdates);
 ```
 
-> NOTE: Your game (VALORANT.exe) should be running for lockfile and logfile to be generated.
+> [!NOTE]
+> VALORANT should be running for lockfile and logfile to be generated.
 
 ### > Remote Authentication
 
