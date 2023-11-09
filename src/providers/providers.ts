@@ -18,6 +18,6 @@ export function useProviders<TContext, TProvider extends Provider<TContext>>(
   const _providers = ensureArray(providers);
   return (ctx: TContext) =>
     Promise.all(_providers.map(task => task(ctx))).then(promises =>
-      promises.reduce((opts, val) => ({ ...opts, ...val })),
+      promises.reduce((opts, val) => Object.assign(opts, val), {}),
     ) as Promise<ProvidersReturnType<TProvider[]>>;
 }
