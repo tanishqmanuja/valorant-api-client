@@ -63,14 +63,14 @@ yarn add @tqman/valorant-api-client@latest
     provideRemoteAuthViaLocalApi,
     provideClientVersionViaVAPI,
   } from "@tqman/valorant-api-client";
-  
+
   // Create Valorant API Client
   const vapic = await createValorantApiClient({
     auth: useProviders(provideClientVersionViaVAPI()),
     local: useProviders(provideLockFile()),
     remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
   });
-  
+
   // Use API Client
   const puuid = vapic.remote.puuid;
   const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
@@ -78,10 +78,10 @@ yarn add @tqman/valorant-api-client@latest
       puuid,
     },
   });
-  
+
   console.log(compUpdates);
   ```
-  
+
   > [!NOTE]
   > VALORANT should be running for lockfile and logfile to be generated.
 
@@ -96,11 +96,11 @@ yarn add @tqman/valorant-api-client@latest
     provideRemoteAuth,
     provideRegion,
   } from "@tqman/valorant-api-client";
-  
+
   // Change as per your requirement
   const RIOT_USERNAME = "YOUR_USERNAME";
   const RIOT_PASSWORD = "YOUR_PASSWORD";
-  
+
   // Create Valorant API Client
   const vapic = await createValorantApiClient({
     auth: useProviders(provideClientVersionViaVAPI()),
@@ -109,7 +109,7 @@ yarn add @tqman/valorant-api-client@latest
       provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
     ]),
   });
-  
+
   // Use API Client
   const puuid = vapic.remote.puuid;
   const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
@@ -117,7 +117,7 @@ yarn add @tqman/valorant-api-client@latest
       puuid,
     },
   });
-  
+
   console.log(compUpdates);
   ```
 
