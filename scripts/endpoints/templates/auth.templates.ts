@@ -1,4 +1,4 @@
-import { ValorantEndpoint } from "@tqman/valorant-api-types";
+import type { ValorantEndpoint } from "@tqman/valorant-api-types";
 import { camelCase, paramCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
 
@@ -30,7 +30,7 @@ ${tImports([
   { named: `type ${CLIENT_CLASS}`, from: CLIENT_CLASS_PATH },
   { named: "type CustomAxiosRequestConfig", from: "~/clients/common/types" },
   {
-    named: "AxiosRequestConfigWithData",
+    named: "type AxiosRequestConfigWithData",
     from: "~/utils/lib/axios",
     if: hasBody,
   },

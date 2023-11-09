@@ -1,4 +1,4 @@
-import { AxiosResponse, AxiosError } from "axios";
+import { type AxiosResponse, AxiosError } from "axios";
 import {
   getAccessTokenHeader,
   getJsonHeader,
@@ -6,7 +6,7 @@ import {
   parseTokensFromResponse,
   parseTokensFromUri,
 } from "~/helpers";
-import {
+import type {
   ValorantAuthResponse,
   AuthTokenResponse,
   AuthMFAResponse,

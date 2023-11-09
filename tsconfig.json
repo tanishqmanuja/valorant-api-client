@@ -1,6 +1,7 @@
 {
   "extends": "@tqman/tsconfig",
   "compilerOptions": {
+    "verbatimModuleSyntax": true,
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {

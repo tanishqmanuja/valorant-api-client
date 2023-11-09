@@ -1,6 +1,6 @@
 import { Agent } from "node:https";
 import axios, { type AxiosInstance } from "axios";
-import { AuthApiClientOptions } from ".";
+import type { AuthApiClientOptions } from "./auth";
 import { getClientVersionHeader, getUserAgentHeader } from "~/helpers";
 
 export function getAuthApiClientAxios(

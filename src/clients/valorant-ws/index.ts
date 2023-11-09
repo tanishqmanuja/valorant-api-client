@@ -1,9 +1,8 @@
 import { z } from "zod";
-import { WebSocket, MessageEvent } from "ws";
+import { WebSocket, type MessageEvent } from "ws";
 import { EVENTS } from "./types/events";
-import {
+import type {
   ValorantWsEvent,
-  MESSAGE_TYPES,
   ValorantWebsocketMessage,
   ValorantWebsocketPayload,
   WsEvent,
@@ -11,6 +10,7 @@ import {
   ValorantWsFunction,
   ListenerMap,
 } from "./types";
+import { MESSAGE_TYPES } from "./types";
 import { randomUUID } from "crypto";
 import { promiseTimeout } from "~/utils/promises";
 

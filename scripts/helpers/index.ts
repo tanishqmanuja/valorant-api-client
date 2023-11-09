@@ -1,4 +1,4 @@
-import { ValorantEndpoint } from "@tqman/valorant-api-types";
+import type { ValorantEndpoint } from "@tqman/valorant-api-types";
 
 export * from "./templates";
 export * from "./execa";

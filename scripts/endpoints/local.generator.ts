@@ -6,7 +6,7 @@ import { paramCase } from "change-case";
 
 import {
   AUTO_GENERATED_HEADER,
-  ValorantEndpoints,
+  type ValorantEndpoints,
   checkImport,
   execa,
 } from "scripts/helpers";

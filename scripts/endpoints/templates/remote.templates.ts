@@ -1,6 +1,6 @@
 import { camelCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
-import { ValorantEndpoint } from "@tqman/valorant-api-types";
+import type { ValorantEndpoint } from "@tqman/valorant-api-types";
 import { getSuffixParams } from "~/helpers";
 
 const CLIENT_CLASS = "RemoteApiClient";
@@ -43,7 +43,7 @@ ${tImports([
   },
   { named: "ensureArray", from: "~/utils/array" },
   {
-    named: "AxiosRequestConfigWithData",
+    named: "type AxiosRequestConfigWithData",
     from: "~/utils/lib/axios",
     if: hasBody || hasSuffixParams,
   },

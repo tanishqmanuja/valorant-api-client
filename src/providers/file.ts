@@ -1,4 +1,4 @@
-import { VapicProvider } from "~/clients";
+import type { VapicProvider } from "~/clients";
 import { getRegionAndShardFromGlzServer } from "~/helpers";
 import { getLockFileData, getLogFileData } from "~/file-parsers";
 

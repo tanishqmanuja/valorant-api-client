@@ -1,4 +1,4 @@
-import { AxiosInstance } from "axios";
+import type { AxiosInstance } from "axios";
 import { CookieJar, Store } from "tough-cookie";
 
 import { ensureArray } from "~/utils/array";

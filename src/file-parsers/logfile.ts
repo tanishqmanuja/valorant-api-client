@@ -5,10 +5,10 @@ import { pipe } from "fp-ts/lib/function.js";
 import z from "zod";
 
 import { LOG_FILE_PATH } from "~/helpers/constants";
-import { REMOTE_SERVER_TYPES, RemoteServerType } from "~/helpers/servers";
+import { REMOTE_SERVER_TYPES, type RemoteServerType } from "~/helpers/servers";
 import { getFileContents } from "~/utils/lib/fp-ts/fileSystem";
 import { toPromise } from "~/utils/lib/fp-ts/taskEither";
-import { ReplaceValueAny } from "~/utils/lib/typescript/objects";
+import { type ReplaceValueAny } from "~/utils/lib/typescript/objects";
 
 const LogFileData = z.object({
   clientVersion: z.string(),

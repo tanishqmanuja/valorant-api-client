@@ -4,7 +4,7 @@ import { platformSchema } from "@tqman/valorant-api-types";
 
 import { applyMixins } from "~/utils/classes";
 import {
-  RemoteServerType,
+  type RemoteServerType,
   getServerUrl,
   getPuuidFromAccessToken,
   DEFAULT_PLATFORM_INFO,
