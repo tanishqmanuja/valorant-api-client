@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.3.0
+
+### Minor Changes
+
+- Added and exported default configs
+
 ## 1.2.7
 
 ### Patch Changes
