@@ -4,7 +4,7 @@ All API Clients expose the internal axios instance. You can use the following me
 
 ```ts
 import { createValorantApiClient } from "@tqman/valorant-api-client";
-import { LOCAL_CONFIG } from "@tqman/valorant-api-types/default-configs";
+import { LOCAL_CONFIG } from "@tqman/valorant-api-client/default-configs";
 import { createRateLimitInterceptor } from "@tqman/axios-interceptor-suite";
 
 const vapic = await createValorantApiClient(LOCAL_CONFIG);
