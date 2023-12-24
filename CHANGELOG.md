@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.3.1
+
+### Patch Changes
+
+- Sync with valorant-api-types v0.8.1
+
 ## 1.3.0
 
 ### Minor Changes
