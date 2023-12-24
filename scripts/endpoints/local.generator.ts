@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { endpoints } from "@tqman/valorant-api-types";
-import { paramCase } from "change-case";
+import { kebabCase } from "change-case";
 
 import {
   AUTO_GENERATED_HEADER,
@@ -40,7 +40,7 @@ await Promise.all(
     }
 
     return writeFile(
-      join(ENDPOINTS_DIR, `${paramCase(endpoint.name)}.ts`),
+      join(ENDPOINTS_DIR, `${kebabCase(endpoint.name)}.ts`),
       AUTO_GENERATED_HEADER +
         tLocalEndpoint({
           importName,

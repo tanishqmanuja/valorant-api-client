@@ -1,4 +1,4 @@
-import { camelCase, paramCase, pascalCase } from "change-case";
+import { camelCase, kebabCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
 import type { ValorantEndpoint } from "@tqman/valorant-api-types";
 
@@ -130,7 +130,7 @@ ${o.endpointsList
   .map(it =>
     tImport({
       named: `${pascalCase(it)}${ENDPOINT_CLASS_SUFFIX}`,
-      from: `./${paramCase(it)}`,
+      from: `./${kebabCase(it)}`,
     }),
   )
   .join("\n")}
@@ -157,7 +157,7 @@ ${o.endpointsList
   .map(it =>
     tImport({
       default: "type *",
-      from: `./${paramCase(it)}`,
+      from: `./${kebabCase(it)}`,
     }).replace("import", "export"),
   )
   .join("\n")}

@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { endpoints } from "@tqman/valorant-api-types";
-import { paramCase } from "change-case";
+import { kebabCase } from "change-case";
 
 import {
   AUTO_GENERATED_HEADER,
@@ -39,15 +39,15 @@ await Promise.all(
       return;
     }
 
-    await mkdir(join(ENDPOINTS_DIR, paramCase(endpoint.type)), {
+    await mkdir(join(ENDPOINTS_DIR, kebabCase(endpoint.type)), {
       recursive: true,
     });
 
     return writeFile(
       join(
         ENDPOINTS_DIR,
-        paramCase(endpoint.type),
-        `${paramCase(endpoint.name)}.ts`,
+        kebabCase(endpoint.type),
+        `${kebabCase(endpoint.name)}.ts`,
       ),
       AUTO_GENERATED_HEADER +
         tRemoteEndpoint({
@@ -66,7 +66,7 @@ await writeFile(
         .filter(e => e.isImportAvailable)
         .map(({ endpoint }) => ({
           name: endpoint.name,
-          path: `./${paramCase(endpoint.type)}/${paramCase(endpoint.name)}`,
+          path: `./${kebabCase(endpoint.type)}/${kebabCase(endpoint.name)}`,
         })),
     }),
 );
@@ -79,7 +79,7 @@ await writeFile(
         .filter(e => e.isImportAvailable)
         .map(({ endpoint }) => ({
           name: endpoint.name,
-          path: `./${paramCase(endpoint.type)}/${paramCase(endpoint.name)}`,
+          path: `./${kebabCase(endpoint.type)}/${kebabCase(endpoint.name)}`,
         })),
     }),
 );

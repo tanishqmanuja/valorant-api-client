@@ -1,5 +1,5 @@
 import type { ValorantEndpoint } from "@tqman/valorant-api-types";
-import { camelCase, paramCase, pascalCase } from "change-case";
+import { camelCase, kebabCase, pascalCase } from "change-case";
 import { tIf, tImport, tImports } from "scripts/helpers";
 
 const CLIENT_CLASS = "AuthApiClient";
@@ -90,7 +90,7 @@ ${o.endpointsList
   .map(it =>
     tImport({
       named: `${pascalCase(it) + ENDPOINT_CLASS_SUFFIX}`,
-      from: `./${paramCase(it)}`,
+      from: `./${kebabCase(it)}`,
     }),
   )
   .join("\n")}
