@@ -4,27 +4,27 @@
   "type": "module",
   "description": "Type-safe API client for Valorant",
   "files": [
-    "dist/*",
+    "dist",
     "package.json"
   ],
-  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     },
     "./types": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/types.js",
-      "require": "./dist/types.cjs"
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs",
+      "types": "./dist/types.d.ts"
     },
     "./default-configs": {
-      "types": "./dist/default-configs.d.ts",
       "import": "./dist/default-configs.mjs",
-      "require": "./dist/default-configs.cjs"
+      "require": "./dist/default-configs.cjs",
+      "types": "./dist/default-configs.d.ts"
     },
     "./package.json": "./package.json"
   },
