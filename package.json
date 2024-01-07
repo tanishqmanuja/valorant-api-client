@@ -76,7 +76,7 @@
     "axios": "^1.6.5",
     "fp-ts": "^2.16.2",
     "fp-ts-contrib": "^0.1.29",
-    "tough-cookie": "^4.1.3",
+    "tough-cookie": "4.1.3",
     "ts-extras": "^0.11.0",
     "ws": "^8.16.0",
     "zod": "^3.22.4"
