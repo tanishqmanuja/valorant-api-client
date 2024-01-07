@@ -5,6 +5,9 @@ export default defineBuildConfig({
   entries: ["./src/index", "./src/types.ts", "./src/default-configs.ts"],
   outDir: "dist",
   declaration: true,
+  rollup: {
+    emitCJS: true,
+  },
   alias: {
     "~": resolve(__dirname, "./src"),
   },
