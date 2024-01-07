@@ -54,72 +54,71 @@ yarn add @tqman/valorant-api-client@latest
 
 - ### Local Authentication
 
-  ```typescript
-  import {
-    createValorantApiClient,
-    useProviders,
-    provideLockFile,
-    provideLogFile,
-    provideRemoteAuthViaLocalApi,
-    provideClientVersionViaVAPI,
-  } from "@tqman/valorant-api-client";
+```typescript
+import {
+  createValorantApiClient,
+  provideAuthViaLocalApi,
+  provideClientVersionViaVAPI,
+  provideLockFile,
+  provideLogFile,
+  useProviders,
+} from "@tqman/valorant-api-client";
 
-  // Create Valorant API Client
-  const vapic = await createValorantApiClient({
-    auth: useProviders(provideClientVersionViaVAPI()),
-    local: useProviders(provideLockFile()),
-    remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
-  });
+// Create Valorant API Client
+const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
+  local: useProviders(provideLockFile()),
+  remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
+});
 
-  // Use API Client
-  const puuid = vapic.remote.puuid;
-  const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
-    data: {
-      puuid,
-    },
-  });
+// Use API Client
+const puuid = vapic.remote.puuid;
+const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
+  data: {
+    puuid,
+  },
+});
 
-  console.log(compUpdates);
-  ```
+console.log(compUpdates);
+```
 
-  > [!NOTE]
-  > VALORANT should be running for lockfile and logfile to be generated.
+> [!NOTE]
+> VALORANT should be running for lockfile and logfile to be generated.
 
 - ### Remote Authentication
 
-  ```typescript
-  import {
-    createValorantApiClient,
-    useProviders,
-    provideClientVersionViaVAPI,
-    provideClientVersionViaAuthApi,
-    provideRemoteAuth,
-    provideRegion,
-  } from "@tqman/valorant-api-client";
+```typescript
+import {
+  createValorantApiClient,
+  useProviders,
+  provideClientVersionViaVAPI,
+  provideClientVersionViaAuthApi,
+  provideAuthAutoRegion,
+} from "@tqman/valorant-api-client";
 
-  // Change as per your requirement
-  const RIOT_USERNAME = "YOUR_USERNAME";
-  const RIOT_PASSWORD = "YOUR_PASSWORD";
+// Change as per your requirement
+const RIOT_USERNAME = "YOUR_USERNAME";
+const RIOT_PASSWORD = "YOUR_PASSWORD";
 
-  // Create Valorant API Client
-  const vapic = await createValorantApiClient({
-    auth: useProviders(provideClientVersionViaVAPI()),
-    remote: useProviders([
-      provideClientVersionViaAuthApi(),
-      provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
-    ]),
-  });
+// Create Valorant API Client
+const vapic = await createValorantApiClient({
+  auth: useProviders(provideClientVersionViaVAPI()),
+  remote: useProviders([
+    provideClientVersionViaAuthApi(),
+    provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
+  ]),
+});
 
-  // Use API Client
-  const puuid = vapic.remote.puuid;
-  const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
-    data: {
-      puuid,
-    },
-  });
+// Use API Client
+const puuid = vapic.remote.puuid;
+const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
+  data: {
+    puuid,
+  },
+});
 
-  console.log(compUpdates);
-  ```
+console.log(compUpdates);
+```
 
 ## Infinite Thanks ❤️‍🔥
 

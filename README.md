@@ -34,11 +34,11 @@ NOTE: Your game (VALORANT.exe) should be running for lockfile and logfile to be 
 ```typescript
 import {
   createValorantApiClient,
-  useProviders,
+  provideAuthViaLocalApi,
+  provideClientVersionViaVAPI,
   provideLockFile,
   provideLogFile,
-  provideRemoteAuthViaLocalApi,
-  provideClientVersionViaVAPI,
+  useProviders,
 } from "@tqman/valorant-api-client";
 
 // Create Valorant API Client
@@ -67,8 +67,7 @@ import {
   useProviders,
   provideClientVersionViaVAPI,
   provideClientVersionViaAuthApi,
-  provideRemoteAuth,
-  provideRegion,
+  provideAuthAutoRegion,
 } from "@tqman/valorant-api-client";
 
 // Change as per your requirement
