@@ -1,4 +1,4 @@
-import type { Simplify, UnionToIntersection } from "type-fest";
+import type { Simplify, UnionToIntersection } from "~/utils/vendor/type-fest";
 
 import { ensureArray } from "~/utils/array";
 import type { MaybePromise } from "~/utils/lib/typescript/promises";
