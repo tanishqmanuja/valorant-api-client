@@ -7,26 +7,29 @@
     "dist/*",
     "package.json"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./types": {
       "types": "./dist/types.d.ts",
-      "import": "./dist/types.js"
+      "import": "./dist/types.js",
+      "require": "./dist/types.cjs"
     },
     "./default-configs": {
       "types": "./dist/default-configs.d.ts",
-      "import": "./dist/default-configs.js"
+      "import": "./dist/default-configs.mjs",
+      "require": "./dist/default-configs.cjs"
     },
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "unbuild",
     "release": "changeset publish",
     "type:check": "tsc --noEmit",
     "format:check": "prettier --check .",
@@ -58,21 +61,20 @@
     "@changesets/cli": "^2.27.1",
     "@tqman/prettier-config": "^1.0.0",
     "@tqman/tsconfig": "^1.0.0",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.6",
     "@types/tough-cookie": "^4.0.5",
     "@types/ws": "^8.5.10",
     "change-case": "^5.3.0",
     "prettier": "^3.1.1",
-    "tsup": "^8.0.1",
     "tsx": "^4.7.0",
-    "turbo": "^1.11.2",
-    "type-fest": "^4.8.3",
-    "typescript": "^5.3.3"
+    "turbo": "^1.11.3",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0"
   },
   "dependencies": {
     "@tqman/valorant-api-types": "^0.8.1",
-    "axios": "^1.6.3",
-    "fp-ts": "^2.16.1",
+    "axios": "^1.6.5",
+    "fp-ts": "^2.16.2",
     "fp-ts-contrib": "^0.1.29",
     "tough-cookie": "^4.1.3",
     "ts-extras": "^0.11.0",
