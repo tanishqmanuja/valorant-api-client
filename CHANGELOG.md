@@ -1,5 +1,11 @@
 # @tqman/valorant-api-client
 
+## 1.3.4
+
+### Patch Changes
+
+- [#7](https://github.com/tanishqmanuja/valorant-api-client/pull/7) [`e2267c9`](https://github.com/tanishqmanuja/valorant-api-client/commit/e2267c9677cbb6bc29dd42350983843ea9540196) Thanks [@ikexing-cn](https://github.com/ikexing-cn)! - fix missing exposed files
+
 ## 1.3.3
 
 ### Patch Changes
