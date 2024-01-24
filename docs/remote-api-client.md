@@ -37,7 +37,7 @@ type RemoteApiClientOptions = {
 
 ## Usage
 
-### > Using Local API
+### Using Local API
 
 ```typescript
 const lockfile = await getLockFileDataPromise();
@@ -78,7 +78,7 @@ const { data: mmr } = await remote.getPlayerMMR({
 console.log(mmr);
 ```
 
-### > Using Auth Api
+### Using Auth Api
 
 ```typescript
 // change as per your requirement
@@ -87,7 +87,9 @@ const RIOT_PASSWORD = "RIOT_PASSWORD";
 const REGION = "REGION";
 const SHARD = "SHARD";
 
-const auth = new AuthApiClient();
+const clientVersion = await getClientVersion();
+
+const auth = new AuthApiClient({ clientVersion });
 
 const cookieResponse = await auth.postAuthCookies({
   data: {
@@ -122,7 +124,7 @@ const entitlementResponse = await auth.postEntitlement({
 const entitlementsToken = parseEntitlementsToken(entitlementResponse);
 
 const remote = new RemoteApiClient({
-  clientVersion: await getClientVersion(),
+  clientVersion,
   ...getRegionOptions(REGION, SHARD),
   accessToken,
   entitlementsToken,
