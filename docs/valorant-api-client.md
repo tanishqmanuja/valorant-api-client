@@ -6,7 +6,7 @@ Wrapper around the 3 API Clients (Auth, Local, Remote).
 
 1. `auth`: AuthApiClientOptions
 
-   - Minimum Requirements: **[ none ]**
+   - Minimum Requirements: **[ clientVersion ]**
 
 2. `local`: LocalApiClientOptions OR [VapicProvider](../docs/vapic-providers.md)
 
