@@ -36,3 +36,6 @@ const cookieResponse = await auth.postAuthCookies({
   },
 });
 ```
+
+> [!IMPORTANT]
+> Auth Api Client does not set any Authorization headers by default, this should be passed manually if required.
