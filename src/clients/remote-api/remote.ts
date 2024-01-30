@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { AxiosInstance } from "axios";
+import type { AxiosInstance, AxiosRequestConfig } from "axios";
 import { platformSchema } from "@tqman/valorant-api-types";
 
 import { applyMixins } from "~/utils/classes";
@@ -13,6 +13,7 @@ import {
 
 import { RemoteApiEndpoints } from "./endpoints";
 import { getRemoteApiClientAxios } from "./helpers";
+import type { CustomAxiosRequestConfig } from "..";
 
 export const remoteApiClientOptionsSchema = z.object({
   shard: z.string(),
@@ -56,6 +57,22 @@ export class RemoteApiClient {
   getServerUrl(type: RemoteServerType): string {
     const { region, shard } = this.options;
     return getServerUrl({ type, region, shard });
+  }
+
+  /**
+   * @note url should be without the base url, like \`parties/v1/players/${api.puuid}\`
+   * @example api.callEndpoint("glz", `parties/v1/players/${api.puuid}`, { method: "GET" })
+   */
+  callEndpoint<TConfig extends AxiosRequestConfig & CustomAxiosRequestConfig>(
+    serverType: RemoteServerType,
+    url: string,
+    config?: TConfig,
+  ) {
+    return this.axiosInstance({
+      ...config,
+      baseURL: this.getServerUrl(serverType),
+      url: url,
+    });
   }
 
   get puuid(): string {
