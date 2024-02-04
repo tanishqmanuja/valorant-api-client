@@ -10,7 +10,7 @@ import {
   getTokensUsingMfaCode,
   getTokensUsingReauthCookies,
 } from "./helpers";
-import { authRequestEndpoint } from "@tqman/valorant-api-types";
+import { authRequestEndpoint } from "valorant-api-types";
 
 /**
  * @client remote

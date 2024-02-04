@@ -72,7 +72,7 @@
     "unbuild": "^2.0.0"
   },
   "dependencies": {
-    "@tqman/valorant-api-types": "^0.8.1",
+    "valorant-api-types": "^0.9.0",
     "axios": "^1.6.5",
     "fp-ts": "^2.16.2",
     "fp-ts-contrib": "^0.1.29",

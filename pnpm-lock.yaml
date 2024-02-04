@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@tqman/valorant-api-types':
-    specifier: ^0.8.1
-    version: 0.8.1
   axios:
     specifier: ^1.6.5
     version: 1.6.5
@@ -23,6 +20,9 @@ dependencies:
   ts-extras:
     specifier: ^0.11.0
     version: 0.11.0
+  valorant-api-types:
+    specifier: ^0.9.0
+    version: 0.9.0
   ws:
     specifier: ^8.16.0
     version: 8.16.0
@@ -885,13 +885,6 @@ packages:
   /@tqman/tsconfig@1.0.0:
     resolution: {integrity: sha512-z7tjGw8or9kU8UJM/4jYoTTZ656U+ofYx+zlXGDVA10gDlyXfzY3qrO8flU6lfrLmgl+klE+5tlb5qlWN5EpHg==}
     dev: true
-
-  /@tqman/valorant-api-types@0.8.1:
-    resolution: {integrity: sha512-XBIq/GrdK6iBx84k+GrVCKvDwoIHbfWFRSymiIMWYV85IhCQiGh0Q+1WXq9NG5xkpJdPcCnvv23gPc5gaW/fdQ==}
-    dependencies:
-      iso-base64: 1.0.0
-      zod: 3.22.4
-    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -3637,6 +3630,13 @@ packages:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /valorant-api-types@0.9.0:
+    resolution: {integrity: sha512-eFO+7pITQFMpbmNtTbo9ShemDv/oqcPdfIPzYQA3uRTb/DzO5nxkFBnQuscqgVHckuWbve+vqR8kYcGlDUgFgQ==}
+    dependencies:
+      iso-base64: 1.0.0
+      zod: 3.22.4
+    dev: false
 
   /wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}

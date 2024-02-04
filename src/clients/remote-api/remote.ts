@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { AxiosInstance, AxiosRequestConfig } from "axios";
-import { platformSchema } from "@tqman/valorant-api-types";
+import { platformSchema } from "valorant-api-types";
 
 import { applyMixins } from "~/utils/classes";
 import {
