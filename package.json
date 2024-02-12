@@ -56,6 +56,9 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@tqman/prettier-config": "^1.0.0",
     "@tqman/tsconfig": "^1.0.0",
