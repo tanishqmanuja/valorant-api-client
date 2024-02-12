@@ -42,8 +42,8 @@ export const getRsoUserAgent = (clientBuild: string) =>
 
 export async function fetchClientVersionFromVAPI(): Promise<string> {
   return axios
-    .get<{ data: { riotClientVersion: string } }>(
-      "https://valorant-api.com/v1/version",
-    )
+    .get<{
+      data: { riotClientVersion: string };
+    }>("https://valorant-api.com/v1/version")
     .then(res => res.data.data.riotClientVersion);
 }
