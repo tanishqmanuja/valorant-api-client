@@ -3,6 +3,9 @@ node_modules
 dist
 .env
 
+# secrets
+.npmrc
+
 # auto generated
 src/clients/auth-api/endpoints
 src/clients/local-api/endpoints
