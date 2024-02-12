@@ -1,7 +1,6 @@
 .github
 .vscode
 .turbo
-.changeset
 assets
 docs
 src

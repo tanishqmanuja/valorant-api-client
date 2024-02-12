@@ -18,16 +18,26 @@ on:
       - "README.md"
       - ".github/README.md"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  ci:
+  build:
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Setup Repository
         uses: ./.github/actions/setup
 
-      - name: Lint
-        run: pnpm turbo lint
+      - name: Build
+        run: pnpm turbo build

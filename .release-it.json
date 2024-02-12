@@ -1,0 +1,16 @@
+{
+  "git": {
+    "tagName": "v${version}",
+    "commitMessage": "chore: release v${version}",
+    "pushRepo": "https://github.com/tanishqmanuja/valorant-api-client"
+  },
+  "github": {
+    "release": false
+  },
+  "npm": {
+    "publish": true
+  },
+  "hooks": {
+    "after:bump": ["pnpm turbo build"]
+  }
+}

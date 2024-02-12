@@ -1,6 +1,4 @@
 node_modules
 .vscode
-.changeset
 dist
 pnpm-lock.yaml
-CHANGELOG.md

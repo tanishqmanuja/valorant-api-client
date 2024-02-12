@@ -2,39 +2,39 @@ name: Publish
 
 on:
   workflow_dispatch:
-    branches:
-      - main
+    inputs:
+      bump:
+        description: "Bump Type"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
-  push:
-    branches:
-      - main
-    paths:
-      - package.json
-      - src/**
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  changesets:
+  publish:
     permissions:
       contents: write
-      issues: write
-      pull-requests: write
+
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Setup Repository
         uses: ./.github/actions/setup
 
-      - name: Create Release Pull Request or Publish
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm turbo release
-          title: "chore: bump version"
-          commit: "chore: bump version"
-          createGithubReleases: false
+      - name: Build & Publish
+        run: pnpm release ${{ github.event.inputs.bump }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
