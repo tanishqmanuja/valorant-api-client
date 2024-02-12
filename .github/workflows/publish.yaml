@@ -33,7 +33,12 @@ jobs:
       - name: Setup Repository
         uses: ./.github/actions/setup
 
-      - name: Init NPM Config
+      - name: Set Git User
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Set NPM Config
         run: npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
