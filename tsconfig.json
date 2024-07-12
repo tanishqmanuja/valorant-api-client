@@ -5,8 +5,10 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "@tqman/valorant-api-client": ["src/index.ts"],
+      "@tqman/valorant-api-client/*": ["src/*"]
     }
   },
-  "include": ["src", "scripts"]
+  "include": ["src", "scripts", "examples"]
 }

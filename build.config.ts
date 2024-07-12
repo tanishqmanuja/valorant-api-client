@@ -2,7 +2,7 @@ import { resolve } from "path";
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["./src/index", "./src/types.ts", "./src/default-configs.ts"],
+  entries: ["./src/index", "./src/types.ts", "./src/presets.ts"],
   outDir: "dist",
   declaration: true,
   rollup: {
