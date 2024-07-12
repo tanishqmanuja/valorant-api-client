@@ -35,5 +35,3 @@ export const presets = {
   local,
   remote,
 };
-
-export default presets;
