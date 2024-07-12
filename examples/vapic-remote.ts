@@ -19,4 +19,4 @@ const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
     puuid,
   },
 });
-console.log("CompUpdates", compUpdates);
+console.log("Comp Updates", compUpdates);
