@@ -21,10 +21,10 @@
       "require": "./dist/types.cjs",
       "types": "./dist/types.d.ts"
     },
-    "./default-configs": {
-      "import": "./dist/default-configs.mjs",
-      "require": "./dist/default-configs.cjs",
-      "types": "./dist/default-configs.d.ts"
+    "./presets": {
+      "import": "./dist/presets.mjs",
+      "require": "./dist/presets.cjs",
+      "types": "./dist/presets.d.ts"
     },
     "./package.json": "./package.json"
   },

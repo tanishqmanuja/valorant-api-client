@@ -66,7 +66,7 @@ export async function getTokensUsingMfaCode(
         type: "multifactor",
         code: mfaCode,
         rememberDevice: true,
-      },
+      } as any, // TODO: fix type
       headers: {
         ...getJsonHeader(),
       },
@@ -101,7 +101,7 @@ export async function getTokensUsingCredentials(
       type: "auth",
       username,
       password,
-    },
+    } as any, // TODO: fix type
   });
 
   if (isMfaResponse(authResponse)) {
