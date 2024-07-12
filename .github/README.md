@@ -19,7 +19,7 @@
 
 VAPIC is a type safe implementation of an api client for VALORANT. It includes functional wrapper to call all community known endpoints provided by [valorant-api-types](https://www.npmjs.com/package/valorant-api-types).
 
-## Installation
+## 📦 Installation
 
 Install @tqman/valorant-api-client with npm, pnpm or yarn
 
@@ -35,7 +35,7 @@ pnpm add @tqman/valorant-api-client@latest
 yarn add @tqman/valorant-api-client@latest
 ```
 
-## Showcase Features
+## ⚡ Showcase Features
 
 - [x] Includes all community known [endpoints](https://valapidocs.techchrism.me/).
 - [x] Response parsing using zod library.
@@ -43,96 +43,76 @@ yarn add @tqman/valorant-api-client@latest
 - [x] Re-Auth using `ssid` cookie without resending username/password.
 - [x] Riot MFA using Email-Code Method
 
-## API Clients
+## 🚀 API Clients
 
 - [Valorant API Client](../docs/valorant-api-client.md) is the recommended way!
 - [Auth API Client](../docs/auth-api-client.md)
 - [Local API Client](../docs/local-api-client.md)
 - [Remote API Client](../docs/remote-api-client.md)
 
-## Usage/Examples
+## 📃 Usage/Examples
 
-- ### Local Authentication
+### 🟠 Local Authentication
 
 ```typescript
-import {
-  createValorantApiClient,
-  provideAuthViaLocalApi,
-  provideClientVersionViaVAPI,
-  provideLockFile,
-  provideLogFile,
-  useProviders,
-} from "@tqman/valorant-api-client";
+import { createValorantApiClient } from "@tqman/valorant-api-client";
+import { presets } from "@tqman/valorant-api-client/presets";
 
-// Create Valorant API Client
-const vapic = await createValorantApiClient({
-  auth: useProviders(provideClientVersionViaVAPI()),
-  local: useProviders(provideLockFile()),
-  remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
-});
+const vapic = await createValorantApiClient(presets.local);
 
-// Use API Client
 const puuid = vapic.remote.puuid;
+console.log("PUUID", puuid);
+
+const { data: accountAlias } = await vapic.local.getAccountAlias();
+console.log("Account Alias", accountAlias);
+
 const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
   data: {
     puuid,
   },
 });
-
-console.log(compUpdates);
+console.log("Comp Updates", compUpdates);
 ```
 
 > [!NOTE]
 > VALORANT should be running for lockfile and logfile to be generated.
 
-- ### Remote Authentication
+### 🟣 Remote Authentication
 
 ```typescript
-import {
-  createValorantApiClient,
-  useProviders,
-  provideClientVersionViaVAPI,
-  provideClientVersionViaAuthApi,
-  provideAuthAutoRegion,
-} from "@tqman/valorant-api-client";
+import { createValorantApiClient } from "@tqman/valorant-api-client";
+import { presets } from "@tqman/valorant-api-client/presets";
 
-// Change as per your requirement
 const RIOT_USERNAME = "YOUR_USERNAME";
 const RIOT_PASSWORD = "YOUR_PASSWORD";
 
-// Create Valorant API Client
-const vapic = await createValorantApiClient({
-  auth: useProviders(provideClientVersionViaVAPI()),
-  remote: useProviders([
-    provideClientVersionViaAuthApi(),
-    provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
-  ]),
-});
+const vapic = await createValorantApiClient(
+  presets.remote.with({
+    username: RIOT_USERNAME,
+    password: RIOT_PASSWORD,
+  }),
+);
 
-// Use API Client
 const puuid = vapic.remote.puuid;
+console.log("PUUID", puuid);
+
 const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
   data: {
     puuid,
   },
 });
-
-console.log(compUpdates);
+console.log("CompUpdates", compUpdates);
 ```
 
-## Infinite Thanks ❤️‍🔥
+## ❤️‍🔥 Infinite Thanks
 
-[valorant-api-docs](https://github.com/techchrism/valorant-api-docs)
+- [**@techchrism**](https://github.com/techchrism) for [valorant-api-docs](https://github.com/techchrism/valorant-api-docs)
 
-## Authors
-
-- [@tanishqmanuja](https://www.github.com/tanishqmanuja)
-
-## Show your Support
+## 🌿 Show your Support
 
 Give a ⭐️ if this project helped you! \
 It will give me motivation for working towards this project.
 
-## Disclaimer
+## ⚖️ Disclaimer
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY RIOT GAMES. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Whilst effort has been made to abide by Riot's API rules; you acknowledge that use of this software is done so at your own risk.
