@@ -2,6 +2,7 @@ import type { VapicOptionsWithProviders } from "./clients";
 import {
   provideAuthAutoRegion,
   provideAuthViaLocalApi,
+  provideClientVersionAndRsoUserAgentViaVAPI,
   provideClientVersionViaAuthApi,
   provideClientVersionViaVAPI,
   provideLockFile,
@@ -15,7 +16,7 @@ export type Credentials = {
 };
 
 const local = {
-  auth: useProviders(provideClientVersionViaVAPI()),
+  auth: useProviders(provideClientVersionAndRsoUserAgentViaVAPI()),
   local: useProviders(provideLockFile()),
   remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
 } satisfies VapicOptionsWithProviders;

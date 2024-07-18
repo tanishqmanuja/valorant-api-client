@@ -49,5 +49,17 @@ export const DEFAULT_CIPHERS = [
   "TLS_AES_256_GCM_SHA384",
 ];
 
+export const DEFAULT_SIGALGS = [
+  "ecdsa_secp256r1_sha256",
+  "rsa_pss_rsae_sha256",
+  "rsa_pkcs1_sha256",
+  "ecdsa_secp384r1_sha384",
+  "rsa_pss_rsae_sha384",
+  "rsa_pkcs1_sha384",
+  "rsa_pss_rsae_sha512",
+  "rsa_pkcs1_sha512",
+  "rsa_pkcs1_sha1",
+];
+
 export const DEFAULT_RSO_USER_AGENT =
   "RiotClient/90.0.2.1805.3774 rso-auth (Windows;10;;Professional, x64)";

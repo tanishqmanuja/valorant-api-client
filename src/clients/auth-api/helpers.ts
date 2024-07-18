@@ -7,7 +7,7 @@ export function getAuthApiClientAxios(
   options: Required<AuthApiClientOptions>,
   existingAxiosInstance?: AxiosInstance,
 ): AxiosInstance {
-  const { userAgent, ciphers, clientVersion } = options;
+  const { userAgent, ciphers, clientVersion, sigalgs } = options;
 
   if (existingAxiosInstance) {
     Object.assign(existingAxiosInstance.defaults.headers, {
@@ -17,6 +17,8 @@ export function getAuthApiClientAxios(
     });
     existingAxiosInstance.defaults.httpsAgent.options.ciphers =
       ciphers.join(":");
+    existingAxiosInstance.defaults.httpsAgent.options.sigalgs =
+      sigalgs.join(":");
     return existingAxiosInstance;
   } else {
     return axios.create({
@@ -26,6 +28,7 @@ export function getAuthApiClientAxios(
       },
       httpsAgent: new Agent({
         ciphers: ciphers.join(":"),
+        sigalgs: sigalgs.join(":"),
         honorCipherOrder: true,
         minVersion: "TLSv1.2",
       }),
