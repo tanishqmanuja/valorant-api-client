@@ -50,4 +50,4 @@ export const DEFAULT_CIPHERS = [
 ];
 
 export const DEFAULT_RSO_USER_AGENT =
-  "RiotClient/62.0.1.4852117.4789131 rso-auth (Windows;10;;Professional, x64)";
+  "RiotClient/90.0.2.1805.3774 rso-auth (Windows;10;;Professional, x64)";
