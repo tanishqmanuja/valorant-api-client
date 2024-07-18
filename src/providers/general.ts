@@ -63,3 +63,22 @@ export function provideRsoUserAgentViaVAPI() {
     return { userAgent: getRsoUserAgent(riotClientBuild) } as const;
   }) satisfies VapicProvider;
 }
+
+/**
+ * @client auth
+ * @provides client-version,rso-user-agent
+ */
+export function provideClientVersionAndRsoUserAgentViaVAPI() {
+  return (async () => {
+    const { data } = await axios.get<{
+      data: { riotClientBuild: string; clientVersion: string };
+    }>("https://valorant-api.com/v1/version");
+    const {
+      data: { riotClientBuild, clientVersion },
+    } = data;
+    return {
+      clientVersion,
+      userAgent: getRsoUserAgent(riotClientBuild),
+    } as const;
+  }) satisfies VapicProvider;
+}
