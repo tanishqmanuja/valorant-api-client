@@ -71,11 +71,16 @@ export function provideRsoUserAgentViaVAPI() {
 export function provideClientVersionAndRsoUserAgentViaVAPI() {
   return (async () => {
     const { data } = await axios.get<{
-      data: { riotClientBuild: string; clientVersion: string };
+      data: { riotClientBuild: string; riotClientVersion: string };
     }>("https://valorant-api.com/v1/version");
     const {
-      data: { riotClientBuild, clientVersion },
+      data: { riotClientBuild, riotClientVersion: clientVersion },
     } = data;
+
+    if (!clientVersion) {
+      throw new Error("Client version not found via VAPI");
+    }
+
     return {
       clientVersion,
       userAgent: getRsoUserAgent(riotClientBuild),
