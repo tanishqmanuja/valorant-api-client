@@ -74,6 +74,7 @@
     "unbuild": "^2.0.0"
   },
   "dependencies": {
+    "arktype": "2.0.0-rc.21",
     "axios": "^1.6.7",
     "tough-cookie": "5.0.0-rc.3",
     "ts-extras": "^0.11.0",
