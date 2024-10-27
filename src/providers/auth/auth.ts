@@ -1,7 +1,5 @@
+import { authRequestEndpoint } from "valorant-api-types";
 import type { VapicProvider } from "~/clients";
-import { array as A, boolean as B, option as O } from "fp-ts";
-import { pipe } from "fp-ts/lib/function.js";
-import type { MfaCodeProvider } from "./types";
 import { getRegionAndShardFromPas } from "~/helpers";
 import {
   getEntitlementsToken,
@@ -10,7 +8,7 @@ import {
   getTokensUsingMfaCode,
   getTokensUsingReauthCookies,
 } from "./helpers";
-import { authRequestEndpoint } from "valorant-api-types";
+import type { MfaCodeProvider } from "./types";
 
 /**
  * @client remote
@@ -46,14 +44,15 @@ export function provideAuth(
       { allPaths: true },
     );
 
-    const { accessToken, idToken } = await pipe(
-      previousCookies,
-      A.some(cookie => cookie.key === "ssid"),
-      B.match(
-        () => O.none,
-        O.tryCatchK(() => getTokensUsingReauthCookies(auth)),
-      ),
-      O.getOrElse(() =>
+    const { accessToken, idToken } = await new Promise((resolve, reject) => {
+      if (previousCookies.some(cookie => cookie.key === "ssid")) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    })
+      .then(() => getTokensUsingReauthCookies(auth))
+      .catch(() =>
         mfaCodeProvider
           ? getTokensUsingCombinedStrategy(
               auth,
@@ -62,8 +61,7 @@ export function provideAuth(
               mfaCodeProvider,
             )
           : getTokensUsingCredentials(auth, username, password),
-      ),
-    );
+      );
 
     const entitlementsToken = await getEntitlementsToken(auth, accessToken);
 
