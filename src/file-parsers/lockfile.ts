@@ -1,40 +1,33 @@
-import { either as E, taskEither as TE } from "fp-ts";
-import { pipe } from "fp-ts/lib/function.js";
-import z from "zod";
-
+import { type } from "arktype";
+import { readFile } from "node:fs/promises";
 import { LOCK_FILE_PATH } from "~/helpers/constants";
-import { getFileContents } from "~/utils/lib/fp-ts/fileSystem";
-import { toPromise } from "~/utils/lib/fp-ts/taskEither";
 
-const LockFileData = z.object({
-  user: z.string(),
-  pid: z.string(),
-  port: z.string(),
-  password: z.string(),
-  protocol: z.string(),
+const lockfile = type({
+  user: "string",
+  pid: "string",
+  port: "string",
+  password: "string",
+  protocol: "string",
 });
 
-export type LockFileData = z.infer<typeof LockFileData>;
+export type LockFileData = typeof lockfile.infer;
 
-function parseLockFileContent(content: string) {
-  const matches = content.match(
+function parseLockFileContent(content: string): LockFileData {
+  const match = content.match(
     /(?<user>.*):(?<pid>.*):(?<port>.*):(?<password>.*):(?<protocol>.*)/,
   );
-  return E.tryCatch(() => LockFileData.parse(matches?.groups), E.toError);
-}
 
-export function getLockFileDataTE(
-  lockfilePath: string = LOCK_FILE_PATH,
-): TE.TaskEither<Error, LockFileData> {
-  return pipe(
-    lockfilePath,
-    getFileContents,
-    TE.chainEitherK(parseLockFileContent),
-  );
+  const data = lockfile(match?.groups);
+
+  if (data instanceof type.errors) {
+    throw Error(data.summary);
+  }
+
+  return data;
 }
 
 export function getLockFileData(
-  lockfilePath: string = LOCK_FILE_PATH,
-): Promise<undefined | LockFileData> {
-  return pipe(getLockFileDataTE(lockfilePath), toPromise());
+  path: string = LOCK_FILE_PATH,
+): Promise<LockFileData> {
+  return readFile(path, "utf8").then(parseLockFileContent);
 }
