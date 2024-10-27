@@ -7,7 +7,12 @@ import { presets } from "@tqman/valorant-api-client/presets";
 const RIOT_USERNAME = process.env.RIOT_USERNAME ?? "YOUR_USERNAME";
 const RIOT_PASSWORD = process.env.RIOT_PASSWORD ?? "YOUR_PASSWORD";
 
-if (!RIOT_USERNAME || !RIOT_PASSWORD) {
+if (
+  !RIOT_USERNAME ||
+  RIOT_USERNAME === "YOUR_USERNAME" ||
+  !RIOT_PASSWORD ||
+  RIOT_PASSWORD === "YOUR_PASSWORD"
+) {
   console.log("Please set RIOT_USERNAME and RIOT_PASSWORD");
   process.exit(0);
 }
@@ -23,6 +28,8 @@ process.on("uncaughtException", error => {
   if (isCloudflareError(error)) {
     console.log("Blocked by Cloudflare");
   }
+
+  console.error(error);
   process.exit(0);
 });
 
