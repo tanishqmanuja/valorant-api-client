@@ -4,7 +4,7 @@ description: Install dependencies and perform setup for https://github.com/tanis
 inputs:
   pnpm-version:
     description: PNPM version
-    default: "8"
+    default: latest
   node-version:
     description: Node.js version
     default: lts/*
