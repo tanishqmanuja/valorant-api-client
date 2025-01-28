@@ -1,6 +1,6 @@
 {
   "name": "@tqman/valorant-api-client",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "type": "module",
   "description": "Type-safe API client for Valorant",
   "files": [
