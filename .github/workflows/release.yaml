@@ -45,25 +45,32 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Set NPM Config
-        run: npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Bump Version
         run: |
-          npm verison ${{ github.event.inputs.bump }} -m "chore: bump version"
+          npm version ${{ github.event.inputs.bump }} -m "chore: bump version"
 
       - name: Build
         run: bun turbo build
 
       - name: Publish
         run: npm publish --provenance --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit
         run: git push --follow-tags
 
       - name: Release Notes
         run: bunx changelogithub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pack `.tgz` file
+        run: |
+          npm pack
+          mv *.tgz package.tgz
+
+      - name: Upload `.tgz` to GitHub Release
+        run: gh release upload $(git describe --tags --abbrev=0) package.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
