@@ -61,7 +61,13 @@ console.log(`Bump Type: ${bump}`);
 
 const nextVersion = version
   .split(".")
-  .map((v, i) => (i === BUMP_TYPES.indexOf(bump) ? String(Number(v) + 1) : v))
+  .map((v, i) =>
+    i === BUMP_TYPES.indexOf(bump)
+      ? String(Number(v) + 1)
+      : i > BUMP_TYPES.indexOf(bump)
+        ? "0"
+        : v,
+  )
   .join(".");
 
 console.log(`Next Version: ${nextVersion}`);
