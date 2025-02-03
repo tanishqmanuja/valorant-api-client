@@ -1,10 +1,4 @@
-import axios, { type AxiosResponse } from "axios";
-
-export function getPuuidFromAccessToken(accessToken: string): string {
-  return JSON.parse(
-    Buffer.from(accessToken.split(".")[1]!, "base64").toString(),
-  ).sub;
-}
+import axios from "axios";
 
 export async function fetchPas(accessToken: string, idToken: string) {
   const { data } = await axios<{
@@ -24,19 +18,6 @@ export async function fetchPas(accessToken: string, idToken: string) {
   return data;
 }
 
-export function parseAuthCookie(response: AxiosResponse) {
-  const cookie = response.headers["set-cookie"]
-    ?.find(elem => /^asid/.test(elem))
-    ?.split(";")
-    .at(0);
-
-  if (!cookie) {
-    throw Error("No ASID cookie found in response headers");
-  }
-
-  return cookie;
-}
-
 export const getRsoUserAgent = (clientBuild: string) =>
   `RiotClient/${clientBuild} rso-auth (Windows;10;;Professional, x64)`;
 
@@ -45,5 +26,5 @@ export async function fetchClientVersionFromVAPI(): Promise<string> {
     .get<{
       data: { riotClientVersion: string };
     }>("https://valorant-api.com/v1/version")
-    .then(res => res.data.data.riotClientVersion);
+    .then((res) => res.data.data.riotClientVersion);
 }

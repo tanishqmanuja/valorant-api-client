@@ -1,46 +1,22 @@
 {
   "name": "@tqman/valorant-api-client",
+  "description": "Type-safe API client for Valorant",
   "version": "1.6.0",
   "type": "module",
-  "description": "Type-safe API client for Valorant",
+  "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "package.json"
   ],
-  "module": "dist/index.mjs",
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./types": {
-      "import": "./dist/types.mjs",
-      "require": "./dist/types.cjs",
-      "types": "./dist/types.d.ts"
-    },
-    "./presets": {
-      "import": "./dist/presets.mjs",
-      "require": "./dist/presets.cjs",
-      "types": "./dist/presets.d.ts"
-    },
     "./package.json": "./package.json"
-  },
-  "scripts": {
-    "build": "unbuild",
-    "release": "release-it",
-    "type:check": "tsc --noEmit",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
-    "lint": "pnpm type:check && pnpm format:check",
-    "seed:auth-endpoints": "tsx ./scripts/endpoints/auth.generator.ts",
-    "seed:local-endpoints": "tsx ./scripts/endpoints/local.generator.ts",
-    "seed:remote-endpoints": "tsx ./scripts/endpoints/remote.generator.ts",
-    "seed:local-websocket": "tsx ./scripts/websocket/local.generator.ts",
-    "seed:endpoints": "pnpm seed:auth-endpoints && pnpm seed:local-endpoints && pnpm seed:remote-endpoints",
-    "seed": "pnpm seed:endpoints"
   },
   "keywords": [
     "valorant",
@@ -52,34 +28,35 @@
   "license": "MIT",
   "homepage": "https://github.com/tanishqmanuja/valorant-api-client#readme",
   "repository": "github:tanishqmanuja/valorant-api-client",
-  "packageManager": "pnpm@8.6.7",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
+  "packageManager": "bun@1.2.2",
+  "scripts": {
+    "build": "unbuild",
+    "test": "bun test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type:check": "tsc --noEmit",
+    "type:check:package": "bun attw --pack",
+    "generate:endpoints": "bun ./scripts/generate-endpoints.ts && prettier --log-level warn -w .",
+    "release": "bun ./scripts/release.ts"
   },
   "devDependencies": {
-    "@tqman/prettier-config": "^1.0.0",
-    "@tqman/tsconfig": "^1.0.0",
-    "@types/node": "^22.8.1",
-    "@types/tough-cookie": "^4.0.5",
-    "@types/ws": "^8.5.12",
-    "change-case": "^5.4.4",
-    "prettier": "^3.3.3",
-    "release-it": "^17.10.0",
-    "tsx": "^4.19.2",
-    "turbo": "^2.2.3",
-    "typescript": "^5.6.3",
-    "unbuild": "^2.0.0"
+    "@arethetypeswrong/cli": "^0.17.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "@types/bun": "^1.2.2",
+    "@types/node": "^22.13.0",
+    "edge.js": "^6.2.1",
+    "prettier": "^3.4.2",
+    "turbo": "^2.4.0",
+    "unbuild": "^3.3.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "arktype": "2.0.0-rc.21",
-    "axios": "^1.7.7",
-    "tough-cookie": "5.0.0",
-    "ts-extras": "^0.13.0",
-    "valorant-api-types": "^0.10.1",
-    "ws": "^8.18.0",
-    "zod": "^3.23.8"
+    "axios": "^1.7.9",
+    "change-case": "^5.4.4",
+    "tough-cookie": "^5.1.0",
+    "type-fest": "^4.33.0",
+    "zod": "^3.24.1"
   }
 }

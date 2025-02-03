@@ -1,4 +1,3 @@
-import { objectEntries } from "ts-extras";
 import { fetchPas } from "./general";
 
 export const regionShardMap = {
@@ -17,18 +16,7 @@ export type RegionShard<R extends Region = Region> =
 export function getRegionOptions<R extends Region | Omit<string, Region>>(
   region: R,
   shard: R extends Region ? RegionShard<R> : string,
-  validate: boolean = true,
 ) {
-  if (validate) {
-    if (!regionShardMap[region as Region]) {
-      throw Error(`Unable to find region shard for  region "${region}"`);
-    }
-
-    if (!regionShardMap[region as Region].some(s => s === shard)) {
-      throw Error(`Unable to find shard "${shard}" for "${region}"`);
-    }
-  }
-
   return { region: region as Region, shard: shard as RegionShard };
 }
 
@@ -40,7 +28,7 @@ export async function getRegionAndShardFromPas(
     affinities: { live: possibleRegion },
   } = await fetchPas(accessToken, idToken);
 
-  const possibleRegionShardMapEntry = objectEntries(regionShardMap).find(
+  const possibleRegionShardMapEntry = Object.entries(regionShardMap).find(
     ([region]) => region === possibleRegion,
   );
 

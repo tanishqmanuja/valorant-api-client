@@ -1,11 +1,8 @@
-// Clients
 export * from "./clients";
 
-// File Parsers
-export * from "./file-parsers";
+export * from "./file-parsers/lockfile";
+export * from "./file-parsers/logfile";
 
-// Providers
-export * from "./providers";
-
-// Helpers
 export * from "./helpers";
+
+export * from "./providers";

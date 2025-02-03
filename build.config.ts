@@ -1,8 +1,9 @@
 import { resolve } from "path";
+
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["./src/index", "./src/types.ts", "./src/presets.ts"],
+  entries: ["./src/index"],
   outDir: "dist",
   declaration: true,
   rollup: {

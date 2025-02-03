@@ -1,99 +1,45 @@
+![Logo](https://raw.github.com/tanishqmanuja/static/main/banners/vapic.png?maxAge=2592000)
+
 # VAPIC //VALORANT API CLIENT
+
+![NPM Version](https://img.shields.io/npm/v/%40tqman%2Fvalorant-api-client?style=for-the-badge&color=%23ff6961)
+![NPM Downloads](https://img.shields.io/npm/dm/%40tqman%2Fvalorant-api-client?style=for-the-badge&color=%23ff6961)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tanishqmanuja/valorant-api-client/ci.yaml?branch=main&style=for-the-badge&color=%23ff6961)
+![GitHub License](https://img.shields.io/github/license/tanishqmanuja/valorant-api-client?style=for-the-badge&color=%23ff6961)
 
 VAPIC is a type safe implementation of an api client for VALORANT. It includes functional wrapper to call all community known endpoints provided by [valorant-api-types](https://www.npmjs.com/package/valorant-api-types).
 
-## Installation
+## 📦 Installation
 
-Install @tqman/valorant-api-client with npm, pnpm or yarn
+Install @tqman/valorant-api-client with npm, pnpm or bun
 
 ```sh
 npm i @tqman/valorant-api-client@latest
 ```
 
 ```sh
-pnpm add @tqman/valorant-api-client@lastest
+pnpm add @tqman/valorant-api-client@latest
 ```
 
 ```sh
-yarn add @tqman/valorant-api-client@latest
+bun add @tqman/valorant-api-client@latest
 ```
 
-## Showcase Features
+## 📃 Usage
 
-- [x] Response parsing using zod library.
-- [x] Session Cookies Handling using tough-cookie library.
-- [x] Re-Auth using `ssid` cookie without resending username/password.
-- [x] Riot MFA using Email-Code Method
+Check out the [examples](./examples) directory to get started with VAPIC.
 
-## Usage/Examples
+- Local Authentication Example: [vapic-local.ts](./examples/vapic-local.ts)
+- Remote Authentication Example: 🚧 Broken as of now ( Thanks to Rito ) 🚧
 
-### > Local Authentication
+## ❤️‍🔥 Infinite Thanks
 
-NOTE: Your game (VALORANT.exe) should be running for lockfile and logfile to be generated.
+- [**@techchrism**](https://github.com/techchrism) for [valorant-api-docs](https://github.com/techchrism/valorant-api-docs)
 
-```typescript
-import {
-  createValorantApiClient,
-  provideAuthViaLocalApi,
-  provideClientVersionViaVAPI,
-  provideLockFile,
-  provideLogFile,
-  useProviders,
-} from "@tqman/valorant-api-client";
+## 🌿 Show your Support
 
-// Create Valorant API Client
-const vapic = await createValorantApiClient({
-  auth: useProviders(provideClientVersionViaVAPI()),
-  local: useProviders(provideLockFile()),
-  remote: useProviders([provideLogFile(), provideAuthViaLocalApi()]),
-});
+Give a ⭐️ if this project helped you!
 
-// Use API Client
-const puuid = vapic.remote.puuid;
-const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
-  data: {
-    puuid,
-  },
-});
-
-console.log(compUpdates);
-```
-
-### > Remote Authentication
-
-```typescript
-import {
-  createValorantApiClient,
-  useProviders,
-  provideClientVersionViaVAPI,
-  provideClientVersionViaAuthApi,
-  provideAuthAutoRegion,
-} from "@tqman/valorant-api-client";
-
-// Change as per your requirement
-const RIOT_USERNAME = "YOUR_USERNAME";
-const RIOT_PASSWORD = "YOUR_PASSWORD";
-
-// Create Valorant API Client
-const vapic = await createValorantApiClient({
-  auth: useProviders(provideClientVersionViaVAPI()),
-  remote: useProviders([
-    provideClientVersionViaAuthApi(),
-    provideAuthAutoRegion(RIOT_USERNAME, RIOT_PASSWORD),
-  ]),
-});
-
-// Use API Client
-const puuid = vapic.remote.puuid;
-const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
-  data: {
-    puuid,
-  },
-});
-
-console.log(compUpdates);
-```
-
-## Disclaimer
+## ⚖️ Disclaimer
 
 THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY RIOT GAMES. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Whilst effort has been made to abide by Riot's API rules; you acknowledge that use of this software is done so at your own risk.

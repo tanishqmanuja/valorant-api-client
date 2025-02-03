@@ -1,6 +1,6 @@
-export * from "./common";
-export * from "./auth-api";
-export * from "./local-api";
-export * from "./valorant-ws";
-export * from "./remote-api";
-export * from "./valorant-api";
+export * from "./auth";
+export * from "./local";
+export * from "./remote";
+
+export * from "./valorant";
+export * from "./valorant/presets";

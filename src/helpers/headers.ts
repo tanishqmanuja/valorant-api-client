@@ -1,88 +1,79 @@
-import { getRsoUserAgent } from "./general";
-import type { PlatformInfo } from "./types";
+import type { z } from "zod";
 
-export type LocalAuthHeaders = {
-  Authorization: string;
-};
+import type { platformSchema } from "~/endpoints/common-types";
 
-export type RemoteAuthHeaders = {
-  Authorization: string;
-  "X-Riot-Entitlements-JWT": string;
-  "X-Riot-ClientPlatform": string;
-  "X-Riot-ClientVersion": string;
-  "User-Agent": string;
-};
+export type PlatformInfo = z.infer<typeof platformSchema>;
 
-export const getLocalAuthHeader = (
-  username: string,
-  password: string,
-): LocalAuthHeaders => ({
-  Authorization: `Basic ${generateBasicToken(username, password)}`,
-});
-
-export const getAccessTokenHeader = (
-  accessToken: string,
-): Pick<RemoteAuthHeaders, "Authorization"> => ({
-  Authorization: accessToken.startsWith("Bearer")
-    ? accessToken
-    : `Bearer ${accessToken}`,
-});
-
-export const getEntitlementsJWTHeader = (
-  entitlementsToken: string,
-): Pick<RemoteAuthHeaders, "X-Riot-Entitlements-JWT"> => ({
-  "X-Riot-Entitlements-JWT": entitlementsToken,
-});
-
-export const getClientPlatformHeader = (
-  platformInfo: PlatformInfo,
-): Pick<RemoteAuthHeaders, "X-Riot-ClientPlatform"> => ({
-  "X-Riot-ClientPlatform": Buffer.from(JSON.stringify(platformInfo)).toString(
-    "base64",
-  ),
-});
-
-export const getClientVersionHeader = (
-  clientVersion: string,
-): Pick<RemoteAuthHeaders, "X-Riot-ClientVersion"> => ({
-  "X-Riot-ClientVersion": clientVersion,
-});
-
-export const getUserAgentHeader = (
-  userAgent: string,
-): Pick<RemoteAuthHeaders, "User-Agent"> => ({
-  "User-Agent": userAgent,
-});
-
-export const getJsonHeader = () => ({
-  "Content-Type": "application/json" as const,
-});
-
-type RemoteAuthHeadersOpts = {
+type RemoteHeaderOptions = {
   accessToken: string;
   entitlementsToken: string;
-  platformInfo: PlatformInfo;
   clientVersion: string;
+  platformInfo: PlatformInfo;
   userAgent: string;
 };
 
-export const getRemoteAuthHeaders = (
-  options: RemoteAuthHeadersOpts,
-): RemoteAuthHeaders => ({
-  ...getAccessTokenHeader(options.accessToken),
-  ...getEntitlementsJWTHeader(options.entitlementsToken),
-  ...getClientPlatformHeader(options.platformInfo),
-  ...getClientVersionHeader(options.clientVersion),
-  ...getUserAgentHeader(options.userAgent),
-});
+export class HeadersBuilder {
+  private headers: Record<string, string> = {};
+
+  static create() {
+    return new HeadersBuilder();
+  }
+
+  static remote(options: RemoteHeaderOptions) {
+    return new HeadersBuilder()
+      .accessToken(options.accessToken)
+      .entitlementsJWT(options.entitlementsToken)
+      .clientVersion(options.clientVersion)
+      .clientPlatform(options.platformInfo)
+      .userAgent(options.userAgent)
+      .build();
+  }
+
+  userAgent(userAgent: string) {
+    this.headers["User-Agent"] = userAgent;
+    return this;
+  }
+
+  rsoUserAgent(clientBuild: string) {
+    this.headers["User-Agent"] =
+      `RiotClient/${clientBuild} rso-auth (Windows;10;;Professional, x64)`;
+    return this;
+  }
+
+  localAuth(username: string, password: string) {
+    this.headers["Authorization"] =
+      `Basic ${generateBasicToken(username, password)}`;
+    return this;
+  }
+
+  accessToken(accessToken: string) {
+    this.headers["Authorization"] = accessToken.startsWith("Bearer")
+      ? accessToken
+      : `Bearer ${accessToken}`;
+    return this;
+  }
+
+  entitlementsJWT(entitlementsToken: string) {
+    this.headers["X-Riot-Entitlements-JWT"] = entitlementsToken;
+    return this;
+  }
+
+  clientVersion(clientVersion: string) {
+    this.headers["X-Riot-ClientVersion"] = clientVersion;
+    return this;
+  }
+
+  clientPlatform(platformInfo: PlatformInfo) {
+    this.headers["X-Riot-ClientPlatform"] = Buffer.from(
+      JSON.stringify(platformInfo),
+    ).toString("base64");
+    return this;
+  }
+
+  build() {
+    return this.headers;
+  }
+}
 
 export const generateBasicToken = (username: string, password: string) =>
   Buffer.from(`${username}:${password}`).toString("base64");
-
-export const getCookieHeader = (cookie: string) =>
-  ({
-    Cookie: cookie,
-  }) as const;
-
-export const getRsoUserAgentHeader = (clientBuild: string) =>
-  getUserAgentHeader(getRsoUserAgent(clientBuild));

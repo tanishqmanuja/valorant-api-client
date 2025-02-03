@@ -1,10 +1,5 @@
 import { z } from "zod";
 
-export type LocalServerOptions = {
-  type: "local";
-  port: string;
-};
-
 export const REMOTE_SERVER_TYPES = ["glz", "pd", "shared"] as const;
 export type RemoteServerType = (typeof REMOTE_SERVER_TYPES)[number];
 
@@ -12,6 +7,11 @@ export type RemoteServerOptions = {
   type: RemoteServerType;
   shard: string;
   region?: string;
+};
+
+export type LocalServerOptions = {
+  type: "local";
+  port: string;
 };
 
 export type ServerOptions = LocalServerOptions | RemoteServerOptions;

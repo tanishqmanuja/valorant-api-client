@@ -1,0 +1,1786 @@
+[2023.12.23-13.59.28:696][  0]Log file open, 12/23/23 19:29:28
+[2023.12.23-13.59.28:696][  0]Time Zone UTC/GMT 5:30
+[2023.12.23-13.59.28:696][  0]LogModuleManager: Warning: ModuleManager: Module 'TextureCompressor' not found - its StaticallyLinkedModuleInitializers function is null.
+[2023.12.23-13.59.28:696][  0]LogMemory: Platform Memory Stats for WindowsClient
+[2023.12.23-13.59.28:696][  0]LogMemory: Process Physical Memory: 645.45 MB used, 645.60 MB peak
+[2023.12.23-13.59.28:697][  0]LogMemory: Process Virtual Memory: 1625.97 MB used, 1625.97 MB peak
+[2023.12.23-13.59.28:697][  0]LogMemory: Physical Memory: 9100.72 MB used,  5151.90 MB free, 14252.62 MB total
+[2023.12.23-13.59.28:697][  0]LogMemory: Virtual Memory: 134215608.00 MB used,  2123.11 MB free, 134217728.00 MB total
+[2023.12.23-13.59.29:147][  0]LogD3D11RHI: D3D11 adapters:
+[2023.12.23-13.59.29:335][  0]LogD3D11RHI:    0. 'AMD Radeon(TM) RX Vega 11 Graphics' (Feature Level 11_0)
+[2023.12.23-13.59.29:335][  0]LogD3D11RHI:       2033/0/7126 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:1, VendorId:0x1002
+[2023.12.23-13.59.29:372][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2023.12.23-13.59.29:372][  0]LogD3D11RHI:       0/0/7126 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2023.12.23-13.59.29:530][  0]LogD3D11RHI:    2. 'AMD Radeon(TM) RX Vega 11 Graphics' (Feature Level 11_0)
+[2023.12.23-13.59.29:530][  0]LogD3D11RHI:       2033/0/7126 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1002
+[2023.12.23-13.59.29:535][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2023.12.23-13.59.29:535][  0]LogD3D11RHI:     GPU DeviceId: 0x15d8 (for the marketing name, search the web for "GPU Device Id")
+[2023.12.23-13.59.29:539][  0]LogD3D11RHI:     Adapter Name: AMD Radeon(TM) RX Vega 11 Graphics
+[2023.12.23-13.59.29:539][  0]LogD3D11RHI:   Driver Version: AMD Software: Adrenalin Edition 23.11.1 (internal:31.0.21905.1001, unified:31.0.21905.1001)
+[2023.12.23-13.59.29:539][  0]LogD3D11RHI:      Driver Date: 10-17-2023
+[2023.12.23-13.59.29:539][  0]LogD3D11RHI: Texture pool is 2857 MB (70% of 4081 MB)
+[2023.12.23-13.59.29:764][  0]LogD3D11RHI: Warning: LowLatencySupport disabled for this card for the remainder of the application, bSupportsNvidiaReflexLowLatency=0
+[2023.12.23-13.59.30:368][  0]LogTemp: Warning: Clearing the OS Cache
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings: Monitor info changed:
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:   [0] MONITOR\HPN3545\{4d36e96e-e325-11ce-bfc1-08002be10318}\0002 (1920x1080)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1920 x 1080 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1680 x 1050 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1760 x 990 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1600 x 900 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1280 x 1024 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1440 x 900 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1366 x 768 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1280 x 800 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1280 x 720 (75 Hz)
+[2023.12.23-13.59.31:736][  0]LogShooterGameUserSettings:    - 1024 x 768 (75 Hz)
+[2023.12.23-13.59.32:799][  0]LogShooter: Display: -----------------------------------------
+[2023.12.23-13.59.32:799][  0]LogShooter: Display: CI server version: release-07.12-15-2164217
+[2023.12.23-13.59.32:799][  0]LogShooter: Display: Branch: release-07.12
+[2023.12.23-13.59.32:799][  0]LogShooter: Display: Changelist: 2164217
+[2023.12.23-13.59.32:799][  0]LogShooter: Display: Build version: 15
+[2023.12.23-13.59.32:800][  0]LogShooter: Display: Machine ID for crash reporting: 6a95c9d4-2e2f-4649-badb-bded7a08111b
+[2023.12.23-13.59.32:800][  0]LogShooter: Display: -----------------------------------------
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings: Monitor info changed:
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:   [0] MONITOR\HPN3545\{4d36e96e-e325-11ce-bfc1-08002be10318}\0002 (1920x1080)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1920 x 1080 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1680 x 1050 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1760 x 990 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1600 x 900 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1280 x 1024 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1440 x 900 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1366 x 768 (75 Hz)
+[2023.12.23-13.59.33:220][  0]LogShooterGameUserSettings:    - 1280 x 800 (75 Hz)
+[2023.12.23-13.59.33:221][  0]LogShooterGameUserSettings:    - 1280 x 720 (75 Hz)
+[2023.12.23-13.59.33:221][  0]LogShooterGameUserSettings:    - 1024 x 768 (75 Hz)
+[2023.12.23-13.59.33:235][  0]LogAudio: Error: Submix buffer listener only works with the audio mixer. Please run with audio mixer enabled.
+[2023.12.23-13.59.33:235][  0]LogAudio: Error: Submix buffer listener only works with the audio mixer. Please run with audio mixer enabled.
+[2023.12.23-13.59.33:445][  0]LogConsoleManager: Warning: Setting the console variable 'r.BloomQuality' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByGameSetting'. Value remains '5'
+[2023.12.23-13.59.33:445][  0]LogConsoleManager: Warning: Setting the console variable 'r.MaxAnisotropy' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByGameSetting'. Value remains '1'
+[2023.12.23-13.59.33:445][  0]LogConsoleManager: Warning: Setting the console variable 'r.DetailMode' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByGameSetting'. Value remains '0'
+[2023.12.23-13.59.33:538][  0]LogPlatformInitializerV2: Beginning platform initialization
+[2023.12.23-13.59.33:538][  0]LogPlatformInitializerV2: Status is now: Initializing
+[2023.12.23-13.59.33:539][  0]LogPlatformInitializerV2: Initializing: PlatformInitSettingsManager
+[2023.12.23-13.59.33:539][  0]LogPlatformInitializerV2: Initialized: PlatformInitSettingsManager in 0.000s
+[2023.12.23-13.59.33:539][  0]LogPlatformInitializerV2: Initializing: RiotProductManager
+[2023.12.23-13.59.33:539][  0]LogPlatformInitializerV2: Initialized: RiotProductManager in 0.000s
+[2023.12.23-13.59.33:539][  0]LogPlatformInitializerV2: Initializing: TelemetryManager
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initialized: TelemetryManager in 0.000s
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initializing: ThreadedChatManager
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initialized: ThreadedChatManager in 0.000s
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initializing: AresSocialExperienceModel
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initialized: AresSocialExperienceModel in 0.000s
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initializing: MatchHistoryManager
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initialized: MatchHistoryManager in 0.000s
+[2023.12.23-13.59.33:540][  0]LogPlatformInitializerV2: Initializing: RiotGamesApiClient
+[2023.12.23-13.59.33:540][  0]LogRiotGamesApiClient: Standalone Settings - SettingsTokenSet=true, SettingsTokenLiteSet=false
+[2023.12.23-13.59.33:592][  0]LogStreaming: Error: Couldn't find file for package /Game/UI/AresCommonUI/Shared/Input/DT_MenuInputActions requested by async loading code. NameToLoad: /Game/UI/AresCommonUI/Shared/Input/DT_MenuInputActions
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error:   /Game/UI/AresCommonUI/Shared/Input/BP_AresMenuInputData
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: Couldn't find file for package /Game/UI/Shared/Icons/Gamepad/XboxOne/XboxOne_RB requested by async loading code. NameToLoad: /Game/UI/Shared/Icons/Gamepad/XboxOne/XboxOne_RB
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error:   /Game/UI/AresCommonUI/Shared/Input/BP_ControllerData_Menu_PC_PAD
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: Couldn't find file for package /Game/UI/Shared/Icons/Gamepad/XboxOne/XboxOne_LB requested by async loading code. NameToLoad: /Game/UI/Shared/Icons/Gamepad/XboxOne/XboxOne_LB
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:593][  0]LogStreaming: Error:   /Game/UI/AresCommonUI/Shared/Input/BP_ControllerData_Menu_PC_PAD
+[2023.12.23-13.59.33:678][  0]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] player-preferences: Plugin is disabled by config flag 'enabled': in plugin library function ReadyCheck: Not Implemented: API is not available for this application
+[2023.12.23-13.59.33:690][  0]LogMapLoadModel: Update: [Map Name: Init | Changed: TRUE] [Local World: FALSE | Changed: FALSE] [Match Setup: FALSE | Changed: FALSE] [Map Ready: FALSE | Changed: FALSE] [Map Complete: FALSE | Changed: FALSE] [URL: /Game/Maps/Init/Init?Name=Player]
+[2023.12.23-13.59.33:690][  0]LogGameFlowStateManager: Reconcile called with the current state: Initialization. No action taken.
+[2023.12.23-13.59.33:702][  0]LogMapLoadModel: Update: [Map Name: Init | Changed: FALSE] [Local World: FALSE | Changed: FALSE] [Match Setup: FALSE | Changed: FALSE] [Map Ready: TRUE | Changed: TRUE] [Map Complete: FALSE | Changed: FALSE] [URL: /Game/Maps/Init/Init?Name=Player]
+[2023.12.23-13.59.33:702][  0]LogGameFlowStateManager: Reconcile called with the current state: Initialization. No action taken.
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: Couldn't find file for package /Game/Localization/Assets/VN/Logo_VNGGames requested by async loading code. NameToLoad: /Game/Localization/Assets/VN/Logo_VNGGames
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error:   /Game/UI/OutOfGame/Init/InitScreen
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: Couldn't find file for package /Game/Localization/Assets/TW/TWMLogo requested by async loading code. NameToLoad: /Game/Localization/Assets/TW/TWMLogo
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error:   /Game/UI/OutOfGame/Init/InitScreen
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: Couldn't find file for package /Game/Localization/Assets/KR/KRViolenceIcon requested by async loading code. NameToLoad: /Game/Localization/Assets/KR/KRViolenceIcon
+[2023.12.23-13.59.33:717][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error:   /Game/UI/OutOfGame/Init/InitScreen
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error: Couldn't find file for package /Game/Localization/Assets/KR/KRAgeRatingIcon requested by async loading code. NameToLoad: /Game/Localization/Assets/KR/KRAgeRatingIcon
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error: Found 1 dependent packages...
+[2023.12.23-13.59.33:718][  0]LogStreaming: Error:   /Game/UI/OutOfGame/Init/InitScreen
+[2023.12.23-13.59.33:718][  0]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] riot-status: No configuration value for keystone.riotstatus.mode, defaulting to 'live' mode.
+[2023.12.23-13.59.33:718][  0]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] riot-status: No configuration value for keystone.riotstatus.riotclient_url, defaulting to public Carrier Pigeon URL.
+[2023.12.23-13.59.33:777][  0]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] player-preferences: Plugin is disabled by config flag 'enabled': in plugin library function ReadyCheck: Not Implemented: API is not available for this application
+[2023.12.23-13.59.33:777][  0]LogRemoteSession: Error: Failed to start host listening on port 2049
+[2023.12.23-13.59.33:873][  1]LogStreaming: Error: Couldn't find file for package /Game/Localization/Assets/VN/VN_Logo_Overlay requested by async loading code. NameToLoad: /Game/Localization/Assets/VN/VN_Logo_Overlay
+[2023.12.23-13.59.33:873][  1]LogStreaming: Error: This will hitch streaming because it ends up searching the disk instead of finding the file in the pak file.
+[2023.12.23-13.59.33:873][  1]LogStreaming: Error: Found 0 dependent packages...
+[2023.12.23-13.59.33:873][  1]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] rso-authenticator: RSO Authentication configuration removed.
+[2023.12.23-13.59.33:873][  1]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] player-preferences: Plugin is disabled by config flag 'enabled': in plugin library function ReadyCheck: Not Implemented: API is not available for this application
+[2023.12.23-13.59.33:880][  1]LogSlate: Warning: Performance: A BuildTree() was requested by a ChildOrder invalidation.
+[2023.12.23-13.59.34:207][163]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] scd: SCD not enabled.
+[2023.12.23-13.59.34:273][203]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] player-preferences: in plugin library function ReadyCheck: Unauthorized: Player must be signed in.
+[2023.12.23-13.59.34:273][203]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] scd: SCD not enabled.
+[2023.12.23-13.59.34:584][412]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] chat: chat: Validator failed for FETCH_PLAYER_AFFINITY_TOKEN_COMMAND: affinity not enabled for chat (yet) from client-config
+[2023.12.23-13.59.34:585][412]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] chat: chat: Validator failed for FETCH_PLAYER_AFFINITY_TOKEN_COMMAND: affinity not enabled for chat (yet) from client-config
+[2023.12.23-13.59.35:208][815]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] scd: SCD not enabled.
+[2023.12.23-13.59.35:209][815]LogPlatformInitializerV2: Initialized: RiotGamesApiClient in 1.669s
+[2023.12.23-13.59.35:209][815]LogPlatformInitializerV2: Initializing: RMSManager
+[2023.12.23-13.59.35:210][815]LogPlatformInitializerV2: Initializing: RSOManager
+[2023.12.23-13.59.35:210][815]LogPlatformInitializerV2: Initializing: ApplicationRepairManager
+[2023.12.23-13.59.35:210][815]LogPlatformInitializerV2: Initialized: ApplicationRepairManager in 0.000s
+[2023.12.23-13.59.35:211][815]LogPlatformInitializerV2: Initializing: PatchAvailabilityManager
+[2023.12.23-13.59.35:211][815]LogPlatformInitializerV2: Initialized: PatchAvailabilityManager in 0.000s
+[2023.12.23-13.59.35:211][815]LogPlatformInitializerV2: Initializing: LocalePreferenceManager
+[2023.12.23-13.59.35:211][815]LogPlatformInitializerV2: Initialized: LocalePreferenceManager in 0.000s
+[2023.12.23-13.59.35:212][815]LogPlatformInitializerV2: Initializing: AresRGIFriendsClient
+[2023.12.23-13.59.35:212][815]LogPlatformInitializerV2: Initialized: AresRGIFriendsClient in 0.000s
+[2023.12.23-13.59.35:215][815]LogRMSManager: Error: Ecountered Error fetching RMS connection state. Error: AmbassadorError:{ HTTPStatus: 404, ErrorCode: "No session currently exists.", Message:"", Details:"" }
+[2023.12.23-13.59.35:215][815]LogPlatformInitializerV2: Initialized: RMSManager in 0.006s
+[2023.12.23-13.59.35:215][815]LogPlatformInitializerV2: Initializing: ProvisioningErrorNotificationManager
+[2023.12.23-13.59.35:215][815]LogPlatformInitializerV2: Initialized: ProvisioningErrorNotificationManager in 0.000s
+[2023.12.23-13.59.35:235][826]LogShooterGameUserSettings: Logged in user changed: fe0b384f-9c62-5ea8-960e-bbf92131e87c
+[2023.12.23-13.59.35:235][826]LogPlatformInitializerV2: Initialized: RSOManager in 0.025s
+[2023.12.23-13.59.35:235][826]LogPlatformInitializerV2: Initializing: RiotClientConfigManager
+[2023.12.23-13.59.35:235][826]LogPlatformInitializerV2: Initializing: LegalInfoManager
+[2023.12.23-13.59.35:236][826]LogPlatformInitializerV2: Initializing: UserInfoNotificationManager
+[2023.12.23-13.59.35:236][826]LogPlatformInitializerV2: Initialized: UserInfoNotificationManager in 0.000s
+[2023.12.23-13.59.35:239][828]LogPlatformInitializerV2: Initialized: LegalInfoManager in 0.004s
+[2023.12.23-13.59.35:553][ 12]LogPlatformInitializerV2: Initialized: RiotClientConfigManager in 0.318s
+[2023.12.23-13.59.35:553][ 12]LogPlatformInitializerV2: Initializing: PlayerAffinityManager
+[2023.12.23-13.59.36:549][699]LogPlatformInitializerV2: Initialized: PlayerAffinityManager in 0.996s
+[2023.12.23-13.59.36:549][699]LogPlatformInitializerV2: Initializing: PlatformEnvironmentManager
+[2023.12.23-13.59.36:549][699]LogPlatformInitializerV2: Initialized: PlatformEnvironmentManager in 0.000s
+[2023.12.23-13.59.36:549][699]LogPlatformInitializerV2: Initializing: ConfigManager
+[2023.12.23-13.59.36:815][897]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [7D539BAD4F00F51EBE4B309705C2C260] Response Code: [200], Seconds Since Query [0.265000]
+[2023.12.23-13.59.36:818][897]LogPlatformInitializerV2: Initialized: ConfigManager in 0.269s
+[2023.12.23-13.59.36:818][897]LogPlatformInitializerV2: Initializing: EULAManager
+[2023.12.23-13.59.36:819][897]LogPlatformInitializerV2: Initializing: AntiAddictionManager
+[2023.12.23-13.59.36:820][897]LogPlatformInitializerV2: Initializing: PaymentsManager
+[2023.12.23-13.59.36:820][897]LogPlatformInitializerV2: Initialized: PaymentsManager in 0.000s
+[2023.12.23-13.59.36:820][897]LogPlatformInitializerV2: Initializing: RoamingSettingsManager
+[2023.12.23-13.59.36:821][897]LogRoamingSettingsManager: Roaming Settings Key: Ares.PlayerSettings
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initialized: RoamingSettingsManager in 0.001s
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initializing: FriendsManager
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initialized: FriendsManager in 0.000s
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initializing: PlayerFeedbackToolPluginManager
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initialized: PlayerFeedbackToolPluginManager in 0.000s
+[2023.12.23-13.59.36:821][897]LogPlatformInitializerV2: Initializing: AresWatermarkManager
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initialized: AresWatermarkManager in 0.012s
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initializing: TelemetrySampler
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initialized: TelemetrySampler in 0.000s
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initializing: VNGManager
+[2023.12.23-13.59.36:833][897]LogVNGManager: Warning: VNG not enabled! Skipping VNG Manager init.
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initialized: VNGManager in 0.000s
+[2023.12.23-13.59.36:833][897]LogPlatformInitializerV2: Initializing: ReporterFeedbackManager
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initialized: ReporterFeedbackManager in 0.001s
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initializing: RiotWarningManager
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initialized: RiotWarningManager in 0.000s
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initializing: HovercardCacheManager
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initialized: HovercardCacheManager in 0.000s
+[2023.12.23-13.59.36:834][897]LogPlatformInitializerV2: Initializing: AVSManager
+[2023.12.23-13.59.36:835][897]LogPlatformInitializerV2: Initialized: AVSManager in 0.001s
+[2023.12.23-13.59.36:835][897]LogPlatformInitializerV2: Initializing: DailyRewardsManager
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initializing: FriendNotificationManager
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initialized: FriendNotificationManager in 0.000s
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initializing: UITelemetryManager
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initialized: UITelemetryManager in 0.000s
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initializing: PlayerSettingsTelemetry
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initialized: PlayerSettingsTelemetry in 0.000s
+[2023.12.23-13.59.36:836][897]LogPlatformInitializerV2: Initializing: MutedPatternsManager
+[2023.12.23-13.59.36:837][897]LogPlatformInitializerV2: Initialized: MutedPatternsManager in 0.001s
+[2023.12.23-13.59.36:910][949]LogPlatformInitializerV2: Initialized: EULAManager in 0.092s
+[2023.12.23-13.59.36:910][949]LogPlatformInitializerV2: Initializing: PatchManager
+[2023.12.23-13.59.36:910][949]LogPlatformInitializerV2: Initialized: PatchManager in 0.000s
+[2023.12.23-13.59.36:910][949]LogPlatformInitializerV2: Initializing: ContentIndexManager
+[2023.12.23-13.59.39:211][949]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] chat: chat: Validator failed for FETCH_PLAYER_AFFINITY_TOKEN_COMMAND: already have valid affinity token
+[2023.12.23-13.59.39:212][949]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] riot-messaging-service: disconnecting because connecting new
+[2023.12.23-13.59.39:212][949]LogContentIndex: Warning: Detected duplicate InternalName 'None' on character data assets '/Game/Characters/Breach/Breach_PrimaryAsset' and '/Game/Characters/Hunter/Hunter_NPE_PrimaryAsset'. Internal names must be unique for lookups by name.
+[2023.12.23-13.59.39:212][949]LogContentIndex: Warning: Detected duplicate InternalName 'None' on character data assets '/Game/Characters/Breach/Breach_PrimaryAsset' and '/Game/Characters/Killjoy/Killjoy_PrimaryAsset'. Internal names must be unique for lookups by name.
+[2023.12.23-13.59.39:212][949]LogContentIndex: Warning: Detected duplicate InternalName 'None' on character data assets '/Game/Characters/Breach/Breach_PrimaryAsset' and '/Game/Characters/Phoenix/Phoenix_PrimaryAsset'. Internal names must be unique for lookups by name.
+[2023.12.23-13.59.41:772][949]LogPlatformInitializerV2: Initialized: ContentIndexManager in 4.862s
+[2023.12.23-13.59.41:772][949]LogPlatformInitializerV2: Initializing: PlayerAliasManager
+[2023.12.23-13.59.41:772][949]LogPlatformInitializerV2: Initializing: LoginQueueManager
+[2023.12.23-13.59.41:773][949]LogPlatformInitializerV2: Initializing: InventoryInitManager
+[2023.12.23-13.59.41:793][949]LogPlatformInitializerV2: Initialized: InventoryInitManager in 0.020s
+[2023.12.23-13.59.41:793][949]LogPlatformInitializerV2: Initializing: PreloadManager
+[2023.12.23-13.59.41:793][949]LogStreamableManager: Warning: RequestAsyncLoad called with both valid and null assets, null assets removed from /Game/Equippables/Melee/Ability_Melee_Base.Ability_Melee_Base_C, /Game/Equippables/Melee/Melee_UIData.Melee_UIData_C, , /Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGun.HeavyMachineGun_C, /Game/Equippables/Guns/HvyMachineGuns/HMG/HeavyMachineGunUIData.HeavyMachineGunUIData_C, /Game/Equippables/Guns/HvyMachineGuns/HMG/Attachments/Reflex/Attachment_HMG_ReflexPrimaryAsset.Attachment_HMG_ReflexPrimaryAsset_C, /Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGun.LightMachineGun_C, /Game/Equippables/Guns/HvyMachineGuns/LMG/LightMachineGunUIData.LightMachineGunUIData_C, /Game/Equippables/Guns/HvyMachineGuns/LMG/Attachments/Reflex/RedDot/Attachment_LMG_Reflex_RedDotPrimaryAsset.Attachment_LMG_Reflex_RedDotPrimaryAsset_C, /Game/Equippables/Guns/Rifles/AK/AssaultRifle_AK.AssaultRifle_AK_C, /Game/Equippables/Guns/Rifles/AK/AssaultRifle_AKUIData.AssaultRifle_AKUIData_C, /Game/Equippables/Guns/Rifles/AK/Attachments/Reflex/RedDot/Attachment_AK_ReflexPrimaryAsset.Attachment_AK_ReflexPrimaryAsset_C, /Game/Equippables/Guns/Rifles/Burst/AssaultRifle_Burst.AssaultRifle_Burst_C, /Game/Equippables/Guns/Rifles/Burst/AssaultRifle_BurstUIData.AssaultRifle_BurstUIData_C, /Game/Equippables/Guns/Rifles/Burst/Attachments/Rfx/RedDot/Attachment_Burst_Reflex_RedDotPrimaryAsset.Attachment_Burst_Reflex_RedDotPrimaryAsset_C, , /Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACR.AssaultRifle_ACR_C, /Game/Equippables/Guns/Rifles/Carbine/AssaultRifle_ACRUIData.AssaultRifle_ACRUIData_C, /Game/Equippables/Guns/Rifles/Carbine/Attachments/Reflex/RedDot/Attachment_ACR_Reflex_RedDotPrimaryAsset.Attachment_ACR_Reflex_RedDotPrimaryAsset_C, /Game/Equippables/Guns/Rifles/Carbine/Attachments/Muzzle/Silencer/Attachment_ACR_Silencer_PrimaryAsset.Attachment_ACR_Silencer_PrimaryAsset_C, /Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgun.AutomaticShotgun_C, /Game/Equippables/Guns/Shotguns/AutoShotgun/AutomaticShotgunUIData.AutomaticShotgunUIData_C, /Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgun.PumpShotgun_C, /Game/Equippables/Guns/Shotguns/PumpShotgun/PumpShotgunUIData.PumpShotgunUIData_C, /Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistol.AutomaticPistol_C, /Game/Equippables/Guns/Sidearms/AutoPistol/AutomaticPistolUIData.AutomaticPistolUIData_C, /Game/Equippables/Guns/Sidearms/BasePistol/BasePistol.BasePistol_C, /Game/Equippables/Guns/Sidearms/BasePistol/BasePistolUIData.BasePistolUIData_C, /Game/Equippables/Guns/Sidearms/Luger/LugerPistol.LugerPistol_C, /Game/Equippables/Guns/Sidearms/Luger/LugerPistolUIData.LugerPistolUIData_C, /Game/Equippables/Guns/Sidearms/Luger/Attachments/Silencer/Attachment_Luger_Silencer_PrimaryAsset.Attachment_Luger_Silencer_PrimaryAsset_C, /Game/Equippables/Guns/Sidearms/Revolver/RevolverPistol.RevolverPistol_C, /Game/Equippables/Guns/Sidearms/Revolver/RevolverPistolUIData.RevolverPistolUIData_C, /Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgun.SawedOffShotgun_C, /Game/Equippables/Guns/Sidearms/Slim/SawedOffShotgunUIData.SawedOffShotgunUIData_C, /Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniper.BoltSniper_C, /Game/Equippables/Guns/SniperRifles/Boltsniper/BoltSniperUIData.BoltSniperUIData_C, /Game/Equippables/Guns/SniperRifles/Boltsniper/Attachments/2XScope/Attachment_BoltSniper_2XScope_PrimaryAsset.Attachment_BoltSniper_2XScope_PrimaryAsset_C, /Game/Equippables/Guns/SniperRifles/DMR/DMR.DMR_C, /Game/Equippables/Guns/SniperRifles/DMR/DMRUIData.DMRUIData_C, /Game/Equippables/Guns/SniperRifles/DMR/Attachments/Reflex/ACOG/Attachment_DMR_Reflex_ReddotPrimaryAsset.Attachment_DMR_Reflex_ReddotPrimaryAsset_C, /Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifle.LeverSniperRifle_C, /Game/Equippables/Guns/SniperRifles/Leversniper/LeverSniperRifleUIData.LeverSniperRifleUIData_C, /Game/Equippables/Guns/SniperRifles/Leversniper/Attachments/Reflex/Default/Scope_Lever_DataAsset.Scope_Lever_DataAsset_C, /Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5.SubMachineGun_MP5_C, /Game/Equippables/Guns/SubMachineGuns/MP5/SubMachineGun_MP5UIData.SubMachineGun_MP5UIData_C, /Game/Equippables/Guns/SubMachineGuns/MP5/Attachments/Reflex/RedDot/Attachment_MP5_Reflex_RedDotPrimaryAsset.Attachment_MP5_Reflex_RedDotPrimaryAsset_C, /Game/Equippables/Guns/SubMachineGuns/MP5/Attachments/Muzzle/Silencer/Attachment_MP5_Silencer_PrimaryAsset.Attachment_MP5_Silencer_PrimaryAsset_C, /Game/Equippables/Guns/SubMachineGuns/Vector/Vector.Vector_C, /Game/Equippables/Guns/SubMachineGuns/Vector/VectorUIData.VectorUIData_C, /Game/Equippables/Guns/SubMachineGuns/Vector/Attachments/Reflex/RedDot/Attachment_Vector_Reflex_RedDotPrimaryAsset.Attachment_Vector_Reflex_RedDotPrimaryAsset_C!
+[2023.12.23-13.59.50:130][949]LogStreaming: Warning: Took 273.49ms to ProcessLoadedPackages
+[2023.12.23-13.59.50:198][949]LogPlatformInitializerV2: Initialized: PreloadManager in 8.405s
+[2023.12.23-13.59.50:199][949]LogPlatformInitializerV2: Initializing: ActionBindingsManager
+[2023.12.23-13.59.50:200][949]LogPlatformInitializerV2: Initialized: ActionBindingsManager in 0.001s
+[2023.12.23-13.59.50:200][949]LogPlatformInitializerV2: Initializing: FavoritesManager
+[2023.12.23-13.59.50:202][949]LogPlatformInitializerV2: Initializing: DropInLoadingManager
+[2023.12.23-13.59.50:202][949]LogPlatformInitializerV2: Initialized: DropInLoadingManager in 0.000s
+[2023.12.23-13.59.50:202][949]LogPlatformInitializerV2: Initializing: JuiceScreenViewController
+[2023.12.23-13.59.50:202][949]LogPlatformInitializerV2: Initialized: JuiceScreenViewController in 0.000s
+[2023.12.23-13.59.50:203][949]LogPlatformInitializerV2: Initialized: AntiAddictionManager in 13.384s
+[2023.12.23-13.59.50:208][949]LogRoamingSettingsManager: Applying roaming settings from service:
+{
+	"roamingSetttingsVersion": 14,
+	"floatSettings": [
+		{
+			"settingEnum": "EAresFloatSettingName::MouseSensitivity",
+			"value": 0.25999999046325684
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::MinimapSize",
+			"value": 1.1043577194213867
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::MinimapZoom",
+			"value": 0.84005928039550781
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::SoundEffectsVolume",
+			"value": 0.79433560371398926
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::VoiceOverVolume",
+			"value": 0.27800065279006958
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::AllMusicOverallVolume",
+			"value": 0
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::MenuAndLobbyMusicVolume",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CharacterSelectMusicVolume",
+			"value": 0
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::PingWheelHoldDelayMS",
+			"value": 135
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CrosshairOutlineOpacity",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CrosshairInnerLinesLineThickness",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CrosshairInnerLinesLineLength",
+			"value": 2
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CrosshairInnerLinesLineOffset",
+			"value": 2
+		},
+		{
+			"settingEnum": "EAresFloatSettingName::CrosshairInnerLinesOpacity",
+			"value": 1
+		}
+	],
+	"intSettings": [
+		{
+			"settingEnum": "EAresIntSettingName::VoiceVolume",
+			"value": 18
+		},
+		{
+			"settingEnum": "EAresIntSettingName::MicVolume",
+			"value": 67
+		},
+		{
+			"settingEnum": "EAresIntSettingName::MicSensitivityThreshold",
+			"value": 52
+		},
+		{
+			"settingEnum": "EAresIntSettingName::ColorBlindMode",
+			"value": 2
+		},
+		{
+			"settingEnum": "EAresIntSettingName::PlayerPerfShowFrameRate",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresIntSettingName::PlayerPerfShowPacketsLostTotal",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresIntSettingName::PlayerPerfShowPacketLossPercentage",
+			"value": 1
+		},
+		{
+			"settingEnum": "EAresIntSettingName::PlayerPerfShowFiringErrors",
+			"value": 2
+		},
+		{
+			"settingEnum": "EAresIntSettingName::ShootingRangePlantModuleDifficultySetting",
+			"value": 2
+		}
+	],
+	"boolSettings": [
+		{
+			"settingEnum": "EAresBoolSettingName::MinimapTranslates",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CustomPartyVoiceChatEnabled",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HoldInputForADS",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HoldInputForSniperScopes",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CycleThroughSniperZoomLevels",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::FadeCrosshairWithFiringError",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::ShowBlood",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::ShowCorpses",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::VoipDucksVOFlavor",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::MuteMusicOnAppWindowDeactivate",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::EnableHRTF",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::ShootingRangeBotArmorEnabled",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::AutoEquipPrioritizeStrongest",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::AutoEquipSkipsMelee",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairUseAdvancedOptions",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairInnerLinesShowShootingError",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairOuterLinesShowMovementError",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairOuterLinesShowShootingError",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairOuterLinesShowLines",
+			"value": false
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CrosshairUseCustomCrosshairOnAllPrimary",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasEverStartedAMatch",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasAcceptedCodeOfConduct",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasSeenNewPlayerSettings",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasSeenSettingsTutorial",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasSeenPhotoSensitivityWarning",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasSeenTournamentsScreen",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::CollectionShowOwnedOnly",
+			"value": true
+		},
+		{
+			"settingEnum": "EAresBoolSettingName::HasEverAppliedRoamingSettings",
+			"value": true
+		}
+	],
+	"stringSettings": [
+		{
+			"settingEnum": "EAresStringSettingName::LastSeenSeasonalPopup",
+			"value": "episode7act3"
+		},
+		{
+			"settingEnum": "EAresStringSettingName::LastSeenAdHocPopup",
+			"value": "Champions2023"
+		},
+		{
+			"settingEnum": "EAresStringSettingName::PushToTalkKey",
+			"value": "None"
+		},
+		{
+			"settingEnum": "EAresStringSettingName::CrosshairProfileName",
+			"value": "Nats"
+		},
+		{
+			"settingEnum": "EAresStringSettingName::SavedCrosshairProfileData",
+			"value": "{\"currentProfile\":5,\"profiles\":[{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.30000001192092896,\"centerDotSize\":2,\"centerDotOpacity\":0,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":8,\"lineLength\":0,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":0,\"g\":0,\"r\":254,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":4,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":20,\"g\":119,\"r\":53,\"a\":94},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":false,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":true,\"profileName\":\"mrStark\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":0,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":1,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":5,\"lineLength\":1,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":0.2199999988079071,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":3,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":0.2199999988079071,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":0,\"g\":0,\"r\":254,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":3,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":152,\"g\":106,\"r\":211,\"a\":15},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":false,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":true,\"profileName\":\"Dynamic\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.30000001192092896,\"centerDotSize\":2,\"centerDotOpacity\":0,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":5,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":3,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":0},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":true,\"profileName\":\"cNed\"},{\"primary\":{\"color\":{\"b\":0,\"g\":69,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.30000001192092896,\"centerDotSize\":2,\"centerDotOpacity\":0,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":5,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":0,\"g\":0,\"r\":128,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":4,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":229,\"g\":116,\"r\":31,\"a\":118},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":false,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":true,\"profileName\":\"Copy of cNed\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":1,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":1,\"lineLength\":2,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":0},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":true,\"bUseAdvancedOptions\":true,\"profileName\":\"Asuna\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":1,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":1,\"lineLength\":2,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":2,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":117,\"g\":238,\"r\":117,\"a\":206},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":true,\"bUseAdvancedOptions\":true,\"profileName\":\"Nats\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":true,\"innerLines\":{\"lineThickness\":1,\"lineLength\":2,\"lineLengthVertical\":0,\"bAllowVertScaling\":true,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":0,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":1,\"centerDotSize\":1,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":true,\"bTouchCrosshairHighlightEnabled\":true,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":64,\"a\":85},\"bFixMinErrorAcrossWeapons\":true,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":255,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":0.75,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":false,\"bUseCustomCrosshairOnAllPrimary\":true,\"bUseAdvancedOptions\":true,\"profileName\":\"Double Dots\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":0,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":10,\"lineLength\":1,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":116,\"g\":158,\"r\":36,\"a\":250},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":false,\"profileName\":\"sqaure\"},{\"primary\":{\"color\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0,\"centerDotSize\":1,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":true,\"innerLines\":{\"lineThickness\":8,\"lineLength\":1,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":0,\"lineLength\":0,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":0,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":true,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":true,\"bTouchCrosshairHighlightEnabled\":true,\"touchCrosshairHighlightColor\":{\"b\":160,\"g\":153,\"r\":86,\"a\":52},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":false,\"profileName\":\"Imported Crosshair 04-27-2023 20:53:37\"},{\"primary\":{\"color\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":false,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":0,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":4,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":4,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":1,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":220,\"r\":27,\"a\":180},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":1,\"centerDotOpacity\":0.75,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":false,\"profileName\":\"Dot\"},{\"primary\":{\"color\":{\"b\":255,\"g\":255,\"r\":0,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":1,\"centerDotSize\":3,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":true,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":0,\"g\":0,\"r\":255,\"a\":255},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":6,\"lineLength\":0,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":false,\"bShowMinError\":true,\"opacity\":1,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":false,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"aDS\":{\"color\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"colorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomColor\":false,\"bHasOutline\":true,\"outlineThickness\":1,\"outlineColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"outlineOpacity\":0.5,\"centerDotSize\":2,\"centerDotOpacity\":1,\"bDisplayCenterDot\":false,\"bFadeCrosshairWithFiringError\":false,\"bShowSpectatedPlayerCrosshair\":false,\"bHideCrosshair\":false,\"bTouchCrosshairHighlightEnabled\":false,\"touchCrosshairHighlightColor\":{\"b\":69,\"g\":50,\"r\":120,\"a\":60},\"bFixMinErrorAcrossWeapons\":false,\"innerLines\":{\"lineThickness\":2,\"lineLength\":6,\"lineLengthVertical\":6,\"bAllowVertScaling\":false,\"lineOffset\":3,\"bShowMovementError\":false,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.80000001192092896,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1},\"outerLines\":{\"lineThickness\":2,\"lineLength\":2,\"lineLengthVertical\":2,\"bAllowVertScaling\":false,\"lineOffset\":10,\"bShowMovementError\":true,\"bShowShootingError\":true,\"bShowMinError\":true,\"opacity\":0.34999999403953552,\"bShowLines\":true,\"firingErrorScale\":1,\"movementErrorScale\":1}},\"sniper\":{\"centerDotColor\":{\"b\":255,\"g\":0,\"r\":255,\"a\":255},\"centerDotColorCustom\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"bUseCustomCenterDotColor\":false,\"centerDotSize\":0.94900000095367432,\"centerDotOpacity\":1,\"bDisplayCenterDot\":true},\"bUsePrimaryCrosshairForADS\":true,\"bUseCustomCrosshairOnAllPrimary\":false,\"bUseAdvancedOptions\":true,\"profileName\":\"Scream\"}]}"
+		}
+	],
+	"actionMappings": [
+		{
+			"name": "PrimaryTrigger",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrimaryTrigger",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrimaryTrigger",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrimaryTrigger",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SecondaryTrigger",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SecondaryTrigger",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SecondaryTrigger",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SecondaryTrigger",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Reload",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton2",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Primary",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Primary",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Primary",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Primary",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Ability1",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Ability1",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton2",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Ability2",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Ability2",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton2",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "Five",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "Five",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "Five",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "Five",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Activate_Level",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrevWeapon",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrevWeapon",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrevWeapon",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "PrevWeapon",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "NextWeapon",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "NextWeapon",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "NextWeapon",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "NextWeapon",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Jump",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "MouseScrollDown",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Jump",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "MouseScrollDown",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Jump",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "MouseScrollDown",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Ping",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMap",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ShowScoreboard",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "Tab",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ShowScoreboard",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "Tab",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ShowScoreboard",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "Tab",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ShowScoreboard",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "Tab",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "G",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "G",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "G",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "G",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "DropEquippable",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMouseCursor",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMouseCursor",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMouseCursor",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleMouseCursor",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "CapsLock",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Clay",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "CapsLock",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Vampire",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "CapsLock",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "Wraith",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "CapsLock",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenMegamap",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Ghost",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "H",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Ghost",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "H",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Ghost",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "H",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "Ghost",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "H",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleZoomLevel",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "MiddleMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleZoomLevel",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "MiddleMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleZoomLevel",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "MiddleMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ToggleZoomLevel",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "MiddleMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenCommMenu",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenCommMenu",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenCommMenu",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "OpenCommMenu",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ExpandedCombatCommWheel",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ExpandedCombatCommWheel",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ExpandedCombatCommWheel",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "ExpandedCombatCommWheel",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "StrategyTacticsCommWheel",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "Slash",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "StrategyTacticsCommWheel",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "Slash",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "StrategyTacticsCommWheel",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "Slash",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "StrategyTacticsCommWheel",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "Slash",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SocialCommWheel",
+			"characterName": "Clay",
+			"bindIndex": 0,
+			"key": "Period",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SocialCommWheel",
+			"characterName": "Vampire",
+			"bindIndex": 0,
+			"key": "Period",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SocialCommWheel",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "Period",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "SocialCommWheel",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "Period",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "VOICE_TeamPTTAction",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "V",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "VOICE_PartyPTTAction",
+			"characterName": "Wraith",
+			"bindIndex": 0,
+			"key": "None",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "VOICE_PartyPTTAction",
+			"characterName": "None",
+			"bindIndex": 0,
+			"key": "P",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		},
+		{
+			"name": "VOICE_PartyPTTAction",
+			"characterName": "None",
+			"bindIndex": 1,
+			"key": "ThumbMouseButton",
+			"shift": false,
+			"ctrl": false,
+			"alt": false,
+			"cmd": false,
+			"tapHoldType": "None"
+		}
+	],
+	"axisMappings": [],
+	"settingsProfiles": [
+		"Clay",
+		"Vampire",
+		"Wraith"
+	]
+}
+[2023.12.23-13.59.50:225][949]LogPlatformInitializerV2: Initialized: PlayerAliasManager in 8.453s
+[2023.12.23-13.59.50:226][949]LogPlatformInitializerV2: Initializing: ChatSessionManager
+[2023.12.23-13.59.50:228][949]LogPlatformInitializerV2: Initializing: DisplayNameManager
+[2023.12.23-13.59.50:231][949]LogPlatformCommon: Platform HTTP Query End. QueryName: [DailyRewards_RENEW], URL [POST https://pd.ap.a.pvp.net/daily-ticket/v1/fe0b384f-9c62-5ea8-960e-bbf92131e87c/renew], TraceID: [D514877248DE78540982A68151CBF1CE] Response Code: [200], Seconds Since Query [13.396000]
+[2023.12.23-13.59.50:232][949]LogDailyRewardsManager: UpdateDailyRewardsModel: Received daily rewards has 21622.000000 seconds remaining
+[2023.12.23-13.59.50:232][949]LogPlatformInitializerV2: Initialized: DailyRewardsManager in 13.397s
+[2023.12.23-13.59.50:233][949]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_ReConnect], URL [GET https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/reconnect], TraceID: [42B83A594D74942F44728383A2E16FB2] Response Code: [200], Seconds Since Query [8.460000]
+[2023.12.23-13.59.50:306][950]LogPlatformInitializerV2: Initialized: ChatSessionManager in 0.080s
+[2023.12.23-13.59.50:307][950]LogPlatformInitializerV2: Initializing: TextChatManagerV2
+[2023.12.23-13.59.50:307][950]LogTextChatManagerV2: Error: Chat Session Manager was loaded before Text Chat Manager was ready.
+[2023.12.23-13.59.50:312][950]LogPlatformInitializerV2: Initialized: TextChatManagerV2 in 0.005s
+[2023.12.23-13.59.50:314][950]LogPlatformInitializerV2: Initializing: ChatFriendsMetadataManager
+[2023.12.23-13.59.50:315][950]LogPlatformInitializerV2: Initializing: PresenceManager
+[2023.12.23-13.59.50:316][950]LogPlatformInitializerV2: Initializing: WhisperChatManager
+[2023.12.23-13.59.50:316][950]LogPlatformInitializerV2: Initialized: WhisperChatManager in 0.000s
+[2023.12.23-13.59.50:318][950]LogTextChatManagerV2: Warning: SetUpSubscriptions being called when subscriptions are already set up
+[2023.12.23-13.59.50:336][955]LogPlatformCommon: Platform HTTP Query End. QueryName: [Favorites_GetFavorites], URL [GET https://pd.ap.a.pvp.net/favorites/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c/favorites], TraceID: [C7E5890349BF81075C516C9C1D378D8B] Response Code: [200], Seconds Since Query [0.134000]
+[2023.12.23-13.59.50:337][955]LogPlatformInitializerV2: Initialized: FavoritesManager in 0.137s
+[2023.12.23-13.59.50:398][971]LogPlatformInitializerV2: Initialized: ChatFriendsMetadataManager in 0.084s
+[2023.12.23-13.59.50:409][976]LogPlatformInitializerV2: Initialized: PresenceManager in 0.094s
+[2023.12.23-13.59.50:442][991]LogPlatformCommon: Platform HTTP Query End. QueryName: [DisplayNameService_UpdatePlayer], URL [POST https://pd.ap.a.pvp.net/name-service/v3/players], TraceID: [2DDE853941930B638E1A5FAEE5108E71] Response Code: [200], Seconds Since Query [0.214000]
+[2023.12.23-13.59.50:443][991]LogPlatformInitializerV2: Initialized: DisplayNameManager in 0.215s
+[2023.12.23-13.59.50:453][996]LogPlatformCommon: Platform HTTP Query End. QueryName: [LoginQueue_FetchToken], URL [POST https://apse1-green.pp.sgp.pvp.net/login-queue/v2/login/products/valorant/regions/ap], TraceID: [92E845A34F01DFBE035BB5AB90973F1E] Response Code: [200], Seconds Since Query [0.220000]
+[2023.12.23-13.59.50:459][996]LogPlatformInitializerV2: Initialized: LoginQueueManager in 8.687s
+[2023.12.23-13.59.50:459][996]LogPlatformInitializerV2: Initializing: PlatformSessionManager
+[2023.12.23-13.59.50:616][ 68]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Connect], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v2/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/connect], TraceID: [5B4CB57D4E4F6695AC9FE3829A192FCF] Response Code: [200], Seconds Since Query [0.156000]
+[2023.12.23-13.59.50:617][ 68]LogPlatformSessionManager: Loopstate changed from INVALID to MENUS
+[2023.12.23-13.59.50:618][ 68]LogGameFlowStateManager: Reconcile called with the current state: Initialization. No action taken.
+[2023.12.23-13.59.50:618][ 68]LogPlatformInitializerV2: Initialized: PlatformSessionManager in 0.159s
+[2023.12.23-13.59.50:618][ 68]LogPlatformInitializerV2: Initializing: CNAntiAddictionManager
+[2023.12.23-13.59.50:619][ 68]LogCNAntiAddictionManager: Warning: CN Anti-Addiction not enabled! Skipping CNAntiAddictionManager init.
+[2023.12.23-13.59.50:619][ 68]LogPlatformInitializerV2: Initialized: CNAntiAddictionManager in 0.001s
+[2023.12.23-13.59.50:619][ 68]LogPlatformInitializerV2: Initializing: PregameManager
+[2023.12.23-13.59.50:620][ 68]LogPlatformInitializerV2: Initializing: CoreGameManager
+[2023.12.23-13.59.50:622][ 68]LogCoreGameManager: Warning: RefreshPlayer invoked while loop state is not INGAME.
+[2023.12.23-13.59.50:622][ 68]LogPlatformInitializerV2: Initializing: PartyManager
+[2023.12.23-13.59.50:624][ 68]LogPlatformInitializerV2: Initializing: ContentManager
+[2023.12.23-13.59.50:624][ 68]LogPlatformInitializerV2: Initializing: PingManager
+[2023.12.23-13.59.50:625][ 68]LogPlatformInitializerV2: Initializing: MatchmakingManager
+[2023.12.23-13.59.50:625][ 68]LogPlatformInitializerV2: Initialized: MatchmakingManager in 0.000s
+[2023.12.23-13.59.50:625][ 68]LogPlatformInitializerV2: Initializing: StoreManager
+[2023.12.23-13.59.50:630][ 68]LogPlatformInitializerV2: Initializing: ContractDefinitionsManager
+[2023.12.23-13.59.50:631][ 68]LogPlatformInitializerV2: Initializing: MassRewardsManager
+[2023.12.23-13.59.50:631][ 68]LogPlatformInitializerV2: Initializing: AccountXPManager
+[2023.12.23-13.59.50:632][ 68]LogPlatformInitializerV2: Initializing: RosterManager
+[2023.12.23-13.59.50:677][ 89]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] loyalty-v2: External process of product 'valorant' is not running. This is possibly a false session RMS notification. Skip session of sessionID: '67378971-a131-478c-87ea-3bd0031c835b'
+[2023.12.23-13.59.50:679][ 90]LogRMSService: Received RMS update. URI: /riot-messaging-service/v1/messages/ares-session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c
+[2023.12.23-13.59.50:680][ 90]LogPlatformSessionManager: Warning: Session Update had older version.
+[2023.12.23-13.59.50:775][140]LogPlatformCommon: Platform HTTP Query End. QueryName: [Pregame_GetPlayer], URL [GET https://glz-ap-1.ap.a.pvp.net/pregame/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [B27CEE494C6294582B71F6B8E1BD2217] Response Code: [404], Seconds Since Query [0.155000]
+[2023.12.23-13.59.50:775][140]LogPlatformCommon: Warning: Platform HTTP: Pregame_GetPlayer: Query  HTTP response error occured. Error Code 404 Body: {
+    "httpStatus": 404,
+    "errorCode": "RESOURCE_NOT_FOUND",
+    "message": "resource not found"
+}
+[2023.12.23-13.59.50:776][140]LogPregameManager: Error: Player Request encountered a network error: AmbassadorError:{ HTTPStatus: 404, ErrorCode: "RESOURCE_NOT_FOUND", Message:"resource not found", Details:"" }
+[2023.12.23-13.59.50:776][140]LogPlatformInitializerV2: Initialized: PregameManager in 0.157s
+[2023.12.23-13.59.50:776][140]LogPlatformInitializerV2: Initializing: PlayerLoginLocationHistoryManager
+[2023.12.23-13.59.50:776][140]LogPlatformInitializerV2: Initialized: PlayerLoginLocationHistoryManager in 0.000s
+[2023.12.23-13.59.50:784][145]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetWallet], URL [GET https://pd.ap.a.pvp.net/store/v1/wallet/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [721299164C5E4A38C9B3BC9D72C47482] Response Code: [200], Seconds Since Query [0.156000]
+[2023.12.23-13.59.50:869][191]LogPlatformCommon: Platform HTTP Query End. QueryName: [Content_FetchContent], URL [GET https://shared.ap.a.pvp.net/content-service/v3/content], TraceID: [E296A6ED493902229BD2F79DBAD8C88F] Response Code: [200], Seconds Since Query [0.245000]
+[2023.12.23-13.59.50:871][191]LogPlatformInitializerV2: Initialized: ContentManager in 0.247s
+[2023.12.23-13.59.50:871][191]LogPlatformInitializerV2: Initializing: MMRManager
+[2023.12.23-13.59.50:871][191]LogPlatformInitializerV2: Initializing: ServiceTickerManager
+[2023.12.23-13.59.50:872][191]LogPlatformInitializerV2: Initialized: ServiceTickerManager in 0.001s
+[2023.12.23-13.59.50:872][191]LogPlatformInitializerV2: Initializing: PremierManager
+[2023.12.23-13.59.50:872][191]LogPlatformInitializerV2: Initialized: PremierManager in 0.000s
+[2023.12.23-13.59.50:873][191]LogPlatformInitializerV2: Initializing: EsportsManager
+[2023.12.23-13.59.50:873][191]LogPlatformInitializerV2: Initialized: EsportsManager in 0.000s
+[2023.12.23-13.59.50:874][192]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/51c9eb99-3e6b-4658-801f-a5a7fd64bb9d], TraceID: [1FD83CBD469FC950DFFB3F8EDB60C76A] Response Code: [200], Seconds Since Query [0.245000]
+[2023.12.23-13.59.50:874][192]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/3ad1b2b2-acdb-4524-852f-954a76ddae0a], TraceID: [D5B34FC74F5BDD0C42B2A499C2D44C43] Response Code: [200], Seconds Since Query [0.245000]
+[2023.12.23-13.59.50:879][194]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [615185894F4FEAE13AC8D889979B3534] Response Code: [200], Seconds Since Query [0.255000]
+[2023.12.23-13.59.50:883][194]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/77258665-71d1-4623-bc72-44db9bd5b3b3], TraceID: [B2AE1A41476CA84AF718028372745892] Response Code: [200], Seconds Since Query [0.254000]
+[2023.12.23-13.59.50:885][195]LogPlatformCommon: Platform HTTP Query End. QueryName: [CoreGame_FetchPlayer], URL [GET https://glz-ap-1.ap.a.pvp.net/core-game/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [1EB16D5A49BE1FFA6664CB83E9A4240E] Response Code: [404], Seconds Since Query [0.263000]
+[2023.12.23-13.59.50:886][195]LogPlatformCommon: Warning: Platform HTTP: CoreGame_FetchPlayer: Query  HTTP response error occured. Error Code 404 Body: {
+    "httpStatus":  404,
+    "errorCode":  "RESOURCE_NOT_FOUND",
+    "message":  "resource not found"
+}
+[2023.12.23-13.59.50:886][195]LogCoreGameManager: Error: Encountered an error handling refresh player request. Status: 404.
+[2023.12.23-13.59.50:886][195]LogPlatformInitializerV2: Initialized: CoreGameManager in 0.266s
+[2023.12.23-13.59.50:886][195]LogPlatformInitializerV2: Initializing: VanguardManager
+[2023.12.23-13.59.52:827][195]LogPlatformInitializerV2: Initialized: VanguardManager in 1.941s
+[2023.12.23-13.59.52:828][195]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/ac3c307a-368f-4db8-940d-68914b26d89a], TraceID: [844BB22E482E560DD5AE30BBE9FF8450] Response Code: [200], Seconds Since Query [2.197000]
+[2023.12.23-13.59.52:846][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/6520634c-bd1e-4fc4-81af-cac5dc723105], TraceID: [BDB5507E421C5EEAEDD5E288A03AEB32] Response Code: [200], Seconds Since Query [2.217000]
+[2023.12.23-13.59.52:846][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/d5f120f8-ff8c-4aac-92ea-f2b5acbe9475], TraceID: [AF4A6DF8444FCFB755A8249AD95F3013] Response Code: [200], Seconds Since Query [2.217000]
+[2023.12.23-13.59.52:848][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/290f8769-97c6-492a-a1a8-caacf3d5b325], TraceID: [3B4ACEC044FDC36115F58DB80781E302] Response Code: [200], Seconds Since Query [2.219000]
+[2023.12.23-13.59.52:848][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/01bb38e1-da47-4e6a-9b3d-945fe4655707], TraceID: [83E66B6843543C4C3382FD9B68F5AC40] Response Code: [200], Seconds Since Query [2.219000]
+[2023.12.23-13.59.52:849][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/3f296c07-64c3-494c-923b-fe692a4fa1bd], TraceID: [BA845F3A46D7AC33D90449925DEAB5C2] Response Code: [200], Seconds Since Query [2.219000]
+[2023.12.23-13.59.52:850][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/f85cb6f7-33e5-4dc8-b609-ec7212301948], TraceID: [546E161A4D766561114302A479B73409] Response Code: [200], Seconds Since Query [2.220000]
+[2023.12.23-13.59.52:850][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/de7caa6b-adf7-4588-bbd1-143831e786c6], TraceID: [F1A74FD84E55A835D50F6CAC68C6DE5A] Response Code: [200], Seconds Since Query [2.220000]
+[2023.12.23-13.59.52:852][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/0381b6a6-e901-4225-a30c-b18afc6d0ad4], TraceID: [3C0604904721480691FE60AF3C010D0A] Response Code: [200], Seconds Since Query [2.222000]
+[2023.12.23-13.59.52:852][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/bcef87d6-209b-46c6-8b19-fbe40bd95abc], TraceID: [FA047675485B905AE25BF38FAED5D0F3] Response Code: [200], Seconds Since Query [2.223000]
+[2023.12.23-13.59.52:853][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/e7c63390-eda7-46e0-bb7a-a6abdacd2433], TraceID: [23B0119140EAED6CDD469C822E26A924] Response Code: [200], Seconds Since Query [2.224000]
+[2023.12.23-13.59.52:855][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/dd3bf334-87f3-40bd-b043-682a57a8dc3a], TraceID: [46A9E3564D375524EDE7448EA5E2D11D] Response Code: [200], Seconds Since Query [2.226000]
+[2023.12.23-13.59.52:858][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/03a572de-4234-31ed-d344-ababa488f981], TraceID: [ECD1A62B4B5505FD28D991A643A7E958] Response Code: [200], Seconds Since Query [2.228000]
+[2023.12.23-13.59.52:858][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetEntitlements], URL [GET https://pd.ap.a.pvp.net/store/v1/entitlements/fe0b384f-9c62-5ea8-960e-bbf92131e87c/e632de5f-3ef9-45fe-97f2-10ee16ac1d50], TraceID: [FCDEEDEB4364D588F61444975C61D90E] Response Code: [200], Seconds Since Query [2.228000]
+[2023.12.23-13.59.52:858][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [AccountXP_GetPlayer], URL [GET https://pd.ap.a.pvp.net/account-xp/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [18113B3146AC22A46226088256C4B2A1] Response Code: [200], Seconds Since Query [2.226000]
+[2023.12.23-13.59.52:860][196]LogPlatformInitializerV2: Initialized: AccountXPManager in 2.229s
+[2023.12.23-13.59.52:860][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetOffers], URL [GET https://pd.ap.a.pvp.net/store/v1/offers/], TraceID: [31B26A9042AD8B375383F08D88BDA7F3] Response Code: [200], Seconds Since Query [2.231000]
+[2023.12.23-13.59.52:876][196]LogStoreManager: Refreshed offer cache: 661 offers available
+[2023.12.23-13.59.52:877][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Premier_GetPlayer_V2], URL [GET https://pd.ap.a.pvp.net/premier/v2/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [D7932B5943A86421C8F46D82D8D9D82F] Response Code: [200], Seconds Since Query [2.243000]
+[2023.12.23-13.59.52:877][196]LogPlatformInitializerV2: Initialized: RosterManager in 2.245s
+[2023.12.23-13.59.52:878][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Premier_GetPremierConferences], URL [GET https://pd.ap.a.pvp.net/premier/v1/affinities/ap/conferences], TraceID: [DDEA893145059001C66F4CA82238A159] Response Code: [200], Seconds Since Query [2.005000]
+[2023.12.23-13.59.52:878][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [MassRewards_ReconcilePlayer], URL [POST https://pd.ap.a.pvp.net/mass-rewards/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c/reconcile], TraceID: [926B403047F67B89E0EA51B088150C6E] Response Code: [200], Seconds Since Query [2.247000]
+[2023.12.23-13.59.52:878][196]LogPlatformInitializerV2: Initialized: MassRewardsManager in 2.247s
+[2023.12.23-13.59.52:878][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetAgentStorefront], URL [GET https://pd.ap.a.pvp.net/store/v1/storefronts/agent], TraceID: [FEA186C54D057F7EA21FEABD43BC6BEF] Response Code: [200], Seconds Since Query [2.248000]
+[2023.12.23-13.59.52:880][196]LogPlatformInitializerV2: Initialized: StoreManager in 2.255s
+[2023.12.23-13.59.52:880][196]LogPlatformInitializerV2: Initializing: PersonalizationManagerV2
+[2023.12.23-13.59.52:882][196]LogPlatformInitializerV2: Initializing: ContractsManager
+[2023.12.23-13.59.52:982][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [MMR_FetchPlayer], URL [GET https://pd.ap.a.pvp.net/mmr/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [1E358FCC455DB54D6A8E1683267D71EE] Response Code: [200], Seconds Since Query [2.111000]
+[2023.12.23-13.59.52:985][196]LogPlatformInitializerV2: Initialized: MMRManager in 2.114s
+[2023.12.23-13.59.52:985][196]LogPlatformInitializerV2: Initializing: NPELoader
+[2023.12.23-13.59.52:985][196]LogPlatformInitializerV2: Initialized: NPELoader in 0.000s
+[2023.12.23-13.59.52:985][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Premier_FetchPremierSeasons], URL [GET https://pd.ap.a.pvp.net/premier/v1/affinities/ap/premier-seasons], TraceID: [032FFD9F44B23DFCBD4AE381705A68EE] Response Code: [200], Seconds Since Query [2.112000]
+[2023.12.23-13.59.52:989][196]ImportText (CompetitiveSeasonID): Missing opening parenthesis: 
+[2023.12.23-13.59.52:989][196]ImportText (CompetitiveSeasonID): Missing opening parenthesis: 
+[2023.12.23-13.59.52:993][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [Premier_GetActivePremierSeason], URL [GET https://pd.ap.a.pvp.net/premier/v1/affinities/ap/premier-seasons/active], TraceID: [F6EAC1FA4192A73C886FF3A8C6612B4C] Response Code: [200], Seconds Since Query [2.120000]
+[2023.12.23-13.59.52:995][196]ImportText (CompetitiveSeasonID): Missing opening parenthesis: 
+[2023.12.23-13.59.52:997][196]LogPlatformCommon: Platform HTTP Query End. QueryName: [ItemProgressionDefinitionsV2_Fetch], URL [GET https://pd.ap.a.pvp.net/contract-definitions/v3/item-upgrades], TraceID: [D2610B4840FAC141AFAB58AA620E4765] Response Code: [200], Seconds Since Query [2.366000]
+[2023.12.23-13.59.53:040][196]LogPlatformInitializerV2: Initialized: ContractDefinitionsManager in 2.410s
+[2023.12.23-13.59.53:054][197]LogPlatformCommon: Platform HTTP Query End. QueryName: [playerLoadoutUpdate], URL [GET https://pd.ap.a.pvp.net/personalization/v2/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c/playerloadout], TraceID: [98497A504DADD56CD6AE8C9BA07D2A65] Response Code: [200], Seconds Since Query [0.172000]
+[2023.12.23-13.59.53:056][197]LogPersonalizationManagerV2: Warning: Skin 24aee897-4cdc-b0fd-e596-1ba90fa6d1b2 incompatible with equippable c5de005c-4bdc-26a7-a47d-c295eaaae9d8
+[2023.12.23-13.59.53:057][197]LogPlatformInitializerV2: Initialized: PersonalizationManagerV2 in 0.177s
+[2023.12.23-13.59.53:057][197]LogPlatformInitializerV2: Initializing: MatchDetailsManager
+[2023.12.23-13.59.53:058][197]LogPlatformInitializerV2: Initialized: MatchDetailsManager in 0.001s
+[2023.12.23-13.59.53:058][197]LogPlatformInitializerV2: Initializing: ArsenalViewController
+[2023.12.23-13.59.53:058][197]LogPlatformInitializerV2: Initialized: ArsenalViewController in 0.000s
+[2023.12.23-13.59.53:180][232]LogPlatformCommon: Platform HTTP Query End. QueryName: [Contracts_Fetch], URL [GET https://pd.ap.a.pvp.net/contracts/v1/contracts/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [2E97FE334CBC7578A0683CBF918D693E] Response Code: [200], Seconds Since Query [0.298000]
+[2023.12.23-13.59.53:205][232]LogPlatformInitializerV2: Initialized: ContractsManager in 0.323s
+[2023.12.23-13.59.53:205][232]LogPlatformInitializerV2: Initializing: ContractsViewController
+[2023.12.23-13.59.53:205][232]LogPlatformInitializerV2: Initialized: ContractsViewController in 0.000s
+[2023.12.23-13.59.53:238][242]LogRMSService: Received RMS update. URI: /riot-messaging-service/v1/messages/ares-contracts/contracts/v1/contracts/fe0b384f-9c62-5ea8-960e-bbf92131e87c
+[2023.12.23-13.59.56:141][ 19]LogPlatformInitializerV2: Initialized: PingManager in 5.516s
+[2023.12.23-13.59.56:142][ 19]LogPlatformInitializerV2: Initializing: LatencyService
+[2023.12.23-13.59.56:142][ 19]LogPlatformInitializerV2: Initialized: LatencyService in 0.000s
+[2023.12.23-13.59.56:427][184]LogPlatformCommon: Platform HTTP Query End. QueryName: [Latency_Stats], URL [POST https://shared.ap.a.pvp.net/latency/v1/ingestMulti], TraceID: [6B298F104A5256188E1B3384F760A64C] Response Code: [204], Seconds Since Query [0.286000]
+[2023.12.23-13.59.56:434][190]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchPlayer], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c?aresriot.aws-ape1-prod.ap-gp-hongkong-1=100&aresriot.aws-apne1-prod.ap-gp-tokyo-1=144&aresriot.aws-aps1-prod.ap-gp-mumbai-1=24&aresriot.aws-apse1-prod.ap-gp-singapore-1=73&aresriot.aws-apse2-prod.ap-gp-sydney-1=280&preferredgamepods=aresriot.aws-aps1-prod.ap-gp-mumbai-1], TraceID: [04FE180D432AF5E49ED416A625B966B5] Response Code: [200], Seconds Since Query [0.293000]
+[2023.12.23-13.59.56:593][282]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchParty], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92], TraceID: [5DACCC10483E99254C150289457AD534] Response Code: [200], Seconds Since Query [0.158000]
+[2023.12.23-13.59.56:594][282]LogGameFlowStateManager: Reconcile called with the current state: Initialization. No action taken.
+[2023.12.23-13.59.56:596][282]LogPlatformInitializerV2: Initialized: PartyManager in 5.974s
+[2023.12.23-13.59.56:596][282]LogPlatformInitializerV2: Initializing: PlatformPlayerManager
+[2023.12.23-13.59.56:600][282]LogDisplayNameManager: Warning: Subject had empty game name or tag line, skipping setting of Display FullName. GameName=Me, TagLine=
+[2023.12.23-13.59.56:600][282]LogPlatformInitializerV2: Initialized: PlatformPlayerManager in 0.003s
+[2023.12.23-13.59.56:600][282]LogPlatformInitializerV2: Initializing: GameFlowStateManager
+[2023.12.23-13.59.56:600][282]LogGameFlowStateManager: Reconcile called with the current state: Initialization. No action taken.
+[2023.12.23-13.59.56:606][282]LogPlatformInitializerV2: Initialized: GameFlowStateManager in 0.006s
+[2023.12.23-13.59.56:606][282]LogPlatformInitializerV2: Initializing: PresenceUpdater
+[2023.12.23-13.59.56:607][282]LogPlatformInitializerV2: Initialized: PresenceUpdater in 0.000s
+[2023.12.23-13.59.56:607][282]LogPlatformInitializerV2: Initializing: PlayerListingManager
+[2023.12.23-13.59.56:608][282]LogPlatformInitializerV2: Initialized: PlayerListingManager in 0.001s
+[2023.12.23-13.59.56:608][282]LogPlatformInitializerV2: Initializing: RNetVoiceManager
+[2023.12.23-13.59.56:609][282]LogPlatformInitializerV2: Initializing: SocialViewControllerV3
+[2023.12.23-13.59.56:609][282]LogPlatformInitializerV2: Initialized: SocialViewControllerV3 in 0.000s
+[2023.12.23-13.59.56:609][282]LogPlatformInitializerV2: Initializing: RiotClientHeartbeatManager
+[2023.12.23-13.59.56:609][282]LogPlatformInitializerV2: Initialized: RiotClientHeartbeatManager in 0.000s
+[2023.12.23-13.59.56:609][282]LogPlatformInitializerV2: Initializing: PlayerReportManager
+[2023.12.23-13.59.56:610][282]LogPlatformInitializerV2: Initialized: PlayerReportManager in 0.001s
+[2023.12.23-13.59.56:610][282]LogPlatformInitializerV2: Initializing: PremierRosterManager
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initialized: PremierRosterManager in 0.000s
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initializing: PremierRosterViewControllerOld
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initialized: PremierRosterViewControllerOld in 0.000s
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initializing: PartyListingManager
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initialized: PartyListingManager in 0.000s
+[2023.12.23-13.59.56:611][282]LogPlatformInitializerV2: Initializing: PartyViewController
+[2023.12.23-13.59.56:612][282]LogDisplayNameManager: Warning: Subject had empty game name or tag line, skipping setting of Display FullName. GameName=Me, TagLine=
+[2023.12.23-13.59.56:613][282]LogPlatformInitializerV2: Initialized: PartyViewController in 0.002s
+[2023.12.23-13.59.56:613][282]LogPlatformInitializerV2: Initializing: RestrictionsManager
+[2023.12.23-13.59.56:617][282]LogPlatformInitializerV2: Initialized: RestrictionsManager in 0.004s
+[2023.12.23-13.59.56:617][282]LogPlatformInitializerV2: Initializing: LeaderboardManager
+[2023.12.23-13.59.56:617][282]LogPlatformInitializerV2: Initialized: LeaderboardManager in 0.000s
+[2023.12.23-13.59.56:617][282]LogPlatformInitializerV2: Initializing: LeaderboardViewController
+[2023.12.23-13.59.56:617][282]LogPlatformInitializerV2: Initialized: LeaderboardViewController in 0.000s
+[2023.12.23-13.59.56:672][316]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchParty], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92], TraceID: [D282E939432F40991B3D2989ACF483F9] Response Code: [200], Seconds Since Query [0.237000]
+[2023.12.23-13.59.56:724][351]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchMUCToken], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v2/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92/muctoken], TraceID: [72CFDF364DDB07EED506B59C6A17900E] Response Code: [200], Seconds Since Query [0.129000]
+[2023.12.23-13.59.56:745][364]LogPlatformCommon: Platform HTTP Query End. QueryName: [Restrictions_GetPlayerAvoidList], URL [GET https://pd.ap.a.pvp.net/restrictions/v1/avoidList], TraceID: [8D3FB424403863AEA19DBB8542E3DFC7] Response Code: [200], Seconds Since Query [0.128000]
+[2023.12.23-13.59.56:746][364]LogPlatformCommon: Platform HTTP Query End. QueryName: [Restrictions_FetchPlayerRestrictionsV3], URL [GET https://pd.ap.a.pvp.net/restrictions/v3/penalties], TraceID: [D304FC9848607BDBFAD61C8A7FA1A187] Response Code: [200], Seconds Since Query [0.129000]
+[2023.12.23-13.59.56:811][409]LogRMSService: Received RMS update. URI: /riot-messaging-service/v1/messages/ares-parties/parties/v1/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92
+[2023.12.23-13.59.56:811][409]LogRMSService: Received RMS update. URI: /riot-messaging-service/v1/messages/ares-parties/parties/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c
+[2023.12.23-13.59.56:812][409]LogRMSService: Received RMS update. URI: /riot-messaging-service/v1/messages/ares-parties/parties/v1/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92
+[2023.12.23-13.59.56:965][512]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchPlayer], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/players/fe0b384f-9c62-5ea8-960e-bbf92131e87c?aresriot.aws-ape1-prod.ap-gp-hongkong-1=100&aresriot.aws-apne1-prod.ap-gp-tokyo-1=144&aresriot.aws-aps1-prod.ap-gp-mumbai-1=24&aresriot.aws-apse1-prod.ap-gp-singapore-1=73&aresriot.aws-apse2-prod.ap-gp-sydney-1=280&preferredgamepods=aresriot.aws-aps1-prod.ap-gp-mumbai-1], TraceID: [0F24EEE74A0B4880DD7EF3B7FAB53E7B] Response Code: [200], Seconds Since Query [0.154000]
+[2023.12.23-13.59.56:965][512]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchParty], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/46bdc3ad-3cbf-4a25-ba71-9b35c754ec92], TraceID: [23BCBC0D4BC44198FA052885E0927DD7] Response Code: [200], Seconds Since Query [0.153000]
+[2023.12.23-13.59.57:045][563]LogRiotGamesApiClient: Warning: [RiotGamesApi LogMessage] chat: chat: presence logging, muc 46bdc3ad-3cbf-4a25-ba71-9b35c754ec92@ares-parties.jp1.pvp.net removed from join queue
+[2023.12.23-13.59.57:174][644]LogPlatformInitializerV2: Initialized: RNetVoiceManager in 0.566s
+[2023.12.23-13.59.57:174][644]LogPlatformInitializerV2: Initializing: VoiceViewController
+[2023.12.23-13.59.57:175][644]LogPlatformInitializerV2: Initialized: VoiceViewController in 0.000s
+[2023.12.23-13.59.57:175][644]LogPlatformInitializerV2: Platform initialization succeeded. Initialized 96 systems out of 96
+[2023.12.23-13.59.57:175][644]LogPlatformInitializerV2: Status is now: Initialized
+[2023.12.23-13.59.57:178][644]LogGameFlowStateManager: Reconcile called with state: Initialization and new state: TransitionToMainMenu. Changing state.
+[2023.12.23-13.59.57:178][644]LogGameFlowStateManager: [PlatformTime: 13337.951687] Transitioning from Initialization to TransitionToMainMenu
+[2023.12.23-13.59.57:178][644]LogGameFlowStateManager: [PlatformTime: 13337.951727] Current state Initialization exiting to TransitionToMainMenu
+[2023.12.23-13.59.57:178][644]LogGameFlowStateManager: [PlatformTime: 13337.951862] Current state TransitionToMainMenu entering from Initialization
+[2023.12.23-13.59.57:178][644]LogGameFlowStateManager: [PlatformTime: 13337.952010] Broadcasting state changed to TransitionToMainMenu
+[2023.12.23-13.59.57:180][644]LogDisplayNameManager: Warning: Subject had empty game name or tag line, skipping setting of Display FullName. GameName=Me, TagLine=
+[2023.12.23-13.59.57:180][644]LogGameFlowStateManager: Reconcile called with the current state: TransitionToMainMenu. No action taken.
+[2023.12.23-13.59.57:189][644]LogRNetVoiceManager: Warning: Received capture devices: Microphone (Realtek(R) Audio), CoolCold Mic (USB PnP Sound Device), Default System Device, Default Communication Device, 
+[2023.12.23-13.59.57:189][644]LogRNetVoiceManager: Warning: Received render devices: Speakers (Realtek(R) Audio), Headphones (Realtek(R) Audio), Default System Device, Default Communication Device, 
+[2023.12.23-13.59.57:190][644]LogRNetVoiceManager: Warning: Received capture devices: Microphone (Realtek(R) Audio), CoolCold Mic (USB PnP Sound Device), Default System Device, Default Communication Device, 
+[2023.12.23-13.59.57:190][644]LogRNetVoiceManager: Warning: Received render devices: Speakers (Realtek(R) Audio), Headphones (Realtek(R) Audio), Default System Device, Default Communication Device, 
+[2023.12.23-13.59.58:175][277]LogTravelManager: Cancelling pending net drivers due to new travel destination
+[2023.12.23-13.59.58:175][277]LogTravelManager: Beginning travel to /Game/Maps/Menu/MainMenuV2
+[2023.12.23-13.59.58:324][277]LogMapLoadModel: Update: [Map Name: MainMenuV2 | Changed: TRUE] [Local World: FALSE | Changed: FALSE] [Match Setup: FALSE | Changed: FALSE] [Map Ready: FALSE | Changed: TRUE] [Map Complete: FALSE | Changed: FALSE] [URL: /Game/Maps/Menu/MainMenuV2?Name=mrStark ?SubjectBase64=ZmUwYjM4NGYtOWM2Mi01ZWE4LTk2MGUtYmJmOTIxMzFlODdj#ODIN]
+[2023.12.23-13.59.58:324][277]LogGameFlowStateManager: Reconcile called with the current state: TransitionToMainMenu. No action taken.
+[2023.12.23-13.59.58:351][277]LogBasePlayerController: Warning: Base Player Controller Applying settings customizations. Current character: None
+[2023.12.23-13.59.58:353][277]LogPlayerController: Error: ClientSetHUD called with null class
+[2023.12.23-14.00.02:866][277]LogGameModifiersMenu: Warning: GameRules not replicated yet, setting up event
+[2023.12.23-14.00.02:867][277]LogGameModifiersMenu: Warning: GameRules: 0, ModifierManager: 0
+[2023.12.23-14.00.03:288][277]LogMenuStackManager: Opening HomeScreen_PC_C
+[2023.12.23-14.00.03:308][277]LogScript: Warning: Script Msg: Attempted to access index 0 from array 'Filtered Featured Bundles' of length 0 in '/Game/UI/Screens/OutOfGame/MainMenu/Home/PromoWidget.PromoWidget_C:PickFeaturedBundleToShow'!
+[2023.12.23-14.00.03:389][277]LogMapLoadModel: Update: [Map Name: MainMenuV2 | Changed: FALSE] [Local World: FALSE | Changed: FALSE] [Match Setup: FALSE | Changed: FALSE] [Map Ready: TRUE | Changed: TRUE] [Map Complete: FALSE | Changed: FALSE] [URL: /Game/Maps/Menu/MainMenuV2?Name=mrStark ?SubjectBase64=ZmUwYjM4NGYtOWM2Mi01ZWE4LTk2MGUtYmJmOTIxMzFlODdj#ODIN]
+[2023.12.23-14.00.03:389][277]LogGameFlowStateManager: Reconcile called with state: TransitionToMainMenu and new state: MainMenu. Changing state.
+[2023.12.23-14.00.03:389][277]LogGameFlowStateManager: [PlatformTime: 13344.163497] Transitioning from TransitionToMainMenu to MainMenu
+[2023.12.23-14.00.03:389][277]LogGameFlowStateManager: [PlatformTime: 13344.163544] Current state TransitionToMainMenu exiting to MainMenu
+[2023.12.23-14.00.03:390][277]LogLoadTimeMetrics: Display: [Launch Times] App launch took a total of 36.95 seconds. Initialization took 30.74 seconds. Scene transition took a total of 6.21 seconds including a map ready time of 6.21 seconds and a platform ready time of 0.00 seconds.
+[2023.12.23-14.00.03:390][277]LogGameFlowStateManager: [PlatformTime: 13344.163928] Current state MainMenu entering from TransitionToMainMenu
+[2023.12.23-14.00.03:390][277]LogStreamableManager: Warning: RequestAsyncLoad called with both valid and null assets, null assets removed from /Game/Maps/Ascent/Ascent_UIData.Ascent_UIData_C, /Game/Maps/Bonsai/Bonsai_UIData.Bonsai_UIData_C, /Game/Maps/Canyon/Canyon_UIData.Canyon_UIData_C, /Game/Maps/Duality/Duality_UIData.Duality_UIData_C, /Game/Maps/Foxtrot/Foxtrot_UIData.Foxtrot_UIData_C, /Game/Maps/HURM/HURM_Alley/HURM_Alley_UIData.HURM_Alley_UIData_C, /Game/Maps/HURM/HURM_Bowl/HURM_Bowl_UIData.HURM_Bowl_UIData_C, /Game/Maps/HURM/HURM_Helix/HURM_Helix_UIData.HURM_Helix_UIData_C, /Game/Maps/HURM/HURM_Yard/HURM_Yard_UIData.HURM_Yard_UIData_C, /Game/Maps/Jam/Jam_UIData.Jam_UIData_C, /Game/Maps/Juliett/Juliett_UIData.Juliett_UIData_C, /Game/Maps/Pitt/Pitt_UIData.Pitt_UIData_C, /Game/Maps/Port/Port_UIData.Port_UIData_C, /Game/Maps/Poveglia/Poveglia_UIData.Poveglia_UIData_C, /Game/Maps/Triad/Triad_UIData.Triad_UIData_C, /Game/GameModes/Bomb/BombGameMode_UIData.BombGameMode_UIData_C, /Game/GameModes/Deathmatch/DeathmatchGameMode_UIData.DeathmatchGameMode_UIData_C, /Game/GameModes/GunGame/GunGameTeamsGameMode_UIData.GunGameTeamsGameMode_UIData_C, /Game/GameModes/HURM/HURM_UIData.HURM_UIData_C, /Game/GameModes/NewPlayerExperience/NPEGameMode_UIData.NPEGameMode_UIData_C, /Game/GameModes/OneForAll/OneForAll_GameMode_UIData.OneForAll_GameMode_UIData_C, , /Game/GameModes/QuickBomb/QuickBombGameMode_UIData.QuickBombGameMode_UIData_C, /Game/GameModes/ShootingRange/ShootingRangeGameMode_UIData.ShootingRangeGameMode_UIData_C, /Game/GameModes/SnowballFight/SnowballFightGameMode_UIData.SnowballFightGameMode_UIData_C, /Game/GameModes/_Development/Swiftplay_EndOfRoundCredits/SwiftPlay_GameMode_UIData.SwiftPlay_GameMode_UIData_C!
+[2023.12.23-14.00.03:391][277]LogGameFlowStateManager: [PlatformTime: 13344.165119] Broadcasting state changed to MainMenu
+[2023.12.23-14.00.03:392][277]LogDisplayNameManager: Warning: Subject had empty game name or tag line, skipping setting of Display FullName. GameName=Me, TagLine=
+[2023.12.23-14.00.03:393][277]LogGameFlowStateManager: Reconcile called with the current state: MainMenu. No action taken.
+[2023.12.23-14.00.03:468][277]LogContentLibraryCharacter: Warning: Missing UI Data for BaseCharacterPrimaryDataAsset_C
+[2023.12.23-14.00.03:470][277]LogContentLibraryCharacter: Warning: Missing UI Data for BaseCharacterPrimaryDataAsset_C
+[2023.12.23-14.00.03:646][278]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [224697AE453169E75DE81A986DC560FF] Response Code: [200], Seconds Since Query [0.255000]
+[2023.12.23-14.00.03:716][278]LogContentLibraryCharacter: Warning: Missing UI Data for BaseCharacterPrimaryDataAsset_C
+[2023.12.23-14.00.03:771][279]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetOffers], URL [GET https://pd.ap.a.pvp.net/store/v1/offers/], TraceID: [7502F72B4930404B24DB3B8D5AF21C86] Response Code: [200], Seconds Since Query [0.463000]
+[2023.12.23-14.00.03:794][279]LogStoreManager: Refreshed offer cache: 661 offers available
+[2023.12.23-14.00.04:029][311]LogPlatformCommon: Platform HTTP Query End. QueryName: [Store_GetStorefrontV3], URL [POST https://pd.ap.a.pvp.net/store/v3/storefront/fe0b384f-9c62-5ea8-960e-bbf92131e87c], TraceID: [6AFCDC574751CDBCD2B72AA9F48BBCA5] Response Code: [200], Seconds Since Query [0.234000]
+[2023.12.23-14.00.30:792][ 92]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [D1DD86184824F6900A7A4692A301BCE5] Response Code: [200], Seconds Since Query [0.170000]
+[2023.12.23-14.00.37:063][ 99]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [8CE53FFA41EB2199014A95A74629E2A4] Response Code: [200], Seconds Since Query [0.245000]
+[2023.12.23-14.00.57:482][605]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [EEB21ABE4058DB48BFF921B66825B14E] Response Code: [200], Seconds Since Query [0.169000]
+[2023.12.23-14.01.10:955][216]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [3E14CE3943F7401323DDCDA375159E45] Response Code: [200], Seconds Since Query [0.159000]
+[2023.12.23-14.01.37:233][586]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [5D1C98844471F09A7973E5A369C4B6B2] Response Code: [200], Seconds Since Query [0.165000]
+[2023.12.23-14.01.51:108][654]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [370A561F4EB308D1162779972020BF39] Response Code: [200], Seconds Since Query [0.147000]
+[2023.12.23-14.01.57:466][173]LogPlatformCommon: Platform HTTP Query End. QueryName: [Content_FetchContent], URL [GET https://shared.ap.a.pvp.net/content-service/v3/content], TraceID: [35D93044438AED091C20759CA932C33A] Response Code: [200], Seconds Since Query [0.153000]
+[2023.12.23-14.01.57:479][184]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [2B6ADE504EC16B41AAF13F8D5D1D3115] Response Code: [200], Seconds Since Query [0.167000]
+[2023.12.23-14.02.31:270][433]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [0BFB5BA5440F163708073DB23AB7F38B] Response Code: [200], Seconds Since Query [0.155000]
+[2023.12.23-14.02.37:374][307]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [0783E4CF439B9B1B787D96A5B31860E4] Response Code: [200], Seconds Since Query [0.137000]
+[2023.12.23-14.02.57:493][512]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [2A4FE55B4D455FE2B7C42389750489D6] Response Code: [200], Seconds Since Query [0.178000]
+[2023.12.23-14.03.00:714][407]LogPlatformCommon: Platform HTTP Query End. QueryName: [Latency_Stats], URL [POST https://shared.ap.a.pvp.net/latency/v1/ingestMulti], TraceID: [1C94BBD843C50F096457559A394003D2] Response Code: [204], Seconds Since Query [0.148000]
+[2023.12.23-14.03.11:416][ 91]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [1FF32C6F446DE67DE81FFBACF84CE95F] Response Code: [200], Seconds Since Query [0.140000]
+[2023.12.23-14.03.37:521][511]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [C0D648AE43B031FD786927873794FE43] Response Code: [200], Seconds Since Query [0.142000]
+[2023.12.23-14.03.51:569][891]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [A5A4C35744412B6DAB41B2A8180AA6B2] Response Code: [200], Seconds Since Query [0.147000]
+[2023.12.23-14.03.57:450][223]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [DA05E4D04D345F0BB04D7DA0E6D2896A] Response Code: [200], Seconds Since Query [0.136000]
+[2023.12.23-14.03.57:457][224]LogPlatformCommon: Platform HTTP Query End. QueryName: [Content_FetchContent], URL [GET https://shared.ap.a.pvp.net/content-service/v3/content], TraceID: [13074D974CFE649DE7CCD7BD57E0FDAA] Response Code: [200], Seconds Since Query [0.144000]
+[2023.12.23-14.04.31:736][175]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [72F2ED0547027347927251AD13C9B97E] Response Code: [200], Seconds Since Query [0.159000]
+[2023.12.23-14.04.37:720][417]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [A2284D0E408EFA3E05832BA62D736C08] Response Code: [200], Seconds Since Query [0.197000]
+[2023.12.23-14.04.57:514][401]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [B80A6AE84C0FF4BB1A1AE5B05570B557] Response Code: [200], Seconds Since Query [0.200000]
+[2023.12.23-14.05.11:874][616]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [84B0A78E43DC734EA448A199827F61B6] Response Code: [200], Seconds Since Query [0.132000]
+[2023.12.23-14.05.37:885][490]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [E30D9D5F447C56DDC9BE3FAF4FB85FF2] Response Code: [200], Seconds Since Query [0.160000]
+[2023.12.23-14.05.52:015][736]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [ABC6124745836113BCDF0D8458F3F95A] Response Code: [200], Seconds Since Query [0.135000]
+[2023.12.23-14.05.57:442][658]LogPlatformCommon: Platform HTTP Query End. QueryName: [Content_FetchContent], URL [GET https://shared.ap.a.pvp.net/content-service/v3/content], TraceID: [B4B7B8124BB62C9BD4602C8A2CD43320] Response Code: [200], Seconds Since Query [0.127000]
+[2023.12.23-14.05.57:453][665]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [7F970A01427761EBFD53ECA8F4F2055F] Response Code: [200], Seconds Since Query [0.142000]
+[2023.12.23-14.06.00:741][383]LogPlatformCommon: Platform HTTP Query End. QueryName: [Latency_Stats], URL [POST https://shared.ap.a.pvp.net/latency/v1/ingestMulti], TraceID: [16FCBA1D4F4BD09E6A760B9BD0DF82DE] Response Code: [204], Seconds Since Query [0.168000]
+[2023.12.23-14.06.32:163][628]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [4017EF604C29C5E78AAACD9CBEB1E8B6] Response Code: [200], Seconds Since Query [0.141000]
+[2023.12.23-14.06.38:219][205]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [59CE6CE54A602CF7629D519B791753AD] Response Code: [200], Seconds Since Query [0.330000]
+[2023.12.23-14.06.57:461][415]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [9401B43C4E4789506B121CB7164B5838] Response Code: [200], Seconds Since Query [0.146000]
+[2023.12.23-14.07.12:323][764]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [98EAC8A44995FF39CA6C25A8B2C2E6DD] Response Code: [200], Seconds Since Query [0.154000]
+[2023.12.23-14.07.38:353][177]LogPlatformCommon: Platform HTTP Query End. QueryName: [Config_FetchConfig], URL [GET https://shared.ap.a.pvp.net/v1/config/ap], TraceID: [7B4BF77D46CDA0092E97689BD28EB810] Response Code: [200], Seconds Since Query [0.129000]
+[2023.12.23-14.07.52:472][437]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [EB8068AD4A54C2503AD6DA80D68A82C8] Response Code: [200], Seconds Since Query [0.144000]
+[2023.12.23-14.07.57:471][702]LogPlatformCommon: Platform HTTP Query End. QueryName: [Party_FetchCustomGameConfigs], URL [GET https://glz-ap-1.ap.a.pvp.net/parties/v1/parties/customgameconfigs], TraceID: [36E03236460DDC76E87A9CA75E35FB39] Response Code: [200], Seconds Since Query [0.158000]
+[2023.12.23-14.07.57:477][702]LogPlatformCommon: Platform HTTP Query End. QueryName: [Content_FetchContent], URL [GET https://shared.ap.a.pvp.net/content-service/v3/content], TraceID: [D09259CF41CD249F5CBEC0943EA93703] Response Code: [200], Seconds Since Query [0.163000]
+[2023.12.23-14.08.32:645][ 63]LogPlatformCommon: Platform HTTP Query End. QueryName: [Session_Heartbeat], URL [POST https://glz-ap-1.ap.a.pvp.net/session/v1/sessions/fe0b384f-9c62-5ea8-960e-bbf92131e87c/heartbeat], TraceID: [3E4BF6BD4F1DD60F7E8C1AB91E535122] Response Code: [200], Seconds Since Query [0.168000]

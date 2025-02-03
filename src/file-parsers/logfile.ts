@@ -1,7 +1,17 @@
-import { type } from "arktype";
 import { readFile } from "node:fs/promises";
-import { LOG_FILE_PATH } from "~/helpers/constants";
+import { join } from "node:path";
+
+import { z } from "zod";
+
 import { splitByLine } from "~/utils/text";
+
+export const LOG_FILE_PATH = join(
+  process.env.LOCALAPPDATA ?? "",
+  "VALORANT",
+  "Saved",
+  "Logs",
+  "ShooterGame.log",
+);
 
 export type LogfileData = {
   clientVersion: string;
@@ -13,7 +23,7 @@ export type LogfileData = {
 };
 
 function parseClientVersion(lines: string[]): string {
-  const found = lines.find(line => line.includes("CI server version:"));
+  const found = lines.find((line) => line.includes("CI server version:"));
 
   if (!found) {
     throw Error("CI server version line not found");
@@ -23,23 +33,21 @@ function parseClientVersion(lines: string[]): string {
     /CI server version: (?<buildType>.*)-(?<patch>.*)-(?<buildVersion>.*)-(?<changelist>.*)/,
   );
 
-  const data = type({
-    buildType: "string",
-    patch: "string",
-    buildVersion: "string",
-    changelist: "string",
-  })(match?.groups);
-
-  if (data instanceof type.errors) {
-    throw Error(data.summary);
-  }
+  const data = z
+    .object({
+      buildType: z.string(),
+      patch: z.string(),
+      buildVersion: z.string(),
+      changelist: z.string(),
+    })
+    .parse(match?.groups);
 
   return `${data.buildType}-${data.patch}-shipping-${data.buildVersion}-${data.changelist}`;
 }
 
 function parseServer(lines: string[], type: string): string {
   const found = lines.find(
-    line => line.includes(`https://${type}`) && line.includes(".a.pvp.net/"),
+    (line) => line.includes(`https://${type}`) && line.includes(".a.pvp.net/"),
   );
 
   if (!found) {
@@ -60,7 +68,7 @@ export async function getLogFileData(
 ): Promise<LogfileData> {
   return readFile(path, "utf8")
     .then(splitByLine)
-    .then(content => {
+    .then((content) => {
       return {
         clientVersion: parseClientVersion(content),
         servers: {

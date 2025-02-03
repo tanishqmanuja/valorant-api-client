@@ -5,28 +5,21 @@ on:
     branches:
       - main
     paths-ignore:
-      - "docs/**"
-      - "assets/**"
+      - "examples/**"
       - "README.md"
-      - ".github/README.md"
   pull_request:
     branches:
       - "**"
     paths-ignore:
-      - "docs/**"
-      - "assets/**"
+      - "examples/**"
       - "README.md"
-      - ".github/README.md"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    permissions:
-      contents: write
-
+  ci:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -36,8 +29,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Repository
-        uses: ./.github/actions/setup
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
-      - name: Build
-        run: pnpm turbo build
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Format Check
+        run: bun turbo format:check
+
+      - name: Type Check
+        run: bun turbo type:check
+
+      - name: Type Check (Package)
+        run: bun turbo type:check:package

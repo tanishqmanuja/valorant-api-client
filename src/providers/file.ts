@@ -1,6 +1,7 @@
-import type { VapicProvider } from "~/clients";
-import { getRegionAndShardFromGlzServer } from "~/helpers";
-import { getLockFileData, getLogFileData } from "~/file-parsers";
+import type { VapicProvider } from "~/clients/valorant/types";
+import { getLockFileData } from "~/file-parsers/lockfile";
+import { getLogFileData } from "~/file-parsers/logfile";
+import { getRegionAndShardFromGlzServer } from "~/helpers/servers";
 
 /**
  * @client local
@@ -9,7 +10,7 @@ import { getLockFileData, getLogFileData } from "~/file-parsers";
 export function provideLockFile(lockfilePath?: string) {
   return (async () => {
     const lockfile = await getLockFileData(lockfilePath);
-    return { ...lockfile } as const;
+    return { ...lockfile };
   }) satisfies VapicProvider;
 }
 
@@ -24,6 +25,6 @@ export function provideLogFile(logfilePath?: string) {
     return {
       ...logfile,
       ...getRegionAndShardFromGlzServer(logfile.servers.glz),
-    } as const;
+    };
   }) satisfies VapicProvider;
 }

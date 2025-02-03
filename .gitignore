@@ -1,12 +1,15 @@
+# cache
 .turbo
+
+# dependencies
 node_modules
+
+# output
 dist
+
+# endpoints (auto-generated)
+src/clients/*/endpoints
+
+# env
+*.env
 .env
-
-# secrets
-.npmrc
-
-# auto generated
-src/clients/auth-api/endpoints
-src/clients/local-api/endpoints
-src/clients/remote-api/endpoints

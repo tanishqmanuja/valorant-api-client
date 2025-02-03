@@ -1,12 +1,12 @@
 import axios from "axios";
-import type { VapicProvider } from "~/clients";
+
+import type { VapicProvider } from "~/clients/valorant/types";
+import { fetchClientVersionFromVAPI, getRsoUserAgent } from "~/helpers/general";
 import {
+  getRegionOptions,
   type Region,
   type RegionShard,
-  getRegionOptions,
-  getRsoUserAgent,
-  fetchClientVersionFromVAPI,
-} from "~/helpers";
+} from "~/helpers/regions";
 
 /**
  * @client remote
@@ -24,7 +24,7 @@ export function provideRegion<R extends Region | Omit<string, Region>>(
  * @provides client-version
  */
 export function provideClientVersion(clientVersion: string) {
-  return (() => ({ clientVersion }) as const) satisfies VapicProvider;
+  return (() => ({ clientVersion })) satisfies VapicProvider;
 }
 
 /**
@@ -33,7 +33,7 @@ export function provideClientVersion(clientVersion: string) {
  */
 export function provideClientVersionViaVAPI() {
   return (async () => {
-    return { clientVersion: await fetchClientVersionFromVAPI() } as const;
+    return { clientVersion: await fetchClientVersionFromVAPI() };
   }) satisfies VapicProvider;
 }
 
@@ -44,7 +44,7 @@ export function provideClientVersionViaVAPI() {
 export function provideClientVersionViaAuthApi() {
   return (async ({ auth }) => {
     const { clientVersion } = auth.options;
-    return { clientVersion } as const;
+    return { clientVersion };
   }) satisfies VapicProvider;
 }
 
@@ -60,7 +60,7 @@ export function provideRsoUserAgentViaVAPI() {
     const {
       data: { riotClientBuild },
     } = data;
-    return { userAgent: getRsoUserAgent(riotClientBuild) } as const;
+    return { userAgent: getRsoUserAgent(riotClientBuild) };
   }) satisfies VapicProvider;
 }
 
@@ -83,7 +83,7 @@ export function provideClientVersionAndRsoUserAgentViaVAPI() {
 
     return {
       clientVersion,
-      userAgent: getRsoUserAgent(riotClientBuild),
-    } as const;
+      rsoUserAgent: getRsoUserAgent(riotClientBuild),
+    };
   }) satisfies VapicProvider;
 }

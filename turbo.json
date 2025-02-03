@@ -1,22 +1,28 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "seed": {
-      "inputs": ["scripts/endpoints/**", "scripts/helpers/**"],
+    "generate:endpoints": {
+      "inputs": [
+        "./src/endpoints/templates/**",
+        "./scripts/generate-endpoints.ts"
+      ],
       "outputs": [
-        "src/clients/auth-api/endpoints/**",
-        "src/clients/local-api/endpoints/**",
-        "src/clients/remote-api/endpoints/**"
+        "./src/clients/auth/endpoints/**",
+        "./src/clients/local/endpoints/**",
+        "./src/clients/remote/endpoints/**"
       ]
     },
     "build": {
-      "dependsOn": ["seed"],
+      "dependsOn": ["generate:endpoints"],
       "outputs": ["dist/**"]
     },
-    "lint": {
-      "dependsOn": ["seed"]
+    "format:check": {
+      "dependsOn": ["generate:endpoints"]
     },
-    "release": {
+    "type:check": {
+      "dependsOn": ["generate:endpoints"]
+    },
+    "type:check:package": {
       "dependsOn": ["build"]
     }
   }
