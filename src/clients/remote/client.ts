@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosRequestConfig } from "axios";
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import axios from "axios";
 import { z } from "zod";
 
@@ -70,8 +70,21 @@ export class RemoteApiClient {
     return getServerUrl({ type, region, shard });
   }
 
+  request<T = any>(
+    type: RemoteServerType,
+    url: string,
+    config: AxiosRequestConfig = {},
+  ): Promise<AxiosResponse<T>> {
+    return this["~request"]({ type, url }, config);
+  }
+
   ["~request"]<
-    T extends ValorantEndpoint & { type: RemoteServerType },
+    T extends Pick<
+      ValorantEndpoint & { type: RemoteServerType },
+      "url" | "headers" | "type"
+    > & {
+      method?: string;
+    },
     TConfig extends AxiosRequestConfig,
   >(endpoint: T, config: TConfig) {
     return this.axios({
