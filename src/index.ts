@@ -3,6 +3,8 @@ export * from "./clients";
 export * from "./file-parsers/lockfile";
 export * from "./file-parsers/logfile";
 
+export { zv } from "./schemas/valorant";
+
 export * from "./helpers/servers";
 export * from "./helpers/endpoints";
 
