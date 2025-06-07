@@ -2,6 +2,7 @@
 /*
 
 # Except
+!.github
 !src
 !README.md
 !.prettierrc
