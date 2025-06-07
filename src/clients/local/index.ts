@@ -4,7 +4,7 @@ import { Agent } from "undici";
 import { z } from "zod/v4";
 
 import {
-  createValidationInterceptor,
+  attachValidationInterceptor,
   type ValidationConfig,
 } from "@/utils/axios/interceptors/validation";
 import { encode } from "@/utils/base64";
@@ -46,7 +46,7 @@ export class LocalApiClient {
 
   constructor(options: LocalApiClientOptions) {
     this.options = localApiClientOptionsSchema.parse(options);
-    createValidationInterceptor(this.axios);
+    attachValidationInterceptor(this.axios);
   }
 
   private getServerUrl() {

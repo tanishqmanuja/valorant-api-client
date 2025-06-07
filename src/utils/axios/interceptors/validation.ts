@@ -9,15 +9,26 @@ export type ValidationConfig<TSchema extends StandardSchemaV1> = {
   [SCHEMA_KEY]?: TSchema;
 };
 
-export function createValidationInterceptor(axiosInstance: AxiosInstance) {
-  return axiosInstance.interceptors.response.use(async response => {
-    if (
-      SCHEMA_KEY in response.config &&
-      isStandardSchema(response.config[SCHEMA_KEY])
-    ) {
-      validate(response.config[SCHEMA_KEY], response.data);
-    }
+export function attachValidationInterceptor(axiosInstance: AxiosInstance) {
+  const responseInterceptorId = axiosInstance.interceptors.response.use(
+    async response => {
+      if (
+        SCHEMA_KEY in response.config &&
+        isStandardSchema(response.config[SCHEMA_KEY])
+      ) {
+        response.data = await validate(
+          response.config[SCHEMA_KEY],
+          response.data,
+        );
+      }
 
-    return response;
-  });
+      return response;
+    },
+  );
+
+  return {
+    eject() {
+      axiosInstance.interceptors.response.eject(responseInterceptorId);
+    },
+  };
 }

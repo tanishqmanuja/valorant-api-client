@@ -10,7 +10,7 @@ import {
 } from "@/helpers/servers";
 import { zv } from "@/schemas/valorant";
 import {
-  createValidationInterceptor,
+  attachValidationInterceptor,
   type ValidationConfig,
 } from "@/utils/axios/interceptors/validation";
 import { encode } from "@/utils/base64";
@@ -57,7 +57,7 @@ export class RemoteApiClient {
 
   constructor(options: RemoteApiClientOptions) {
     this.options = remoteApiClientOptionsSchema.parse(options);
-    createValidationInterceptor(this.axios);
+    attachValidationInterceptor(this.axios);
   }
 
   get puuid() {
