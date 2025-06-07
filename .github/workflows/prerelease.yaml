@@ -55,20 +55,15 @@ jobs:
       - name: Set Version
         id: version
         run: |
-          NEW_VERSION=$(pnpm version prerelease)
-          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          pnpm version prerelease
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Build
         run: pnpm build
 
       - name: Commit
-        run: |
-          if [[ -n $(git status --porcelain) ]]; then
-            git commit -am "chore: bump version to ${{ steps.version.outputs.version }}"
-            git push --follow-tags
-          else
-            echo "No changes to commit."
-          fi
+        run: git push --follow-tags
+
 
       - name: Publish
         run: pnpm publish --publish-branch next --access public --provenance --tag next
