@@ -60,13 +60,17 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Publish
-        run: pnpm publish --access public --provenance --tag next
-
       - name: Commit
         run: |
-          git commit -am "chore: version"
-          git push --follow-tags
+          if [[ -n $(git status --porcelain) ]]; then
+            git commit -am "chore: bump version to ${{ steps.version.outputs.version }}"
+            git push --follow-tags
+          else
+            echo "No changes to commit."
+          fi
+
+      - name: Publish
+        run: pnpm publish --publish-branch next --access public --provenance --tag next
 
       - name: Pack `.tgz` file
         run: |
