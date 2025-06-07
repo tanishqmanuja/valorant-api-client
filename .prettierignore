@@ -1,0 +1,7 @@
+# Ignore Everything
+/*
+
+# Except
+!src
+!README.md
+!.prettierrc
