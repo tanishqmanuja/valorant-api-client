@@ -55,7 +55,7 @@ jobs:
       - name: Set Version
         id: version
         run: |
-          pnpm version prerelease
+          pnpm version prerelease -m "chore(release): %s"
           echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Build
