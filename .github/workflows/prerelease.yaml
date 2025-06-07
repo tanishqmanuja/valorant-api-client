@@ -5,6 +5,8 @@ on:
     branches:
       - next
     paths-ignore:
+      - ".github/**"
+      - "examples/**"
       - "README.md"
       - "LICENSE"
   workflow_dispatch:
