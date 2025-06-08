@@ -75,7 +75,7 @@ jobs:
           pnpm publish --provenance --access public --tag "$NPM_TAG" --no-git-checks
 
           if [[ -n "$PRERELEASE_ID" ]]; then
-            echo "🏷️ Tagging additionally as next
+            echo "🏷️ Tagging additionally as next"
             pnpm dist-tag add "$PACKAGE@$VERSION" "next"
           fi
 
