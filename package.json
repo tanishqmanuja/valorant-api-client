@@ -1,6 +1,6 @@
 {
   "name": "@tqman/valorant-api-client",
-  "version": "3.0.0-alpha.11",
+  "version": "3.0.0-alpha.12",
   "description": "Minimal API Client for VALORANT",
   "repository": "github:tanishqmanuja/valorant-api-client",
   "type": "module",
