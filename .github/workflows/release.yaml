@@ -10,15 +10,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  extract_version:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.get_version.outputs.version }}
-    steps:
-      - uses: actions/checkout@v4
-      - id: get_version
-        run: |
-          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
   release:
     permissions:
       contents: write
@@ -34,7 +25,9 @@ jobs:
           fetch-depth: 0
 
       - name: Get Version
-        run: echo "PACKAGE_VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Validate Version
         run: |
