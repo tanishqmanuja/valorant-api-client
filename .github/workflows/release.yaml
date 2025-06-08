@@ -77,15 +77,13 @@ jobs:
           # Choose npm tag
           if [[ -n "$PRERELEASE_ID" ]]; then
             NPM_TAG="$PRERELEASE_ID"
-            PRERELEASE_FLAG="--prerelease"
           else
             NPM_TAG="latest"
-            PRERELEASE_FLAG=""
           fi
 
           echo "🚀 Publishing with tag: $NPM_TAG"
           echo "🔐 Using provenance signing"
-          pnpm publish --provenance --access public --tag "$NPM_TAG" --no-git-checks $PRERELEASE_FLAG
+          pnpm publish --provenance --access public --tag "$NPM_TAG" --no-git-checks
 
           BRANCH_NAME="${GITHUB_REF_NAME:-unknown}"
           # Avoid tagging main/master or tag names as extra dist-tags
