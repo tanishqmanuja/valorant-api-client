@@ -1,0 +1,112 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  extract_version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: get_version
+        run: |
+          echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+  release:
+    permissions:
+      contents: write
+      id-token: write
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Version
+        run: echo "PACKAGE_VERSION=$(node -p \"require('./package.json').version\")" >> $GITHUB_ENV
+
+      - name: Validate Version
+        run: |
+          BRANCH="${GITHUB_REF##*/}"
+          echo "Branch: $BRANCH"
+          echo "Package Version: $PACKAGE_VERSION"
+          if [[ "$PACKAGE_VERSION" == *-* ]] && ([[ "$BRANCH" == "main" ]] || [[ "$BRANCH" == "master" ]]); then
+            echo "::error ::Publishing prerelease on main/master branch is not allowed"
+            exit 1
+          fi
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Publish (w Dynamic Tags)
+        id: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -e
+
+          VERSION=$(node -p "require('./package.json').version")
+          PACKAGE=$(node -p "require('./package.json').name")
+
+          echo "📦 Package: $PACKAGE"
+          echo "🔖 Version: $VERSION"
+
+          # Output version for other steps
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          # Detect prerelease tag (e.g., beta, rc)
+          PRERELEASE_ID=$(echo "$VERSION" | grep -oP '(?<=-)[^.]+' || true)
+
+          # Choose npm tag
+          if [[ -n "$PRERELEASE_ID" ]]; then
+            NPM_TAG="$PRERELEASE_ID"
+            PRERELEASE_FLAG="--prerelease"
+          else
+            NPM_TAG="latest"
+            PRERELEASE_FLAG=""
+          fi
+
+          echo "🚀 Publishing with tag: $NPM_TAG"
+          echo "🔐 Using provenance signing"
+          pnpm publish --provenance --access public --tag "$NPM_TAG" --no-git-checks $PRERELEASE_FLAG
+
+          BRANCH_NAME="${GITHUB_REF_NAME:-unknown}"
+          # Avoid tagging main/master or tag names as extra dist-tags
+          if [[ "$BRANCH_NAME" != "$VERSION" && "$BRANCH_NAME" != "HEAD" && "$BRANCH_NAME" != "main" && "$BRANCH_NAME" != "master" ]]; then
+            echo "🏷️ Tagging additionally as $BRANCH_NAME"
+            pnpm npm dist-tag add "$PACKAGE@$VERSION" "$BRANCH_NAME"
+          fi
+
+      - name: Pack `.tgz` file
+        run: |
+          npm pack
+          mv *.tgz vapic-${{steps.publish.outputs.version}}.tgz
+
+      - name: Release Notes
+        run: pnpm dlx changelogithub --prerelease --assets vapic-${{steps.publish.outputs.version}}.tgz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
