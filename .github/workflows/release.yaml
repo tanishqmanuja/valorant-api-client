@@ -24,21 +24,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get Version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "PACKAGE_VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Validate Version
-        run: |
-          BRANCH="${GITHUB_REF##*/}"
-          echo "Branch: $BRANCH"
-          echo "Package Version: $PACKAGE_VERSION"
-          if [[ "$PACKAGE_VERSION" == *-* ]] && ([[ "$BRANCH" == "main" ]] || [[ "$BRANCH" == "master" ]]); then
-            echo "::error ::Publishing prerelease on main/master branch is not allowed"
-            exit 1
-          fi
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -89,11 +74,9 @@ jobs:
           echo "🔐 Using provenance signing"
           pnpm publish --provenance --access public --tag "$NPM_TAG" --no-git-checks
 
-          BRANCH_NAME="${GITHUB_REF_NAME:-unknown}"
-          # Avoid tagging main/master or tag names as extra dist-tags
-          if [[ "$BRANCH_NAME" != "$VERSION" && "$BRANCH_NAME" != "HEAD" && "$BRANCH_NAME" != "main" && "$BRANCH_NAME" != "master" ]]; then
-            echo "🏷️ Tagging additionally as $BRANCH_NAME"
-            pnpm npm dist-tag add "$PACKAGE@$VERSION" "$BRANCH_NAME"
+          if [[ -n "$PRERELEASE_ID" ]]; then
+            echo "🏷️ Tagging additionally as next
+            pnpm dist-tag add "$PACKAGE@$VERSION" "next"
           fi
 
       - name: Pack `.tgz` file
