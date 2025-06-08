@@ -48,6 +48,11 @@ jobs:
           node-version: latest
           cache: pnpm
 
+      - name: Set NPM Config
+        run: npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
@@ -57,7 +62,6 @@ jobs:
       - name: Publish (w Dynamic Tags)
         id: publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           set -e
