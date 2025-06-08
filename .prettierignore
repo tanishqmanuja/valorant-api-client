@@ -3,6 +3,7 @@
 
 # Except
 !.github
+!scripts
 !src
 !README.md
 !.prettierrc

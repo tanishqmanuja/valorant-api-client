@@ -24,7 +24,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type:check": "tsc --noEmit",
-    "type:check:package": "pnpm dlx @arethetypeswrong/cli --profile node16 --pack ."
+    "type:check:package": "pnpm dlx @arethetypeswrong/cli --profile node16 --pack .",
+    "release": "node ./scripts/release.ts"
   },
   "keywords": [
     "valorant",
