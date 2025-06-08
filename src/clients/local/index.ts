@@ -16,11 +16,7 @@ import type {
   StandardAxiosResponse,
   UrlConfig,
 } from "../common/types";
-import {
-  LOCAL_ENDPOINTS,
-  type LocalEndpoint,
-  type LocalEndpointUrl,
-} from "./endpoints";
+import { type LocalEndpoint, type LocalEndpointUrl } from "./endpoints";
 import { type FindEndpoint } from "./types";
 
 export const localApiClientOptionsSchema = z.object({
@@ -78,12 +74,10 @@ export class LocalApiClient {
         MethodConfig<NoInfer<TEndpoint["methods"]>[number]>
     >
   ): Promise<StandardAxiosResponse<TSchema>> {
-    const endpoint = LOCAL_ENDPOINTS.find(e => e.url === url);
-
     const config = args[0];
     return this.axios({
       headers: this.getHeaders(),
-      ...(endpoint ? { baseURL: this.getServerUrl() } : {}),
+      ...(!url.startsWith("http") ? { baseURL: this.getServerUrl() } : {}),
       url: buildUrl(url, { ...config?.path }),
       ...config,
     });
