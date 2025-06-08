@@ -1,4 +1,4 @@
-![Logo](https://raw.github.com/tanishqmanuja/static/main/banners/vapic.png?maxAge=2592000)
+![Logo](https://raw.github.com/tanishqmanuja/static/main/banners/vapic-v3.png?maxAge=2592000)
 
 # VAPIC //VALORANT API CLIENT
 
@@ -11,8 +11,6 @@ VAPIC is a type safe implementation of an api client for VALORANT. It includes f
 
 ## 📦 Installation
 
-Install @tqman/valorant-api-client with npm, pnpm or bun
-
 ```sh
 npm i @tqman/valorant-api-client@next
 ```
@@ -21,24 +19,28 @@ npm i @tqman/valorant-api-client@next
 pnpm add @tqman/valorant-api-client@next
 ```
 
-```sh
-bun add @tqman/valorant-api-client@next
+## 📝 Usage
+
+```ts
+import { createValorantApiClient } from "@tqman/valorant-api-client";
+
+const v = createValorantApiClient({ initializer: "local" });
+
+const { data: help } = await v.local.request("/help");
+console.log(help);
 ```
 
-Install @tqman/valorant-api-client from github
-
-```sh
-npm i https://github.com/tanishqmanuja/valorant-api-client/releases/download/v3.0.0-alpha.0/vapic-3.0.0-alpha.0.tgz
-```
+Check out the [examples](https://github.com/tanishqmanuja/valorant-api-client/tree/main/examples) folder for better understanding.
 
 ## 🌿 Show your Support
 
 Give a ⭐️ if this project helped you!
 
-## ⚖️ Disclaimer
-
-THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY RIOT GAMES. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Whilst effort has been made to abide by Riot's API rules; you acknowledge that use of this software is done so at your own risk.
-
 ## ❤️‍🔥 Infinite Thanks
 
 - [**@techchrism**](https://github.com/techchrism) for [valorant-api-docs](https://github.com/techchrism/valorant-api-docs)
+- [**@floxay**](https://github.com/floxay)
+
+## 📃 Disclaimer
+
+THIS PROJECT IS NOT ASSOCIATED OR ENDORSED BY RIOT GAMES. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Whilst effort has been made to abide by Riot's API rules; you acknowledge that use of this software is done so at your own risk.
