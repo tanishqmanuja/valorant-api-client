@@ -79,15 +79,12 @@ export class LocalApiClient {
     >
   ): Promise<StandardAxiosResponse<TSchema>> {
     const endpoint = LOCAL_ENDPOINTS.find(e => e.url === url);
-    if (!endpoint) {
-      throw new Error(`Unknown endpoint: ${url}`);
-    }
 
     const config = args[0];
     return this.axios({
       headers: this.getHeaders(),
-      baseURL: this.getServerUrl(),
-      url: buildUrl(endpoint.url, { ...config?.path }),
+      ...(endpoint ? { baseURL: this.getServerUrl() } : {}),
+      url: buildUrl(url, { ...config?.path }),
       ...config,
     });
   }
