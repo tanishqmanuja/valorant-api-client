@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  release:
     permissions:
       contents: write
       id-token: write
@@ -36,6 +36,11 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Setup Node # Required for npm OIDC
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
 
       - name: Install Dependencies
         run: bun install --frozen-lockfile
