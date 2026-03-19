@@ -29,9 +29,17 @@ function parseClientVersion(lines: string[]): string {
     throw Error("CI server version line not found");
   }
 
-  const match = found.match(
-    /CI server version: (?<buildType>.*)-(?<patch>.*)-(?<buildVersion>.*)-(?<changelist>.*)/,
-  );
+  let match;
+
+  if (found.toLowerCase().includes("shipping")) {
+    match = found.match(
+      /CI server version: (?<buildType>.*)-(?<patch>.*)-shipping-(?<buildVersion>.*)-(?<changelist>.*)/,
+    );
+  } else {
+    match = found.match(
+      /CI server version: (?<buildType>.*)-(?<patch>.*)-(?<buildVersion>.*)-(?<changelist>.*)/,
+    );
+  }
 
   const data = z
     .object({

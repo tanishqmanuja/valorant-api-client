@@ -22,7 +22,7 @@ test("Lockfile parsing", async () => {
 });
 
 const LOG_DATA = {
-  clientVersion: "release-07.12-shipping-15-2164217",
+  clientVersion: "release-12.05-shipping-22-4360629",
   servers: {
     glz: "https://glz-ap-1.ap.a.pvp.net",
     pd: "https://pd.ap.a.pvp.net",

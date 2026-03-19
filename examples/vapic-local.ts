@@ -11,9 +11,5 @@ console.log("PUUID", puuid);
 const { data: accountAlias } = await vapic.local.getAccountAlias();
 console.log("Account Alias", accountAlias);
 
-const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates({
-  data: {
-    puuid,
-  },
-});
+const { data: compUpdates } = await vapic.remote.getCompetitiveUpdates();
 console.log("Comp Updates", compUpdates);
